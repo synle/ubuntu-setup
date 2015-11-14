@@ -1,0 +1,33 @@
+[user]
+	name = Sy Le
+	email = lenguyensy@gmail.com
+[credential]
+	helper = cache --timeout=86400
+[core]
+	excludesfile = /Users/sle/.gitignore_global
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
+[alias]
+	graph = log --oneline --decorate --graph
+	unstage = reset HEAD --
+	co = checkout
+	cp = cherry-pick
+	logs = log --oneline --decorate
+	br = branch -v
+	fap = fetch --all --prune
+	stat = status
+	st = status
+	cm = commit
+	cmm = commit --amend
+[merge]
+	tool = kdiff3
+	prompt = false
+[diff]
+	tool = kdiff3
+	prompt = false

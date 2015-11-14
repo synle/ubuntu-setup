@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Eclipse EE Mars
+Comment=Code
+Exec=/opt/eclipse-mars-ee/eclipse
+Icon=/opt/eclipse-mars-ee/eclipse/eclipse.png
+Categories=Application;Development;Java;IDE
+Version=1.0
+Type=Application
+Terminal=0
+
