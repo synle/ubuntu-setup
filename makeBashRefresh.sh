@@ -1,7 +1,7 @@
 echo "make bash local"
   #empty the file
-  export BASH_SYLE=~/.bash_syle
-  export TEMP_BASH_SYLE=/tmp/.bash_syle
+  BASH_SYLE=~/.bash_syle
+  TEMP_BASH_SYLE=/tmp/.bash_syle
   echo 'Setting up in ' + $TEMP_BASH_SYLE
   > $TEMP_BASH_SYLE
     #completion
