@@ -44,17 +44,22 @@
 	}
 	
 	
-	alias renpm='rm -Rf node_modules && npm install'
-	
-	
-	#screensaver
-	function s(){
-	  echo "starting screensaver for mac";
-		open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+	function renpm(){
+		rm -Rf node_modules && npm install
 	}
 	
 	
+	function tree(){
+		find . -type d | sed -e "s/[^-][^\/]*\//  |/g" -e "s/|\([^ ]\)/|-\1/"
+	}
 	
+	
+	#screensaver
+	#mac specific
+	function s(){
+		echo "starting screensaver for mac";
+		open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+	}
 	
 	
 	#case insenstive autocomplete
