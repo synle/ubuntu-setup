@@ -1,0 +1,68 @@
+{
+	"tab_size": 4,
+	"hot_exit": false,
+	"highlight_modified_tabs" : true,
+	"remember_open_files": false,
+	"spell_check": true,
+	"font_size": 13,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules",
+		"*min*.js",
+		"bower_components",
+		"release",
+		"gmail-release",
+		"target",
+		"public"
+	],
+	"binary_file_patterns":
+	[
+		"*.dds",
+		"*.eot",
+		"*.gif",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.pdf",
+		"*.png",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
+		"*.zip",
+		"java/**"
+	],
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Soda Dark 3.sublime-theme",
+}
