@@ -40,7 +40,7 @@
 	
 	
 	function searchFileName(){
-		find . -iname "$@" -name '*.scss' -o -name '*.js' -o -name '*.html' -o -name '*.json'
+		find . -iname "$@" -type f -name '*.scss' -o -name '*.js' -o -name '*.html' -o -name '*.json' | grep -v node_modules | grep -v bower
 	}
 	
 	
