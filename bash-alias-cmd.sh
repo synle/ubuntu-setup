@@ -11,7 +11,7 @@
 	
 	function searchSource(){
 		br;
-		echo "Searching:  $1";
+		echo "Searching:  $@";
 		sift --binary-skip --color \
 			--exclude-path 'node_modules|bin' \
 			--ext html,js,scss,json,java,xml \
@@ -20,12 +20,12 @@
 		    --line-number \
 		    --no-zip \
 			--err-skip-line-length \
-			--output-limit=100 "$1"
+			--output-limit=100 "$@"
 	}
 	
 	function searchSourceIgnoreCase(){
 		br;
-		echo "Searching [Ignore Case]:  $1";
+		echo "Searching [Ignore Case]:  $@";
 		sift -i \
 			--binary-skip --color \
 			--exclude-path 'node_modules|bin' \
@@ -35,7 +35,7 @@
 		    --line-number \
 		    --no-zip \
 			--err-skip-line-length \
-			--output-limit=100 "$1"
+			--output-limit=100 "$@"
 	}
 	
 	
@@ -54,11 +54,9 @@
 	}
 	
 	
-	#screensaver
-	#mac specific
-	function s(){
-		echo "starting screensaver for mac";
-		open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
+	function listPort(){
+		echo "list port $@"
+		lsof -i tcp:$@
 	}
 	
 	
