@@ -40,7 +40,7 @@
 	
 	
 	function searchFileName(){
-		find . -iname "$@"
+		find . -iname "$@" -name '*.scss' -o -name '*.js' -o -name '*.html' -o -name '*.json'
 	}
 	
 	
