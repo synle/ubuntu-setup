@@ -40,7 +40,7 @@
 	
 	
 	function searchFileName(){
-		find . -iname "$1"
+		find . -iname "$@"
 	}
 	
 	
