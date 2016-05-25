@@ -15,7 +15,12 @@ echo "make bash local"
 
     #alias
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-    #curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.sh >> $TEMP_BASH_SYLE
+  
+    #specific to mac
+    if [ "$(uname)" == "Darwin" ]; then
+      echo "Running command specific to mac"
+      curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.sh >> $TEMP_BASH_SYLE
+    fi
 
 
 #copy it over
