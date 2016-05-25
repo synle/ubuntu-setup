@@ -40,7 +40,7 @@
 	
 	
 	function searchFileName(){
-		find . -type f -iname "$@" | grep -v node_modules
+		find . -type f -iname "*$@*" | grep -v node_modules
 	}
 	
 	
