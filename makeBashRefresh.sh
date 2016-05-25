@@ -20,3 +20,6 @@ echo "make bash local"
 
 #copy it over
 mv $TEMP_BASH_SYLE $BASH_SYLE
+
+#rerun the source
+. ~/.bash_syle
