@@ -1,4 +1,5 @@
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" == "Darwin" ]
+then
   echo "Setting stuffs up for Mac";
   BASH_PATH=~/.bashrc;
 else
