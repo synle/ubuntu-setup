@@ -1,5 +1,4 @@
 # Common Bash Util.
-====
 
 ### Install dependencies packages
 ```
