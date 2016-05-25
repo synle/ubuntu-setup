@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 BASH_PATH=~/.bashrc;
 
 if [ "$(uname)" == "Darwin" ]; then
