@@ -1,9 +1,8 @@
-BASH_PATH=~/.bash_profile;
+BASH_PATH=~/.bashrc;
 
 if [ "$(uname)" == "Darwin" ]
 then
-  echo "Setting stuffs up for Mac";
-  BASH_PATH=~/.bashrc;
+  BASH_PATH=~/.bash_profile;
 fi
 
 echo "Setting up in bash folder: $BASH_PATH"
