@@ -18,7 +18,7 @@ echo "make bash local"
   
     #specific to mac
     if [ "$(uname)" == "Darwin" ]; then
-      echo "Running command specific to mac"
+      echo "Install Mac specific alias"
       curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.sh >> $TEMP_BASH_SYLE
     fi
 
