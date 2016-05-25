@@ -10,17 +10,18 @@
 	
 	
 	function searchSource(){
-		br;
-		echo "Searching:  $@";
-		sift --binary-skip --color \
-			--exclude-path 'node_modules|bin' \
-			--ext html,js,scss,json,java,xml \
-			--limit=1 \
-			--output-sep="\n\n" \
-		    --line-number \
-		    --no-zip \
-			--err-skip-line-length \
-			--output-limit=100 "$@"
+		git grep $@;
+		# br;
+		# echo "Searching:  $@";
+		# sift --binary-skip --color \
+		# 	--exclude-path 'node_modules|bin' \
+		# 	--ext html,js,scss,json,java,xml \
+		# 	--limit=1 \
+		# 	--output-sep="\n\n" \
+		#     --line-number \
+		#     --no-zip \
+		# 	--err-skip-line-length \
+		# 	--output-limit=100 "$@"
 	}
 	
 	function searchSourceIgnoreCase(){
