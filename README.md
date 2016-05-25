@@ -1,7 +1,6 @@
-# Set up dev environment for ubuntu
+# Common Bash Util.
+### Install dependencies packages
 ====
-
-
 ```
 wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sh | sudo sh
 ```
