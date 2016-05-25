@@ -1,7 +1,6 @@
 BASH_PATH=~/.bashrc;
 
-if [ "$(uname)" == "Darwin" ]
-then
+if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
 fi
 
