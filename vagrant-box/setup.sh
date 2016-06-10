@@ -25,23 +25,25 @@ echo "Update Apt-get";
 sudo apt-get -y update;
 
 echo "Provisioning virtual machine...";
-sudo apt-get install -y curl build-essential unzip git make python vim mysql-client openjdk-7-jdk maven gradle;
+sudo apt-get install -y curl build-essential unzip git make python vim tmux mysql-client openjdk-7-jdk maven gradle;
 sudo apt-get install -y mongodb-org redis-server;
 
 echo "User Permission"
 sudo adduser --disabled-password --gecos "" $PROVISION_USER;
+sudo usermod -a -G sudo, adm $PROVISION_USER;
 echo $PROVISION_USER:$PROVISION_USER | sudo chpasswd
 
 #sudo usermod -a -G vboxsf $PROVISION_USER;
 #sudo usermod -a -G shadow $PROVISION_USER;
 
-echo "Install Vim Bundle (VUNDLE)";
+echo "Install Vim Config and Bundle (VUNDLE)";
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME_SYLE/.vim/bundle/Vundle.vim;
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/.vimrc >> $HOME_SYLE/.vimrc
 
 echo "Install Node Version Manager (NVM)";
 git clone https://github.com/creationix/nvm.git /opt/nvm;
 mkdir /usr/local/nvm /usr/local/node;
-sudo chown syle:syle -R /usr/local/nvm/ /usr/local/node/;
+sudo chown syle:syle -R /usr/local/nvm/ /usr/local/node/ /home/syle;
 
 echo "Set up NVM for all users";
 touch $NVM_SCRIPT_PATH;
@@ -79,3 +81,15 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
 
 
 mv $TEMP_BASH_SYLE $BASH_SYLE
+
+
+echo "Setting up github stuffs for syle"
+sudo su
+su syle
+git config --global user.email "lenguyensy+vagrant@gmail.com";
+git config --global user.name "Sy Le";
+git config --global push.default matching;
+git config --global core.autocrlf true
+git config --global color.ui auto
+git config --global color.diff true
+git config --global core.editor "vim"
