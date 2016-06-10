@@ -28,13 +28,14 @@ echo "Provisioning virtual machine...";
 sudo apt-get install -y curl build-essential unzip git make python vim tmux mysql-client openjdk-7-jdk maven gradle;
 sudo apt-get install -y mongodb-org redis-server;
 
-echo "User Permission"
+echo "Set Up User Credential"
 sudo adduser --disabled-password --gecos "" $PROVISION_USER;
-sudo usermod -a -G sudo, adm $PROVISION_USER;
 echo $PROVISION_USER:$PROVISION_USER | sudo chpasswd
 
-#sudo usermod -a -G vboxsf $PROVISION_USER;
-#sudo usermod -a -G shadow $PROVISION_USER;
+echo "Set Up User Permissions"
+sudo usermod -aG sudo $PROVISION_USER;
+#sudo usermod -aG vboxsf $PROVISION_USER;
+#sudo usermod -aG shadow $PROVISION_USER;
 
 echo "Install Vim Config and Bundle (VUNDLE)";
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME_SYLE/.vim/bundle/Vundle.vim;
@@ -84,12 +85,4 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 
 echo "Setting up github stuffs for syle"
-sudo su
-su syle
-git config --global user.email "lenguyensy+vagrant@gmail.com";
-git config --global user.name "Sy Le";
-git config --global push.default matching;
-git config --global core.autocrlf true
-git config --global color.ui auto
-git config --global color.diff true
-git config --global core.editor "vim"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig >> $HOME_SYLE/.gitconfig
