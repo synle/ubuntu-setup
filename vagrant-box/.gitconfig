@@ -25,6 +25,7 @@
         st = status
         cm = commit
         cmm = commit --amend
+        amend = commit --amend
         d = difftool
 [diff]
         tool = vimdiff
