@@ -25,7 +25,7 @@ echo "Update Apt-get";
 sudo apt-get -y update;
 
 echo "Provisioning virtual machine...";
-sudo apt-get install -y curl build-essential unzip git make python vim tmux mysql-client openjdk-7-jdk maven gradle;
+sudo apt-get install -y jq curl build-essential unzip git make python vim tmux mysql-client openjdk-7-jdk maven gradle;
 sudo apt-get install -y mongodb-org redis-server;
 
 echo "Set Up User Credential"
@@ -86,3 +86,13 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 echo "Setting up github stuffs for syle"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig >> $HOME_SYLE/.gitconfig
+
+
+# echo "Install docker"
+sudo apt-get install apt-transport-https ca-certificates
+sudo echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" > /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get purge lxc-docker
+apt-cache policy docker-engine
+sudo apt-get install -y linux-image-extra-3.2.0-23-virtual apparmor  linux-image-generic-lts-trusty docker-engine
+docker run hello-world
