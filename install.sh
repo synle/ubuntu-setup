@@ -76,7 +76,7 @@
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 	#vim config: ~/.vimrc
-	wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/.vimrc -O ~/.vimrc
+	wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc -O ~/.vimrc
 	#install from command line
 	vim +PluginInstall +qall
 
@@ -88,7 +88,7 @@
 	wget https://raw.githubusercontent.com/tuvistavie/fundle/master/functions/fundle.fish -O ~/.config/fish/functions/fundle.fish
 
 	#fish config:  ~/.config/fish/config.fish
-	wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/fish.config -O ~/.config/fish/config.fish 
+	wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/fish.config -O ~/.config/fish/config.fish 
 
 #install missing packages
 sudo apt-get -f install
@@ -118,7 +118,7 @@ sudo apt-get upgrade -y
 sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" ~/.config/openbox/lubuntu-rc.xml
 
 #install eclipse shortcut
-wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/eclipse-mars-ee.desktop -O /usr/share/applications
+wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eclipse-mars-ee.desktop -O /usr/share/applications
 
 
 #change shell if needed to bash if needed

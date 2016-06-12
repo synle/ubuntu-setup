@@ -1,7 +1,0 @@
-[
-	{ "keys": ["ctrl+shift+l"], "command": "split_selection_into_lines" },
-	{ "keys": ["ctrl+shift+["], "command": "prev_view" },
-	{ "keys": ["ctrl+shift+]"], "command": "next_view" },
-	{ "keys": ["alt+ctrl+g"], "command": "find_all_under" },
-	{ "keys": ["ctrl+\\"], "command": "toggle_side_bar" }
-]
