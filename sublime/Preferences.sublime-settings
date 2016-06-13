@@ -1,27 +1,89 @@
 {
-    "binary_file_patterns": ["*.dds", "*.eot", "*.gif", "*.ico", "*.jar", "*.jpeg", "*.jpg", "*.pdf", "*.png", "*.swf", "*.tga", "*.ttf", "*.zip", "java/**"],
+    "binary_file_patterns":
+    [
+        "*.dds",
+        "*.eot",
+        "*.gif",
+        "*.ico",
+        "*.jar",
+        "*.jpeg",
+        "*.jpg",
+        "*.pdf",
+        "*.png",
+        "*.swf",
+        "*.tga",
+        "*.ttf",
+        "*.zip",
+        "java/**"
+    ],
+    "bold_folder_labels": true,
     "color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
-    "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj", "*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.sublime-workspace"],
-    "folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "*min*.js", "bower_components", "release", "gmail-release", "target", "public"],
+    "file_exclude_patterns":
+    [
+        "*.pyc",
+        "*.pyo",
+        "*.exe",
+        "*.dll",
+        "*.obj",
+        "*.o",
+        "*.a",
+        "*.lib",
+        "*.so",
+        "*.dylib",
+        "*.ncb",
+        "*.sdf",
+        "*.suo",
+        "*.pdb",
+        "*.idb",
+        ".DS_Store",
+        "*.class",
+        "*.psd",
+        "*.db",
+        "*.sublime-workspace"
+    ],
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg",
+        "CVS",
+        "node_modules",
+        "*min*.js",
+        "bower_components",
+        "release",
+        "gmail-release",
+        "target",
+        "public"
+    ],
     "font_face": "Courier New",
-    "font_size": 12,
+    "font_options":
+    [
+        "gray_antialias",
+        "subpixel_antialias"
+    ],
+    "font_size": 11,
     "highlight_modified_tabs": true,
     "hot_exit": false,
-    "ignored_packages": ["Vintage"],
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "material_theme_accent_cyan": true,
+    "material_theme_appbar_blue": true,
+    "material_theme_compact_panel": true,
+    "material_theme_compact_sidebar": true,
+    "material_theme_contrast_mode": true,
+    "material_theme_disable_folder_animation": true,
+    "material_theme_small_statusbar": true,
+    "material_theme_small_tab": true,
     "remember_open_files": false,
     "spell_check": true,
     "tab_size": 4,
-    "theme": "Material-Theme.sublime-theme",
-    "material_theme_small_tab" : true , // Set small tabs
-    "material_theme_small_statusbar"          : true , // Set small status bar
-    "material_theme_disable_folder_animation" : true , // Disable folder animation
-    "material_theme_compact_panel"            : true , // Set minimal padding for the search panel
-    "material_theme_contrast_mode"            : true , // Enable sidebar and panels contrast mode
-    "material_theme_compact_sidebar"          : true , // Set compact side bar
-    "material_theme_accent_red"               : true , // set pale red accent color
-    "bold_folder_labels" : true,
-    "font_options" : [ "gray_antialias", "subpixel_antialias" ],    // On retina Mac & Window   
+    "theme": "Material-Theme.sublime-theme"
 }
+
+
+
 //Install Dracula color theme
 //https://scotch.io/bar-talk/best-sublime-text-3-themes-of-2015-and-2016
 //Install Theme - SoDaReloaded
@@ -29,4 +91,5 @@
 //"theme": "SoDaReloaded Light.sublime-theme"
 //Material Theme
 //https://github.com/equinusocio/material-theme
+//Material Theme & AppBar
 //"theme": "Material-Theme.sublime-theme",
