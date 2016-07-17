@@ -7,3 +7,7 @@
 		echo "starting screensaver for mac";
 		open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
 	}
+
+
+	#sublime text alias
+	alias subl='open -a "Sublime Text"'
