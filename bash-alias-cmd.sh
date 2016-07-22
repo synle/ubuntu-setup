@@ -10,7 +10,7 @@
 	
 	
 	function searchSource(){
-		git grep $@;
+		git grep "$@"";
 		# br;
 		# echo "Searching:  $@";
 		# sift --binary-skip --color \
@@ -23,21 +23,6 @@
 		# 	--err-skip-line-length \
 		# 	--output-limit=100 "$@"
 	}
-	
-	# function searchSourceIgnoreCase(){
-	# 	br;
-	# 	echo "Searching [Ignore Case]:  $@";
-	# 	sift -i \
-	# 		--binary-skip --color \
-	# 		--exclude-path 'node_modules|bin' \
-	# 		--ext html,js,scss,json,java,xml \
-	# 		--limit=2 \
-	# 		--output-sep="\n\n" \
-	# 	    --line-number \
-	# 	    --no-zip \
-	# 		--err-skip-line-length \
-	# 		--output-limit=100 "$@"
-	# }
 	
 	
 	function searchFileName(){
@@ -58,6 +43,10 @@
 	function listPort(){
 		echo "list port $@"
 		lsof -i tcp:$@
+	}
+	
+	function killAllNode(){
+		killall -9 node
 	}
 	
 	
