@@ -10,7 +10,7 @@
 	
 	
 	function searchSource(){
-		git grep "$@"";
+		git grep "$@";
 		# br;
 		# echo "Searching:  $@";
 		# sift --binary-skip --color \
