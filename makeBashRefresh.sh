@@ -11,9 +11,6 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
   curl -so- https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
   eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
-  #prompt
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
-
   #alias
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
@@ -24,6 +21,10 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
   fi
 
 
+  #prompt
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+  
+  
 #copy it over
 mv $TEMP_BASH_SYLE $BASH_SYLE
 
