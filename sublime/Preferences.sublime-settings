@@ -16,9 +16,6 @@
 		"*.zip",
 		"java/**"
 	],
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	"draw_white_space": "all",
 	"file_exclude_patterns":
 	[
 		"*.pyc",
@@ -41,21 +38,30 @@
 		"*.psd",
 		"*.db",
 		"*.sublime-workspace",
-		"*.min.js"
+		"*.min.js",
+		"*.db",
+		"*.psd",
+		"*.cache.js"
 	],
 	"folder_exclude_patterns":
 	[
+		"node_modules",
+		"bower_components",
+		"target",
+		"public",
+		"packaged",
+		"build",
+		"release",
+		"tmp",
+		"WEB-INF",
+		".generated",
+        ".idea",
 		".svn",
 		".git",
 		".hg",
 		"CVS",
-		"node_modules",
 		"*min*.js",
-		"bower_components",
-		"release",
-		"gmail-release",
-		"target",
-		"public"
+		"gmail-release"
 	],
 	"font_face": "Courier New Bold",
 	"font_options":
@@ -71,10 +77,13 @@
 		"Vintage"
 	],
 	"remember_open_files": false,
-	"ensure_newline_at_eof_on_save": false,
 	"spell_check": true,
-	"tab_size": 4
+	"bold_folder_labels": true,
+	"draw_white_space": "all",
+	"tab_size": 4,
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme"
 }
+
 
 
 //material
