@@ -49,16 +49,6 @@
 		killall -9 node
 	}
 	
-	
-	#random background color
-	function randomBgColor(){
-		COLOR="";
-		for X in 1 2 3 4 5 6 ; do
-		    COLOR=$COLOR`expr $RANDOM % 3`;
-		done
-		echo -e -n "\033]Ph${COLOR}\033\\";
-	}
-	
 	#case insenstive autocomplete
 	touch ~/.inputrc
 	echo '#ignore case for autocomplete' >> ~/.inputrc
