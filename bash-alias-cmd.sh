@@ -52,11 +52,11 @@
 	
 	#random background color
 	function randomBgColor(){
-		COLOR=""
+		COLOR="";
 		for X in 1 2 3 4 5 6 ; do
-		    COLOR=$COLOR`expr $RANDOM % 3`
+		    COLOR=$COLOR`expr $RANDOM % 3`;
 		done
-		echo -e -n "\033]Ph${COLOR}\033\\"
+		echo -e -n "\033]Ph${COLOR}\033\\";
 	}
 	
 	#case insenstive autocomplete
