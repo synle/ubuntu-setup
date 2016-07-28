@@ -53,12 +53,16 @@ function nonzero_return() {
         [ $RETVAL -ne 0 ] && echo "$RETVAL"
 }
 
-#export PS1="\[\e[36m\]\u\[\e[m\]\[\e[36m\]@\[\e[m\]\[\e[36m\]\h\[\e[m\]\[\e[36m\] \[\e[m\]\[\e[31m\]\`nonzero_return\`\[\e[m\] \[\e[33m\]\w\[\e[m\] \[\e[35m\]\`parse_git_branch\`\[\e[m\]\r\n\[\e[30;47m\]\\$\[\e[m\] "
+#short path
+sps() {                                                                                              
+    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
+}
 
 
+#bash prompt
 export PS1="\[\e[31m\]====\[\e[m\]
 \[\e[33m\]\T\[\e[m\] \[\e[36m\]\u\[\e[m\] @ \[\e[32m\]\h\[\e[m\]
-\[\e[35m\]\w\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
+\[\e[35m\]$(eval "sps")\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
 \[\e[31m\]\\$\[\e[m\]"
 
 
