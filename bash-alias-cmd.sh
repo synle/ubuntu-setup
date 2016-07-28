@@ -49,6 +49,10 @@
 		killall -9 node
 	}
 	
+	
+	#bind tab to switch connection.
+	bind '"\t":menu-complete'
+	
 	#case insenstive autocomplete
 	touch ~/.inputrc
 	echo '#ignore case for autocomplete' >> ~/.inputrc
