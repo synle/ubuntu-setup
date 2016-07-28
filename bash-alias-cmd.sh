@@ -57,3 +57,8 @@
 	touch ~/.inputrc
 	echo '#ignore case for autocomplete' >> ~/.inputrc
 	echo 'set completion-ignore-case on' >> ~/.inputrc
+
+	#https://gist.github.com/gregorynicholas/1812027
+	echo 'set expand-tilde on' >> ~/.inputrc
+	echo 'set show-all-if-ambiguous on' >> ~/.inputrc
+	echo 'set visible-stats on' >> ~/.inputrc
