@@ -68,19 +68,22 @@
     [
         "Vintage"
     ],
-    "material_theme_accent_cyan": true,
-    "material_theme_appbar_blue": true,
-    "material_theme_compact_panel": true,
-    "material_theme_compact_sidebar": true,
-    "material_theme_contrast_mode": true,
-    "material_theme_disable_folder_animation": true,
-    "material_theme_small_statusbar": true,
-    "material_theme_small_tab": true,
     "remember_open_files": false,
     "spell_check": true,
     "tab_size": 4,
-    "theme": "Material-Theme.sublime-theme"
+    "draw_white_space": "all"
 }
+
+//material
+// "material_theme_accent_cyan": true,
+//     "material_theme_appbar_blue": true,
+//     "material_theme_compact_panel": true,
+//     "material_theme_compact_sidebar": true,
+//     "material_theme_contrast_mode": true,
+//     "material_theme_disable_folder_animation": true,
+//     "material_theme_small_statusbar": true,
+//     "material_theme_small_tab": true,
+//     "theme": "Material-Theme.sublime-theme"
 
 
 
