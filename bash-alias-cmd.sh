@@ -50,6 +50,12 @@
 	}
 	
 	
+	#short path
+	sps() {                                                                                              
+	    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
+	}
+	
+	
 	#bind tab to switch connection.
 	bind '"\t":menu-complete'
 	
