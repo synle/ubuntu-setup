@@ -63,17 +63,13 @@ nvm alias default stable;
 npm install -g grunt-cli grunt-init bower gulp browserify webpack eslint;
 
 
-echo "Set up bash_profile"
-echo "#syle script" >> $RC_SYLE;
-echo $NVM_SCRIPT_PATH >> $RC_SYLE;
-echo '. ~/.bash_syle' >> $RC_SYLE;
-echo 'Setting up in ' + $TEMP_BASH_SYLE
+echo "==Set up bash_profile=="
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 
 
 echo "Setting up github stuffs for syle"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/.gitconfig >> $HOME_SYLE/.gitconfig
 
 
 # echo "Install docker"
