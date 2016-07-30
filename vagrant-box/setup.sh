@@ -39,7 +39,7 @@ sudo usermod -aG sudo $PROVISION_USER;
 
 echo "Install Vim Config and Bundle (VUNDLE)";
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME_SYLE/.vim/bundle/Vundle.vim;
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/.vimrc >> $HOME_SYLE/.vimrc
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc >> $HOME_SYLE/.vimrc
 
 echo "Install Node Version Manager (NVM)";
 git clone https://github.com/creationix/nvm.git /opt/nvm;
