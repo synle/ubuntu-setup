@@ -68,23 +68,7 @@ echo "#syle script" >> $RC_SYLE;
 echo $NVM_SCRIPT_PATH >> $RC_SYLE;
 echo '. ~/.bash_syle' >> $RC_SYLE;
 echo 'Setting up in ' + $TEMP_BASH_SYLE
-  #empty header
-  echo "#!/bin/bash" > $TEMP_BASH_SYLE
-
-  #completion
-  curl -so- https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-  curl -so- https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
-  curl -so- https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
-  eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
-
-  #prompt
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
-
-  #alias
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-
-
-mv $TEMP_BASH_SYLE $BASH_SYLE
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 
 
 echo "Setting up github stuffs for syle"
