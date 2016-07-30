@@ -5,6 +5,9 @@ echo "make bash local"
   TEMP_BASH_SYLE=/tmp/.bash_syle
   
 echo 'Setting up in ' + $TEMP_BASH_SYLE
+  # bash header
+  echo "#!/bin/bash" >> $TEMP_BASH_SYLE
+
   #completion
   curl -so- https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
   curl -so- https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
