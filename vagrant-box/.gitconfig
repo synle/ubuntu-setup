@@ -1,35 +1,3 @@
 [user]
         name = Sy Le
-[push]
-        default = matching
-[core]
-        autocrlf = input
-        editor = vim
-[color]
-        ui = auto
-        diff = true
-[user]
-        name = Sy Le
         email = lenguyensy+vagrant@gmail.com
-[push]
-        default = simple
-[alias]
-        graph = log --oneline --decorate --graph
-        unstage = reset HEAD --
-        co = checkout
-        cp = cherry-pick
-        logs = log --oneline --decorate
-        br = branch -v
-        fap = fetch --all --prune
-        stat = status
-        st = status
-        cm = commit
-        cmm = commit --amend
-        amend = commit --amend
-        d = difftool
-[diff]
-        tool = vimdiff
-[difftool]
-        prompt = false
-[merge]
-        tool = vimdiff
