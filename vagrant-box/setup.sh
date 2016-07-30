@@ -85,14 +85,15 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 
 echo "Setting up github stuffs for syle"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig >> $HOME_SYLE/.gitconfig
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/.gitconfig >> $HOME_SYLE/.gitconfig
 
 
 # echo "Install docker"
-sudo apt-get install apt-transport-https ca-certificates
-sudo echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" > /etc/apt/sources.list.d/docker.list
-sudo apt-get update
-sudo apt-get purge lxc-docker
-apt-cache policy docker-engine
-sudo apt-get install -y linux-image-extra-3.2.0-23-virtual apparmor  linux-image-generic-lts-trusty docker-engine
-docker run hello-world
+# sudo apt-get install apt-transport-https ca-certificates
+# sudo echo "deb https://apt.dockerproject.org/repo ubuntu-precise main" > /etc/apt/sources.list.d/docker.list
+# sudo apt-get update
+# sudo apt-get purge lxc-docker
+# apt-cache policy docker-engine
+# sudo apt-get install -y linux-image-extra-3.2.0-23-virtual apparmor  linux-image-generic-lts-trusty docker-engine
+# docker run hello-world
