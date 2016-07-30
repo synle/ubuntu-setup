@@ -1,18 +1,8 @@
-[user]
-	name = Sy Le
-	email = lenguyensy@gmail.com
 [credential]
 	helper = cache --timeout=86400
 [core]
-	excludesfile = /Users/sle/.gitignore_global
 	autocrlf = input
         editor = vim
-[difftool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
 [push]
 	default = simple
 [alias]
@@ -20,13 +10,14 @@
 	unstage = reset HEAD --
 	co = checkout
 	cp = cherry-pick
+	d = d
 	logs = log --oneline --decorate
 	br = branch -v
 	fap = fetch --all --prune
 	stat = status
 	st = status
 	cm = commit
-	cmm = commit --amend
+	c = commit
 	amend = commit --amend
 	blamestat = "!f() { cd $GIT_PREFIX ; echo Blaming $1: ; echo '' > /tmp/out-dates.txt ; git blame -f -e $1 | awk -- '{print $4, $3}' | sort | sed 's/(//g' | uniq -c >> /tmp/out-dates.txt ; echo '' > /tmp/out-people.txt ; git blame -f -e $1 | awk -- '{print $3}' | sed 's/(//g' | sort | uniq -c | sort -n >> /tmp/out-people.txt ; paste /tmp/out-dates.txt /tmp/out-people.txt ; rm /tmp/out-dates.txt /tmp/out-people.txt ; }; f"
 	# Usage: git mblamestat [files...]
@@ -34,5 +25,7 @@
         mblamestat = "!f() { cd $GIT_PREFIX ; echo Blaming $@: ; echo '' > /tmp/out-dates.txt ; (echo $@ | xargs -n1 git blame -f -e ) | awk -- '{print $4, $3}' | sort | sed 's/(//g' | uniq -c >> /tmp/out-dates.txt ; echo '' > /tmp/out-people.txt ; (echo $@ | xargs -n1 git blame -f -e ) | awk -- '{print $3}' | sed 's/(//g' | sort | uniq -c | sort -n >> /tmp/out-people.txt ; paste /tmp/out-dates.txt /tmp/out-people.txt ; rm /tmp/out-dates.txt /tmp/out-people.txt ; }; f"
 [merge]
 	prompt = false
+	tool = vimdiff
 [diff]
 	prompt = false
+	tool = vimdiff
