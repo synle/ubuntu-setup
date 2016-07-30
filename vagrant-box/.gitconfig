@@ -3,7 +3,7 @@
 [push]
         default = matching
 [core]
-        autocrlf = true
+        autocrlf = input
         editor = vim
 [color]
         ui = auto
