@@ -41,6 +41,24 @@ echo "Install Vim Config and Bundle (VUNDLE)";
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME_SYLE/.vim/bundle/Vundle.vim;
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc >> $HOME_SYLE/.vimrc
 
+
+echo "Set up bash_profile"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+
+
+echo "Setting up github stuffs for syle"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
+
+echo "Make Virtualbox Window Bigger"
+echo "GRUB_GFXMODE=1152x864x32" >> /etc/default/grub
+sudo update-grub2
+
+
+
+### custom programs start here
+
+
 echo "Install Node Version Manager (NVM)";
 git clone https://github.com/creationix/nvm.git /opt/nvm;
 mkdir /usr/local/nvm /usr/local/node;
@@ -60,17 +78,7 @@ echo "Install Node Stable and ioJS";
 nvm install stable;
 nvm install iojs;
 nvm alias default stable;
-npm install -g grunt-cli grunt-init bower gulp browserify webpack eslint;
-
-
-echo "==Set up bash_profile=="
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
-
-
-echo "Setting up github stuffs for syle"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
-
+npm install -g grunt-cli bower gulp browserify webpack eslint;
 
 # echo "Install docker"
 # sudo apt-get install apt-transport-https ca-certificates
