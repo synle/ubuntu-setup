@@ -88,3 +88,7 @@ npm install -g grunt-cli bower gulp browserify webpack eslint;
 # apt-cache policy docker-engine
 # sudo apt-get install -y linux-image-extra-3.2.0-23-virtual apparmor  linux-image-generic-lts-trusty docker-engine
 # docker run hello-world
+
+
+# bash color hack
+# http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
