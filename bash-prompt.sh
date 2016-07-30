@@ -53,12 +53,6 @@ function nonzero_return() {
         [ $RETVAL -ne 0 ] && echo "$RETVAL"
 }
 
-#short path
-sps() {                                                                                              
-    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
-}
-
-
 #bash prompt
 export PS1="\[\e[31m\]====\[\e[m\]
 \[\e[33m\]\T\[\e[m\] \[\e[36m\]\u\[\e[m\] @ \[\e[32m\]\h\[\e[m\]
