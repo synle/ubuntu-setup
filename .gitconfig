@@ -11,6 +11,7 @@
 	co = checkout
 	cp = cherry-pick
 	del = branch -D
+	b = branch
 	d = d
 	logs = log --oneline --decorate
 	br = branch -v
