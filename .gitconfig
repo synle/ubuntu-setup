@@ -10,7 +10,7 @@
 	unstage = reset HEAD --
 	co = checkout
 	cp = cherry-pick
-	del = checkout -D
+	del = branch -D
 	d = d
 	logs = log --oneline --decorate
 	br = branch -v
