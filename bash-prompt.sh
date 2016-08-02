@@ -59,3 +59,10 @@ export PS1="\[\e[31m\]====\[\e[m\]
 \[\e[35m\]\`sps\`\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
 \[\e[31m\]>\[\e[m\]\[\e[33m\]>\[\e[m\]\[\e[36m\]>\[\e[m\] "
 
+
+#random background color
+COLOR=""
+for X in 1 2 3 4 5 6 ; do
+    COLOR=$COLOR`expr $RANDOM % 3`
+done
+echo -e -n "\033]Ph${COLOR}\033\\"
