@@ -2,7 +2,9 @@
 BASH_PATH=~/.bashrc;
 
 if [ "$(uname)" == "Darwin" ]; then
+  echo "Doing Mac Specific Setup:";
   BASH_PATH=~/.bash_profile;
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 fi
 
 echo "Setting up in bash folder: $BASH_PATH"
