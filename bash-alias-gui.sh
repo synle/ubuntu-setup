@@ -11,8 +11,8 @@ if [ "$(uname)" == "Darwin" ]; then
 	
 	
 	#sublime text alias
-	alias subl='open -a "Sublime Text"'
-	
+	#alias subl='open -a "Sublime Text"'
+	alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 	
 	#default java path
 	export JAVA_HOME="$(/usr/libexec/java_home)"
