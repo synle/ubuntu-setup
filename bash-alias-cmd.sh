@@ -49,6 +49,13 @@
 		killall -9 node
 	}
 	
+	function stopAllNodeProcesses(){
+		echo "Stopping all node processes";
+		ps aux | grep node | awk '{ print $2 }' | xargs kill;
+		#ps aux | grep node | grep -v tsserver | grep -v Adobe | awk '{ print $2 }' | xargs kill;
+		#ps wwax | grep -E '[s]tart-server|[i]qb' | awk '{ print $1 }' | xargs kill;
+	}
+	
 	
 	#short path
 	sps() {                                                                                              
