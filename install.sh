@@ -111,7 +111,8 @@ sudo apt-get upgrade -y
 	nvm install stable
 	nvm install iojs
 	nvm alias default stable
-	npm install -g nw grunt-cli grunt-init bower gulp browserify webpack eslint
+	#npm install -g nw
+	npm instlal -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings
 
 #xcfe tweak: speed bump
 #vim ~/.config/openbox/lubuntu-rc.xml
