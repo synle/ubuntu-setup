@@ -63,7 +63,7 @@
 	}
 	
 	#case insenstive autocomplete
-	touch ~/.inputrc
+	echo "" >  ~/.inputrc
 	echo '#ignore case for autocomplete' >> ~/.inputrc
 	echo 'set completion-ignore-case on' >> ~/.inputrc
 
