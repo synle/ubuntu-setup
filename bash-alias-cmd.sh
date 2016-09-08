@@ -14,6 +14,7 @@
 		find -E . -iregex '.*\.(js|scss|html)$' \
 		    -not -path "*node_modules*"  \
 		    | xargs grep "$@"
+		    | grep -v release
 
 		#option 2
 		#git grep "$@";
