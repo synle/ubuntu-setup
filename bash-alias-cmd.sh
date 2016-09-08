@@ -15,6 +15,8 @@
 		    -not -path "*node_modules*"  \
 		    | grep -v "app.js" | grep -v release \
 		    | xargs grep "$@"
+	    	echo "======================="
+	    	echo "Finished Search For: $@"
 
 		#option 2
 		#git grep "$@";
