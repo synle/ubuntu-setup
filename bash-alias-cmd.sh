@@ -11,9 +11,10 @@
 	
 	function searchSource(){
 		#universal option
-		find . -type f -iname "*.js" -o -iname "*.html" -o -iname "*.scss" -o -iname "*.json" \
-			-not -path "*node_modules*" -not -path "*release*" \
-			| \ xargs grep "$@"
+		find -E . -iregex '.*\.(js|scss|html)$' \
+		    -not -path "*node_modules*"  \
+		    | grep -v "app.js" | grep -v release \
+		    | xargs grep "FavoriteObject"
 
 		#option 2
 		#git grep "$@";
