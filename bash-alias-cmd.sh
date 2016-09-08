@@ -12,7 +12,7 @@
 	function searchSource(){
 		#universal option
 		find . -type f -iname "*.js" -o -iname "*.html" -o -iname "*.scss" -o -iname "*.json" \
-			! -path "*node_modules*" ! -path "*release*" ! -path "*app.js" \
+			-not -path "*node_modules*" -not -path "*release*" \
 			| \ xargs grep "$@"
 
 		#option 2
