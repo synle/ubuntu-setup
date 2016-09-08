@@ -14,7 +14,7 @@
 		find -E . -iregex '.*\.(js|scss|html)$' \
 		    -not -path "*node_modules*"  \
 		    | grep -v "app.js" | grep -v release \
-		    | xargs grep "FavoriteObject"
+		    | xargs grep "$@"
 
 		#option 2
 		#git grep "$@";
