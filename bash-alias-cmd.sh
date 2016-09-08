@@ -14,7 +14,7 @@
 		grep -r "$@" \
 			--include=*.js --include=*.html --include=*.scss --include=*.java \
 			. \
-			| grep -v node_modules \
+			| grep -v node_modules/ \
 			| grep -v release/
 
 		#option 2
