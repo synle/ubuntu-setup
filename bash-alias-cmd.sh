@@ -11,10 +11,11 @@
 	
 	function searchSource(){
 		#universal option
-		find -E . -iregex '.*\.(js|scss|html)$' \
-		    -not -path "*node_modules*"  \
-		    | xargs grep "$@"
-		    | grep -v release
+		grep -r "$@" \
+			--include=*.js --include=*.html --include=*.scss --include=*.java \
+			. \
+			| grep -v node_modules \
+			| grep -v release/
 
 		#option 2
 		#git grep "$@";
