@@ -10,7 +10,14 @@
 	
 	
 	function searchSource(){
-		git grep "$@";
+		#universal option
+		find . -type f -iname "*.js" -not -path "*node_modules*" | xargs grep "$@"
+
+		#option 2
+		#git grep "$@";
+		
+		
+		# option 1
 		# br;
 		# echo "Searching:  $@";
 		# sift --binary-skip --color \
