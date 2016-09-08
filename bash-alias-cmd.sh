@@ -12,7 +12,7 @@
 	function searchSource(){
 		#universal option
 		grep -r "$@" \
-			--include=*.js --include=*.html --include=*.scss --include=*.java \
+			--include=*.js --include=*.html --include=*.scss --include=*.java --include=*.json \
 			. \
 			| grep -v node_modules/ \
 			| grep -v release/
