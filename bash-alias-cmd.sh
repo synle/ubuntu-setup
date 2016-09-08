@@ -11,7 +11,7 @@
 	
 	function searchSource(){
 		#universal option
-		find . -type f -iname "*.js" -not -path "*node_modules*" | xargs grep "$@"
+		find . -type f -iname "*.js" | grep -v node_modules | xargs grep "$@"
 
 		#option 2
 		#git grep "$@";
