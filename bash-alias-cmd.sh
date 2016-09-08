@@ -13,7 +13,7 @@
 		#universal option
 		find . -type f -iname "*.js" -o -iname "*.html" -o -iname "*.scss" -o -iname "*.json" \
 			! -path "*node_modules*" ! -path "*release*" ! -path "*app.js" \
-			| xargs grep "FavoriteObject" "$@"
+			| \ xargs grep "$@"
 
 		#option 2
 		#git grep "$@";
