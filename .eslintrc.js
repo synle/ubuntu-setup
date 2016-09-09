@@ -10,22 +10,25 @@ module.exports = {
     },
     "rules": {
         "indent": [
-            "error",
+            2,
             4
         ],
         "linebreak-style": [
-            "error",
+            2,
             "unix"
         ],
-        "semi": [
-            "error",
-            "always"
-        ]
-    },
-    "globals": {
-        "q$": true,
-        "$": true,
-        "module": true,
-        "angular": true
+        "no-debugger":2,
+        "no-cond-assign":2,
+        "no-duplicate-case":2,
+        "no-dupe-args":2,
+        "no-dupe-keys":2,
+        "no-empty":2,
+        "no-sparse-arrays":2,
+        "no-unreachable":2,
+        "no-func-assign":2,
+        "curly": [2, "multi-line", "consistent"],
+        "no-else-return":2,
+        "no-self-compare":2,
+        "eqeqeq": [2, "allow-null"]
     }
 };
