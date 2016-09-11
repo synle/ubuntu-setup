@@ -1,0 +1,46 @@
+// http://eslint.org/docs/rules/
+// vim: ft=json
+{
+    "extends": "airbnb/legacy",
+    "plugins": [
+        "riq",
+        "jasmine"
+    ],
+
+    "env": {
+        "browser":     true,                                                //browser global variables.
+        "node":        true,                                                //Node.js global variables and Node.js-specific rules.
+        "amd":         false,                                               //defines require() and define() as global variables as per the amd spec.
+        "mocha":       false,                                               //adds all of the Mocha testing global variables.
+        "jasmine":     true,                                                //adds all of the Jasmine testing global variables for version 1.3 and 2.0.
+        "phantomjs":   true,                                                //phantomjs global variables.
+        "jquery":      false,                                               //jquery global variables.
+        "prototypejs": false,                                               //prototypejs global variables.
+        "shelljs":     false,                                               //shelljs global variables.
+    },
+
+    "rules": {
+        "indent": [2, 4, {"SwitchCase": 1}],
+        "no-use-before-define": 0,
+        "no-param-reassign": [2, { "props": false }],
+        "func-names": 0,
+        "vars-on-top": 0
+    },
+
+    // additional predefined global variables
+    "globals": {
+        "angular":         false,
+        "d3":              false,
+        "crossfilter":     false,
+        "q$":              false,
+        "riq":             false,
+        "CodeMirror":      false,
+        "module":          true,
+        "prettyPrintOne":  false,
+        "printStackTrace": false,
+        "SockJS":          false,
+        "Thrift":          false,
+        "Highcharts":      false,
+        "com":             false // this one is weird but it's for our strange tracking namespace
+    }
+}
