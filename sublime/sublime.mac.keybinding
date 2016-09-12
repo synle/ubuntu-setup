@@ -1,3 +1,7 @@
 [
-	{ "keys": ["super+\\"], "command": "toggle_side_bar" }
+    { "keys": ["super+\\"], "command": "toggle_side_bar" },
+    { "keys": ["super+shift+enter"], "command": "goto_definition" },
+    { "keys": ["super+enter"], "command": "quick_goto_variable" },
+    { "keys": ["super+shift+>"], "command": "find_next" },
+    { "keys": ["super+shift+<"], "command": "find_prev" }
 ]
