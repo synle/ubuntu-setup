@@ -67,6 +67,11 @@
 		#ps wwax | grep -E '[s]tart-server|[i]qb' | awk '{ print $1 }' | xargs kill;
 	}
 	
+	function getIpAddrress(){
+		ifconfig | grep "10\.\|192\." | awk '{ print $2}'
+		# ifconfig | grep "10\.\|192\." | awk '{ print $2}' | tr '\n' '\t'
+	}
+	
 	
 	#short path
 	sps() {                                                                                              
