@@ -73,6 +73,19 @@
 	}
 	
 	
+	function gitDeleteMergedBranches(){
+		git branch --merged origin/$@ | grep -v '^\*' | xargs -n 1 git branch -d
+	}
+	
+	function gitDeleteMergedBranches_Staging(){
+		git branch --merged origin/staging | grep -v '^\*' | xargs -n 1 git branch -d
+	}
+	
+	function gitDeleteMergedBranches_Master(){
+		git branch --merged origin/master | grep -v '^\*' | xargs -n 1 git branch -d
+	}
+	
+	
 	#short path
 	sps() {                                                                                              
 	    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
