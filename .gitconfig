@@ -13,6 +13,7 @@
 	del = branch -D
 	b = branch
 	d = d
+	p = push
 	logs = log --oneline --decorate
 	br = branch -v
 	fap = fetch --all --prune
