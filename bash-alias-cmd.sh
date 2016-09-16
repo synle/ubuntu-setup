@@ -75,7 +75,7 @@
 	
 	#awesome git commands
 	#git cleanup_merged_branches
-	git config --global alias.cleanup_merged_branches "!git branch --merged | grep -v '*' | xargs git branch -d"
+	git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 	git config --global alias.unstage 'reset HEAD --'
 	git config --global alias.co 'checkout'
 	git config --global alias.cp 'cherry-pick'
