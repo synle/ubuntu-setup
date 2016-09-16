@@ -76,6 +76,8 @@
 	#awesome git commands
 	#config
 	git config --global user.name "Sy Le"
+	git config --global core.autocrlf input
+	git config --global core.editor vim
 	
 	#git alias
 	git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
