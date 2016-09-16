@@ -97,6 +97,7 @@
 	git config --global alias.st 'status -sb'
 	git config --global alias.s 'status -sb'
 	git config --global alias.amend 'commit --amend'
+	git config --global alias.nuke 'reset --hard && clean -dfx'
 	#end git
 	
 	
