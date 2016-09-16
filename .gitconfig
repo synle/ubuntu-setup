@@ -5,6 +5,12 @@
         editor = vim
 [push]
 	default = simple
+[merge]
+	prompt = false
+	tool = vimdiff
+[diff]
+	prompt = false
+	tool = vimdiff
 [alias]
 	graph = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	unstage = reset HEAD --
@@ -14,6 +20,7 @@
 	b = branch
 	d = d
 	p = push
+	l = log --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	logs = log --oneline --decorate
 	br = branch -v
 	fap = fetch --all --prune
@@ -26,9 +33,3 @@
 	# Usage: git mblamestat [files...]
 	# Who recently changed lines across multiple files and when they were changed
         mblamestat = "!f() { cd $GIT_PREFIX ; echo Blaming $@: ; echo '' > /tmp/out-dates.txt ; (echo $@ | xargs -n1 git blame -f -e ) | awk -- '{print $4, $3}' | sort | sed 's/(//g' | uniq -c >> /tmp/out-dates.txt ; echo '' > /tmp/out-people.txt ; (echo $@ | xargs -n1 git blame -f -e ) | awk -- '{print $3}' | sed 's/(//g' | sort | uniq -c | sort -n >> /tmp/out-people.txt ; paste /tmp/out-dates.txt /tmp/out-people.txt ; rm /tmp/out-dates.txt /tmp/out-people.txt ; }; f"
-[merge]
-	prompt = false
-	tool = vimdiff
-[diff]
-	prompt = false
-	tool = vimdiff
