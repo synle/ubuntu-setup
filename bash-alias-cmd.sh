@@ -76,6 +76,18 @@
 	#awesome git commands
 	#git cleanup_merged_branches
 	git config --global alias.cleanup_merged_branches "!git branch --merged | grep -v '*' | xargs git branch -d"
+	git config --global alias.unstage 'reset HEAD --'
+	git config --global alias.co 'checkout'
+	git config --global alias.cp 'cherry-pick'
+	git config --global alias.cm 'commit'
+	git config --global alias.del 'branch -D'
+	git config --global alias.br 'branch -v'
+	git config --global alias.p 'push'
+	git config --global alias.logs 'log --oneline --decorate'
+	git config --global alias.fap 'fetch --all --prune'
+	git config --global alias.st 'status -sb'
+	git config --global alias.amend 'commit --amend'
+	#end git
 	
 	
 	#short path
