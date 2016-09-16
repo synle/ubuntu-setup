@@ -74,7 +74,6 @@
 	
 	
 	#awesome git commands
-	#git cleanup_merged_branches
 	git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 	git config --global alias.unstage 'reset HEAD --'
 	git config --global alias.co 'checkout'
@@ -87,6 +86,8 @@
 	git config --global alias.fap 'fetch --all --prune'
 	git config --global alias.st 'status -sb'
 	git config --global alias.amend 'commit --amend'
+	git config --global alias.graph = "log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+	git config --global alias.l = "--pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	#end git
 	
 	
