@@ -1,16 +1,9 @@
 [credential]
     helper = cache --timeout=86400
-[core]
-    autocrlf = input
-	editor = vim
-[push]
-    default = simple
 [merge]
     prompt = false
-    tool = vimdiff
 [diff]
     prompt = false
-    tool = vimdiff
 [alias]
     graph = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative
     l = log --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative
