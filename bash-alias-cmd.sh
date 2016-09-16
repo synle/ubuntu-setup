@@ -86,8 +86,6 @@
 	git config --global alias.fap 'fetch --all --prune'
 	git config --global alias.st 'status -sb'
 	git config --global alias.amend 'commit --amend'
-	git config --global alias.graph = "log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-	git config --global alias.l = "log--pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 	#end git
 	
 	
