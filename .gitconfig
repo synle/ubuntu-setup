@@ -16,8 +16,8 @@
 	logs = log --oneline --decorate
 	br = branch -v
 	fap = fetch --all --prune
-	stat = status
-	st = status
+	stat = status -sb
+	st = status -sb
 	cm = commit
 	c = commit
 	amend = commit --amend
