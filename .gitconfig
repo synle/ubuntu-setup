@@ -6,7 +6,7 @@
 [push]
 	default = simple
 [alias]
-	graph = log --oneline --decorate --graph
+	graph = log --all --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	unstage = reset HEAD --
 	co = checkout
 	cp = cherry-pick
