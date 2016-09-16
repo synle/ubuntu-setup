@@ -90,12 +90,12 @@
 	git config --global alias.cm 'commit'
 	git config --global alias.del 'branch -D'
 	git config --global alias.br 'branch -v'
-	git config --global alias.b  'br'
+	git config --global alias.b 'branch -v'
 	git config --global alias.p 'push'
 	git config --global alias.logs 'log --oneline --decorate'
 	git config --global alias.fap 'fetch --all --prune'
 	git config --global alias.st 'status -sb'
-	git config --global alias.s 'st'
+	git config --global alias.s 'status -sb'
 	git config --global alias.amend 'commit --amend'
 	#end git
 	
