@@ -73,17 +73,9 @@
 	}
 	
 	
-	function gitDeleteMergedBranches(){
-		git branch --merged origin/$@ | grep -v '^\*' | xargs -n 1 git branch -d
-	}
-	
-	function gitDeleteMergedBranches_Staging(){
-		git branch --merged origin/staging | grep -v '^\*' | xargs -n 1 git branch -d
-	}
-	
-	function gitDeleteMergedBranches_Master(){
-		git branch --merged origin/master | grep -v '^\*' | xargs -n 1 git branch -d
-	}
+	#awesome git commands
+	#git cleanup_merged_branches
+	git config --global alias.cleanup_merged_branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 	
 	
 	#short path
