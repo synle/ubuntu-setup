@@ -21,9 +21,6 @@
 	wget http://mirror.metrocast.net/apache/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.6.tgz -O /tmp
 	
 #repo
-	#nvm
-	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
-
 	#sexy bash
 	cd /tmp && git clone --depth 1 https://github.com/twolfson/sexy-bash-prompt && cd sexy-bash-prompt && make install) && source ~/.bashrc
 
@@ -107,12 +104,17 @@ sudo apt-get upgrade -y
 	#subl /usr/share/applications/
 
 #node
-	nvm list
+## install nvm, node, npm
+	#nvm
+	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 	nvm install stable
 	nvm install iojs
+	nvm install v0.12.15
+	#npm install npm@2.15.1 -g
+	#nvm alias default v0.12.15
 	nvm alias default stable
 	#npm install -g nw
-	npm instlal -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings
+	npm install -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings
 
 #xcfe tweak: speed bump
 #vim ~/.config/openbox/lubuntu-rc.xml
