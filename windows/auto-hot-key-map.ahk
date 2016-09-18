@@ -16,3 +16,7 @@ LAlt::Ctrl
 
 ; ctrl shift 4 to take screen shot
 ^+4::SendInput {PrintScreen}
+
+
+; alt c to terminate command
+!c::Send ^{c}
