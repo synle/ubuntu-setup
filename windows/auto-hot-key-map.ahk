@@ -20,3 +20,8 @@ LAlt::Ctrl
 
 ; alt c to terminate command
 !c::Send ^{c}
+
+;win ctrl left to resize
+#^Left::Send #{Left}
+#^Right::Send #{Right}
+#^m::Send #{Up}
