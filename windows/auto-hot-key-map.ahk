@@ -25,3 +25,10 @@ LAlt::Ctrl
 #^Left::Send #{Left}
 #^Right::Send #{Right}
 #^m::Send #{Up}
+
+
+; switch between mouse speed
+;http://www.howtogeek.com/howto/45366/how-to-set-different-speeds-for-your-trackpad-and-external-mouse/
+#F1::DllCall("SystemParametersInfo", Int,113, Int,0, UInt,14, Int,2) ;normal sensisivity
+#F2::DllCall("SystemParametersInfo", Int,113, Int,0, UInt,6, Int,2) ;low sensitivity
+#F3::DllCall("SystemParametersInfo", Int,113, Int,0, UInt,20, Int,2) ;high sensitivity
