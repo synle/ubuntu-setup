@@ -86,6 +86,7 @@
 	git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 	git config --global alias.unstage 'reset HEAD --'
 	git config --global alias.co 'checkout'
+	git config --global alias.coo 'checkout --orphan' # new branch no history
 	git config --global alias.cp 'cherry-pick'
 	git config --global alias.cm 'commit'
 	git config --global alias.del 'branch -D'
