@@ -73,6 +73,12 @@
 	}
 	
 	
+	# set up express project 
+	function new-express-project(){
+		express -H --css sass --git --force
+	}
+	
+	
 	#awesome git commands
 	#config
 	git config --global user.name "Sy Le"
