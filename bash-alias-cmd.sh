@@ -106,6 +106,10 @@
 	git config --global alias.s 'status -sb'
 	git config --global alias.amend 'commit --amend'
 	git config --global alias.nuke '!git reset --hard && git clean -dfx && git gc && git prune'
+	git config --global alias.push-force 'push --force-with-lease'
+	git config --global alias.commend 'commit --amend --no-edit'
+	git config --global alias.it '!git init && git commit -m “root” --allow-empty'
+	git config --global alias.stash 'stash --all'
 	#end git
 	
 	
