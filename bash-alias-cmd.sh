@@ -75,7 +75,7 @@
 	
 	# set up express project 
 	function new-express-project(){
-		express -H --css sass --git --force
+		express -H --css less --git --force
 	}
 	
 	
