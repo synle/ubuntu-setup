@@ -3,12 +3,13 @@
 
 
 # plugins
-- dracula theme
-- sidebar enhancement
-- docblr
-- syncedsidebar
-- scss
-- less
+- Dracula theme
+- Sidebar enhancement
+- Docblr
+- Syncedsidebar
+- Scss
+- Less
 - SublimeLinter
 - SublimeLinter-contrib-eslint
 - Bracket highlighter
+- Case Conversion
