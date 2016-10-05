@@ -1,8 +1,8 @@
-// find config
+# find config
 *.scss,*.html,*.js
 
 
-// plugins
+# plugins
 dracula theme
 sidebar enhancement
 docblr
