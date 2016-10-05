@@ -11,3 +11,4 @@
 - less
 - SublimeLinter
 - SublimeLinter-contrib-eslint
+- Bracket highlighter
