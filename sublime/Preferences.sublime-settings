@@ -42,7 +42,13 @@
 		"*.sublime-workspace",
 		"*.min.js",
 		"*.cache.js",
-		"*.js.map"
+		"*.js.map",
+		"*.min.*",
+		"*.ogg",
+		"*.mp3",
+		"*.pdf",
+		"*.doc",
+		"*.docx"
 	],
 	"folder_exclude_patterns":
 	[
@@ -63,7 +69,8 @@
 		"*min*.js",
 		"gmail-release",
 		".sass-cache",
-		".svn"
+		".svn",
+		".cache"
 	],
 	"font_face": "Courier New Bold",
 	"font_options":
