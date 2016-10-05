@@ -41,9 +41,8 @@
 		"*.db",
 		"*.sublime-workspace",
 		"*.min.js",
-		"*.db",
-		"*.psd",
-		"*.cache.js"
+		"*.cache.js",
+		"*.js.map"
 	],
 	"folder_exclude_patterns":
 	[
@@ -62,7 +61,9 @@
 		".hg",
 		"CVS",
 		"*min*.js",
-		"gmail-release"
+		"gmail-release",
+		".sass-cache",
+		".svn"
 	],
 	"font_face": "Courier New Bold",
 	"font_options":
@@ -84,28 +85,3 @@
 	"tab_size": 4,
 	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme"
 }
-
-
-
-//material
-// "material_theme_accent_cyan": true,
-//     "material_theme_appbar_blue": true,
-//     "material_theme_compact_panel": true,
-//     "material_theme_compact_sidebar": true,
-//     "material_theme_contrast_mode": true,
-//     "material_theme_disable_folder_animation": true,
-//     "material_theme_small_statusbar": true,
-//     "material_theme_small_tab": true,
-//     "theme": "Material-Theme.sublime-theme"
-
-
-
-//Install Dracula color theme
-//https://scotch.io/bar-talk/best-sublime-text-3-themes-of-2015-and-2016
-//Install Theme - SoDaReloaded
-//"theme": "SoDaReloaded Dark.sublime-theme"
-//"theme": "SoDaReloaded Light.sublime-theme"
-//Material Theme
-//https://github.com/equinusocio/material-theme
-//Material Theme & AppBar
-//"theme": "Material-Theme.sublime-theme",
