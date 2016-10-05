@@ -9,3 +9,4 @@
 - syncedsidebar
 - scss
 - less
+- SublimeLinter-contrib-eslint
