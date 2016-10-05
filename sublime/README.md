@@ -13,3 +13,4 @@
 - SublimeLinter-contrib-eslint
 - Bracket highlighter
 - Case Conversion
+- All Autocomplete
