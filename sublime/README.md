@@ -1,5 +1,5 @@
 # find config
-*.scss,*.html,*.js
+`*.scss,*.html,*.js`
 
 
 # plugins
