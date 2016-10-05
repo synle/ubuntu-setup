@@ -3,9 +3,9 @@
 
 
 # plugins
-dracula theme
-sidebar enhancement
-docblr
-syncedsidebar
-scss
-less
+- dracula theme
+- sidebar enhancement
+- docblr
+- syncedsidebar
+- scss
+- less
