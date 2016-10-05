@@ -28,6 +28,12 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
   
   
+  
+  #misc
+  #eslint config
+  curl -so-  https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
+  
+  
 #copy it over
 mv $TEMP_BASH_SYLE $BASH_SYLE
 
