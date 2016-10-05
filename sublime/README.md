@@ -1,5 +1,5 @@
 # find config
-`*.scss,*.html,*.js`
+`*.scss,*.html,*.js,*.less`
 
 
 # plugins
@@ -14,3 +14,4 @@
 - Bracket highlighter
 - Case Conversion
 - All Autocomplete
+- Code formatter
