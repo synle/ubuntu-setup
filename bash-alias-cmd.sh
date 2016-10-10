@@ -79,6 +79,29 @@
 	}
 	
 	
+	#short path
+	sps() {                                                                                              
+	    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
+	}
+	
+	#case insenstive autocomplete
+	echo "" >  ~/.inputrc
+	echo '#ignore case for autocomplete' >> ~/.inputrc
+	echo 'set completion-ignore-case on' >> ~/.inputrc
+
+	#https://gist.github.com/gregorynicholas/1812027
+	echo 'set expand-tilde on' >> ~/.inputrc
+	echo 'set show-all-if-ambiguous on' >> ~/.inputrc
+	echo 'set visible-stats on' >> ~/.inputrc
+	echo '#set match-hidden-files off' >> ~/.inputrc
+	
+	#http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
+	echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc # shift tab to reverse auto complete.
+
+
+
+
+	#start up stuffs
 	#awesome git commands
 	#config
 	git config --global user.name "Sy Le"
@@ -111,23 +134,3 @@
 	git config --global alias.it '!git init && git commit -m “root” --allow-empty'
 	git config --global alias.stash 'stash --all'
 	#end git
-	
-	
-	#short path
-	sps() {                                                                                              
-	    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
-	}
-	
-	#case insenstive autocomplete
-	echo "" >  ~/.inputrc
-	echo '#ignore case for autocomplete' >> ~/.inputrc
-	echo 'set completion-ignore-case on' >> ~/.inputrc
-
-	#https://gist.github.com/gregorynicholas/1812027
-	echo 'set expand-tilde on' >> ~/.inputrc
-	echo 'set show-all-if-ambiguous on' >> ~/.inputrc
-	echo 'set visible-stats on' >> ~/.inputrc
-	echo '#set match-hidden-files off' >> ~/.inputrc
-	
-	#http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
-	echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc # shift tab to reverse auto complete.
