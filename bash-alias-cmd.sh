@@ -84,6 +84,24 @@
 	    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
 	}
 	
+	
+	
+	function vv(){
+		QUERY=""
+		if [ "$1" != "" ] ; then
+		    QUERY=" -1 --query=$1"
+		fi
+
+		OUT=$( fzf $QUERY --preview="cat {}" )
+		if [ "0" == "$?" ] ; then
+		    echo Selected: $OUT
+		    vim $OUT
+		else
+		    echo "Aborting..."
+		fi
+
+	}
+	
 	#case insenstive autocomplete
 	echo "" >  ~/.inputrc
 	echo '#ignore case for autocomplete' >> ~/.inputrc
