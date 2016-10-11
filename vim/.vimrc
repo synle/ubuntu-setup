@@ -1,8 +1,10 @@
 "~/.vimrc
 "install from vim ":PluginInstall"
 "install from command line: "vim +PluginInstall +qall"
-color desert
-set background=light
+" color desert
+" set background=light
+
+
 set hlsearch
 set number
 set showmatch
@@ -23,7 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plugin 'dracula/vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
