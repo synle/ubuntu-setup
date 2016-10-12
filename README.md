@@ -8,10 +8,10 @@ wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sh | su
 
 ### Set it up in .bashrc (run once only)
 ```
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 ```
 
 ### To Refresh The Script
 ```
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 ```
