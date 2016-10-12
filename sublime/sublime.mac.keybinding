@@ -3,5 +3,7 @@
     { "keys": ["super+shift+enter"], "command": "goto_definition" },
     { "keys": ["super+enter"], "command": "quick_goto_variable" },
     { "keys": ["super+shift+>"], "command": "find_next" },
-    { "keys": ["super+shift+<"], "command": "find_prev" }
+    { "keys": ["super+shift+<"], "command": "find_prev" },
+    { "keys": ["super+b", "left"], "command": "focus_neighboring_group", "args": {"forward": false} },
+    { "keys": ["super+b", "right"], "command": "focus_neighboring_group" }
 ]
