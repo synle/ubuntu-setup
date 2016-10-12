@@ -18,3 +18,4 @@
 - All Autocomplete
 - Code formatter
 - Trimmer
+- SublimeCodeIntel
