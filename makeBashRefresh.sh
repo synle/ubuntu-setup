@@ -45,7 +45,7 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 #vim stuffs
 echo "Set up vim"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-vim +BundleInstall +qall &;
+vim +BundleInstall +qall;
 
 
 
