@@ -86,6 +86,16 @@
 	
 	
 	
+	#fzf
+	https://github.com/junegunn/fzf/wiki/examples
+	# fd - cd to selected directory
+# 	function fd() {
+# 	  local dir
+# 	  dir=$(find ${1:-.} -path '*/\.*' -prune \
+# 			  -o -type d -print 2> /dev/null | fzf +m) &&
+# 	  cd "$dir"
+# 	}
+	#fzf file view
 	function vv(){
 		QUERY=""
 		if [ "$1" != "" ] ; then
@@ -95,12 +105,58 @@
 		OUT=$( fzf $QUERY --preview="cat {}" )
 		if [ "0" == "$?" ] ; then
 		    echo Selected: $OUT
-		    vim $OUT
+		    #vim $OUT
+		    subl $OUT
 		else
 		    echo "Aborting..."
 		fi
 
 	}
+	
+	# cdf - cd into the directory of the selected file
+	function fzcd() {
+	   local file
+	   local dir
+	   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+	}
+	
+	function fzgrep(){
+# 		grep --line-buffered --color=never -r "" * | fzf
+		# with ag - respects .agignore and .gitignore
+		ag --nobreak --nonumbers --noheading . | fzf
+	}
+	
+	function fzhistory() {
+	  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -re 's/^\s*[0-9]+\s*//' | runcmd
+	}
+	
+	function fzgco() {
+	  local branches branch
+	  branches=$(git branch --all | grep -v HEAD) &&
+	  branch=$(echo "$branches" |
+		   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+	  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+	}
+	
+	function fzgshow() {
+		git log --graph --color=always \
+		--format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+		--bind "ctrl-m:execute:
+			(grep -o '[a-f0-9]\{7\}' | head -1 |
+			xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+			{}
+		FZF-EOF"
+	}
+	
+	
+	function fzgcocommit() {
+		local commits commit
+		commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+		commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+		git checkout $(echo "$commit" | sed "s/ .*//")
+	}
+
 	
 	#case insenstive autocomplete
 	echo "" >  ~/.inputrc
