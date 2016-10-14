@@ -101,8 +101,8 @@
 		if [ "$1" != "" ] ; then
 		    QUERY=" -1 --query=$1"
 		fi
-
-		OUT=$( fzf $QUERY --preview="cat {}" )
+		
+		OUT=$( find . | grep -v node_modules | grep -v .DS_Store | fzf $QUERY --preview="cat {}" )
 		if [ "0" == "$?" ] ; then
 		    echo Selected: $OUT
 		    vim $OUT
@@ -114,10 +114,10 @@
 	
 	# cdf - cd into the directory of the selected file
 	function fd() {
-	  local dir
-	  dir=$(find ${1:-.} -path '*/\.*' -prune \
-			  -o -type d -print 2> /dev/null | fzf +m --preview="ls -la {}") &&
-	  cd "$dir"
+		local dir
+		dir=$(find ${1:-.} -path '*/\.*' -prune \
+		      -o -type d -print 2> /dev/null | grep -v node_modules| fzf +m --preview="ls -la {}") &&
+		cd "$dir"
 	}
 
 	
