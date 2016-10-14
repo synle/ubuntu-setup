@@ -177,6 +177,18 @@ f		#     --line-number \
 	  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -re 's/^\s*[0-9]+\s*//' | writecmd
 	}
 	
+	# fkill - kill process
+	function fkill() {
+	  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+	  if [ "x$pid" != "x" ]
+	  then
+	    kill -${1:-9} $pid
+	  fi
+	}
+	
+	
+	#fuzzy git
 	function gco() {
 	  local branches branch
 	  branches=$(git branch --all | grep -v HEAD) &&
@@ -203,6 +215,44 @@ f		#     --line-number \
 		commit=$(echo "$commits" | fzf --tac +s +m -e) &&
 		git checkout $(echo "$commit" | sed "s/ .*//")
 	}
+	
+	
+	# Another CTRL-R script to insert the selected command from history into the command line/region
+	__fzf_history ()
+	{
+	    builtin history -a;
+	    builtin history -c;
+	    builtin history -r;
+	    builtin typeset \
+		READLINE_LINE_NEW="$(
+		    HISTTIMEFORMAT= builtin history |
+		    command fzf +s --tac +m -n2..,.. --tiebreak=index --toggle-sort=ctrl-r |
+		    command sed '
+			/^ *[0-9]/ {
+			    s/ *\([0-9]*\) .*/!\1/;
+			    b end;
+			};
+			d;
+			: end
+		    '
+		)";
+
+		if
+			[[ -n $READLINE_LINE_NEW ]]
+		then
+			builtin bind '"\er": redraw-current-line'
+			builtin bind '"\e^": magic-space'
+			READLINE_LINE=${READLINE_LINE:+${READLINE_LINE:0:READLINE_POINT}}${READLINE_LINE_NEW}${READLINE_LINE:+${READLINE_LINE:READLINE_POINT}}
+                READLINE_POINT=$(( READLINE_POINT + ${#READLINE_LINE_NEW} ))
+        else
+                builtin bind '"\er":'
+                builtin bind '"\e^":'
+        fi
+}
+
+builtin set -o histexpand;
+builtin bind -x '"\C-x1": __fzf_history';
+builtin bind '"\C-r": "\C-x1\e^\er"'
 
 	
 	#case insenstive autocomplete
