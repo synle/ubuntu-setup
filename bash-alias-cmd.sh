@@ -127,11 +127,8 @@
 # 		ag --nobreak --nonumbers --noheading . | fzf
 	}
 	
-	runcmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, <>' ; }
-	writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>); $_ }' ; }
 	
-	# fh - repeat history
-	fh() {
+	function fh() {
 	  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 	}
 	
