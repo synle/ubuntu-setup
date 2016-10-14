@@ -121,9 +121,9 @@
 	}
 	
 	function fzgrep(){
-# 		grep --line-buffered --color=never -r "" * | fzf
+		grep --line-buffered --color=never -r "" * | fzf
 		# with ag - respects .agignore and .gitignore
-		ag --nobreak --nonumbers --noheading . | fzf
+# 		ag --nobreak --nonumbers --noheading . | fzf
 	}
 	
 	function fzhistory() {
