@@ -87,8 +87,8 @@
 	
 	
 	#fzf
-	https://github.com/junegunn/fzf/wiki/examples
-	# fd - cd to selected directory
+# 	https://github.com/junegunn/fzf/wiki/examples
+#	fd - cd to selected directory
 # 	function fd() {
 # 	  local dir
 # 	  dir=$(find ${1:-.} -path '*/\.*' -prune \
