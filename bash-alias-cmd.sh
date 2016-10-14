@@ -29,7 +29,7 @@
 		# 	--ext html,js,scss,json,java,xml \
 		# 	--limit=1 \
 		# 	--output-sep="\n\n" \f
-f		#     --line-number \
+		#     --line-number \
 		#     --no-zip \
 		# 	--err-skip-line-length \
 		# 	--output-limit=100 "$@"
@@ -165,12 +165,9 @@ f		#     --line-number \
 	runcmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, <>' ; }
 	writecmd (){ perl -e 'ioctl STDOUT, 0x5412, $_ for split //, do{ chomp($_ = <>); $_ }' ; }
 	
-	function fh() {
-	  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -re 's/^\s*[0-9]+\s*//' | runcmd
-	}
-
-	function fhe() {
-	  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -re 's/^\s*[0-9]+\s*//' | writecmd
+	# fh - repeat history
+	fh() {
+	  eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 	}
 	
 	# fkill - kill process
