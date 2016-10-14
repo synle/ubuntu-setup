@@ -28,8 +28,8 @@
 		# 	--exclude-path 'node_modules|bin' \
 		# 	--ext html,js,scss,json,java,xml \
 		# 	--limit=1 \
-		# 	--output-sep="\n\n" \
-		#     --line-number \
+		# 	--output-sep="\n\n" \f
+f		#     --line-number \
 		#     --no-zip \
 		# 	--err-skip-line-length \
 		# 	--output-limit=100 "$@"
@@ -105,12 +105,33 @@
 		OUT=$( fzf $QUERY --preview="cat {}" )
 		if [ "0" == "$?" ] ; then
 		    echo Selected: $OUT
-		    #vim $OUT
-		    subl $OUT
+		    vim $OUT
 		else
 		    echo "Aborting..."
 		fi
 
+	}
+	
+	# fe [FUZZY PATTERN] - Open the selected file with the default editor
+	#   - Bypass fuzzy finder if there's only one match (--select-1)
+	#   - Exit if there's no match (--exit-0)
+	function fe() {
+	  local files
+	  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+	  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+	}
+
+	# Modified version where you can press
+	#   - CTRL-O to open with `open` command,
+	#   - CTRL-E or Enter key to open with the $EDITOR
+	function fo() {
+	  local out file key
+	  IFS=$'\n' out=($(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e))
+	  key=$(head -1 <<< "$out")
+	  file=$(head -2 <<< "$out" | tail -1)
+	  if [ -n "$file" ]; then
+	    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+	  fi
 	}
 	
 	# cdf - cd into the directory of the selected file
