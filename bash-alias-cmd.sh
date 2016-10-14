@@ -114,23 +114,23 @@
 	}
 	
 	# cdf - cd into the directory of the selected file
-	function fzcd() {
+	function fcd() {
 	   local file
 	   local dir
 	   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 	}
 	
-	function fzgrep(){
+	function fgrep(){
 		grep --line-buffered --color=never -r "" * | fzf
 		# with ag - respects .agignore and .gitignore
 # 		ag --nobreak --nonumbers --noheading . | fzf
 	}
 	
-	function fzhistory() {
+	function fhistory() {
 	  ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -re 's/^\s*[0-9]+\s*//' | runcmd
 	}
 	
-	function fzgco() {
+	function gco() {
 	  local branches branch
 	  branches=$(git branch --all | grep -v HEAD) &&
 	  branch=$(echo "$branches" |
@@ -138,7 +138,7 @@
 	  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 	}
 	
-	function fzgshow() {
+	function gshow() {
 		git log --graph --color=always \
 		--format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
 		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
@@ -150,7 +150,7 @@
 	}
 	
 	
-	function fzgcocommit() {
+	function gcocommit() {
 		local commits commit
 		commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
 		commit=$(echo "$commits" | fzf --tac +s +m -e) &&
