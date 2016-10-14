@@ -183,12 +183,6 @@
 		commit=$(echo "$commits" | fzf --tac +s +m -e) &&
 		git checkout $(echo "$commit" | sed "s/ .*//")
 	}
-	
-	
-	# Another CTRL-R script to insert the selected command from history into the command line/region
-	builtin set -o histexpand;
-	builtin bind -x '"\C-x1": fz';
-	builtin bind '"\C-r": "\C-x1\e^\er"'
 
 	
 	#case insenstive autocomplete
