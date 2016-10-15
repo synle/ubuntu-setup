@@ -1,7 +1,9 @@
 #For GUI Distro
 export EDITOR='vim'
 
+#################
 #mac specific
+#################
 if [ "$(uname)" == "Darwin" ]; then
   export EDITOR='subl -w'
   
@@ -21,8 +23,14 @@ if [ "$(uname)" == "Darwin" ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
   
   #bind tab to switch connection.
-#   bind '"\t":menu-complete'
-  
+  # bind '"\t":menu-complete'
+fi
+
+
+##############################
+#fzf only apply to mac for now
+##############################
+if [ "$(uname)" == "Darwin" ]; then
   #fzf
   #   https://github.com/junegunn/fzf/wiki/examples
   #fzf file view
