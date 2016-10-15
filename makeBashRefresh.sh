@@ -39,11 +39,11 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 
 #special set up for mac
-if [ "$(uname)" == "Darwin" ]; then  
-  rm /usr/local/bin/subl;
+if [ "$(uname)" == "Darwin" ]; then
+  echo "refresh mac specifics..."
+  unlink /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
-
 
   #mac specific
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
