@@ -56,6 +56,6 @@ defaults write com.apple.dock autohide-delay -float 0;
 
 
 #screenshot folder
-mkdir ~/Desktop/_screenshots
+mkdir -p ~/Desktop/_screenshots
 defaults write com.apple.screencapture location ~/Desktop/_screenshots;
 
