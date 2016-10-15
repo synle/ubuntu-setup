@@ -1,10 +1,7 @@
 #For command line
-export EDITOR='subl -w'
-
 #function wget(){
 #   curl -LOk
 #}
-
 
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
