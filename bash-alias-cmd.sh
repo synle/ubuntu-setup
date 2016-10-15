@@ -109,8 +109,7 @@
 		
 		OUT=$( find . | grep -v node_modules | grep -v .DS_Store | fzf $QUERY --preview="cat {}" )
 		if [ "0" == "$?" ] ; then
-		    echo Selected: $OUT
-		    vim $OUT
+		    viewSubl $OUT
 		else
 		    echo "Aborting..."
 		fi
@@ -130,10 +129,16 @@
 	function fgrep(){
         local OUT
         OUT=$(grep --line-buffered --color=never -r "" * | grep -v node_modules | grep -v .DS_Store | fzf)
-        echo $OUT | cut -d ":" -f1 | xargs $EDITOR
+        echo $OUT | cut -d ":" -f1 | xargs viewSubl
         # with ag - respects .agignore and .gitignore
 #       ag --nobreak --nonumbers --noheading . | fzf
     }
+	
+	function viewSubl(){
+		echo "Opening: $@"
+		subl $@
+# 		$EDITOR $@
+	}
 	
 	
 	function fh() {
