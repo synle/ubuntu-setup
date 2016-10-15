@@ -17,6 +17,8 @@
     { "keys": ["ctrl+shift+]"], "command": "next_view" },
     { "keys": ["alt+ctrl+g"], "command": "find_all_under" },
     { "keys": ["ctrl+\\"], "command": "toggle_side_bar" },
+    { "keys": ["ctrl+b", "left"], "command": "focus_neighboring_group", "args": {"forward": false} },
+    { "keys": ["ctrl+b", "right"], "command": "focus_neighboring_group" },
     { "keys": ["ctrl+1"], "command": "select_by_index", "args": { "index": 0 } },
     { "keys": ["ctrl+2"], "command": "select_by_index", "args": { "index": 1 } },
     { "keys": ["ctrl+3"], "command": "select_by_index", "args": { "index": 2 } },
