@@ -1,5 +1,5 @@
 #For command line
-export EDITOR=subl
+export EDITOR='subl -w'
 
 #function wget(){
 #   curl -LOk
