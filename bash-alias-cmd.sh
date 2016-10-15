@@ -152,28 +152,16 @@
 	  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 	}
 	
-	function gshow2() {
-		git log --graph --color=always \
-		--format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-		--bind "ctrl-m:execute:
-			(grep -o '[a-f0-9]\{7\}' | head -1 |
-			xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-			{}
-		FZF-EOF"
-	}
-	
-	
 	function gshow() {
-	    git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
-	    |
-	    fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-	    --bind "ctrl-m:execute:
+		git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
+		|
+		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --preview='echo {} | cut -d " " -f1 | xargs git show' \
+		--bind "ctrl-m:execute:
 		(grep -o '[a-f0-9]\{7\}' | head -1 |
 		xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
 		{}
-	    FZF-EOF"
-	}
+		FZF-EOF"
+	    }
 
 	
 	
