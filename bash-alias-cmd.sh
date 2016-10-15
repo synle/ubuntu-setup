@@ -1,4 +1,6 @@
 #For command line
+	export EDITOR=subl
+	
 	#function wget(){
 	#	curl -LOk
 	#}
