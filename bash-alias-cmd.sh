@@ -16,8 +16,7 @@
 		grep -r "$@" \
 			--include=*.js --include=*.html --include=*.scss --include=*.java --include=*.json \
 			. \
-			| grep -v node_modules/ \
-			| grep -v release/
+			| filterUnwanted
 
 		#option 2
 		#git grep "$@";
@@ -97,6 +96,13 @@
 # 			  -o -type d -print 2> /dev/null | fzf +m) &&
 # 	  cd "$dir"
 # 	}
+
+	function filterUnwanted(){
+		grep -v node_modules/ \
+		| grep -v release/ \
+		| grep -v .DS_Store
+	}
+
 	#fzf file view
 	function vv(){
 		local OUT
@@ -107,7 +113,7 @@
 		    QUERY=" -1 --query=$1"
 		fi
 		
-		OUT=$( find . | grep -v node_modules | grep -v .DS_Store | fzf $QUERY --preview="cat {}" )
+		OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
 		if [ "0" == "$?" ] ; then
 		    viewSubl $OUT
 		else
@@ -120,7 +126,7 @@
 	function fd() {
 		local dir
 		dir=$(find ${1:-.} -path '*/\.*' -prune \
-			-o -type d -print 2> /dev/null | grep -v node_modules | grep -v .DS_Store | fzf +m --preview="ls -la {}");
+			-o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
 			echo "Selected: $dir"
 		cd "$dir"
 	}
@@ -128,7 +134,7 @@
 	
 	function fgrep(){
         local OUT
-        OUT=$(grep --line-buffered --color=never -r "" * | grep -v node_modules | grep -v .DS_Store | fzf)
+        OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
         echo $OUT | cut -d ":" -f1 | xargs viewSubl
         # with ag - respects .agignore and .gitignore
 #       ag --nobreak --nonumbers --noheading . | fzf
