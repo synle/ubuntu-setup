@@ -36,9 +36,11 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
 #copy it over
 mv $TEMP_BASH_SYLE $BASH_SYLE
 
-#rerun the source
-. $BASH_SYLE
 
+
+#special set up for mac
+if [ "$(uname)" == "Darwin" ]; then
+fi
 
 
 #extra stuffs
@@ -81,3 +83,8 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m “root” --allow-empty'
 git config --global alias.stash 'stash --all'
 #end git
+
+
+
+#rerun the source
+. $BASH_SYLE
