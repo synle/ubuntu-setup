@@ -89,14 +89,6 @@
 	
 	#fzf
 # 	https://github.com/junegunn/fzf/wiki/examples
-#	fd - cd to selected directory
-# 	function fd() {
-# 	  local dir
-# 	  dir=$(find ${1:-.} -path '*/\.*' -prune \
-# 			  -o -type d -print 2> /dev/null | fzf +m) &&
-# 	  cd "$dir"
-# 	}
-
 	function filterUnwanted(){
 		grep -v node_modules/ \
 		| grep -v release/ \
@@ -127,7 +119,8 @@
 		local dir
 		dir=$(find ${1:-.} -path '*/\.*' -prune \
 			-o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
-			echo "Selected: $dir"
+		echo "PWD: $PWD"
+		echo "Selected: $dir";
 		cd "$dir"
 	}
 
