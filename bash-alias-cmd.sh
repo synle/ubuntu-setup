@@ -133,10 +133,10 @@ function fgrep(){
     echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
 }
 
-function viewSubl(){
-    echo "Opening: $@"
-    $EDITOR $@
-}
+# function viewSubl(){
+#     echo "Opening: $@"
+#     $EDITOR $@
+# }
 
 
 function fh() {
