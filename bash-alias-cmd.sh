@@ -78,20 +78,25 @@ function new-express-project(){
 
 
 #short path
-sps() {                                                                                              
+function sps() {                                                                                              
     python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
 }
 
 
+# function viewSubl(){
+#     echo "Opening: $@"
+#     $EDITOR $@
+# }
 
-#fzf
-#   https://github.com/junegunn/fzf/wiki/examples
 function filterUnwanted(){
     grep -v node_modules/ \
     | grep -v release/ \
     | grep -v .DS_Store
 }
 
+
+#fzf
+#   https://github.com/junegunn/fzf/wiki/examples
 #fzf file view
 function vv(){
     local OUT
@@ -130,11 +135,6 @@ function fgrep(){
     echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
 }
 
-# function viewSubl(){
-#     echo "Opening: $@"
-#     $EDITOR $@
-# }
-
 
 function fh() {
   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
@@ -162,7 +162,7 @@ function gshow() {
     xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
     {}
     FZF-EOF"
-    }
+}
 
 function gco() {
   local branches branch
