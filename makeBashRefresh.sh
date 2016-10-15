@@ -53,9 +53,9 @@ fi
 #extra stuffs
 #vim stuffs
 echo "Set up vim & vundle"
-rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-vim +BundleInstall +qall;
+vim +BundleInstall +qall &> /dev/null;
 
 
 
