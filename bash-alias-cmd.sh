@@ -164,15 +164,16 @@
 	
 	#fuzzy git
 	function gshow() {
-		git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
+		# git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
+		git log --pretty=format:'%Cred%h%Creset %s %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
 		|
-		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --preview='echo {} | cut -d " " -f1 | xargs git show' \
+		fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --color light --preview='echo {} | cut -d " " -f1 | xargs git show' \
 		--bind "ctrl-m:execute:
 		(grep -o '[a-f0-9]\{7\}' | head -1 |
 		xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
 		{}
 		FZF-EOF"
-	}
+	    }
 	
 	function gco() {
 	  local branches branch
