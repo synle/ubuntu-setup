@@ -60,6 +60,7 @@ vim +BundleInstall +qall;
 
 
 #awesome git commands
+echo "Set up git"
 #config
 git config --global user.name "Sy Le"
 git config --global core.autocrlf input
