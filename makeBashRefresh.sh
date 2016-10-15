@@ -43,6 +43,10 @@ if [ "$(uname)" == "Darwin" ]; then
   #TODO: null check
   ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
+
+
+  #mac specific
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 fi
 
 
