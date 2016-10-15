@@ -116,7 +116,8 @@
 	function fd() {
 		local dir
 		dir=$(find ${1:-.} -path '*/\.*' -prune \
-		      -o -type d -print 2> /dev/null | grep -v node_modules| fzf +m --preview="ls -la {}") &&
+			-o -type d -print 2> /dev/null | grep -v node_modules| fzf +m --preview="ls -la {}");
+			echo "Selected: $dir"
 		cd "$dir"
 	}
 
