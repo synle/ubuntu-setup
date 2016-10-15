@@ -161,9 +161,7 @@
 		xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
 		{}
 		FZF-EOF"
-	    }
-
-	
+	}
 	
 	function gcocommit() {
 		local commits commit
