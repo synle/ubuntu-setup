@@ -1,8 +1,10 @@
 #For GUI Distro
-#	alias subl=/opt/sublime_text/sublime_text
+export EDITOR='vim'
 
 #mac specific
 if [ "$(uname)" == "Darwin" ]; then
+	export EDITOR='subl -w'
+	
 	#screensaver
 	function s(){
 		echo "starting screensaver for mac";
