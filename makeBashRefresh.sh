@@ -44,7 +44,6 @@ if [ "$(uname)" == "Darwin" ]; then
   ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
-
   #mac specific
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 fi
@@ -53,6 +52,10 @@ fi
 #extra stuffs
 #vim stuffs
 echo "Set up vim"
+if [ ! -d "~/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim;
+fi
+
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
 vim +BundleInstall +qall;
 
