@@ -129,7 +129,7 @@ function fd() {
 function fgrep(){
     local OUT
     OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
-    echo $OUT | cut -d ":" -f1 | xargs echo "Opening: " {};
+    echo $OUT | cut -d ":" -f1 | xargs echo;
     echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
 }
 
