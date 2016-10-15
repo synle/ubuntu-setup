@@ -92,6 +92,37 @@ function filterUnwanted(){
     | grep -v .DS_Store
 }
 
+#fzf file view
+function vv(){
+    local OUT
+    local QUERY
+    
+    QUERY=""
+    if [ "$1" != "" ] ; then
+        QUERY=" -1 --query=$1"
+    fi
+    
+    OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
+    if [ "0" == "$?" ] ; then
+        echo "Opening: $OUT";
+        $EDITOR $OUT
+    else
+        echo "Aborting..."
+    fi
+
+}
+
+# cdf - cd into the directory of the selected file
+function fd() {
+    local dir
+    dir=$(find ${1:-.} -path '*/\.*' -prune \
+        -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
+    echo "PWD: $PWD"
+    echo "Selected: $dir";
+    cd "$dir"
+}
+
+
 function fgrep(){
     local OUT
     OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
