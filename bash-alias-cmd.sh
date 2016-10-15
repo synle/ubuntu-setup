@@ -135,8 +135,8 @@
 	
 	function viewSubl(){
 		echo "Opening: $@"
-		subl $@
-# 		$EDITOR $@
+# 		subl $@
+		$EDITOR $@
 	}
 	
 	
