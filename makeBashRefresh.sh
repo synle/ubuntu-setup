@@ -40,7 +40,7 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 #special set up for mac
 if [ "$(uname)" == "Darwin" ]; then
-  echo "refresh mac specifics..."
+  echo "Setup mac specifics..."
   unlink /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
