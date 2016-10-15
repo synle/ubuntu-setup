@@ -97,6 +97,9 @@
 # 	}
 	#fzf file view
 	function vv(){
+		local OUT
+		local QUERY
+		
 		QUERY=""
 		if [ "$1" != "" ] ; then
 		    QUERY=" -1 --query=$1"
@@ -116,17 +119,19 @@
 	function fd() {
 		local dir
 		dir=$(find ${1:-.} -path '*/\.*' -prune \
-			-o -type d -print 2> /dev/null | grep -v node_modules| fzf +m --preview="ls -la {}");
+			-o -type d -print 2> /dev/null | grep -v node_modules | grep -v .DS_Store | fzf +m --preview="ls -la {}");
 			echo "Selected: $dir"
 		cd "$dir"
 	}
 
 	
 	function fgrep(){
-		grep --line-buffered --color=never -r "" * | fzf
-		# with ag - respects .agignore and .gitignore
-# 		ag --nobreak --nonumbers --noheading . | fzf
-	}
+        local OUT
+        OUT=$(grep --line-buffered --color=never -r "" * | grep -v node_modules | grep -v .DS_Store | fzf)
+        echo $OUT | cut -d ":" -f1 | xargs $EDITOR
+        # with ag - respects .agignore and .gitignore
+#       ag --nobreak --nonumbers --noheading . | fzf
+    }
 	
 	
 	function fh() {
@@ -145,14 +150,6 @@
 	
 	
 	#fuzzy git
-	function gco() {
-	  local branches branch
-	  branches=$(git branch --all | grep -v HEAD) &&
-	  branch=$(echo "$branches" |
-		   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-	  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-	}
-	
 	function gshow() {
 		git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
 		|
@@ -162,6 +159,14 @@
 		xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
 		{}
 		FZF-EOF"
+	}
+	
+	function gco() {
+	  local branches branch
+	  branches=$(git branch --all | grep -v HEAD) &&
+	  branch=$(echo "$branches" |
+		   fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+	  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 	}
 	
 	function gcocommit() {
