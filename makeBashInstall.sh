@@ -7,6 +7,12 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install fzf jq;
 fi
 
+# else 
+# fzf
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install
+
+
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
 echo '. ~/.bash_syle' >> $BASH_PATH;
