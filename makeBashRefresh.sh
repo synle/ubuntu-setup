@@ -40,6 +40,9 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 
 #special set up for mac
 if [ "$(uname)" == "Darwin" ]; then
+  #TODO: null check
+  ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
+  chmod +x /usr/local/bin/subl;
 fi
 
 
