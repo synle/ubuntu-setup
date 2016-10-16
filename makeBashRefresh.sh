@@ -4,46 +4,45 @@ BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
   
 echo "Set up temp bash file: $TEMP_BASH_SYLE" 
-  # bash header
-  echo "#!/bin/bash" >> $TEMP_BASH_SYLE
+# bash header
+echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
-  #completion
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
-  eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
+#completion
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
+eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
-  #alias
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+#alias
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
-  #specific to mac
-  if [ "$(uname)" == "Darwin" ]; then
-    echo "Set up Mac OSX (Darwin) specifics..."
-    
-    # mac alias
-    echo " > Mac OSX Aliases"
-    curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
-    
-    # mac sublime
-    echo " > Mac OSX Sublime Symlink"
-    rm -f /usr/local/bin/subl;
-    ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
-    chmod +x /usr/local/bin/subl;
+#specific to mac
+if [ "$(uname)" == "Darwin" ]; then
+  echo "Set up Mac OSX (Darwin) specifics..."
 
-    # mac options 
-    echo " > Mac OSX Options"
-    curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
-  fi
+  # mac alias
+  echo " > Mac OSX Aliases"
+  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
+
+  # mac sublime
+  echo " > Mac OSX Sublime Symlink"
+  rm -f /usr/local/bin/subl;
+  ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
+  chmod +x /usr/local/bin/subl;
+
+  # mac options 
+  echo " > Mac OSX Options"
+  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
+fi
 
 
-  #prompt
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
-  
-  
-  
-  #misc
-  #eslint config
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
+#prompt
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+
+
+#misc
+#eslint config
+curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
 #copy it over
 echo "Moving bash file over to home"
@@ -56,7 +55,7 @@ echo "Re-source bash profile"
   
 #extra stuffs
 #awesome git commands
-echo "Set up git"
+echo "Set up Git"
 #config
 git config --global user.name "Sy Le"
 git config --global core.autocrlf input
@@ -96,7 +95,7 @@ git config --global alias.stash 'stash --all'
 
 
 #vim stuffs
-echo "Set up vim & vundle"
+echo "Set up Vim & Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
 vim +BundleInstall +qall &> /dev/null;
