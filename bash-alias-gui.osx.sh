@@ -4,7 +4,6 @@ export EDITOR='vim'
 #################
 #mac specific
 #################
-if [ "$(uname)" == "Darwin" ]; then
   export EDITOR='subl -w'
   
   #screensaver
@@ -24,13 +23,11 @@ if [ "$(uname)" == "Darwin" ]; then
   
   #bind tab to switch connection.
   bind '"\t":menu-complete'
-fi
 
 
 ##############################
 #fzf only apply to mac for now
 ##############################
-if [ "$(uname)" == "Darwin" ]; then
   #fzf
   #   https://github.com/junegunn/fzf/wiki/examples
   #fzf file view
@@ -119,5 +116,3 @@ if [ "$(uname)" == "Darwin" ]; then
     commit=$(echo "$commits" | fzf --tac +s +m -e) &&
     git checkout $(echo "$commit" | sed "s/ .*//")
   }
-
-fi
