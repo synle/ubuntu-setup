@@ -18,8 +18,21 @@ echo "Set up temp bash file: $TEMP_BASH_SYLE"
 
   #specific to mac
   if [ "$(uname)" == "Darwin" ]; then
-    echo "Install Mac specific alias"
+    echo "Set up Mac OSX (Darwin) specifics..."
+    
+    # mac alias
+    echo "Mac OSX Aliases"
     curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
+    
+    # mac sublime
+    echo "Mac OSX Sublime Symlink"
+    rm -f /usr/local/bin/subl;
+    ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
+    chmod +x /usr/local/bin/subl;
+
+    # mac options 
+    echo "Mac OSX Options"
+    curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
   fi
 
 
@@ -39,21 +52,8 @@ mv $TEMP_BASH_SYLE $BASH_SYLE
 #rerun the source
 echo "Re-source bash profile"
 . $BASH_SYLE
-
-
-
-#special set up for mac
-if [ "$(uname)" == "Darwin" ]; then
-  echo "Set up Mac OSX (Darwin) specifics..."
-  rm -f /usr/local/bin/subl;
-  ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
-  chmod +x /usr/local/bin/subl;
-
-  #mac specific
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
-fi
-
-
+  
+  
 #extra stuffs
 #awesome git commands
 echo "Set up git"
