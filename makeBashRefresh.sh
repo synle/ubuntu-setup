@@ -16,22 +16,26 @@ eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 #alias
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
-#specific to mac
+#OSX MAC GUI Stuffs
 if [ "$(uname)" == "Darwin" ]; then
-  echo "Set up Mac OSX (Darwin) specifics..."
+  echo "Set up OSX (Darwin) specifics..."
 
   # mac alias
-  echo " > Mac OSX Aliases"
+  echo " > OSX Aliases"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
 
   # mac sublime
-  echo " > Mac OSX Sublime Symlink"
+  echo " > OSX Sublime Symlink"
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
+  echo " > OSX Sublime Keybinding"
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \ 
+    > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+
   # mac options 
-  echo " > Mac OSX Options"
+  echo " > OSX Options"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 fi
 
