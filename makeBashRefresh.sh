@@ -49,6 +49,14 @@ if [ "$(uname)" == "Darwin" ]; then
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 fi
 
+#check if is ubuntu
+is_ubuntu=0
+apt-get -v &> /dev/null && is_ubuntu=1
+if [ $is_ubuntu == "1" ]; then
+  echo "is ubuntu"
+fi
+
+
 
 #prompt
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
