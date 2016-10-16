@@ -4,7 +4,7 @@ echo "make bash local"
   BASH_SYLE=~/.bash_syle
   TEMP_BASH_SYLE=/tmp/.bash_syle
   
-echo 'Setting up in ' + $TEMP_BASH_SYLE
+echo 'Setup temp bash file: ' + $TEMP_BASH_SYLE
   # bash header
   echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
@@ -34,7 +34,14 @@ echo 'Setting up in ' + $TEMP_BASH_SYLE
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
 #copy it over
+echo "Moving bash file over to home"
 mv $TEMP_BASH_SYLE $BASH_SYLE
+
+
+
+#rerun the source
+echo "re-source bash profile"
+. $BASH_SYLE
 
 
 
@@ -89,12 +96,6 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m “root” --allow-empty'
 git config --global alias.stash 'stash --all'
 #end git
-
-
-
-#rerun the source
-echo "re-source bash profile"
-. $BASH_SYLE
 
 
 #vim stuffs
