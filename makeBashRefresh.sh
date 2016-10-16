@@ -31,8 +31,7 @@ if [ "$(uname)" == "Darwin" ]; then
   chmod +x /usr/local/bin/subl;
 
   echo " > OSX Sublime Keybinding"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \ 
-    > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
 
   # mac options 
   echo " > OSX Options"
