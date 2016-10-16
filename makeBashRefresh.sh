@@ -70,7 +70,7 @@ git config --global diff.tool vimdiff
 git config --global diff.prompt false
 git config --global merge.tool vimdiff
 git config --global merge.prompt false
-
+git config --global credential.helper cache --timeout=86400
 
 #git alias
 git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
