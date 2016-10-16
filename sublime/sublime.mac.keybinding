@@ -7,7 +7,7 @@
     { "keys": ["ctrl+b", "up"], "command": "focus_neighboring_group" },
     { "keys": ["ctrl+b", "down"], "command": "focus_neighboring_group" },
     {
-        "keys": ["ctrl+b", "escape"],
+        "keys": ["ctrl+b", "x"],
         "command": "set_layout",
         "args":
         {
