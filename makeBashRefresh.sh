@@ -4,19 +4,19 @@ BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 
 echo "Set Up Workspace"  
-echo "  > Temp Bash File: $TEMP_BASH_SYLE" 
+echo "  * Temp Bash File: $TEMP_BASH_SYLE" 
 # bash header
 echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 #completion
-echo "  > Bash Completions"
+echo "  * Bash Completions"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
 #alias
-echo "  > Bash Aliases"
+echo "  * Bash Aliases"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
 #flags
@@ -28,38 +28,38 @@ apt-get -v &> /dev/null && is_ubuntu=1
 #OSX MAC GUI Stuffs
 if [ "$(uname)" == "Darwin" ]
 then
-  echo "  > OSX (Darwin) specifics..."
+  echo "  * OSX (Darwin) specifics..."
   
   # mac brew install
-  echo "    >> OSX Brew"
-  echo "       >>> Install packages"
+  echo "    ** OSX Brew"
+  echo "       *** Install packages"
   brew install fzf jq \
     2> /dev/null
 
 
   # mac alias
-  echo "    >> OSX Aliases"
+  echo "    ** OSX Aliases"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
   
   # mac options 
-  echo "    >> OSX Options"
+  echo "    ** OSX Options"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 
   # mac sublime
-  echo "    >> OSX Sublime"
-  echo "       >>> Symlink: subl"
+  echo "    ** OSX Sublime"
+  echo "       *** Symlink: subl"
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
-  echo "       >>> Keybinding"
+  echo "       *** Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
   
-  echo "       >>> Setting"
+  echo "       *** Setting"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 elif [ $is_ubuntu == "1" ]
 then
-  echo "  > Ubuntu specifics...";
+  echo "  * Ubuntu specifics...";
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -
 #   echo "Apt-Get Install"
 #   sudo apt-get install jq &> /dev/null
@@ -68,29 +68,29 @@ fi
 
 
 #prompt
-echo "  > Bash Prompt"
+echo "  * Bash Prompt"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 #misc
 #eslint config
-echo "  > ESLint Config"
+echo "  * ESLint Config"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
 #copy it over
-echo "  > Moving bash file over to home"
+echo "  * Moving bash file over to home"
 mv $TEMP_BASH_SYLE $BASH_SYLE
 
 #rerun the source
-echo "  > Re-source bash profile"
+echo "  * Re-source bash profile"
 . $BASH_SYLE
   
   
 #extra stuffs
 #awesome git commands
-echo "  > Git"
+echo "  * Git"
 #config
-echo "    >> Git Config"
+echo "    ** Git Config"
 git config --global user.name "Sy Le"
 git config --global core.autocrlf input
 git config --global core.editor vim
@@ -102,7 +102,7 @@ git config --global merge.prompt false
 git config --global credential.helper cache --timeout=86400
 
 #git alias
-echo "    >> Git Aliases"
+echo "    ** Git Aliases"
 git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.co 'checkout'
@@ -130,9 +130,9 @@ git config --global alias.stash 'stash --all'
 
 
 #vim stuffs
-echo "  > Vim & Vundle"
-echo "    >> Vim Config .vimrc"
+echo "  * Vim & Vundle"
+echo "    ** Vim Config .vimrc"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-echo "    >> Install Vundle"
+echo "    ** Install Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
 vim +BundleInstall +qall &> /dev/null;
