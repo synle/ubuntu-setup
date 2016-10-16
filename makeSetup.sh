@@ -1,5 +1,13 @@
-sudo apt-get install -y curl build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
 
+is_ubuntu=0
+apt-get -v &> /dev/null && is_ubuntu=1
+if [ $is_ubuntu == "1" ]; then
+  echo "Ubuntu apt-get install...";
+  sudo apt-get install -y curl build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
+fi
+
+
+echo "Install NVM"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash;
 
 #source the bash profile
@@ -13,11 +21,14 @@ fi
 
 #node --version
 #v0.12.15
+echo "Install node@v0.12.15"
 nvm install v0.12.15
 nvm alias default v0.12.15
  
 #npm --version
+echo "Install npm@2.15.1"
 #2.15.1
 
 #download node npm deps
+echo "Install Global Node Packages"
 npm i -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings;
