@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-echo "make bash local"
-  #empty the file
-  BASH_SYLE=~/.bash_syle
-  TEMP_BASH_SYLE=/tmp/.bash_syle
+
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
   
 echo 'Setup temp bash file: ' + $TEMP_BASH_SYLE
   # bash header
@@ -37,10 +36,8 @@ echo 'Setup temp bash file: ' + $TEMP_BASH_SYLE
 echo "Moving bash file over to home"
 mv $TEMP_BASH_SYLE $BASH_SYLE
 
-
-
 #rerun the source
-echo "re-source bash profile"
+echo "Re-source bash profile"
 . $BASH_SYLE
 
 
