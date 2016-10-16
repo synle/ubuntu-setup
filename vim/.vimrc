@@ -1,8 +1,5 @@
-"~/.vimrc
-"install from vim ":PluginInstall"
-"install from command line: "vim +PluginInstall +qall"
-" color desert
-" set background=light
+color desert
+set background=light
 
 
 set hlsearch
