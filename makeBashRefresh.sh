@@ -25,7 +25,8 @@ apt-get -v &> /dev/null && is_ubuntu=1
 
 
 #OSX MAC GUI Stuffs
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" == "Darwin" ]
+then
   echo "Set up OSX (Darwin) specifics..."
   
   # mac brew install
@@ -55,8 +56,8 @@ if [ "$(uname)" == "Darwin" ]; then
   
   echo "       >> Setting"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-fi
-if [ $is_ubuntu == "1" ]; then
+elif [ $is_ubuntu == "1" ]
+then
   echo "Set up Ubuntu specifics...";
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -
 #   echo "Apt-Get Install"
