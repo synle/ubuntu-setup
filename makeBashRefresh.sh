@@ -8,12 +8,14 @@ echo "Set up temp bash file: $TEMP_BASH_SYLE"
 echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 #completion
+echo "Set up Bash Completions"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
 #alias
+echo "Set up Bash Aliases"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
 #OSX MAC GUI Stuffs
@@ -62,11 +64,13 @@ fi
 
 
 #prompt
+echo "Set up Bash Prompt"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 #misc
 #eslint config
+echo "Set up ESLint Config"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
 #copy it over
