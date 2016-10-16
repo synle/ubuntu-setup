@@ -30,15 +30,15 @@ if [ "$(uname)" == "Darwin" ]; then
 
   # mac sublime
   echo " > OSX Sublime"
-  echo " >> Symlink: subl"
+  echo "       >> Symlink: subl"
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
-  echo " >> Keybinding"
+  echo "       >> Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
   
-  echo " >> Setting"
+  echo "       >> Setting"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 fi
 
