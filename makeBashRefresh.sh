@@ -66,8 +66,11 @@ git config --global user.name "Sy Le"
 git config --global core.autocrlf input
 git config --global core.editor vim
 git config --global push.default simple
-git config --global merge.tool vimdiff
 git config --global diff.tool vimdiff
+git config --global diff.prompt false
+git config --global merge.tool vimdiff
+git config --global merge.prompt false
+
 
 #git alias
 git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
