@@ -2,11 +2,6 @@ sudo apt-get install -y curl build-essential openjdk-7-jdk python-dev python-sof
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash;
 
-#node --version
-#v0.12.15
-#npm --version
-#2.15.1
-
 #source the bash profile
 BASH_PROFILE_HOME_DIRECTORY=~/.bashrc
 if [ "$(uname)" == "Darwin" ]; then
@@ -14,6 +9,15 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 . ${BASH_PROFILE_HOME_DIRECTORY}
 
+
+
+#node --version
+#v0.12.15
+nvm install v0.12.15
+nvm alias default v0.12.15
+ 
+#npm --version
+#2.15.1
 
 #download node npm deps
 npm i -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings;
