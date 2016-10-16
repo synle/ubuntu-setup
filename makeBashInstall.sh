@@ -8,7 +8,6 @@ if [ $is_ubuntu == "1" ]; then
   echo "Ubuntu apt-get install...";
   sudo apt-get install -y curl build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
 fi
-
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
   
@@ -17,8 +16,9 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 
-echo "Install nvm"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash;
+echo "Install nvm@v0.32.0"
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+
 
 #source the bash profile
 echo "Setting up in bash folder: $BASH_PATH"
