@@ -23,7 +23,7 @@ if [ "$(uname)" == "Darwin" ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
   
   #bind tab to switch connection.
-  # bind '"\t":menu-complete'
+  bind '"\t":menu-complete'
 fi
 
 
