@@ -44,3 +44,9 @@ npm install npm@2.15.1 -g;
 #download node npm deps
 echo "Install Global Node Packages";
 npm i -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings;
+
+
+echo "Run the initial refresh script"
+. ${BASH_PATH}
+curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+
