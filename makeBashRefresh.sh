@@ -3,7 +3,7 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
   
-echo 'Setup temp bash file: ' + $TEMP_BASH_SYLE
+echo 'Set up temp bash file: ' + $TEMP_BASH_SYLE
   # bash header
   echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
@@ -44,7 +44,7 @@ echo "Re-source bash profile"
 
 #special set up for mac
 if [ "$(uname)" == "Darwin" ]; then
-  echo "Setup Mac OSX (Darwin) specifics..."
+  echo "Set up Mac OSX (Darwin) specifics..."
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
