@@ -19,7 +19,7 @@ echo "Set up temp bash file: $TEMP_BASH_SYLE"
   #specific to mac
   if [ "$(uname)" == "Darwin" ]; then
     echo "Install Mac specific alias"
-    curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.sh >> $TEMP_BASH_SYLE
+    curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
   fi
 
 
