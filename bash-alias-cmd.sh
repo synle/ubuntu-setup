@@ -40,7 +40,7 @@ function searchFileName(){
 
 
 function renpm(){
-    rm -Rf node_modules && npm install
+    rm -rf node_modules && rm -rf /tmp/*.cache && npm install
 }
 
 
