@@ -23,19 +23,23 @@ if [ "$(uname)" == "Darwin" ]; then
   # mac alias
   echo " > OSX Aliases"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
+  
+  # mac options 
+  echo " > OSX Options"
+  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 
   # mac sublime
-  echo " > OSX Sublime Symlink"
+  echo " > OSX Sublime"
+  echo " >> Symlink: subl"
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
-  echo " > OSX Sublime Keybinding"
+  echo " >> Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
-
-  # mac options 
-  echo " > OSX Options"
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
+  
+  echo " >> Setting"
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 fi
 
 
