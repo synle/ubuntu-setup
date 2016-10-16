@@ -6,13 +6,16 @@ is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
   echo "Ubuntu apt-get install...";
+  sudo apt-get update -y;
   sudo apt-get install -y curl build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
   
-  echo "install brew"
+  echo "Install Homebrew"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  
+  brew install jq fzf;
 fi
 
 
