@@ -19,4 +19,4 @@ echo '. ~/.bash_syle' >> $BASH_PATH;
 
 
 echo "Set up git stuffs"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig >> ~/.gitconfig
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/.gitconfig >> ~/.gitconfig
