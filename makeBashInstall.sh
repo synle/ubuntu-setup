@@ -32,8 +32,7 @@ fi
 
 
 echo "Install nvm@v0.32.0"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
-
+curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
