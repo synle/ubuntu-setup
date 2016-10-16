@@ -31,7 +31,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
   # mac alias
   echo " > OSX Aliases"
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.osx.sh >> $TEMP_BASH_SYLE
+  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
   
   # mac options 
   echo " > OSX Options"
@@ -56,6 +56,7 @@ is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
   echo "Set up Ubuntu specifics...";
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -
 #   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.ubuntu.sh | bash -
 #   echo "Apt-Get Install"
 #   sudo apt-get install jq &> /dev/null
