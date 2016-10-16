@@ -57,7 +57,6 @@ apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
   echo "Set up Ubuntu specifics...";
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -
-#   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-gui.ubuntu.sh | bash -
 #   echo "Apt-Get Install"
 #   sudo apt-get install jq &> /dev/null
 fi
