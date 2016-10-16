@@ -71,9 +71,15 @@ if [ "$(uname)" == "Darwin" ]; then
   }
 
 
+  
   function fh() {
-    eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+    local OUT;
+    OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
+    echo $OUT;
+    echo '===='
+    eval $OUT
   }
+
 
   # fkill - kill process
   function fkill() {
