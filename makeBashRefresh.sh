@@ -19,6 +19,13 @@ curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/u
 #OSX MAC GUI Stuffs
 if [ "$(uname)" == "Darwin" ]; then
   echo "Set up OSX (Darwin) specifics..."
+  
+  # mac brew install
+  echo " > OSX Brew"
+  echo "       >> Install packages"
+  brew install fzf jq \
+    2> /dev/null
+
 
   # mac alias
   echo " > OSX Aliases"
