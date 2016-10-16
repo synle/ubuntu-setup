@@ -2,8 +2,38 @@
     { "keys": ["super+\\"], "command": "toggle_side_bar" },
     { "keys": ["super+shift+enter"], "command": "goto_definition" },
     { "keys": ["super+enter"], "command": "quick_goto_variable" },
-    { "keys": ["super+shift+>"], "command": "find_next" },
-    { "keys": ["super+shift+<"], "command": "find_prev" },
-    { "keys": ["super+b", "left"], "command": "focus_neighboring_group", "args": {"forward": false} },
-    { "keys": ["super+b", "right"], "command": "focus_neighboring_group" }
+    { "keys": ["ctrl+b", "left"], "command": "focus_neighboring_group" },
+    { "keys": ["ctrl+b", "right"], "command": "focus_neighboring_group" },
+    { "keys": ["ctrl+b", "up"], "command": "focus_neighboring_group" },
+    { "keys": ["ctrl+b", "down"], "command": "focus_neighboring_group" },
+    {
+        "keys": ["ctrl+b", "escape"],
+        "command": "set_layout",
+        "args":
+        {
+            "cols": [0.0, 1.0],
+            "rows": [0.0, 1.0],
+            "cells": [[0, 0, 1, 1]]
+        }
+    },
+    {
+        "keys": ["ctrl+b", "%"],
+        "command": "set_layout",
+        "args":
+        {
+            "cols": [0.0, 0.5, 1.0],
+            "rows": [0.0, 1.0],
+            "cells": [[0, 0, 1, 1], [1, 0, 2, 1]]
+        }
+    },
+    {
+        "keys": ["ctrl+b", "\""],
+        "command": "set_layout",
+        "args":
+        {
+            "cols": [0.0, 1.0],
+            "rows": [0.0, 0.5, 1.0],
+            "cells": [[0, 0, 1, 1], [0, 1, 1, 2]]
+        }
+    }
 ]
