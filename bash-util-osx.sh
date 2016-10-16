@@ -15,14 +15,11 @@ export EDITOR='vim'
   
   #sublime text alias
   #alias subl='open -a "Sublime Text"'
-  alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+#   alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
   
   
   #default java path
   export JAVA_HOME="$(/usr/libexec/java_home)"
-  
-  #bind tab to switch connection.
-  bind '"\t":menu-complete'
 
 
 ##############################
