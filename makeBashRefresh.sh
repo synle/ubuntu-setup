@@ -84,6 +84,7 @@ git config --global alias.br 'branch -v'
 git config --global alias.b 'branch'
 git config --global alias.branch 'branch -a'
 git config --global alias.p 'push'
+git config --global alias.graph "log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 git config --global alias.logs 'log --oneline --decorate'
 git config --global alias.l "log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 git config --global alias.fap 'fetch --all --prune'
