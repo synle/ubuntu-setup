@@ -3,7 +3,7 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 
-echo "Set up"  
+echo "Set Up Workspace"  
 echo "  > Temp Bash File: $TEMP_BASH_SYLE" 
 # bash header
 echo "#!/bin/bash" >> $TEMP_BASH_SYLE
