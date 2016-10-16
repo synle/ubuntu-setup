@@ -1,4 +1,3 @@
-
 is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
