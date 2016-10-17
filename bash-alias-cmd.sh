@@ -91,7 +91,9 @@ function sps() {
 function filterUnwanted(){
     grep -v node_modules/ \
     | grep -v release/ \
-    | grep -v .DS_Store
+    | grep -v .DS_Store \
+    | grep -v .git \
+    | grep -v .sass-cache
 }
 
 
