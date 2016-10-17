@@ -39,7 +39,7 @@ export EDITOR='vim'
     
     OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
     if [ "0" == "$?" ] ; then
-        echo "Opening: $OUT";
+        echo "$EDITOR $OUT";
         $EDITOR $OUT
     else
         echo "Aborting..."
