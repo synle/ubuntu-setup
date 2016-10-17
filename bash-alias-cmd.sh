@@ -1,7 +1,5 @@
 #For command line
-#function wget(){
-#   curl -LOk
-#}
+export EDITOR='vim'
 
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
@@ -82,15 +80,9 @@ function sps() {
     python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
 }
 
-
-# function viewSubl(){
-#     echo "Opening: $@"
-#     $EDITOR $@
-# }
-
 function filterUnwanted(){
     grep -v node_modules \
-    | grep -v /release/ \
+    | grep -v release/ \
     | grep -v .DS_Store \
     | grep -v .git \
     | grep -v .sass-cache
