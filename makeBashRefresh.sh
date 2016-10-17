@@ -52,14 +52,17 @@ then
   chmod +x /usr/local/bin/subl;
 
   echo "         Keybinding"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \
+        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
   
   echo "         User Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings \
+        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 
 
   echo "         Default Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu specifics...";
