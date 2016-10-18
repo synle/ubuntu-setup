@@ -51,7 +51,7 @@ then
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
 
-  echo "         Keybinding"
+  echo "         Mac Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \
         > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
   
@@ -71,6 +71,15 @@ then
 #   sudo apt-get install jq &> /dev/null
   if [ -d "/mnt/c/Users" ]; then
     echo "   Windows 10 Bash Specifics...";
+    
+    
+    echo "         Mac Keybinding"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
+          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
+    
+    echo "         User Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
+          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
   fi
 fi
 
