@@ -65,10 +65,13 @@ then
         > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
 elif [ $is_ubuntu == "1" ]
 then
-  echo "   Ubuntu specifics...";
+  echo "   Ubuntu Specifics...";
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -
 #   echo "Apt-Get Install"
 #   sudo apt-get install jq &> /dev/null
+  if [ -d "/mnt/c/Users" ]; then
+    echo "   Windows 10 Bash Specifics...";
+  fi
 fi
 
 
