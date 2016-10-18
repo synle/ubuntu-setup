@@ -3,6 +3,7 @@
 
 
 # plugins
+**~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings**
 ```
 {
 	"bootstrapped": true,
