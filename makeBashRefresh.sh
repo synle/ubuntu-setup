@@ -73,13 +73,18 @@ then
     echo "   Windows 10 Bash Specifics...";
     
     
-    echo "         Mac Keybinding"
+    echo "         Windows Keybinding"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
           > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
     
     echo "         User Settings"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
           > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+          
+          
+    echo "         Default Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
   fi
 fi
 
