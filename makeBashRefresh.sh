@@ -50,6 +50,10 @@ then
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl;
+  
+  echo "         Package Control Settings"
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings
+        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
 
   echo "         Mac Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \
@@ -74,6 +78,9 @@ then
   if [ -d "/mnt/c/Users" ]; then
     echo "   Windows 10 Bash Specifics...";
     
+    echo "         Package Control Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings
+          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
     
     echo "         Windows Keybinding"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
