@@ -61,8 +61,8 @@ then
 
   echo "         User Settings"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.mac.sublime-settings \
-        > /tmp/subl.user.settings
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
+        > /tmp/subl.user.settings \
+  && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 elif [ $is_ubuntu == "1" ]
@@ -85,8 +85,8 @@ then
 
     echo "         User Settings"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
-          > /tmp/subl.user.settings
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
+          > /tmp/subl.user.settings \
+    && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
           >> /tmp/subl.user.settings
     cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
   fi
