@@ -54,18 +54,17 @@ then
   echo "         Mac Keybinding"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \
         > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
-  
+
+  echo "         Default Settings"
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
+
   echo "         User Settings"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.mac.sublime-settings \
         > /tmp/subl.user.settings
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-
-
-  echo "         Default Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu Specifics...";
@@ -79,18 +78,17 @@ then
     echo "         Windows Keybinding"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
           > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
-    
+          
+    echo "         Default Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
+
     echo "         User Settings"
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
           > /tmp/subl.user.settings
     curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
           >> /tmp/subl.user.settings
     cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-          
-          
-    echo "         Default Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
   fi
 fi
 
