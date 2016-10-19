@@ -78,6 +78,9 @@ then
   if [ -d "/mnt/c/Users" ]; then
     echo "   Windows 10 Bash Specifics...";
     
+    echo "      Reset Bash KeyMap";
+    set -o vi;
+#     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
     
     echo "      Windows Sublime"
     
