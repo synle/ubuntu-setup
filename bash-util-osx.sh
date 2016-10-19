@@ -6,6 +6,12 @@ for X in 1 2 3 4 5 6 ; do
 done
 echo -e -n "\033]Ph${COLOR}\033\\"
 
+
+
+#bind tab to switch connection.
+bind '"\t":menu-complete'
+
+
 #################
 #mac specific
 #################
