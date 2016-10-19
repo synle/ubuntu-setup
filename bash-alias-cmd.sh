@@ -103,6 +103,3 @@ echo '#set match-hidden-files off' >> ~/.inputrc
 
 #http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
 echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc # shift tab to reverse auto complete.
-
-#bind tab to switch connection.
-bind '"\t":menu-complete'
