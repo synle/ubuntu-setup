@@ -1,3 +1,6 @@
+##VM NAT Host IP
+`10.0.2.2 host-machine`
+
 ##Classic Theme
 `C:\Windows\Resources\Ease of Access Themes`
 
