@@ -60,7 +60,12 @@
         "*.swf",
         "*.zip",
         "*.swp",
-        ".DS_Store"
+        ".DS_Store",
+        "*.pid",
+        "*.seed",
+        "*.pid.lock",
+        ".eslintcache",
+        "npm-debug.log"
     ],
     "folder_exclude_patterns":
     [
