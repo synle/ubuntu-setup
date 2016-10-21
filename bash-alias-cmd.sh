@@ -1,6 +1,9 @@
 #For command line
 export EDITOR='vim'
+npm set progress=false;
 
+
+# aliases
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
 }
