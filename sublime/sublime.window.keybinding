@@ -1,6 +1,7 @@
 [
+    { "keys": ["alt+w"], "command": "close" },
     { "keys": ["alt+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
-	{ "keys": ["alt+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
+    { "keys": ["alt+shift+p"], "command": "show_overlay", "args": {"overlay": "command_palette"} },
     { "keys": ["alt+ctrl+p"], "command": "prompt_select_workspace" },
     { "keys": ["ctrl+g"], "command": "find_next" },
     { "keys": ["ctrl+shift+g"], "command": "find_prev" },
