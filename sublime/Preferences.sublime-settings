@@ -2,6 +2,7 @@
     "draw_white_space": "all",
     "ensure_newline_at_eof_on_save": true,
     "highlight_line": true,
+    "show_line_endings": true,
     "file_exclude_patterns":
     [
         "*.a",
@@ -36,6 +37,7 @@
         "*.suo",
         "*.swf",
         "*.zip",
+        "*.swp",
         ".DS_Store"
     ],
     "folder_exclude_patterns":
