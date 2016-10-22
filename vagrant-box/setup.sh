@@ -65,7 +65,7 @@ sudo update-grub2
 
 echo "Install Node Version Manager (NVM)";
 git clone https://github.com/creationix/nvm.git /opt/nvm;
-mkdir /usr/local/nvm /usr/local/node;
+mkdir -p /usr/local/nvm /usr/local/node;
 sudo chown syle:syle -R /usr/local/nvm/ /usr/local/node/ /home/syle;
 
 echo "Set up NVM for all users";
