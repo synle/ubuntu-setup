@@ -53,8 +53,10 @@ curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
 
-echo "Install node@v0.12.15";
+echo "Install node@v0.12.15 - stable - iojs";
 nvm install v0.12.15;
+nvm install stable;
+nvm install iojs;
 nvm alias default v0.12.15;
  
 echo "Install npm@2.15.1";
