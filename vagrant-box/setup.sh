@@ -20,7 +20,6 @@ sudo update-grub2
 
 echo "Provisioning virtual machine...";
 sudo apt-get install  -y \
-    curl \
     git \
     g++ \
     unzip \
@@ -31,7 +30,7 @@ sudo apt-get install  -y \
     ant \
     gradle \
     maven \
-    ;
+    curl;
 
 
 echo "Setting up github stuffs for syle"
