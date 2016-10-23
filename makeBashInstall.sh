@@ -5,8 +5,8 @@ BASH_PATH=~/.bashrc;
 is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
-  echo "Ubuntu apt-get update...";
-  sudo apt-get update -y;  
+#   echo "Ubuntu apt-get update...";
+#   sudo apt-get update -y;  
   
   echo "Ubuntu apt-get install...";
   sudo apt-get install  -y \
