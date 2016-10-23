@@ -10,11 +10,10 @@ if [ $is_ubuntu == "1" ]; then
   echo '#syle bash' >> $BASH_PATH;
   echo '. ~/.bash_syle' >> $BASH_PATH;
 
-
   echo "Ubuntu apt-get install...";
 #   sudo apt-get update -y;
-  sudo apt-get install -y curl git;
-#   sudo apt-get install -y curl git build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
+  sudo apt-get install -y git;
+  sudo apt-get install -y curl git build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
