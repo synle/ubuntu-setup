@@ -10,12 +10,7 @@ if [ $is_ubuntu == "1" ]; then
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
-  
-  echo "Install Homebrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  
-  echo "Brew install stuffs"
-  brew install jq fzf;
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
 fi
 
 
