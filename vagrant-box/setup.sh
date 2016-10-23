@@ -75,6 +75,7 @@ echo "make syle:syle owner"
 sudo chown -R syle:syle $HOME_SYLE
 
 
+sudo apt-get update -y;
 sudo apt-get install vim -y;
 
 # sudo apt-get install  -y \
