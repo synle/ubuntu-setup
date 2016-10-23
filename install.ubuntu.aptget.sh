@@ -22,4 +22,5 @@ sudo apt-get install  -y \
   # supervisor \
   # automake \
   # gnuplot \
-  curl;
+  curl \
+  tmux;
