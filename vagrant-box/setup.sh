@@ -22,7 +22,6 @@ sudo usermod -aG sudo $PROVISION_USER;
 echo "Provisioning virtual machine...";
 # sudo apt-get update -y;
 sudo apt-get install  -y \
-    --fix-missing \
     git \
     vim \
     curl;
