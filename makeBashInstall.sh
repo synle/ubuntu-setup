@@ -34,6 +34,7 @@ if [ $is_ubuntu == "1" ]; then
     # supervisor \
     # automake \
     # gnuplot \
+    ;
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
