@@ -53,29 +53,8 @@ curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
 
-echo "Install node@v0.12.15 - stable - iojs";
-nvm install v0.12.15;
-nvm install stable;
-nvm install iojs;
-nvm alias default v0.12.15;
- 
-echo "Install npm@2.15.1";
-npm install npm@2.15.1 -g;
+echo "Install nvm, node. npm and stuffs"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash
 
-#download node npm deps
-echo "Install Global Node Packages";
-npm i -g \
-    grunt-cli \
-    grunt-init \
-    bower \
-    gulp \
-    browserify \
-    webpack \
-    eslint \
-    typings;
-
-
-echo "Run the initial refresh script"
-. ${BASH_PATH}
 curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 
