@@ -2,6 +2,7 @@
 
 export PROVISION_USER=syle;
 export HOME_SYLE=/home/$PROVISION_USER;
+export BASH_PATH=$HOME_SYLE/.bashrc;
 
 echo "Set Up User Credential"
 sudo adduser --disabled-password --gecos "" $PROVISION_USER;
@@ -19,7 +20,7 @@ sudo update-grub2
 
 
 echo "Provisioning virtual machine...";
-sudo apt-get update -y;
+# sudo apt-get update -y;
 sudo apt-get install  -y \
     --fix-missing \
     git \
@@ -29,8 +30,8 @@ sudo apt-get install  -y \
 echo "Setting up github stuffs for syle"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig \
     > $HOME_SYLE/.gitconfig
-    
-    
+
+
 
 echo "Install nvm for syle"
 export NVM_DIR="$HOME_SYLE/.nvm" && (
@@ -62,12 +63,10 @@ npm i -g \
     typings;
 
 
-
-# bash color hack
-# http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
-
-
-
+#source the bash profile
+echo "Setting up in bash folder: $BASH_PATH"
+echo '#syle bash' >> $BASH_PATH;
+echo '. ~/.bash_syle' >> $BASH_PATH;
 
 
 sudo apt-get install  -y \
