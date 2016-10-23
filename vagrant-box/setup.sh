@@ -38,6 +38,21 @@ sudo apt-get install  -y \
 echo "Setting up github stuffs for syle"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig \
     > $HOME_SYLE/.gitconfig
+    
+    
+
+echo "Install nvm for syle"
+export NVM_DIR="$HOME_SYLE/.nvm" && (
+  git clone https://github.com/creationix/nvm.git "$NVM_DIR"
+  cd "$NVM_DIR"
+  git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" origin`
+) && . "$NVM_DIR/nvm.sh"
+
+
+
+echo '#nvm (node version manager)' >> $HOME_SYLE
+echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $HOME_SYLE
+echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $HOME_SYLE
 
 # bash color hack
 # http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
