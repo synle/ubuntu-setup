@@ -5,11 +5,6 @@ BASH_PATH=~/.bashrc;
 is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
-  #source the bash profile
-  echo "Setting up in bash folder: $BASH_PATH"
-  echo '#syle bash' >> $BASH_PATH;
-  echo '. ~/.bash_syle' >> $BASH_PATH;
-
   echo "Ubuntu apt-get update...";
   sudo apt-get update -y;  
   
@@ -39,11 +34,6 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
   
-  #source the bash profile
-  echo "Setting up in bash folder: $BASH_PATH"
-  echo '#syle bash' >> $BASH_PATH;
-  echo '. ~/.bash_syle' >> $BASH_PATH;
-  
   echo "Install Homebrew"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   
@@ -51,6 +41,11 @@ if [ "$(uname)" == "Darwin" ]; then
   brew install jq fzf;
 fi
 
+
+#source the bash profile
+echo "Setting up in bash folder: $BASH_PATH"
+echo '#syle bash' >> $BASH_PATH;
+echo '. ~/.bash_syle' >> $BASH_PATH;
 
 echo "Install nvm@v0.32.0"
 curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
