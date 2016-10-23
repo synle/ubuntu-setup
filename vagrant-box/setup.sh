@@ -25,14 +25,7 @@ sudo apt-get install  -y \
     --fix-missing \
     git \
     vim \
-    g++ \
-    unzip \
-    openjdk-7-jdk \
-    ant \
-    gradle \
-    maven \
-    curl \
-    tmux;
+    curl;
 
 
 echo "Setting up github stuffs for syle"
@@ -62,3 +55,17 @@ curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nv
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
 echo '. ~/.bash_syle' >> $BASH_PATH;
+
+
+sudo apt-get install  -y \
+    --fix-missing \
+    git \
+    vim \
+    g++ \
+    unzip \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven \
+    curl \
+    tmux;
