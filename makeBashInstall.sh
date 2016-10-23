@@ -17,7 +17,7 @@ fi
 #source the bash profile
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
-echo '. ~/.bash_syle' >> $BASH_PATH;
+echo '[ -s ~/.bash_syle ] && . ~/.bash_syle' >> $BASH_PATH;
 
 echo "Install nvm@v0.32.0"
 curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash -
