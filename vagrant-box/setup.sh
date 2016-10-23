@@ -19,7 +19,7 @@ sudo update-grub2
 
 
 echo "Provisioning virtual machine...";
-apt-get update -y;
+sudo apt-get update -y;
 sudo apt-get install  -y \
     --fix-missing \
     git \
