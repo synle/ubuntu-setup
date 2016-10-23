@@ -10,6 +10,7 @@ if [ $is_ubuntu == "1" ]; then
   
   echo "Ubuntu apt-get install...";
   sudo apt-get install  -y \
+    --fix-missing \
     git \
     g++ \
     unzip \
