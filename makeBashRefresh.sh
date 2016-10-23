@@ -108,6 +108,30 @@ then
     && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
           >> /tmp/subl.user.settings
     cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+  else
+    echo "Real Ubuntu"
+    echo "Install Sublime Text: ~/.config/sublime-text-3/Packages"
+    
+    
+    echo "         Package Control Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
+          > ~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings
+    
+    echo "         Windows Keybinding"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
+          > ~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
+          
+    echo "         Default Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+          > ~/.config/sublime-text-3/Packages/User/Default.sublime-theme
+
+    echo "         User Settings"
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
+          > /tmp/subl.user.settings \
+    && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
+          >> /tmp/subl.user.settings
+    cat /tmp/subl.user.settings \
+      > ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
   fi
 fi
 
