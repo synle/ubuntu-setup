@@ -13,5 +13,4 @@ vagrant ssh;
 su syle;
 #
 curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash;
-curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash;
 ```
