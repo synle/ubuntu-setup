@@ -47,11 +47,30 @@ export NVM_DIR="$HOME_SYLE/.nvm" && (
   cd "$NVM_DIR"
 ) && . "$NVM_DIR/nvm.sh"
 
-
-
+echo "Set up nvm for Sy Le"
 echo '#nvm (node version manager)' >> $HOME_SYLE
 echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $HOME_SYLE
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $HOME_SYLE
+
+
+echo "Install nodes"
+nvm install v0.12.15;
+nvm install stable;
+nvm install iojs;
+nvm alias default v0.12.15;
+
+
+npm i -g \
+    grunt-cli \
+    grunt-init \
+    bower \
+    gulp \
+    browserify \
+    webpack \
+    eslint \
+    typings;
+
+
 
 # bash color hack
 # http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
