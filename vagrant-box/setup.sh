@@ -4,6 +4,8 @@ export PROVISION_USER=syle;
 export HOME_SYLE=/home/$PROVISION_USER;
 export BASH_PATH=$HOME_SYLE/.bashrc;
 
+. /home/syle/.nvm/nvm.sh
+
 echo "Set Up User Credential"
 sudo adduser --disabled-password --gecos "" $PROVISION_USER;
 echo $PROVISION_USER:$PROVISION_USER | sudo chpasswd
@@ -21,10 +23,7 @@ sudo usermod -aG sudo $PROVISION_USER;
 
 echo "Provisioning virtual machine...";
 # sudo apt-get update -y;
-sudo apt-get install  -y \
-    git \
-    # vim \
-    curl;
+sudo apt-get install -y curl git;
 
 
 echo "Setting up github stuffs for syle"
@@ -45,15 +44,32 @@ echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $BASH_PATH
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $BASH_PATH
 
 
-
-echo "install nvm nodes and npm"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
-
-
 #source the bash profile
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
 echo '. ~/.bash_syle' >> $BASH_PATH;
+
+
+echo "Install node@v0.12.15 - stable - iojs";
+nvm install v0.12.15;
+nvm install stable;
+nvm install iojs;
+nvm alias default v0.12.15;
+
+echo "Install npm@2.15.1";
+npm install npm@2.15.1 -g;
+
+#download node npm deps
+echo "Install Global Node Packages";
+npm i -g \
+    grunt-cli \
+    grunt-init \
+    bower \
+    gulp \
+    browserify \
+    webpack \
+    eslint \
+    typings;
 
 
 # sudo apt-get install  -y \
