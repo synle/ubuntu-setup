@@ -14,9 +14,9 @@ sudo usermod -aG sudo $PROVISION_USER;
 #sudo usermod -aG shadow $PROVISION_USER;
 
 
-echo "Make Virtualbox Window Bigger"
-echo "GRUB_GFXMODE=1152x864x32" >> /etc/default/grub
-sudo update-grub2
+# echo "Make Virtualbox Window Bigger"
+# echo "GRUB_GFXMODE=1152x864x32" >> /etc/default/grub
+# sudo update-grub2
 
 
 echo "Provisioning virtual machine...";
@@ -24,6 +24,13 @@ echo "Provisioning virtual machine...";
 sudo apt-get install  -y \
     --fix-missing \
     git \
+    vim \
+    g++ \
+    unzip \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven \
     curl;
 
 
@@ -40,9 +47,9 @@ export NVM_DIR="$HOME_SYLE/.nvm" && (
 ) && . "$NVM_DIR/nvm.sh"
 
 echo "Set up nvm for Sy Le"
-echo '#nvm (node version manager)' >> $HOME_SYLE
-echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $HOME_SYLE
-echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $HOME_SYLE
+echo '#nvm (node version manager)' >> $BASH_PATH
+echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $BASH_PATH
+echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $BASH_PATH
 
 
 echo "Install nodes"
@@ -67,16 +74,3 @@ npm i -g \
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
 echo '. ~/.bash_syle' >> $BASH_PATH;
-
-
-sudo apt-get install  -y \
-    --fix-missing \
-    g++ \
-    unzip \
-    vim \
-    make \
-    mysql-client \
-    openjdk-7-jdk \
-    ant \
-    gradle \
-    maven;
