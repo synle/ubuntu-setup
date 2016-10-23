@@ -10,9 +10,30 @@ if [ $is_ubuntu == "1" ]; then
   echo '#syle bash' >> $BASH_PATH;
   echo '. ~/.bash_syle' >> $BASH_PATH;
 
+  echo "Ubuntu apt-get update...";
+  sudo apt-get update -y;  
+  
   echo "Ubuntu apt-get install...";
-  sudo apt-get update -y;
-  sudo apt-get install -y curl git build-essential openjdk-7-jdk python-dev python-software-properties software-properties-common g++ python supervisor automake gnuplot unzip vim ant gradle maven git maven make mysql-client;
+  sudo apt-get install  -y \
+    curl \
+    git \
+    g++ \
+    unzip \
+    vim \
+    make \
+    mysql-client \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven \
+    # build-essential \
+    # python \
+    # python-dev \
+    # python-software-properties \
+    # software-properties-common \
+    # supervisor \
+    # automake \
+    # gnuplot \
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
