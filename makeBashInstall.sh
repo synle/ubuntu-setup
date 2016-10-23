@@ -62,7 +62,15 @@ npm install npm@2.15.1 -g;
 
 #download node npm deps
 echo "Install Global Node Packages";
-npm i -g  grunt-cli grunt-init bower gulp browserify webpack eslint typings;
+npm i -g \
+    grunt-cli \
+    grunt-init \
+    bower \
+    gulp \
+    browserify \
+    webpack \
+    eslint \
+    typings;
 
 
 echo "Run the initial refresh script"
