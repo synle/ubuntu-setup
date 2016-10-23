@@ -1,3 +1,5 @@
+. /home/syle/.nvm/nvm.sh
+
 echo "Install node@v0.12.15 - stable - iojs";
 nvm install v0.12.15;
 nvm install stable;
