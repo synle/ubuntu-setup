@@ -35,7 +35,8 @@ sudo apt-get install  -y \
 
 
 echo "Setting up github stuffs for syle"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig \
+    > $HOME_SYLE/.gitconfig
 
 # bash color hack
 # http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
