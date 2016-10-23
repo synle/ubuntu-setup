@@ -52,22 +52,9 @@ echo 'export NVM_DIR="'$HOME_SYLE'/.nvm"' >> $BASH_PATH
 echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $BASH_PATH
 
 
-echo "Install nodes"
-nvm install v0.12.15;
-nvm install stable;
-nvm install iojs;
-nvm alias default v0.12.15;
 
-
-npm i -g \
-    grunt-cli \
-    grunt-init \
-    bower \
-    gulp \
-    browserify \
-    webpack \
-    eslint \
-    typings;
+echo "install nvm nodes and npm"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 
 
 #source the bash profile
