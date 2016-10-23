@@ -5,31 +5,8 @@ BASH_PATH=~/.bashrc;
 is_ubuntu=0
 apt-get -v &> /dev/null && is_ubuntu=1
 if [ $is_ubuntu == "1" ]; then
-#   echo "Ubuntu apt-get update...";
-#   sudo apt-get update -y;  
-  
-  echo "Ubuntu apt-get install...";
-  sudo apt-get install  -y \
-    --fix-missing \
-    git \
-    g++ \
-    unzip \
-    vim \
-    make \
-    mysql-client \
-    openjdk-7-jdk \
-    ant \
-    gradle \
-    maven \
-    # build-essential \
-    # python \
-    # python-dev \
-    # python-software-properties \
-    # software-properties-common \
-    # supervisor \
-    # automake \
-    # gnuplot \
-    curl;
+  echo "Ubuntu Environment...";
+  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | bash -
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
@@ -48,13 +25,15 @@ echo '#syle bash' >> $BASH_PATH;
 echo '. ~/.bash_syle' >> $BASH_PATH;
 
 echo "Install nvm@v0.32.0"
-curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
+curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash -
 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
 
 echo "Install nvm, node. npm and stuffs"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 
-curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+
+echo "refresh"
+curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash -
 
