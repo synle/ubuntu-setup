@@ -10,7 +10,6 @@ if [ $is_ubuntu == "1" ]; then
   
   echo "Ubuntu apt-get install...";
   sudo apt-get install  -y \
-    curl \
     git \
     g++ \
     unzip \
@@ -29,7 +28,7 @@ if [ $is_ubuntu == "1" ]; then
     # supervisor \
     # automake \
     # gnuplot \
-    ;
+    curl;
 fi
 if [ "$(uname)" == "Darwin" ]; then
   BASH_PATH=~/.bash_profile;
