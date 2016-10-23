@@ -23,15 +23,6 @@ sudo apt-get update -y;
 sudo apt-get install  -y \
     --fix-missing \
     git \
-    g++ \
-    unzip \
-    vim \
-    make \
-    mysql-client \
-    openjdk-7-jdk \
-    ant \
-    gradle \
-    maven \
     curl;
 
 
@@ -77,3 +68,16 @@ npm i -g \
 
 
 
+
+
+sudo apt-get install  -y \
+    --fix-missing \
+    g++ \
+    unzip \
+    vim \
+    make \
+    mysql-client \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven;
