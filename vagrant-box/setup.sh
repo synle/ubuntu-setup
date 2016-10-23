@@ -45,7 +45,7 @@ echo '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" #' >> $BASH_PATH
 #source the bash profile
 echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
-echo '. ~/.bash_syle' >> $BASH_PATH;
+echo '[ -s ~/.bash_syle ] && . ~/.bash_syle' >> $BASH_PATH;
 
 
 echo "Install node@v0.12.15 - stable - iojs";
@@ -69,6 +69,13 @@ npm i -g \
     eslint \
     typings;
 
+
+
+echo "make syle:syle owner"
+sudo chown -R syle:syle $HOME_SYLE
+
+
+sudo apt-get install vim;
 
 # sudo apt-get install  -y \
 #     --fix-missing \
