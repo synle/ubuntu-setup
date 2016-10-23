@@ -4,8 +4,6 @@ export PROVISION_USER=syle;
 export HOME_SYLE=/home/$PROVISION_USER;
 export BASH_PATH=$HOME_SYLE/.bashrc;
 
-. /home/syle/.nvm/nvm.sh
-
 echo "Set Up User Credential"
 sudo adduser --disabled-password --gecos "" $PROVISION_USER;
 echo $PROVISION_USER:$PROVISION_USER | sudo chpasswd
