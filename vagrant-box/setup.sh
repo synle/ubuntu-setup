@@ -76,17 +76,15 @@ sudo chown -R syle:syle $HOME_SYLE
 
 
 sudo apt-get update -y;
-sudo apt-get install vim -y;
-
-# sudo apt-get install  -y \
-#     --fix-missing \
-#     git \
-#     vim \
-#     g++ \
-#     unzip \
-#     openjdk-7-jdk \
-#     ant \
-#     gradle \
-#     maven \
-#     curl \
-#     tmux;
+sudo apt-get install  -y \
+    --fix-missing \
+    git \
+    vim \
+    g++ \
+    unzip \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven \
+    curl \
+    tmux;
