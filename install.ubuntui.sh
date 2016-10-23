@@ -127,3 +127,9 @@ wget https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eclipse-ma
 #change shell if needed to bash if needed
 #chsh -s /bin/bash
 
+
+
+
+#cant be automated yet, need to be run on login
+#install mysql
+sudo apt-get install -y mysql-server
