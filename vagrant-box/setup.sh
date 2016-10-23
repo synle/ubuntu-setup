@@ -19,36 +19,23 @@ sudo update-grub2
 
 
 echo "Provisioning virtual machine...";
-sudo apt-get install -y curl git;
-# sudo apt-get install  -y \
-#     curl \
-#     git \
-#     build-essential \
-#     openjdk-7-jdk \
-#     python-dev \
-#     python-software-properties \
-#     software-properties-common \
-#     g++ \
-#     python \
-#     supervisor \
-#     automake \
-#     gnuplot \
-#     unzip \
-#     vim \
-#     ant \
-#     gradle \
-#     maven \
-#     make \
-#     mysql-client;\
+sudo apt-get install  -y \
+    curl \
+    git \
+    g++ \
+    unzip \
+    vim \
+    make \
+    mysql-client \
+    openjdk-7-jdk \
+    ant \
+    gradle \
+    maven \
+    ;
 
 
 echo "Setting up github stuffs for syle"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig > $HOME_SYLE/.gitconfig
-
-#set up git
-# echo "Set up bash_profile"
-# curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash;
-# curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 
 # bash color hack
 # http://serverfault.com/questions/137649/changing-terminal-colors-in-ubuntu-server
