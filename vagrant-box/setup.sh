@@ -31,7 +31,8 @@ sudo apt-get install  -y \
     ant \
     gradle \
     maven \
-    curl;
+    curl \
+    tmux;
 
 
 echo "Setting up github stuffs for syle"
