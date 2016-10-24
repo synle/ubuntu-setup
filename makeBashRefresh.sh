@@ -43,32 +43,6 @@ then
   # mac options 
   echo "      OSX Options"
   curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
-
-  # mac sublime
-  echo "      OSX Sublime"
-  echo "         Symlink: subl"
-  rm -f /usr/local/bin/subl;
-  ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
-  chmod +x /usr/local/bin/subl;
-  
-  echo "         Package Control Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
-        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
-
-  echo "         Mac Keybinding"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding \
-        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
-
-  echo "         Default Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-        > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
-
-  echo "         User Settings"
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.mac.sublime-settings \
-        > /tmp/subl.user.settings \
-  && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
-        >> /tmp/subl.user.settings
-  cat /tmp/subl.user.settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu Bash Specifics...";
@@ -83,57 +57,19 @@ then
 
   if [ -d "/mnt/c/Users" ]; then
     echo "   Windows 10 Bash Specifics...";
-    
-    echo "      Reset Bash KeyMap";
-    set -o vi;
-#     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
-    
-    echo "      Windows Sublime"
-    
-    echo "         Package Control Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
-          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
-    
-    echo "         Windows Keybinding"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
-          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
-          
-    echo "         Default Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-          > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
-
-    echo "         User Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
-          > /tmp/subl.user.settings \
-    && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
-          >> /tmp/subl.user.settings
-    cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
   else
     echo "Real Ubuntu"
-    echo "Install Sublime Text: ~/.config/sublime-text-3/Packages"
-    
-    
-    echo "         Package Control Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
-          > ~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings
-    
-    echo "         Windows Keybinding"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
-          > ~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
-          
-    echo "         Default Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-          > ~/.config/sublime-text-3/Packages/User/Default.sublime-theme
-
-    echo "         User Settings"
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
-          > /tmp/subl.user.settings \
-    && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
-          >> /tmp/subl.user.settings
-    cat /tmp/subl.user.settings \
-      > ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
   fi
 fi
+
+
+# echo "      Reset Bash KeyMap";
+# set -o vi;
+#     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
+
+
+#sublime
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
 
 
 
