@@ -36,7 +36,7 @@ then
   && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-elif [ $sublime_ubuntu == "1" ]
+elif [ $sublime_window == "1" ]
 then
   #windows subsystem ubuntu bash sublime
   echo "      Windows Sublime"
@@ -59,7 +59,7 @@ then
   && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-elif [ $sublime_window == "1" ]
+elif [ $sublime_ubuntu == "1" ]
 then
   #ubuntu sublime
   echo "         Linux Keybinding"
