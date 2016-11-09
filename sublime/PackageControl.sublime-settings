@@ -24,6 +24,7 @@
         "SublimeCodeIntel",
         "SublimeLinter",
         "SublimeLinter-contrib-eslint",
-        "SyncedSideBar"
+        "SyncedSideBar",
+        "TypeScript"
     ]
 }
