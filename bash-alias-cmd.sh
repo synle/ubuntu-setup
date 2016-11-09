@@ -8,6 +8,10 @@ function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
 }
 
+function refreshBashSyLe(){
+    curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+}
+
 
 function searchSource(){
     #universal option
