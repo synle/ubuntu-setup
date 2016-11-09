@@ -17,6 +17,11 @@ bind '"\t":menu-complete'
 #################
 export EDITOR='subl'
 
+#reset / kill Dock (caused by thunderbolt display
+function kd(){
+  killall Dock
+}
+
 #screensaver
 function s(){
   echo "starting screensaver for mac";
