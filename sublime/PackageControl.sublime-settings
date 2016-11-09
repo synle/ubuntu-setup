@@ -6,6 +6,7 @@
     "installed_packages":
     [
         "All Autocomplete",
+        "Babel",
         "BracketHighlighter",
         "Case Conversion",
         "CodeFormatter",
