@@ -120,11 +120,14 @@ git config --global alias.del 'branch -D'
 git config --global alias.b 'branch'
 git config --global alias.br 'branch -v'
 git config --global alias.brav 'branch -av'
-git config --global alias.p "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
-git config --global alias.p-force "push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
+# \"$(git rev-parse --abbrev-ref HEAD)\"
+git config --global alias.p "push origin"
+git config --global alias.p-force "push --force-with-lease origin"
 git config --global alias.graph "log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
-git config --global alias.logs 'log --goneline --decorate'
+git config --global alias.logs 'log --oneline --decorate'
 git config --global alias.l "log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
+git config --global alias.r 'rebase'
+git config --global alias.ri 'rebase -i'
 git config --global alias.fap 'fetch --all --prune'
 git config --global alias.st 'status'
 git config --global alias.s 'status -sb'
@@ -132,7 +135,6 @@ git config --global alias.amend 'commit --amend'
 git config --global alias.nuke '!git reset --hard && git clean -dfx && git gc && git prune'
 git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
-git config --global alias.stash 'stash'
 git config --global alias.stash-all 'stash --all'
 #end git
 
