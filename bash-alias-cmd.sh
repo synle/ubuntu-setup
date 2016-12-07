@@ -96,6 +96,30 @@ function filterUnwanted(){
 }
 
 
+function compareGit(){
+    #get current branch name
+    branch_name=$(git symbolic-ref -q HEAD)
+    branch_name=${branch_name##refs/heads/}
+    branch_name=${branch_name:-HEAD}
+
+    #get current project name
+    project_name=$(git rev-parse --show-toplevel);
+    project_name=${project_name##*/}
+
+    #get current repo name
+    repo_name=$(git config --get remote.origin.url)
+    repo_name=${repo_name#*:}
+    repo_name=${repo_name/.git/}
+
+
+    baseSha1=${2-staging}
+    baseSha2=${1-$branch_name}
+
+    urlToShow=https://github.com/${repo_name}/compare/${baseSha1}...${baseSha2}
+    echo $urlToShow
+    open $urlToShow
+}
+
 
 #case insenstive autocomplete
 echo "" >  ~/.inputrc
