@@ -27,6 +27,7 @@
         "SublimeLinter",
         "SublimeLinter-contrib-eslint",
         "SyncedSideBar",
-        "TypeScript"
+        "TypeScript",
+        "zz File Icons"
     ]
 }
