@@ -117,7 +117,10 @@ function compareGit(){
 
     urlToShow=https://github.com/${repo_name}/compare/${baseSha1}...${baseSha2}
     echo $urlToShow
-    open $urlToShow
+    
+    if hash open 2>/dev/null; then
+        open $urlToShow
+    fi
 }
 
 
