@@ -2,6 +2,7 @@
 export EDITOR='vim'
 npm set progress=false;
 
+alias g=git
 
 # aliases
 function br(){
