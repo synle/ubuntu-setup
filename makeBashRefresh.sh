@@ -105,7 +105,6 @@ git config --global diff.tool vimdiff
 git config --global diff.prompt false
 git config --global merge.tool vimdiff
 git config --global merge.prompt false
-git config --global credential.helper cache --timeout=86400
 
 #git alias
 echo "      Git Aliases"
@@ -136,6 +135,8 @@ git config --global alias.nuke '!git reset --hard && git clean -dfx && git gc &&
 git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
 git config --global alias.stash-all 'stash --all'
+git config --global alias.fix-author 'commit --amend --reset-author'
+
 #end git
 
 
