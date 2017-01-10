@@ -19,7 +19,7 @@ echo "Setting up in bash folder: $BASH_PATH"
 echo '#syle bash' >> $BASH_PATH;
 echo '[ -s ~/.bash_syle ] && . ~/.bash_syle' >> $BASH_PATH;
 
-echo "Install nvm@v0.32.0"
+echo "Install nvm@v0.33.0"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | NVM_DIR=/usr/local/nvm bash
 
 echo "Re-source Bash Profile for nvm binary"
