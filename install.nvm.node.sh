@@ -1,3 +1,6 @@
+#resource nvm if needed
+[ -s /usr/local/nvm/nvm.sh ] && . /usr/local/nvm/nvm.sh;
+
 echo "Install node@v0.12.15 - stable - iojs";
 nvm install v0.12.15;
 nvm install stable;
