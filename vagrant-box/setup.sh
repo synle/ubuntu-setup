@@ -20,14 +20,8 @@ sudo usermod -aG sudo $PROVISION_USER;
 
 
 echo "Provisioning virtual machine...";
-# sudo apt-get update -y;
-sudo apt-get install -y curl git;
-
-
-echo "Setting up github stuffs for syle"
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/vagrant-box/.gitconfig \
-    > $HOME_SYLE/.gitconfig
-
+sudo apt-get update -y;
+sudo apt-get install -y curl git vim;
 
 
 echo "Install nvm for syle"
