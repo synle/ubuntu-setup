@@ -1,5 +1,12 @@
 #https://www.tutorialspoint.com/hadoop/hadoop_enviornment_setup.htm
 
+wget http://apache.claz.org/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz;
+tar xzf hadoop-2.7.3.tar.gz ;
+rm hadoop-2.7.3.tar.gz ;
+mv hadoop-2.7.3/ hadoop;
+mv hadoop/ /usr/local/;
+
+
 #users
 useradd hadoop
 passwd hadoop
