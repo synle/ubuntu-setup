@@ -1,5 +1,6 @@
 #resource nvm if needed
 [ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
+[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
 
 
 echo "Install node@v0.12.15 - stable - iojs";
