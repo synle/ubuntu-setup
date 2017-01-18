@@ -10,7 +10,7 @@ echo "Setting up in bash folder: $BASH_PATH"
 
 grep -q -F '.bash_syle' $BASH_PATH || echo """
 #syle bash
-[ -s ~/.bash_syle ] && . ~/.bash_syle
+[ -s $BASH_SYLE ] && . $BASH_SYLE
 """ >> $BASH_PATH
 
 
