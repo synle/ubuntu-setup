@@ -3,6 +3,18 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 
+echo "Append ~/.bash_syle to your source if needed";
+BASH_PATH=~/.bashrc;
+[ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
+echo "Setting up in bash folder: $BASH_PATH"
+
+grep -q -F '.bash_syle' $BASH_PATH || echo """
+#syle bash
+[ -s ~/.bash_syle ] && . ~/.bash_syle
+""" >> $BASH_PATH
+
+
+
 echo "Set Up Workspace: Temp Bash File: $TEMP_BASH_SYLE" 
 # bash header
 echo "#!/bin/bash" >> $TEMP_BASH_SYLE
