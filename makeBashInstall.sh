@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-NVM_DIR=~/.nvm;
 BASH_PATH=~/.bashrc;
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
 
