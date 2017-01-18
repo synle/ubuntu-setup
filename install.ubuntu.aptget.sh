@@ -2,9 +2,9 @@ echo "Ubuntu apt-get update...";
 sudo apt-get update -y;  
 
 echo "Ubuntu apt-get install...";
-git -v foo >/dev/null 2>&1 || sudo apt-get install  -y --fix-missing git;
-vim -v foo >/dev/null 2>&1 || sudo apt-get install  -y --fix-missing vim;
-curl -v foo >/dev/null 2>&1 || sudo apt-get install  -y --fix-missing curl;
+type git &> /dev/null || sudo apt-get install  -y --fix-missing git;
+type vim &> /dev/null || sudo apt-get install  -y --fix-missing vim;
+type curl &> /dev/null || sudo apt-get install  -y --fix-missing curl;
 sudo apt-get install  -y --fix-missing g++;
 sudo apt-get install  -y --fix-missing unzip;
 sudo apt-get install  -y --fix-missing make;
