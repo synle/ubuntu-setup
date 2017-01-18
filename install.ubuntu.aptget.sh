@@ -5,6 +5,7 @@ echo "Ubuntu apt-get install...";
 type git &> /dev/null || sudo apt-get install  -y --fix-missing git;
 type vim &> /dev/null || sudo apt-get install  -y --fix-missing vim;
 type curl &> /dev/null || sudo apt-get install  -y --fix-missing curl;
+type tmux &> /dev/null || sudo apt-get install  -y --fix-missing tmux;
 sudo apt-get install  -y --fix-missing g++;
 sudo apt-get install  -y --fix-missing unzip;
 sudo apt-get install  -y --fix-missing make;
