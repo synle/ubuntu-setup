@@ -3,7 +3,7 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 
-echo "Append ~/.bash_syle to your source if needed";
+echo "Append ~/.bash_syle to your source if needed (idempotent)";
 BASH_PATH=~/.bashrc;
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
 echo "Setting up in bash folder: $BASH_PATH"
