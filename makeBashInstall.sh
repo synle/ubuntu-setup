@@ -17,9 +17,9 @@ fi
 
 #source the bash profile
 echo "Install nvm@v0.33.0"
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | NVM_DIR=$NVM_DIR bash
 echo "#nvm (node version manager)" >> $BASH_PATH
-echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" | tee -a $BASH_PATH;
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | NVM_DIR=$NVM_DIR bash
+#echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" | tee -a $BASH_PATH;
 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
