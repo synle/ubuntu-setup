@@ -10,7 +10,7 @@ sudo apt-get install  -y \
   vim \
   make \
   mysql-client \
-  openjdk-7-jdk \
+  openjdk-8-jdk \
   ant \
   gradle \
   maven \
