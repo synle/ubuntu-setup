@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+NVM_DIR=~/.nvm;
 BASH_PATH=~/.bashrc;
-NVM_DIR=~/.nvm
+[ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
 
 #is ubuntu
 is_ubuntu=0
@@ -10,16 +11,14 @@ if [ $is_ubuntu == "1" ]; then
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | bash -
 fi
 if [ "$(uname)" == "Darwin" ]; then
-  BASH_PATH=~/.bash_profile;
+  echo "Setting up for Mac OSX"
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
 fi
 
 
 #source the bash profile
-echo "Install nvm@v0.33.0"
-echo "#nvm (node version manager)" >> $BASH_PATH
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | NVM_DIR=$NVM_DIR bash
-#echo "[ -s $NVM_DIR/nvm.sh ] && . $NVM_DIR/nvm.sh" | tee -a $BASH_PATH;
+echo "Install nvm@v0.33.0 if needed"
+[ -s $NVM_DIR/nvm.sh ] || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | NVM_DIR=$NVM_DIR bash
 
 echo "Re-source Bash Profile for nvm binary"
 . ${BASH_PATH}
