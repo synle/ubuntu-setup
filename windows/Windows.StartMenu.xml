@@ -24,7 +24,7 @@
 		<Line>NO_ICONS=0</Line>
 		<Line>USER_IMAGE=1</Line>
 		<Line>USER_NAME=1</Line>
-		<Line>CENTER_NAME=1</Line>
+		<Line>CENTER_NAME=0</Line>
 		<Line>SMALL_ICONS=0</Line>
 		<Line>LARGE_FONT=1</Line>
 		<Line>ICON_FRAMES=0</Line>
@@ -38,7 +38,7 @@
 	<StartButtonType value="AeroButton"/>
 	<SkipMetro value="1"/>
 	<MenuItems2>
-		<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,RecentDocumentsItem,SEPARATOR,ControlPanelItem,PCSettingsItem,SecurityItem,NetworkItem,SEPARATOR,SearchMenu,HelpItem,RunItem,COLUMN_PADDING,SEPARATOR,LogOffItem2,ShutdownBoxItem</Line>
+		<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,RecentDocumentsItem,SEPARATOR,ControlPanelItem,PCSettingsItem,SecurityItem,NetworkItem,CustomItem2,SEPARATOR,SearchMenu,HelpItem,RunItem,COLUMN_PADDING,SEPARATOR,LogOffItem2,ShutdownBoxItem</Line>
 		<Line>ProgramsMenu.Command=programs</Line>
 		<Line>ProgramsMenu.Label=$Menu.Programs</Line>
 		<Line>ProgramsMenu.Icon=shell32.dll,326</Line>
@@ -73,6 +73,7 @@
 		<Line>NetworkItem.Label=$Menu.Network</Line>
 		<Line>NetworkItem.Tip=$Menu.NetworkTip</Line>
 		<Line>NetworkItem.Icon=shell32.dll,257</Line>
+		<Line>CustomItem2.Link=C:\Windows\System32\F12\F12Chooser.exe</Line>
 		<Line>SearchMenu.Items=SearchFilesItem,SearchPrinterItem,SearchComputersItem,SearchPeopleItem</Line>
 		<Line>SearchMenu.Command=search</Line>
 		<Line>SearchMenu.Label=$Menu.Search</Line>
@@ -104,11 +105,15 @@
 		<Line>LogOffItem2.Label=$Menu.Logoff</Line>
 		<Line>LogOffItem2.Tip=$Menu.LogOffTip</Line>
 		<Line>LogOffItem2.Icon=none</Line>
-		<Line>ShutdownBoxItem.Items=SwitchUserItem,RestartItem,ShutdownItem</Line>
+		<Line>ShutdownBoxItem.Items=SleepItem,SwitchUserItem,RestartItem,ShutdownItem</Line>
 		<Line>ShutdownBoxItem.Command=shutdown_box</Line>
 		<Line>ShutdownBoxItem.Label=$Menu.ShutdownBox</Line>
 		<Line>ShutdownBoxItem.Icon=shell32.dll,329</Line>
 		<Line>ShutdownBoxItem.Settings=SPLIT</Line>
+		<Line>SleepItem.Command=sleep</Line>
+		<Line>SleepItem.Label=$Menu.Sleep</Line>
+		<Line>SleepItem.Tip=$Menu.SleepTip</Line>
+		<Line>SleepItem.Icon=none</Line>
 		<Line>SwitchUserItem.Command=switch_user</Line>
 		<Line>SwitchUserItem.Label=$Menu.SwitchUser</Line>
 		<Line>SwitchUserItem.Tip=$Menu.SwitchUserTip</Line>
