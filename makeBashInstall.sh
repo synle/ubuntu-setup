@@ -29,8 +29,7 @@ curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nv
 
 
 echo "Setting up in bash folder: $BASH_PATH"
-echo '#syle bash' >> $BASH_PATH;
-echo '[ -s ~/.bash_syle ] && . ~/.bash_syle' >> $BASH_PATH;
+#grep -q -F '.bash_syle' $BASH_PATH || echo '#syle bash' >> $BASH_PATH && echo '[ -s ~/.bash_syle ] && . ~/.bash_syle' >> $BASH_PATH
 
 echo "refresh"
 curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash -
