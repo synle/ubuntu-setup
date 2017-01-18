@@ -27,13 +27,6 @@ echo "Re-source Bash Profile for nvm binary"
 echo "Install nvm, node. npm and stuffs"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 
-
-echo "Setting up in bash folder: $BASH_PATH"
-grep -q -F '.bash_syle' $BASH_PATH || echo """
-#syle bash
-[ -s ~/.bash_syle ] && . ~/.bash_syle
-""" >> $BASH_PATH
-
 echo "refresh"
 curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash -
 
