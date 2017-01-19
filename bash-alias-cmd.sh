@@ -5,6 +5,13 @@ npm set progress=false;
 alias g=git
 
 # aliases
+
+# php composer
+alias composer="php ~/composer.phar"
+
+# php silex start
+alias startSilex="php -S localhost:8080 -t web web/index.php"
+
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
 }
