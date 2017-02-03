@@ -21,6 +21,12 @@ function refreshBashSyLe(){
 }
 
 
+
+function removeNodeModules(){
+    echo "removed nested node_modules...";
+    find . | grep node_modules | xargs rm -rf > /dev/null
+}
+
 function searchSource(){
     #universal option
     grep -r "$@" \
