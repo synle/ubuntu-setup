@@ -8,4 +8,5 @@ brew tap homebrew/homebrew-php
 brew unlink php56
 brew install jq;
 brew install fzf;
-brew install php70
+brew install php70;
+brew install rig;
