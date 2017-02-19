@@ -14,6 +14,7 @@ sudo apt-get install  -y --fix-missing openjdk-8-jdk;
 sudo apt-get install  -y --fix-missing ant;
 sudo apt-get install  -y --fix-missing gradle;
 sudo apt-get install  -y --fix-missing maven;
+sudo apt-get install  -y --fix-missing tig;
 # sudo apt-get install  -y --fix-missing build-essential;
 # sudo apt-get install  -y --fix-missing python;
 # sudo apt-get install  -y --fix-missing python-dev;
