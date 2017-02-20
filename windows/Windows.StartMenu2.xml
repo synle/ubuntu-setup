@@ -15,6 +15,9 @@
 	<SearchInternet value="1"/>
 	<SmallIconSize value="30"/>
 	<LargeIconSize value="60"/>
+	<MaxMainMenuWidth value="70"/>
+	<MaxMenuWidth value="70"/>
+	<FontSmoothing value="None"/>
 	<MenuShadow value="0"/>
 	<EnableGlass value="0"/>
 	<GlassOverride value="0"/>
@@ -25,7 +28,7 @@
 		<Line>USER_IMAGE=1</Line>
 		<Line>USER_NAME=1</Line>
 		<Line>CENTER_NAME=1</Line>
-		<Line>SMALL_ICONS=1</Line>
+		<Line>SMALL_ICONS=0</Line>
 		<Line>LARGE_FONT=1</Line>
 		<Line>DISABLE_MASK=1</Line>
 		<Line>OPAQUE=1</Line>
