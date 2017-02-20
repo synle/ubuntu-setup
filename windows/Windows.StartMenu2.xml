@@ -54,7 +54,7 @@
 		<Line>ComputerItem.Command=computer</Line>
 		<Line>UserFilesItem.Command=user_files</Line>
 		<Line>UserFilesItem.Tip=$Menu.UserFilesTip</Line>
-		<Line>CustomItem.Link=D:\Download</Line>
+		<Line>CustomItem.Link=Downloads | %USERPROFILE%\Downloads</Line>
 		<Line>CustomItem.Settings=NOEXPAND</Line>
 		<Line>RecentDocumentsItem.Command=recent_documents</Line>
 		<Line>RecentDocumentsItem.Settings=ITEMS_FIRST</Line>
