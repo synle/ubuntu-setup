@@ -1,3 +1,6 @@
+# sudo adduser syle
+# sudo usermod -a -G sudo,adm syle
+
 #bare minimum
 	sudo addgroup hadoop
 	sudo adduser --ingroup hadoop hduser
