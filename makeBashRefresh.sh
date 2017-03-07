@@ -3,6 +3,10 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 
+#resource nvm if needed
+[ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
+[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
+
 echo "Append ~/.bash_syle to your source if needed (idempotent)";
 BASH_PATH=~/.bashrc;
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
