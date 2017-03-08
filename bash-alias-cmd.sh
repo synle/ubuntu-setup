@@ -19,7 +19,7 @@ set visible-stats on'
 
 # http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
 # shift tab to reverse auto complete.
-"\e[Z": "\e-1\C-i"'   
+"\e[Z": "\e-1\C-i"
 """ >  ~/.inputrc
 ############################################
 #############  SECTION BREAK  ##############
