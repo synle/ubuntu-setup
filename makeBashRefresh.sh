@@ -25,7 +25,8 @@ grep -q -F '.bash_syle' $BASH_PATH || echo """
 
 
 echo "Install Prerequisites"
-echo "    Install Global Node Modules"
+
+# global npm node modules...
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash
 
 
