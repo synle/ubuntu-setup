@@ -1,10 +1,21 @@
+function curlNoCache(){
+    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+}
+
+
 # Common Bash Util.
 
 #Installation
 ```
 # init Script : Set it up in .bashrc (run once only)
-curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
+function curlNoCache(){
+    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+}
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 
 # Refresh Script
-curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+function curlNoCache(){
+    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+}
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 ```
