@@ -49,9 +49,13 @@ function echoo(){
     printf "\e[1;4;33m>> $@ \n\e[0m"
 }
 
+function curlNoCache(){
+    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+}
+
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
-    curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
     
     # resource bash profile / bash rc
     echoo "Resource bash profile"
