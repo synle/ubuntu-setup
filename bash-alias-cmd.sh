@@ -18,6 +18,9 @@ function br(){
 
 function refreshBashSyLe(){
     curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+    
+    # resource home
+    . ~/.bashrc
 }
 
 
