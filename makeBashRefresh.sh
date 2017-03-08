@@ -70,7 +70,7 @@ then
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu Bash Specifics...";
-  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -;
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
 
   if [ -d "/mnt/c/Users" ]; then
     echo "   Windows 10 Bash Specifics...";
