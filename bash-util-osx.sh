@@ -30,8 +30,9 @@ function s(){
 
 
 #sublime text alias
-#alias subl='open -a "Sublime Text"'
-#   alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias subl1='open -a "Sublime Text"'
+alias subl2="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias subl="subl2"
 
 
 #default java path
