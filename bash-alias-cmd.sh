@@ -21,9 +21,9 @@ set visible-stats on'
 # shift tab to reverse auto complete.
 "\e[Z": "\e-1\C-i"'   
 """ >  ~/.inputrc
-
-#############  SECTION BREAK  #############
-
+############################################
+#############  SECTION BREAK  ##############
+############################################
 
 
 
@@ -175,7 +175,9 @@ function compareGit(){
         open $urlToShow
     fi
 }
-#############  SECTION BREAK  #############
+############################################
+#############  SECTION BREAK  ##############
+############################################
 
 
 
@@ -185,7 +187,7 @@ function compareGit(){
 # https://github.com/junegunn/fzf/wiki/examples
 ############################################
 # fzf file view
-function vv(){
+function fuzzyvim(){
   local OUT
   local QUERY
 
@@ -204,7 +206,7 @@ function vv(){
 }
 
 # cdf - cd into the directory of the selected file
-function fd() {
+function fuzzydirectory() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
       -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
@@ -214,7 +216,7 @@ function fd() {
 }
 
 
-function fgrep(){
+function fuzzygrep(){
   local OUT
   OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
   echo $OUT | cut -d ":" -f1 | xargs echo;
@@ -223,7 +225,7 @@ function fgrep(){
 
 
 
-function fh() {
+function fuzzyhistory() {
   local OUT;
   OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
   echo $OUT;
@@ -233,7 +235,7 @@ function fh() {
 
 
 # fkill - kill process
-function fkill() {
+function fuzzykill() {
   pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
   if [ "x$pid" != "x" ]
@@ -244,7 +246,7 @@ function fkill() {
 
 
 #fuzzy git
-function gshow() {
+function fuzzygitshow() {
   # git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
   git log --pretty=format:'%Cred%h%Creset %s %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
   |
@@ -256,7 +258,7 @@ function gshow() {
   FZF-EOF"
 }
 
-function gco() {
+function fuzzygitcobranch() {
   local branches branch
   branches=$(git branch --all | grep -v HEAD) &&
   branch=$(echo "$branches" |
@@ -264,10 +266,12 @@ function gco() {
   git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 
-function gcocommit() {
+function fuzzygitcocommit() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
   commit=$(echo "$commits" | fzf --tac +s +m -e) &&
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
-#############  SECTION BREAK  #############
+############################################
+#############  SECTION BREAK  ##############
+############################################
