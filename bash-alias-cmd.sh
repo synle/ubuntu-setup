@@ -7,19 +7,19 @@ npm set progress=false;
 # set up inputrc preferences.
 ############################################
 #case insenstive autocomplete
-echo "" >  ~/.inputrc
-echo '#ignore case for autocomplete' >> ~/.inputrc
-echo 'set completion-ignore-case on' >> ~/.inputrc
-
+echo """
+# case insenstive autocomplete
+# ignore case for autocomplete' 
+set completion-ignore-case on' 
 # https://gist.github.com/gregorynicholas/1812027
-echo 'set expand-tilde on' >> ~/.inputrc
-echo 'set show-all-if-ambiguous on' >> ~/.inputrc
-echo 'set visible-stats on' >> ~/.inputrc
-echo '#set match-hidden-files off' >> ~/.inputrc
-
+set expand-tilde on' 
+set show-all-if-ambiguous on' 
+set visible-stats on' 
+#set match-hidden-files off' 
 # http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
 # shift tab to reverse auto complete.
-echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc
+"\e[Z": "\e-1\C-i"
+""" >  ~/.inputrc
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
