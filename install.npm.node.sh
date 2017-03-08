@@ -7,7 +7,7 @@ function installNodeModulesIfNeeded(){
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
 
 #download node npm deps
-echo "Install Global Node Packages";
+echo ">> Install Global Node Packages";
 # npm i -g grunt-cli;
 installNodeModulesIfNeeded grunt-init;
 installNodeModulesIfNeeded bower;
