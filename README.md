@@ -11,11 +11,11 @@ function curlNoCache(){
 function curlNoCache(){
     curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
 }
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 
 # Refresh Script
 function curlNoCache(){
     curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
 }
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
 ```
