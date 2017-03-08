@@ -1,3 +1,7 @@
+function installNodeModulesIfNeeded(){
+    type $@ &> /dev/null || (echo "NPM Install $@" && npm i -g $@)
+}
+
 #resource nvm if needed
 [ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
@@ -23,9 +27,9 @@ npm i -g npm@2.15.1;
 echo "Install Global Node Packages";
 npm i -g grunt-cli;
 npm i -g grunt-init;
-npm i -g bower;
-npm i -g gulp;
-npm i -g browserify;
-npm i -g webpack;
-npm i -g eslint;
-npm i -g typings;
+installNodeModulesIfNeeded bower;
+installNodeModulesIfNeeded gulp;
+installNodeModulesIfNeeded browserify;
+installNodeModulesIfNeeded webpack;
+installNodeModulesIfNeeded eslint;
+installNodeModulesIfNeeded typings;
