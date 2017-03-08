@@ -185,93 +185,100 @@ function compareGit(){
 # fzf - fuzzy find
 # fzf only apply to mac for now
 # https://github.com/junegunn/fzf/wiki/examples
+# 
+# for now this is only applied to Mac and Ubuntu
 ############################################
-# fzf file view
-function fuzzyvim(){
-  local OUT
-  local QUERY
+is_os_window=0
+[ -d /mnt/c/Users ] && is_os_window=1
+if [ $is_os_window == "0" ]
+then
+    # fzf file view
+    function fuzzyvim(){
+      local OUT
+      local QUERY
 
-  QUERY=""
-  if [ "$1" != "" ] ; then
-      QUERY=" -1 --query=$1"
-  fi
+      QUERY=""
+      if [ "$1" != "" ] ; then
+          QUERY=" -1 --query=$1"
+      fi
 
-  OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
-  if [ "0" == "$?" ] ; then
-      echo "$EDITOR $OUT";
-      $EDITOR $OUT
-  else
-      echo "Aborting..."
-  fi
-}
+      OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      if [ "0" == "$?" ] ; then
+          echo "$EDITOR $OUT";
+          $EDITOR $OUT
+      else
+          echo "Aborting..."
+      fi
+    }
 
-# cdf - cd into the directory of the selected file
-function fuzzydirectory() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-      -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
-  echo "PWD: $PWD"
-  echo "Selected: $dir";
-  cd "$dir"
-}
-
-
-function fuzzygrep(){
-  local OUT
-  OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
-  echo $OUT | cut -d ":" -f1 | xargs echo;
-  echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
-}
+    # cdf - cd into the directory of the selected file
+    function fuzzydirectory() {
+      local dir
+      dir=$(find ${1:-.} -path '*/\.*' -prune \
+          -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
+      echo "PWD: $PWD"
+      echo "Selected: $dir";
+      cd "$dir"
+    }
 
 
-
-function fuzzyhistory() {
-  local OUT;
-  OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
-  echo $OUT;
-  echo '===='
-  eval $OUT
-}
+    function fuzzygrep(){
+      local OUT
+      OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
+      echo $OUT | cut -d ":" -f1 | xargs echo;
+      echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
+    }
 
 
-# fkill - kill process
-function fuzzykill() {
-  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
-  if [ "x$pid" != "x" ]
-  then
-    kill -${1:-9} $pid
-  fi
-}
+    function fuzzyhistory() {
+      local OUT;
+      OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
+      echo $OUT;
+      echo '===='
+      eval $OUT
+    }
 
 
-#fuzzy git
-function fuzzygitshow() {
-  # git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
-  git log --pretty=format:'%Cred%h%Creset %s %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
-  |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --color light --preview='echo {} | cut -d " " -f1 | xargs git show' \
-  --bind "ctrl-m:execute:
-  (grep -o '[a-f0-9]\{7\}' | head -1 |
-  xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-  {}
-  FZF-EOF"
-}
+    # fkill - kill process
+    function fuzzykill() {
+      pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
-function fuzzygitcobranch() {
-  local branches branch
-  branches=$(git branch --all | grep -v HEAD) &&
-  branch=$(echo "$branches" |
-       fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
-}
+      if [ "x$pid" != "x" ]
+      then
+        kill -${1:-9} $pid
+      fi
+    }
 
-function fuzzygitcocommit() {
-  local commits commit
-  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
-}
+
+    #fuzzy git
+    function fuzzygitshow() {
+      # git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
+      git log --pretty=format:'%Cred%h%Creset %s %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
+      |
+      fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort --color light --preview='echo {} | cut -d " " -f1 | xargs git show' \
+      --bind "ctrl-m:execute:
+      (grep -o '[a-f0-9]\{7\}' | head -1 |
+      xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+      {}
+      FZF-EOF"
+    }
+
+    function fuzzygitcobranch() {
+      local branches branch
+      branches=$(git branch --all | grep -v HEAD) &&
+      branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+      git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+    }
+
+    function fuzzygitcocommit() {
+      local commits commit
+      commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+      commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+      git checkout $(echo "$commit" | sed "s/ .*//")
+    }
+fi
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
