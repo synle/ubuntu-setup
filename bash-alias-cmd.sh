@@ -18,8 +18,8 @@ set visible-stats on'
 #set match-hidden-files off' 
 # http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
 # shift tab to reverse auto complete.
-"\e[Z": "\e-1\C-i"
 """ >  ~/.inputrc
+echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
