@@ -9,7 +9,7 @@ TEMP_BASH_SYLE=/tmp/.bash_syle
 
 #define some necessary functions
 function curlNoCache(){
-    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+    curlNoCache -H  'Cache-Control: no-cache' "$@?$(date +%s)"
 }
 
 echo "Append ~/.bash_syle to your source if needed (idempotent)";
@@ -67,7 +67,7 @@ then
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu Bash Specifics...";
-  curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -;
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh | bash -;
   
   
   echo "   Ubuntu ls Bash Color Fixes"
@@ -90,7 +90,7 @@ fi
 
 
 #sublime
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
 
 
 
@@ -115,7 +115,7 @@ echo "   Re-source bash profile"
   
 #extra stuffs
 #awesome git commands
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 
 #vim stuffs
 echo "   Vim & Vundle"
