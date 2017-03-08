@@ -50,18 +50,19 @@ function echoo(){
 }
 
 function refreshBashSyLe(){
-    echo ">> running refresh scripts"
+    echoo "Running refresh scripts"
     curl -H 'Cache-Control: no-cache' -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
     
-    # resource home
-    echo ">> resource bash profile"
-    . ~/.bashrc
+    # resource bash profile / bash rc
+    echoo "Resource bash profile"
+    [ -s ~/.bashrc ] && . ~/.bashrc;
+    [ -s ~/.bash_profile ] && . ~/.bash_profile;
 }
 
 
 
 function removeNodeModules(){
-    echo "removed nested node_modules...";
+    echoo "Removed nested node_modules...";
     find . | grep node_modules | xargs rm -rf > /dev/null
 }
 
@@ -116,7 +117,7 @@ function killAllNode(){
 }
 
 function stopAllNodeProcesses(){
-    echo "Stopping all node processes";
+    echoo "Stopping all node processes";
     ps aux | grep node | awk '{ print $2 }' | xargs kill;
     #ps aux | grep node | grep -v tsserver | grep -v Adobe | awk '{ print $2 }' | xargs kill;
     #ps wwax | grep -E '[s]tart-server|[i]qb' | awk '{ print $1 }' | xargs kill;
