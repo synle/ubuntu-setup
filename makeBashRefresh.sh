@@ -30,8 +30,11 @@ echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 #completion
 echo "   Bash Completions"
+echo "       Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+echo "       Grunt(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
+echo "       Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
