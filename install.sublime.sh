@@ -1,14 +1,14 @@
-sublime_darwin_mac=0
-sublime_ubuntu=0
-sublime_window=0
+is_os_darwin_mac=0
+is_os_ubuntu=0
+is_os_window=0
 
 
-[ -d /Library ] && sublime_darwin_mac=1 && echo "sublime_darwin_mac"
-[ -d ~/.config/sublime-text-3 ] && sublime_ubuntu=1 && echo "sublime_ubuntu"
-[ -d /mnt/c/Users/syle/AppData/Roaming ] && sublime_window=1 && echo "sublime_window"
+[ -d /Library ] && is_os_darwin_mac=1 && echo "is_os_darwin_mac"
+[ -d /mnt/c/Users/syle/AppData/Roaming ] && is_os_window=1 && echo "is_os_window"
+[ -d ~/.config/sublime-text-3 ] && is_os_ubuntu=1 && echo "is_os_ubuntu"
 
 
-if [ $sublime_darwin_mac == "1" ]
+if [ $is_os_darwin_mac == "1" ]
 then
   #mac sublime
   echo "      OSX Sublime"
@@ -36,7 +36,7 @@ then
   && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-elif [ $sublime_window == "1" ]
+elif [ $is_os_window == "1" ]
 then
   #windows subsystem ubuntu bash sublime
   echo "      Windows Sublime"
@@ -59,7 +59,7 @@ then
   && curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
         >> /tmp/subl.user.settings
   cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
-elif [ $sublime_ubuntu == "1" ]
+elif [ $is_os_ubuntu == "1" ]
 then
   #ubuntu sublime
   echo "         Linux Keybinding"
