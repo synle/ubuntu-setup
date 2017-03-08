@@ -3,10 +3,10 @@ is_os_ubuntu=0
 is_os_window=0
 
 
-[ -d /Library ] && is_os_darwin_mac=1 && echo "is_os_darwin_mac"
-[ -d /mnt/c/Users ] && is_os_window=1 && echo "is_os_window"
-# [ -d /mnt/c/Users/syle/AppData/Roaming ] && is_os_window=1 && echo "is_os_window"
-[ -d ~/.config/sublime-text-3 ] && is_os_ubuntu=1 && echo "is_os_ubuntu"
+[ -d /Library ] && is_os_darwin_mac=1
+[ -d /mnt/c/Users ] && is_os_window=1
+# [ -d /mnt/c/Users/syle/AppData/Roaming ] && is_os_window=1
+[ -d ~/.config/sublime-text-3 ] && is_os_ubuntu=1
 
 
 if [ $is_os_darwin_mac == "1" ]
