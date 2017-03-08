@@ -7,6 +7,11 @@ TEMP_BASH_SYLE=/tmp/.bash_syle
 [ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
 
+#define some necessary functions
+function curlNoCache(){
+    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+}
+
 echo "Append ~/.bash_syle to your source if needed (idempotent)";
 BASH_PATH=~/.bashrc;
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
@@ -25,14 +30,14 @@ echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 #completion
 echo "   Bash Completions"
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
+curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
+curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
 #alias
 echo "   Bash Aliases"
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 
 #flags
 #check if is ubuntu
@@ -54,11 +59,11 @@ then
 
   # mac alias
   echo "      OSX Aliases"
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
   
   # mac options 
   echo "      OSX Options"
-  curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
 elif [ $is_ubuntu == "1" ]
 then
   echo "   Ubuntu Bash Specifics...";
@@ -91,13 +96,13 @@ curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.su
 
 #prompt
 echo "   Bash Prompt"
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 #misc
 #eslint config
 echo "   ESLint Config"
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
 #copy it over
 echo "   Moving bash file over to home"
@@ -117,6 +122,6 @@ echo "   Vim & Vundle"
 echo "      Install Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
 echo "      Vim Config .vimrc"
-curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
 echo "      Finalize Vim and Vundle..."
 vim +BundleInstall +qall &> /dev/null;
