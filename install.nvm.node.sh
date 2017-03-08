@@ -13,11 +13,6 @@ nvm install stable;
 nvm install iojs;
 nvm alias default v0.12.15;
 
-
-#resource nvm if needed
-[ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
-[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
-
 nvm use default;
  
 echo "Install npm@2.15.1";
@@ -26,7 +21,7 @@ npm i -g npm@2.15.1;
 #download node npm deps
 echo "Install Global Node Packages";
 npm i -g grunt-cli;
-npm i -g grunt-init;
+installNodeModulesIfNeeded  grunt-init;
 installNodeModulesIfNeeded bower;
 installNodeModulesIfNeeded gulp;
 installNodeModulesIfNeeded browserify;
