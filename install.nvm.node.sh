@@ -1,3 +1,6 @@
+echo "Install nvm"
+[ -s ~/.nvm/nvm.sh ] || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash -
+
 #resource nvm if needed
 [ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
