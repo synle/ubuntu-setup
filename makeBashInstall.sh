@@ -14,10 +14,6 @@ if [ "$(uname)" == "Darwin" ]; then
   curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
 fi
 
-
-echo "Install nvm if needed (idempotent)"
-[ -s ~/.nvm/nvm.sh ] || curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash -
-
 echo "Install nvm, node. npm and stuffs"
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 
