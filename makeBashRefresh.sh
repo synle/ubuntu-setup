@@ -9,7 +9,7 @@ TEMP_BASH_SYLE=/tmp/.bash_syle
 
 #define some necessary functions
 function curlNoCache(){
-    curlNoCache -H  'Cache-Control: no-cache' "$@?$(date +%s)"
+    curl -H -so- 'Cache-Control: no-cache' "$@?$(date +%s)"
 }
 
 echo "Append ~/.bash_syle to your source if needed (idempotent)";
