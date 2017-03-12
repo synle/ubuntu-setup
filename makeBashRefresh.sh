@@ -61,6 +61,7 @@ echo "  Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 echo "  NPM Completion"
 type npm &> /dev/null && npm completion >> $TEMP_BASH_SYLE
+type npm &> /dev/null && npm set progress=false;
 
 # bash alias
 echoo "Bash Aliases"
