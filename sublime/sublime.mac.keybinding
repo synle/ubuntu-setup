@@ -36,5 +36,5 @@
             "cells": [[0, 0, 1, 1], [0, 1, 1, 2]]
         }
     },
-    { "keys": ["super+shift+\\"], "command": "alignment" }
+    { "keys": ["super+shift+a"], "command": "alignment" }
 ]
