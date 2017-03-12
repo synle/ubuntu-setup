@@ -36,10 +36,10 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 #################################
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
-
-echoo "Setting up in bash folder: $BASH_PATH"
 BASH_PATH=~/.bashrc
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
+
+echoo "Setting up in bash folder: $BASH_PATH"
 
 grep -q -F '.bash_syle' $BASH_PATH || echo """
 #syle bash
