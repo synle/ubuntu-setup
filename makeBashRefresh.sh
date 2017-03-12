@@ -11,7 +11,7 @@ function curlNoCache(){
     curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"
 }
 function echoo(){
-    printf "\e[1;4;33m>> $@ \n\e[0m"
+    printf "\e[1;4;33m>>$@<<\n\e[0m"
 }
 
 echoo "Install Prerequisites"
@@ -52,14 +52,14 @@ echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 # bash completion
 echoo "Bash Completions"
-echo "       Git Completion"
+echo "  Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo "       Grunt(Node JS) Completion"
+echo "  Grunt(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
 type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
-echo "       Gulp(Node JS) Completion"
+echo "  Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
-echo "       NPM Completion"
+echo "  NPM Completion"
 type npm &> /dev/null && npm completion >> $TEMP_BASH_SYLE
 
 # bash alias
@@ -70,28 +70,28 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ali
 #OSX MAC GUI Stuffs
 if [ $is_os_darwin_mac == "1" ]
 then
-  echoo "   OSX (Darwin) specifics..."
+  echoo "  OSX (Darwin) specifics..."
 
   # mac brew install
-  echo "      OSX Brew"
+  echo "    OSX Brew"
 
   # mac alias
-  echo "      OSX Aliases"
+  echo "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
 
   # mac options
-  echo "      OSX Options"
+  echo "    OSX Options"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -
 else
-  echoo "   Non-Mac Bash Specifics..."
+  echoo "  Non-Mac Bash Specifics..."
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
 
   if [ $is_os_window == "1" ]
   then
-    echoo "   Windows 10 Subsystem Linux (WSL - Bash)..."
+    echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
   elif [ $is_os_ubuntu == "1" ]
   then
-    echoo "   Ubuntu Debian Bash..."
+    echoo "    Ubuntu Debian Bash..."
   fi
 fi
 
@@ -105,7 +105,7 @@ fi
 echoo "Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
-echoo "   Installing the New Bash File"
+echoo "  Installing the New Bash File"
 #copy it over
 #rerun the source
 mv $TEMP_BASH_SYLE $BASH_SYLE && . $BASH_PATH
@@ -129,9 +129,9 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 
 #vim stuffs
 echoo "Vim & Vundle"
-echo "      Install Vundle"
+echo "  Install Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
-echo "      Vim Config .vimrc"
+echo "  Vim Config .vimrc"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-echo "      Finalize Vim and Vundle..."
+echo "  Finalize Vim and Vundle..."
 vim +BundleInstall +qall &> /dev/null;
