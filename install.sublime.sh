@@ -14,8 +14,7 @@ needToSetUpSublime=1
 urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding
 urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings
 urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme
-urlUserPrefBegin=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings
-urlUserPrefEnd=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings
+urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings
 if [ $is_os_darwin_mac == "1" ]
 then
   # mac OSX sublime
@@ -26,7 +25,6 @@ then
   chmod +x /usr/local/bin/subl
   # url
   urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding
-  urlUserPrefBegin=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.mac.sublime-settings
   # paths
   dir_sublime_keymap=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
   dir_sublime_package_control_config=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
@@ -77,6 +75,5 @@ then
   curlNoCache "$urlDefaultSettings" > "$dir_sublime_default_settings"
 
   echo "      User Settings"
-  curlNoCache "$urlUserPrefBegin" > "$dir_sublime_user_settings"
-  curlNoCache "$urlUserPrefEnd" >> "$dir_sublime_user_settings"
+  curlNoCache "$urlUserPreference" > "$dir_sublime_user_settings"
 fi
