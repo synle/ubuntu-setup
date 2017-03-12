@@ -1,6 +1,5 @@
 #For command line
 export EDITOR='vim'
-npm set progress=false;
 
 ############################################
 # input rc preferences
@@ -46,7 +45,7 @@ function br(){
 
 # print formatted text for easy to read console output.
 function echoo(){
-    printf "\e[1;4;33m>> $@ \n\e[0m"
+    printf "\e[1;4;33m>>$@<<\n\e[0m"
 }
 
 function curlNoCache(){
