@@ -1,41 +1,55 @@
 #!/usr/bin/env bash
+# os flags
+is_os_darwin_mac=0
+is_os_ubuntu=0
+is_os_window=0
+[ -d /Library ] && is_os_darwin_mac=1
+[ -d /mnt/c/Users ] && is_os_window=1
+apt-get -v &> /dev/null && is_os_ubuntu=1
 
-BASH_SYLE=~/.bash_syle
-TEMP_BASH_SYLE=/tmp/.bash_syle
-
-#resource nvm if needed
-[ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
-[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
-
-#define some necessary functions
 function curlNoCache(){
     curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"
 }
+function echoo(){
+    printf "\e[1;4;33m>> $@ \n\e[0m"
+}
 
-echo "Append ~/.bash_syle to your source if needed (idempotent)";
-BASH_PATH=~/.bashrc;
+echoo "Install Prerequisites"
+# common modules needed for mac or ubuntu or windows subsystem linux
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | bash -
+# "Install nvm, node. npm and stuffs"
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
+# global npm node modules...
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash
+
+
+# common commands
+# resource nvm if needed
+[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
+
+#################################
+# script begins....
+# refresh script starts here...
+#################################
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
+
+echoo "Setting up in bash folder: $BASH_PATH"
+BASH_PATH=~/.bashrc
 [ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
-echo "Setting up in bash folder: $BASH_PATH"
 
 grep -q -F '.bash_syle' $BASH_PATH || echo """
 #syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
 """ >> $BASH_PATH
 
-
-
-echo "Install Prerequisites"
-
-# global npm node modules...
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash
-
-
-echo "Set Up Workspace: Temp Bash File: $TEMP_BASH_SYLE" 
 # bash header
+echo "" > $TEMP_BASH_SYLE
 echo "#!/bin/bash" >> $TEMP_BASH_SYLE
 
-#completion
-echo "   Bash Completions"
+# bash completion
+echoo "Bash Completions"
 echo "       Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo "       Grunt(Node JS) Completion"
@@ -44,44 +58,36 @@ echo "       Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
 eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
-#alias
-echo "   Bash Aliases"
+# bash alias
+echoo "Bash Aliases"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-
-#flags
-#check if is ubuntu
-is_ubuntu=0
-apt-get -v &> /dev/null && is_ubuntu=1
 
 
 #OSX MAC GUI Stuffs
-if [ "$(uname)" == "Darwin" ]
+if [ $is_os_darwin_mac == "1" ]
 then
-  echo "   OSX (Darwin) specifics..."
-  
+  echoo "   OSX (Darwin) specifics..."
+
   # mac brew install
   echo "      OSX Brew"
-  echo "         Install packages"
-  brew install fzf jq \
-    2> /dev/null
-
 
   # mac alias
   echo "      OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
-  
-  # mac options 
+
+  # mac options
   echo "      OSX Options"
-  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -;
-elif [ $is_ubuntu == "1" ]
-then
-  echo "   Ubuntu Bash Specifics...";
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -
+else
+  echoo "   Non-Mac Bash Specifics..."
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
 
-  if [ -d "/mnt/c/Users" ]; then
-    echo "   Windows 10 Bash Specifics...";
-  else
-    echo "Real Ubuntu"
+  if [ $is_os_window == "1" ]
+  then
+    echoo "   Windows 10 Subsystem Linux (WSL - Bash)..."
+  elif [ $is_os_ubuntu == "1" ]
+  then
+    echoo "   Ubuntu Debian Bash..."
   fi
 fi
 
@@ -91,36 +97,34 @@ fi
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
 
-#sublime
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
-
-
-
 #prompt
-echo "   Bash Prompt"
+echoo "Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+
+echoo "   Installing the New Bash File"
+#copy it over
+#rerun the source
+mv $TEMP_BASH_SYLE $BASH_SYLE && . $BASH_PATH
 
 
 #misc
+#sublime
+echoo "Sublime Setup"
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
+
+
 #eslint config
-echo "   ESLint Config"
+echoo "ESLint Config"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
 
-#copy it over
-echo "   Moving bash file over to home"
-mv $TEMP_BASH_SYLE $BASH_SYLE
 
-#rerun the source
-echo "   Re-source bash profile"
-. $BASH_SYLE
-  
-  
 #extra stuffs
 #awesome git commands
+echoo "Git Config / Aliases"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 
 #vim stuffs
-echo "   Vim & Vundle"
+echoo "Vim & Vundle"
 echo "      Install Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
 echo "      Vim Config .vimrc"

@@ -1,9 +1,9 @@
+#!/usr/bin/env bash
 function installNodeModulesIfNeeded(){
-    type $@ &> /dev/null || (echo "NPM Install $@" && npm i -g $@)
+    type $@ &> /dev/null || (echo "npm i -g $@" && npm i -g $@)
 }
 
 #resource nvm if needed
-[ -s /opt/nvm/nvm.sh ] && . /opt/nvm/nvm.sh;
 [ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
 
 #download node npm deps

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo "   Vim & Vundle"
 echo "      Vim Config .vimrc"
 curl -so- -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
