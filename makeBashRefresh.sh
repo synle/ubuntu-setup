@@ -18,6 +18,8 @@ echoo "Install Prerequisites"
 # common modules needed for mac or ubuntu or windows subsystem linux
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | bash -
+
+echoo "Install nvm & node & npm modules..."
 # "Install nvm, node. npm and stuffs"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 # global npm node modules...
@@ -54,9 +56,11 @@ echo "       Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo "       Grunt(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
+type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 echo "       Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
-eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
+echo "       NPM Completion"
+type npm &> /dev/null && npm completion >> $TEMP_BASH_SYLE
 
 # bash alias
 echoo "Bash Aliases"
