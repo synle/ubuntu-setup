@@ -10,6 +10,8 @@ function curlNoCache(){
 # script begins....
 #installation script here...
 ##################################
+needToSetUpSublime=1
+urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding
 if [ $is_os_darwin_mac == "1" ]
 then
   #mac sublime
@@ -44,51 +46,46 @@ else
   if [ -d "/mnt/c/Users" ]
   then
     #windows subsystem ubuntu bash sublime
+    dir_sublime_keymap=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
+    dir_sublime_package_control_config=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
+    dir_sublime_default_settings=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
+    dir_sublime_user_settings=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
     echo "  Windows Sublime (via Windows Subsystem Linux)"
-
-    echo "    Windows Keybinding"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
-        > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
-
-    echo "    Package Control Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
-        > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
-
-    echo "    Default Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-        > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
-
-    echo "    User Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
-        > /tmp/subl.user.settings \
-    && curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
-        >> /tmp/subl.user.settings
-    cat /tmp/subl.user.settings > /mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
   elif [ -d "~/.config/sublime-text-3" ]
   then
     #ubuntu sublime
-    echo "  Linux Keybinding"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding \
-        > ~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
-
-
-    echo "    Package Control Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
-        > ~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings
-
-    echo "    Default Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
-        > ~/.config/sublime-text-3/Packages/User/Default.sublime-theme
-
-    echo "    User Settings"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
-        > /tmp/subl.user.settings \
-    && curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
-        >> /tmp/subl.user.settings
-    cat /tmp/subl.user.settings \
-      > ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-    else
-    #N/A
-    echo "Skip Sublime Config Settings - N/A for your machine"
+    dir_sublime_keymap=~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
+    dir_sublime_package_control_config=~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings
+    dir_sublime_default_settings=~/.config/sublime-text-3/Packages/User/Default.sublime-theme
+    dir_sublime_user_settings=~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    echo "  Ubuntu"
+  else
+    #N/A (no gui...)
+    needToSetUpSublime=0
+    echo "  Skip Sublime Config Settings - N/A for your machine"
   fi
+fi
+
+
+# only run install script if needed
+if [ $needToSetUpSublime == "1" ]
+then
+  echo "    Finishing Sublime Config Final Touches..."
+  echo "      Keybinding"
+    curlNoCache "$urlKeyBindings" \
+        > "$dir_sublime_keymap"
+
+  echo "      Package Control Settings"
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings \
+      > "$dir_sublime_package_control_config"
+
+  echo "      Default Settings"
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme \
+      > "$dir_sublime_default_settings"
+
+  echo "      User Settings"
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.windows.sublime-settings  \
+      > "$dir_sublime_user_settings"
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings  \
+      >> "$dir_sublime_user_settings"
 fi
