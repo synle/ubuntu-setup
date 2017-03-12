@@ -90,6 +90,10 @@ else
   if [ $is_os_window == "1" ]
   then
     echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
+    
+    echoo "    HyperTerm (Console)"
+    # TBD
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
