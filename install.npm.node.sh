@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-function installNodeModulesIfNeeded(){
-    type $@ &> /dev/null || (echo "npm i -g $@" && npm i -g $@)
-}
+NVM_BASE_PATH=~/.nvm
 
 #resource nvm if needed
-[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh;
+type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
+
+function installNodeModulesIfNeeded(){
+    type $@ &> /dev/null || echo "npm i -g $@"
+    type $@ &> /dev/null || npm i -g $@ &> /dev/null
+}
 
 #download node npm deps
 echo "   Install Global Node Packages";

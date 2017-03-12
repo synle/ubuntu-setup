@@ -8,10 +8,10 @@ function installAptGetModuleIfNeeded(){
 
 if [ $is_os_ubuntu == "1" ]
 then
-    echo "Ubuntu apt-get update..."
+    echo "  apt-get update..."
     sudo apt-get update -y &> /dev/null
 
-    echo "Ubuntu apt-get install..."
+    echo "  apt-get install..."
     installAptGetModuleIfNeeded git
     installAptGetModuleIfNeeded vim
     installAptGetModuleIfNeeded curl
