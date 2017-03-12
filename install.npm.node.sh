@@ -5,8 +5,8 @@ NVM_BASE_PATH=~/.nvm
 type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
 
 function installNodeModulesIfNeeded(){
-    type $@ &> /dev/null || (echo "  npm i -g $@" && npm i -g $@ &> /dev/null)
-    type $@ &> /dev/null && echo "  SKIPPED npm i -g $@"
+    type $@ &> /dev/null || (echo "    npm i -g $@" && npm i -g $@ &> /dev/null)
+    type $@ &> /dev/null && echo "    SKIPPED npm i -g $@"
 }
 
 #download node npm deps
