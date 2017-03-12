@@ -1,7 +1,3 @@
-#flags
-is_os_darwin_mac=0
-[ -d /Library ] && is_os_darwin_mac=1
-
 function curlNoCache(){
   curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"
 }
@@ -11,12 +7,12 @@ function curlNoCache(){
 #installation script here...
 ##################################
 needToSetUpSublime=1
-dir_sublime_color_scheme_prefix="Packages/Color Scheme - Default"
+dir_sublime_color_scheme_prefix="Packages\/Color Scheme - Default"
 urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding
 urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings
 urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme
 urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Preferences.sublime-settings
-if [ $is_os_darwin_mac == "1" ]
+if [ -d /Library ]
 then
   # mac OSX sublime
   echo "    OSX Sublime"
@@ -76,8 +72,7 @@ then
   curlNoCache "$urlDefaultSettings" > "$dir_sublime_default_settings"
 
   echo "      User Settings"
-  curlNoCache "$urlUserPreference" \
-    | sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" \
-    | vim -
-    # > "$dir_sublime_user_settings"
+  curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
+  sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
+  cat /tmp/subl-user-settings > "$dir_sublime_user_settings"
 fi
