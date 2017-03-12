@@ -11,6 +11,7 @@ function curlNoCache(){
 #installation script here...
 ##################################
 needToSetUpSublime=1
+dir_sublime_color_scheme_prefix="Packages/Color Scheme - Default"
 urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.window.keybinding
 urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/PackageControl.sublime-settings
 urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/Default.sublime-theme
@@ -75,5 +76,8 @@ then
   curlNoCache "$urlDefaultSettings" > "$dir_sublime_default_settings"
 
   echo "      User Settings"
-  curlNoCache "$urlUserPreference" > "$dir_sublime_user_settings"
+  curlNoCache "$urlUserPreference" \
+    | sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" \
+    | vim -
+    # > "$dir_sublime_user_settings"
 fi

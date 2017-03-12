@@ -1,4 +1,5 @@
 {
+    "color_scheme": "{{COLOR_SCHEME_PATH}}/Blackboard.tmTheme",
     "font_size": 17,
     "show_tab_close_buttons": false,
     "bold_folder_labels": true,
