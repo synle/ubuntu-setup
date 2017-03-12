@@ -105,7 +105,7 @@ fi
 echoo "Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
-echoo "  Installing the New Bash File"
+echoo "Installing the New Bash File"
 #copy it over
 #rerun the source
 mv $TEMP_BASH_SYLE $BASH_SYLE && . $BASH_PATH
