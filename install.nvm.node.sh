@@ -6,11 +6,14 @@ function installNvmNodeVersionIfNeeded(){
     then
         echo "  nvm install $@"
         nvm install $@ &> /dev/null
+    else
+        echo "  SKIPPED nvm install $@"
     fi
 }
 
 echo "  Install nvm"
-[ -d $NVM_BASE_PATH ] || (echo "Install NVM" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash -  &> /dev/null)
+[ -d $NVM_BASE_PATH ] || (echo "    Install NVM" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash -  &> /dev/null)
+[ -d $NVM_BASE_PATH ] && echo "    SKIPPED Install NVM"
 type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
 
 echo "  Install Nodes"
