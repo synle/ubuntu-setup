@@ -4,10 +4,10 @@ NVM_BASE_PATH=~/.nvm
 function installNvmNodeVersionIfNeeded(){
     if [ ! -d "$NVM_BASE_PATH/versions/node/$@" ]
     then
-        echo "  nvm install $@"
+        echo "    nvm install $@"
         nvm install $@ &> /dev/null
     else
-        echo "  SKIPPED nvm install $@"
+        echo "    SKIPPED nvm install $@"
     fi
 }
 
