@@ -47,6 +47,6 @@ git config --global alias.fix-author 'commit --amend --reset-author'
 
 
 echo "    Git Global Ignores"
-
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/gitignoreGlobal > ${HOME}/.gitignore
 
 #end git
