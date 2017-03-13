@@ -54,7 +54,7 @@ function curlNoCache(){
 
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
     
     # resource bash profile / bash rc
     echoo "Resource bash profile"
