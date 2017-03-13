@@ -4,6 +4,7 @@ echo "  Git"
 #config
 echo "    Git Config"
 git config --global user.name "Sy Le"
+git config --global core.excludesfile ${HOME}/.gitignore
 git config --global core.autocrlf input
 git config --global core.editor vim
 git config --global diff.tool vimdiff
