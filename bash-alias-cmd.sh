@@ -31,12 +31,8 @@ echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc
 # aliases & function
 ############################################
 alias g=git
-
-# php composer
-alias composer="php ~/composer.phar"
-
-# php silex start
-alias startSilex="php -S localhost:8080 -t web web/index.php"
+alias composer="php ~/composer.phar" # php composer
+alias startSilex="php -S localhost:8080 -t web web/index.php" # php silex start
 
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
