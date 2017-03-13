@@ -3,5 +3,5 @@
 ## Install & Refresh script
 ````
 # Refresh Script
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashRefresh.sh | bash
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 ```
