@@ -21,10 +21,8 @@ then
   # url
   urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/sublime.mac.keybinding
   # paths
-  dir_sublime_keymap=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default\ \(OSX\).sublime-keymap
-  dir_sublime_package_control_config=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
-  dir_sublime_default_settings=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
-  dir_sublime_user_settings=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+  dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+  dir_sublime_keymap=$dir_sublime_base/Default\ \(OSX\).sublime-keymap
 else
   echo "  Non-Mac Environment"
 
@@ -34,20 +32,16 @@ else
     echo "  Windows Sublime (via Windows Subsystem Linux)"
     # url
     # paths
-    dir_sublime_keymap=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default\ \(Windows\).sublime-keymap
-    dir_sublime_package_control_config=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
-    dir_sublime_default_settings=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Default.sublime-theme
-    dir_sublime_user_settings=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+    dir_sublime_base=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User
+    dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
   elif [ -d "~/.config/sublime-text-3" ]
   then
     #ubuntu sublime
     echo "  Ubuntu Sublime"
     # url
     # paths
-    dir_sublime_keymap=~/.config/sublime-text-3/Packages/User/Default\ \(Linux\).sublime-keymap
-    dir_sublime_package_control_config=~/.config/sublime-text-3/Packages/User/Package\ Control.sublime-settings
-    dir_sublime_default_settings=~/.config/sublime-text-3/Packages/User/Default.sublime-theme
-    dir_sublime_user_settings=~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    dir_sublime_base=~/.config/sublime-text-3/Packages/User
+    dir_sublime_keymap=$dir_sublime_base/Default\ \(Linux\).sublime-keymap
   else
     #N/A (no gui...)
     needToSetUpSublime=0
@@ -59,6 +53,10 @@ fi
 # only run install script if needed
 if [ $needToSetUpSublime == "1" ]
 then
+  dir_sublime_package_control_config=$dir_sublime_base/Package\ Control.sublime-settings
+  dir_sublime_default_settings=$dir_sublime_base/Default.sublime-theme
+  dir_sublime_user_settings=$dir_sublime_base/Preferences.sublime-settings
+
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
@@ -85,5 +83,5 @@ then
             "shell": true
         }
     }
-  """
+  """ > node-js.sublime-build
 fi
