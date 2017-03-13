@@ -1,8 +1,8 @@
 #extra stuffs
 #awesome git commands
-echo "   Git"
+echo "  Git"
 #config
-echo "      Git Config"
+echo "    Git Config"
 git config --global user.name "Sy Le"
 git config --global core.autocrlf input
 git config --global core.editor vim
@@ -12,7 +12,7 @@ git config --global merge.tool vimdiff
 git config --global merge.prompt false
 
 #git alias
-echo "      Git Aliases"
+echo "    Git Aliases"
 git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.co 'checkout'
