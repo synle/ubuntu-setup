@@ -53,24 +53,20 @@ fi
 # only run install script if needed
 if [ $needToSetUpSublime == "1" ]
 then
-  dir_sublime_package_control_config=$dir_sublime_base/Package\ Control.sublime-settings
-  dir_sublime_default_settings=$dir_sublime_base/Default.sublime-theme
-  dir_sublime_user_settings=$dir_sublime_base/Preferences.sublime-settings
-
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
 
   echo "    Package Control Settings"
-  curlNoCache "$urlPackageControlConfig" > "$dir_sublime_package_control_config"
+  curlNoCache "$urlPackageControlConfig" > "$dir_sublime_base/Package\ Control.sublime-settings"
 
   echo "    Default Settings"
-  curlNoCache "$urlDefaultSettings" > "$dir_sublime_default_settings"
+  curlNoCache "$urlDefaultSettings" > "$dir_sublime_base/Default.sublime-theme"
 
   echo "    User Settings"
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
-  cat /tmp/subl-user-settings > "$dir_sublime_user_settings"
+  cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
   
   
   echo "    Build System"
@@ -78,10 +74,11 @@ then
   echo """
     {
         "cmd": ["/usr/local/bin/node", "$file"],
+        "shell": true,
         "working_dir": "$file_path",
         "selector" : "source.js",
         "windows" : {
-            "shell": true
+            "cmd": ["node", "$file"]
         }
     }
   """ > "$dir_sublime_base/node-js.sublime-build"
