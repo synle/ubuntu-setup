@@ -73,4 +73,17 @@ then
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
   cat /tmp/subl-user-settings > "$dir_sublime_user_settings"
+  
+  
+  echo "    Build System"
+  echo """
+    {
+        "cmd": ["/usr/local/bin/node", "$file"],
+        "working_dir": "$file_path",
+        "selector" : "source.js",
+        "windows" : {
+            "shell": true
+        }
+    }
+  """
 fi
