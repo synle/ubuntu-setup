@@ -89,11 +89,13 @@ else
 
   if [ $is_os_window == "1" ]
   then
+    WINDOWS_HOME_PATH=/mnt/c/Users/$USER
     echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
-    
+
     echoo "    HyperTerm (Console)"
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/hyperterm.js > $WINDOWS_HOME_PATH/.hyper.js
     # TBD
   elif [ $is_os_ubuntu == "1" ]
   then
