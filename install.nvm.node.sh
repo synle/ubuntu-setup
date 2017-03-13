@@ -1,93 +1,42 @@
-function curlNoCache(){ curl -s "$@?$(date +%s)"; }
+#!/usr/bin/env bash
+NVM_BASE_PATH=~/.nvm
 
-#################################
-# script begins....
-#installation script here...
-##################################
-needToSetUpSublime=1
-dir_sublime_color_scheme_prefix="Packages\/Color Scheme - Default"
-urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-window
-urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-package-control
-urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-default-sublime-theme
-urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-user-preference
-if [ -d /Library ]
+function installNvmNodeVersionIfNeeded(){
+    if [ ! -d "$NVM_BASE_PATH/versions/node/$@" ]
+    then
+        echo "    INSTALL $@"
+        nvm install $@ &> /dev/null
+    else
+        echo "    SKIP    $@"
+    fi
+}
+
+#install nvm itself.
+[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash -  &> /dev/null)
+[ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
+. "$NVM_BASE_PATH/nvm.sh"
+
+echo "  nvm install"
+installNvmNodeVersionIfNeeded v6.10.0
+
+
+echo "  nvm default installation (v.0.12.15)"
+if [ ! -d "$NVM_BASE_PATH/versions/node/v0.12.15" ]
 then
-  # mac OSX sublime
-  echo "  OSX Sublime"
-  echo "    Symlink: subl"
-  rm -f /usr/local/bin/subl;
-  ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
-  chmod +x /usr/local/bin/subl
-  # url
-  urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
-  # paths
-  dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  dir_sublime_keymap=$dir_sublime_base/Default\ \(OSX\).sublime-keymap
+    echo "     INSTALL node v.0.12.15"
+    installNvmNodeVersionIfNeeded v0.12.15
+
+    echo "       Setting nvm default"
+    nvm alias default v0.12.15 &> /dev/null
+    nvm use default &> /dev/null
+
+    echo "       Install npm@2.15.1"
+    npm i -g npm@2.15.1 &> /dev/null
 else
-  echo "  Non-Mac Environment"
-
-  if [ -d "/mnt/c/Users" ]
-  then
-    # windows subsystem ubuntu bash sublime
-    echo "  Windows Sublime (via Windows Subsystem Linux)"
-    # url
-    # paths
-    dir_sublime_base=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
-  elif [ -d "~/.config/sublime-text-3" ]
-  then
-    #ubuntu sublime
-    echo "  Ubuntu Sublime"
-    # url
-    # paths
-    dir_sublime_base=~/.config/sublime-text-3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Linux\).sublime-keymap
-  else
-    #N/A (no gui...)
-    needToSetUpSublime=0
-    echo "  Skip Sublime Config Settings - N/A for your machine"
-  fi
+    echo "    SKIP"
 fi
 
 
-# only run install script if needed
-if [ $needToSetUpSublime == "1" ]
-then
-  echo "  Finishing Sublime Config Final Touches..."
-  echo "    Keybinding"
-  curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
-
-  echo "    Package Control Settings"
-  curlNoCache "$urlPackageControlConfig" > "$dir_sublime_base/Package\ Control.sublime-settings"
-
-  echo "    Default Settings"
-  curlNoCache "$urlDefaultSettings" > "$dir_sublime_base/Default.sublime-theme"
-
-  echo "    User Settings"
-  curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
-  sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
-  cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
-  
-  
-  echo "    Build System"
-  # build - nodejs
-  echo '''
-    {
-        "working_dir": "${project_path}",
-        "selector" : "source.json",
-        "path": "/usr/local/bin",
-        "cmd": ["node", "$file"]
-    }
-  ''' > "$dir_sublime_base/node-js.sublime-build"
-
-
-  # build - nodejs
-  echo '''    
-    {
-        "working_dir": "${project_path}",
-        "selector" : "source.json",
-        "path": "/usr/local/bin",
-        "cmd": ["npm", "start"]
-    }
-  ''' > "$dir_sublime_base/node-npm-start.sublime-build"
-fi
+echo "  nvm node symlink"
+[ -s /usr/local/bin/node ] || ln -s ~/.nvm/versions/node/v0.12.15/bin/node /usr/local/bin/node
+[ -s /usr/local/bin/npm ]  || ln -s ~/.nvm/versions/node/v0.12.15/bin/npm /usr/local/bin/npm
