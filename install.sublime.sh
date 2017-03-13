@@ -13,8 +13,8 @@ urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/su
 if [ -d /Library ]
 then
   # mac OSX sublime
-  echo "    OSX Sublime"
-  echo "      Symlink: subl"
+  echo "  OSX Sublime"
+  echo "    Symlink: subl"
   rm -f /usr/local/bin/subl;
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl
@@ -59,17 +59,17 @@ fi
 # only run install script if needed
 if [ $needToSetUpSublime == "1" ]
 then
-  echo "    Finishing Sublime Config Final Touches..."
-  echo "      Keybinding"
+  echo "  Finishing Sublime Config Final Touches..."
+  echo "    Keybinding"
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
 
-  echo "      Package Control Settings"
+  echo "    Package Control Settings"
   curlNoCache "$urlPackageControlConfig" > "$dir_sublime_package_control_config"
 
-  echo "      Default Settings"
+  echo "    Default Settings"
   curlNoCache "$urlDefaultSettings" > "$dir_sublime_default_settings"
 
-  echo "      User Settings"
+  echo "    User Settings"
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
   cat /tmp/subl-user-settings > "$dir_sublime_user_settings"
