@@ -58,6 +58,11 @@ function refreshBashSyLe(){
 }
 
 
+function openSublimePackageControl(){
+    cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings;
+#     cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings;
+}
+
 
 function removeNodeModules(){
     echoo "Removed nested node_modules...";
