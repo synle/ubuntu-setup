@@ -4,8 +4,9 @@
 
 
 ## plugins
-`cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings`
-https://github.com/synle/ubuntu-setup/blob/master/sublime/PackageControl.sublime-settings
+```
+cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
+```
 
 
 ## Build System
