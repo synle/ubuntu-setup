@@ -71,7 +71,7 @@ then
   
   echo "    Build System"
   # build - nodejs
-  echo """
+  echo '''
     {
         "cmd": ["/usr/local/bin/node", "$file"],
         "shell": true,
@@ -81,5 +81,5 @@ then
             "cmd": ["node", "$file"]
         }
     }
-  """ > "$dir_sublime_base/node-js.sublime-build"
+  ''' > "$dir_sublime_base/node-js.sublime-build"
 fi
