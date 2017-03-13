@@ -7,7 +7,7 @@ is_os_window=0
 [ -d /mnt/c/Users ] && is_os_window=1
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
-function curlNoCache(){ curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"; }
+function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
 
 echoo "Prerequisites"
