@@ -210,7 +210,7 @@ is_os_window=0
 if [ $is_os_window == "0" ]
 then
     # fzf file view
-    function fuzzyvim(){
+    function fuzzyVim(){
       local OUT
       local QUERY
 
@@ -229,7 +229,7 @@ then
     }
 
     # cdf - cd into the directory of the selected file
-    function fuzzydirectory() {
+    function fuzzyDirectory() {
       local dir
       dir=$(find ${1:-.} -path '*/\.*' -prune \
           -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
@@ -239,7 +239,7 @@ then
     }
 
 
-    function fuzzygrep(){
+    function fuzzyGrep(){
       local OUT
       OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
       echo $OUT | cut -d ":" -f1 | xargs echo;
@@ -248,7 +248,7 @@ then
 
 
 
-    function fuzzyhistory() {
+    function fuzzyHistory() {
       local OUT;
       OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
       echo $OUT;
@@ -258,7 +258,7 @@ then
 
 
     # fkill - kill process
-    function fuzzykill() {
+    function fuzzyKill() {
       pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
       if [ "x$pid" != "x" ]
@@ -269,7 +269,7 @@ then
 
 
     #fuzzy git
-    function fuzzygitshow() {
+    function fuzzyGitShow() {
       # git log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
       git log --pretty=format:'%Cred%h%Creset %s %C(bold blue)%an%Creset' --abbrev-commit --date=relative --color=always \
       |
@@ -281,7 +281,7 @@ then
       FZF-EOF"
     }
 
-    function fuzzygitcobranch() {
+    function fuzzyGitCobranch() {
       local branches branch
       branches=$(git branch --all | grep -v HEAD) &&
       branch=$(echo "$branches" |
@@ -289,7 +289,7 @@ then
       git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
     }
 
-    function fuzzygitcocommit() {
+    function fuzzyGitCocommit() {
       local commits commit
       commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
