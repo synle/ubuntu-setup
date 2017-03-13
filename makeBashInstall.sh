@@ -41,25 +41,25 @@ BASH_PATH=~/.bashrc
 
 echoo "Setting up in bash folder: $BASH_PATH"
 
-grep -q -F '.bash_syle' $BASH_PATH || echo """
+grep -q -F '.bash_syle' $BASH_PATH || echo  """
 #syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
 """ >> $BASH_PATH
 
 # bash header
-echo "" > $TEMP_BASH_SYLE
-echo "#!/bin/bash" >> $TEMP_BASH_SYLE
+echo  "" > $TEMP_BASH_SYLE
+echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 # bash completion
 echoo "Bash Completions"
-echo "  Git Completion"
+echo  "  Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo "  Grunt(Node JS) Completion"
+echo  "  Grunt(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
 type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
-echo "  Gulp(Node JS) Completion"
+echo  "  Gulp(Node JS) Completion"
 curlNoCache https://raw.githubusercontent.com/gulpjs/gulp/master/completion/bash >> $TEMP_BASH_SYLE
-echo "  NPM Completion"
+echo  "  NPM Completion"
 type npm &> /dev/null && npm completion >> $TEMP_BASH_SYLE
 type npm &> /dev/null && npm set progress=false;
 
@@ -74,14 +74,14 @@ then
   echoo "  OSX (Darwin) specifics..."
 
   # mac brew install
-  echo "    OSX Brew"
+  echo  "    OSX Brew"
 
   # mac alias
-  echo "    OSX Aliases"
+  echo  "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
 
   # mac options
-  echo "    OSX Options"
+  echo  "    OSX Options"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -
 else
   echoo "  Non-Mac Bash Specifics..."
@@ -94,13 +94,13 @@ else
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
 
-    echo "    Install CBWin"
+    echo  "        Install CBWin"
     if [ ! -d "/mnt/c/cbwin" ]
     then
-      echo "      INSTALL"
+      echo  "        INSTALL"
 
       cd /tmp
-        echo "        Cloning"
+        echo  "        Cloning"
         rm -rf cbwin* master.zip cbwin-bin*.zip
         wget https://github.com/xilun/cbwin/releases/download/v0.13/cbwin-bin-0.13.zip &> /dev/null
         unzip cbwin-bin*.zip &> /dev/null
@@ -109,16 +109,16 @@ else
         mv cbwin* /mnt/c
         cd /mnt/c/cbwin
 
-        echo "        install binary for outbash..."
+        echo  "        Install binary for outbash.exe"
         sudo ./install.sh
         cd --
       cd --
 
-      echoo "    HyperTerm (Console)"
-      echo "       HyperTerm Config"
+      echoo "      HyperTerm (Console)"
+      echo  "        HyperTerm Config"
       curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/hyperterm.js > $WINDOWS_HOME_PATH/.hyper.js
     else
-      echo "      SKIP"
+      echo  "        SKIP"
     fi
   elif [ $is_os_ubuntu == "1" ]
   then
@@ -134,7 +134,7 @@ else
 fi
 
 
-# echo "      Reset Bash KeyMap";
+# echo  "      Reset Bash KeyMap";
 # set -o vi;
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
@@ -167,9 +167,9 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 
 #vim stuffs
 echoo "Vim & Vundle"
-echo "  Install Vundle"
+echo  "  Install Vundle"
 rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
-echo "  Vim Config .vimrc"
+echo  "  Vim Config .vimrc"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-echo "  Finalize Vim and Vundle..."
+echo  "  Finalize Vim and Vundle..."
 vim +BundleInstall +qall &> /dev/null;
