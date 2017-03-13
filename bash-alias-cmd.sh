@@ -42,7 +42,7 @@ function br(){
 # print formatted text for easy to read console output.
 function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
 
-function curlNoCache(){ curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"; }
+function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
