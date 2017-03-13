@@ -4,7 +4,7 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     type $@ &> /dev/null || (echo " INSTALL $@" && sudo apt-get install -y --fix-missing $@ &> /dev/null)
-    type $@ &> /dev/null || (echo " SKIP    $@")
+    type $@ &> /dev/null && (echo " SKIP    $@")
 }
 
 if [ $is_os_ubuntu == "1" ]
