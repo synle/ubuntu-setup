@@ -83,5 +83,5 @@ then
             "shell": true
         }
     }
-  """ > node-js.sublime-build
+  """ > "$dir_sublime_base/node-js.sublime-build"
 fi
