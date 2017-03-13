@@ -35,3 +35,8 @@ then
 else
     echo "    SKIP"
 fi
+
+
+echo "  nvm node symlink"
+[ -s /usr/local/bin/node ] || ln -s ~/.nvm/versions/node/v0.12.15/bin/node /usr/local/bin/node
+[ -s /usr/local/bin/npm ]  || ln -s ~/.nvm/versions/node/v0.12.15/bin/npm /usr/local/bin/npm
