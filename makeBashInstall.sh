@@ -123,7 +123,7 @@ else
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
-    
+
     #ubuntu gui tweaks
     #lcfe tweak: speed bump
     #vim ~/.config/openbox/lubuntu-rc.xml
@@ -157,7 +157,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 
 #eslint config
 echoo "ESLint Config"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/.eslintrc > ~/.eslintrc
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
 
 
 #extra stuffs

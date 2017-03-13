@@ -1,6 +1,7 @@
-// http://eslint.org/docs/rules/
-// vim: ft=json
 {
+    // http://eslint.org/docs/rules/
+    // vim: ft=json
+
     "extends": "airbnb/legacy",
     "plugins": [
         "riq",

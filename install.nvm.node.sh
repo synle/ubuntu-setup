@@ -18,9 +18,11 @@ type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
 echo "  nvm install"
 installNvmNodeVersionIfNeeded v6.10.0
 
+
+echo "  nvm default installation"
 if [ ! -d "$NVM_BASE_PATH/versions/node/v0.12.15" ]
 then
-    echo "     Install node v.0.12.15"
+    echo "     INSTALL node v.0.12.15"
     installNvmNodeVersionIfNeeded v0.12.15
 
     echo "       Setting nvm default"
@@ -29,4 +31,6 @@ then
 
     echo "       Install npm@2.15.1"
     npm i -g npm@2.15.1 &> /dev/null
+else
+    echo "      SKIP node v.0.12.15"
 fi
