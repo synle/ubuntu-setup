@@ -16,7 +16,9 @@ Build Node JS
 
 
 
-`ln -s /Users/sle/.nvm/versions/node/v0.12.15/bin/node /usr/local/bin/node`
+```
+[ -s /usr/local/bin/node ] || ln -s /Users/sle/.nvm/versions/node/v0.12.15/bin/node /usr/local/bin/node
+```
 
 ```
 {
