@@ -14,6 +14,9 @@ function installMacAppIfNotThereAlready(){
 
 if [ $is_os_darwin_mac == "1" ]
 then
+    #################################
+    # homebrew install
+    #################################
     echo "setting up homebrew"
     hasHomebrewInstalled=1
     type brew &> /dev/null || hasHomebrewInstalled=0
@@ -38,6 +41,10 @@ then
     installMacAppIfNotThereAlready tig;
     
     
+    
+    #################################
+    # OSX Defaults
+    #################################
     echo "  OSX Defaults"
     #show all hidden files
     #defaults write com.apple.finder AppleShowAllFiles YES;
