@@ -12,6 +12,7 @@ git config --global diff.prompt false
 git config --global merge.tool vimdiff
 git config --global merge.prompt false
 
+
 #git alias
 echo "    Git Aliases"
 git config --global alias.del-merged-branches "!git branch --merged | grep -v '*' | xargs git branch -d"
@@ -43,5 +44,9 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
 git config --global alias.stash-all 'stash --all'
 git config --global alias.fix-author 'commit --amend --reset-author'
+
+
+echo "    Git Global Ignores"
+
 
 #end git
