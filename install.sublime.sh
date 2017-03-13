@@ -74,6 +74,7 @@ then
   
   
   echo "    Build System"
+  # build - nodejs
   echo """
     {
         "cmd": ["/usr/local/bin/node", "$file"],
