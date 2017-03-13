@@ -8,13 +8,13 @@ export EDITOR='vim'
 #case insenstive autocomplete
 echo """
 # case insenstive autocomplete
-# ignore case for autocomplete' 
-set completion-ignore-case on' 
+# ignore case for autocomplete'
+set completion-ignore-case on'
 # https://gist.github.com/gregorynicholas/1812027
-set expand-tilde on' 
-set show-all-if-ambiguous on' 
-set visible-stats on' 
-#set match-hidden-files off' 
+set expand-tilde on'
+set show-all-if-ambiguous on'
+set visible-stats on'
+#set match-hidden-files off'
 # http://hiltmon.com/blog/2013/03/12/better-bash-shell-expansion/
 # shift tab to reverse auto complete.
 """ >  ~/.inputrc
@@ -44,18 +44,14 @@ function br(){
 
 
 # print formatted text for easy to read console output.
-function echoo(){
-    printf "\e[1;4;33m>>$@<<\n\e[0m"
-}
+function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
 
-function curlNoCache(){
-    curl -so- -H  'Cache-Control: no-cache' "$@?$(date +%s)"
-}
+function curlNoCache(){ curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"; }
 
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
-    
+
     # resource bash profile / bash rc
     echoo "Resource bash profile"
     [ -s ~/.bashrc ] && . ~/.bashrc;
@@ -78,8 +74,8 @@ function searchSource(){
 
     #option 2
     #git grep "$@";
-    
-    
+
+
     # option 1
     # br;
     # echo "Searching:  $@";
@@ -132,14 +128,14 @@ function getIpAddrress(){
 }
 
 
-# set up express project 
+# set up express project
 function new-express-project(){
     express -H --css less --git --force
 }
 
 
 #short path
-function sps() {                                                                                              
+function sps() {
     python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
 }
 
@@ -173,7 +169,7 @@ function compareGit(){
 
     urlToShow=https://github.com/${repo_name}/compare/${baseSha1}...${baseSha2}
     echo $urlToShow
-    
+
     if hash open 2>/dev/null; then
         open $urlToShow
     fi
@@ -188,7 +184,7 @@ function compareGit(){
 # fzf - fuzzy find
 # fzf only apply to mac for now
 # https://github.com/junegunn/fzf/wiki/examples
-# 
+#
 # for now this is only applied to Mac and Ubuntu
 ############################################
 is_os_window=0

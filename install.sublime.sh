@@ -1,6 +1,4 @@
-function curlNoCache(){
-  curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"
-}
+function curlNoCache(){ curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"; }
 
 #################################
 # script begins....

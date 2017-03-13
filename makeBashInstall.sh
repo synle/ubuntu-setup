@@ -7,12 +7,8 @@ is_os_window=0
 [ -d /mnt/c/Users ] && is_os_window=1
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
-function curlNoCache(){
-    curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"
-}
-function echoo(){
-    printf "\e[1;4;33m>>$@<<\n\e[0m"
-}
+function curlNoCache(){ curl -so- -H 'Cache-Control: no-cache' "$@?$(date +%s)"; }
+function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
 
 echoo "Prerequisites"
 # common modules needed for mac or ubuntu or windows subsystem linux
@@ -107,10 +103,10 @@ else
         rm cbwin-bin*.zip
         mv cbwin* cbwin
         mv cbwin* /mnt/c
-        cd /mnt/c/cbwin
 
-        echo  "        Install binary for outbash.exe"
-        sudo ./install.sh
+        cd /mnt/c/cbwin
+          echo  "        Install binary for outbash.exe"
+          sudo ./install.sh
         cd --
       cd --
 
@@ -167,9 +163,4 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 
 #vim stuffs
 echoo "Vim & Vundle"
-echo  "  Install Vundle"
-rm -rf ~/.vim/bundle/Vundle.vim && git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &> /dev/null;
-echo  "  Vim Config .vimrc"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/vim/.vimrc > ~/.vimrc;
-echo  "  Finalize Vim and Vundle..."
-vim +BundleInstall +qall &> /dev/null;
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
