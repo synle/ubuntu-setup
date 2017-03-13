@@ -73,13 +73,21 @@ then
   # build - nodejs
   echo '''
     {
-        "cmd": ["/usr/local/bin/node", "$file"],
-        "shell": true,
-        "working_dir": "$file_path",
-        "selector" : "source.js",
-        "windows" : {
-            "cmd": ["node", "$file"]
-        }
+        "working_dir": "${project_path}",
+        "selector" : "source.json",
+        "path": "/usr/local/bin",
+        "cmd": ["node", "$file"]
     }
   ''' > "$dir_sublime_base/node-js.sublime-build"
+
+
+  # build - nodejs
+  echo '''    
+    {
+        "working_dir": "${project_path}",
+        "selector" : "source.json",
+        "path": "/usr/local/bin",
+        "cmd": ["npm", "start"]
+    }
+  ''' > "$dir_sublime_base/node-npm-start.sublime-build"
 fi
