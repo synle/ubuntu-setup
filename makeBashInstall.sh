@@ -69,16 +69,9 @@ if [ $is_os_darwin_mac == "1" ]
 then
   echoo "  OSX (Darwin) specifics..."
 
-  # mac brew install
-  echo  "    OSX Brew"
-
   # mac alias
   echo  "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
-
-  # mac options
-  echo  "    OSX Options"
-  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/mac/mac.setup.sh | bash -
 else
   echoo "  Non-Mac Bash Specifics..."
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
