@@ -50,7 +50,7 @@ function refreshBashSyLe(){
 
     # resource bash profile / bash rc
     echo """
-    ==============================
+============================================================
     """
     echoo "Resource bash profile"
     [ -s ~/.bashrc ] && . ~/.bashrc;
@@ -152,7 +152,7 @@ function filterUnwanted(){
 }
 
 
-function compareGit(){
+function gitCompare(){
     #get current branch name
     branch_name=$(git symbolic-ref -q HEAD)
     branch_name=${branch_name##refs/heads/}
