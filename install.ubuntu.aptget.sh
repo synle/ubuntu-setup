@@ -21,6 +21,8 @@ then
     installAptGetModuleIfNeeded tig
     installAptGetModuleIfNeeded unzip
     installAptGetModuleIfNeeded make
+    installAptGetModuleIfNeeded jq
+    installAptGetModuleIfNeeded figlet
     # sudo apt-get install  -y --fix-missing g++
     # sudo apt-get install  -y --fix-missing mysql-client
     # sudo apt-get install  -y --fix-missing openjdk-8-jdk

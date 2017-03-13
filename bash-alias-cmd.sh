@@ -49,6 +49,9 @@ function refreshBashSyLe(){
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 
     # resource bash profile / bash rc
+    echo """
+    ==============================
+    """
     echoo "Resource bash profile"
     [ -s ~/.bashrc ] && . ~/.bashrc;
     [ -s ~/.bash_profile ] && . ~/.bash_profile;
@@ -174,6 +177,25 @@ function compareGit(){
 #############  SECTION BREAK  ##############
 ############################################
 
+
+
+############################################
+# aliases & function for WORK
+############################################
+function startSfdcAura(){
+  mvn jetty:start -Djetty.port=9090 -Dwebdriver.browser.type=GOOGLECHROME
+}
+
+function createReviewForCollabEdit(){
+  ccollab addgitdiffs new HEAD^
+}
+
+function compileSfdcAuraQuick(){
+  mvn clean install -DskipUnitTests -DskipJsDoc
+}
+############################################
+#############  SECTION BREAK  ##############
+############################################
 
 
 ############################################
