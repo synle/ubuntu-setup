@@ -1,34 +1,35 @@
 {
-    "bootstrapped": true,
-    "in_process_packages":
-    [
-    ],
-    "installed_packages":
-    [
-        "All Autocomplete",
-        "Babel",
-        "BracketHighlighter",
-        "Case Conversion",
-        "CodeFormatter",
-        "Color Highlighter",
-        "Compare Side-By-Side",
-        "DocBlockr",
-        "FixMyJS",
-        "Git",
-        "GitHubinator",
-        "Icon Fonts",
-        "LESS",
-        "Markdown Preview",
-        "npm",
-        "Package Control",
-        "SCSS",
-        "SideBarEnhancements",
-        "SublimeCodeIntel",
-        "SublimeLinter",
-        "SublimeLinter-contrib-scss-lint",
-        "SublimeLinter-contrib-eslint",
-        "SyncedSideBar",
-        "TypeScript",
-        "zz File Icons"
-    ]
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"Babel",
+		"BracketHighlighter",
+		"Case Conversion",
+		"CodeFormatter",
+		"Color Highlighter",
+		"Compare Side-By-Side",
+		"DocBlockr",
+		"FixMyJS",
+		"Git",
+		"GitHubinator",
+		"Icon Fonts",
+		"LESS",
+		"Markdown Preview",
+		"npm",
+		"Package Control",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-contrib-scss-lint",
+		"SyncedSideBar",
+		"TypeScript",
+		"zz File Icons"
+	]
 }
