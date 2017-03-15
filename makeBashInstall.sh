@@ -127,14 +127,8 @@ fi
 # set -o vi;
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
-
-#prompt
-echoo "Bash Prompt"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
-
-
 #added synle make component scripts...
-echo "Make Component Scripts"
+echo "  Make Component Scripts"
 rm -rf ~/synle-make-component
 git clone https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
 cd ~/synle-make-component 
@@ -144,6 +138,10 @@ echo """
   [ -s ~/synle-make-component/setup.sh ] && . ~/synle-make-component/setup.sh
 """ >> $TEMP_BASH_SYLE
 cd --
+
+#prompt
+echoo "Bash Prompt"
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 echoo "Installing the New Bash File"
 #copy it over
