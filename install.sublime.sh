@@ -58,7 +58,8 @@ then
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
 
   echo "    Package Control Settings"
-  curlNoCache "$urlPackageControlConfig" > "$dir_sublime_base/Package\ Control.sublime-settings"
+  curlNoCache "$urlPackageControlConfig" > /tmp/subl-package-control
+  cat /tmp/subl-package-control > "$dir_sublime_base/Package Control.sublime-settings"
 
   echo "    Default Settings"
   curlNoCache "$urlDefaultSettings" > "$dir_sublime_base/Default.sublime-theme"
@@ -67,8 +68,8 @@ then
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
   cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
-  
-  
+
+
   echo "    Build System"
   # build - nodejs
   echo '''
@@ -82,7 +83,7 @@ then
 
 
   # build - nodejs
-  echo '''    
+  echo '''
     {
         "working_dir": "${project_path}",
         "selector" : "source.json",
