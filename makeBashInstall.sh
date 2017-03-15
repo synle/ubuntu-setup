@@ -132,6 +132,19 @@ fi
 echoo "Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
+
+#added synle make component scripts...
+echo "Make Component Scripts"
+rm -rf ~/synle-make-component
+git clone https://github.com/synle/make-component.git ~/synle-make-component
+cd ~/synle-make-component 
+npm i && npm run build
+echo """
+  # sourcing synle make component
+  [ -s ~/synle-make-component/setup.sh ] && . ~/synle-make-component/setup.sh
+"""  >> $TEMP_BASH_SYLE
+cd --
+
 echoo "Installing the New Bash File"
 #copy it over
 #rerun the source
