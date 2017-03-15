@@ -38,5 +38,5 @@ fi
 
 
 echo "  nvm node symlink"
-[ -s /usr/local/bin/node ] || ln -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
-[ -s /usr/local/bin/npm ]  || ln -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
+[ -s /usr/local/bin/node ] || sudo ln -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
+[ -s /usr/local/bin/npm ]  || sudo ln -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
