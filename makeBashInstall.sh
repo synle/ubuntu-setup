@@ -136,13 +136,13 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-pro
 #added synle make component scripts...
 echo "Make Component Scripts"
 rm -rf ~/synle-make-component
-git clone https://github.com/synle/make-component.git ~/synle-make-component
+git clone https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
 cd ~/synle-make-component 
-npm i && npm run build
+npm i &> /dev/null && npm run build &> /dev/null
 echo """
   # sourcing synle make component
   [ -s ~/synle-make-component/setup.sh ] && . ~/synle-make-component/setup.sh
-"""  >> $TEMP_BASH_SYLE
+""" >> $TEMP_BASH_SYLE
 cd --
 
 echoo "Installing the New Bash File"
