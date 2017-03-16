@@ -32,7 +32,7 @@ else
     echo "  Windows Sublime (via Windows Subsystem Linux)"
     # url
     # paths
-    dir_sublime_base=/mnt/c/Users/syle/AppData/Roaming/Sublime\ Text\ 3/Packages/User
+    dir_sublime_base="/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime\ Text\ 3/Packages/User"
     dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
   elif [ -d "~/.config/sublime-text-3" ]
   then
