@@ -46,7 +46,7 @@ function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | sudo bash
 
     # resource bash profile / bash rc
     echo """
