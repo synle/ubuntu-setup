@@ -13,7 +13,7 @@ function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
 echoo "Prerequisites"
 # common modules needed for mac or ubuntu or windows subsystem linux
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.mac.darwin.sh | bash -
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | sudo bash -
 
 echoo "nvm & node & npm modules"
 # "Install nvm, node. npm and stuffs"
