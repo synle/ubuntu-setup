@@ -10,3 +10,7 @@ https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/classic.them
 
 ## Open Host Files
 notepad c:\Windows\System32\Drivers\etc\hosts
+
+
+## reg from app
+https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-bc79-910278d8fa39/trying-to-change-visual-effects-via-the-registry
