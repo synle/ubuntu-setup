@@ -130,7 +130,7 @@ fi
 #added synle make component scripts...
 echo "  Make Component Scripts"
 rm -rf ~/synle-make-component
-git clone https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
+git clone --depth 1 -b master https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
 cd ~/synle-make-component 
 npm i &> /dev/null && npm run build &> /dev/null
 echo """
