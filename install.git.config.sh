@@ -15,8 +15,8 @@ git config --global merge.prompt false
 
 #git alias
 echo "    Git Aliases"
-git config --global alias.del-merged         "!git fetch --all --prune || !git branch --merged | grep -v '*' | xargs git branch -d"
-git config --global alias.del-merged-staging "!git fetch --all --prune || !git branch --merged origin/staging | grep -v '*' | xargs git branch -d"
+git config --global alias.del-merged         "!git branch --merged | grep -v '*' | xargs git branch -d"
+git config --global alias.del-merged-staging "!git branch --merged origin/staging | grep -v '*' | xargs git branch -d"
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.co 'checkout'
 git config --global alias.cob 'checkout -b'
@@ -24,6 +24,7 @@ git config --global alias.coo 'checkout --orphan' # new branch no history
 git config --global alias.cp 'cherry-pick'
 git config --global alias.cpn 'cherry-pick -n'
 git config --global alias.cm 'commit'
+git config --global alias.clone-shallow 'clone --depth 1 -b master'
 git config --global alias.del 'branch -D'
 git config --global alias.b 'branch'
 git config --global alias.br 'branch -v'
