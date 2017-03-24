@@ -5,7 +5,7 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 function installAptGetModuleIfNeeded(){
     type $@ &> /dev/null && has_installed_ap=1
     
-    if [ $has_installed_ap == "1" ]
+    if [ $has_installed_ap == "0" ]
     then
         echo "    INSTALL $@"
         sudo apt-get install -y --fix-missing $@ &> /dev/null
