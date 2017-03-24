@@ -6,7 +6,7 @@ function installAptGetModuleIfNeeded(){
     has_installed_app=0
     type $@ &> /dev/null && has_installed_app=1
     
-    if [ $has_installed_app== "0" ]
+    if [ $has_installed_app == "0" ]
     then
         echo "    INSTALL $@"
         sudo apt-get install -y --fix-missing $@ &> /dev/null
