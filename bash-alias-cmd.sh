@@ -179,9 +179,16 @@ function gitCompare(){
     fi
 }
 
+# get current git branch name
 function getCurrentGitBranch(){
     git name-rev --name-only HEAD
 }
+
+# set current upstream ref
+function setGitUpstreamBranch(){
+    git branch -u origin/$(git name-rev --name-only HEAD)
+}
+
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
