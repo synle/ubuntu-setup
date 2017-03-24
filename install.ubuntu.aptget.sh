@@ -3,8 +3,14 @@ is_os_ubuntu=0
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
-    type $@ &> /dev/null || (echo "    INSTALL $@" && sudo apt-get install -y --fix-missing $@ &> /dev/null)
-    type $@ &> /dev/null && (echo "    SKIP    $@")
+    type $@ &> /dev/null && has_installed_ap=1
+    
+    if [ $has_installed_ap == "1" ]
+    then
+        echo "    INSTALL $@" && sudo apt-get install -y --fix-missing $@ &> /dev/null
+    else
+        echo "    SKIP    $@"
+    fi
 }
 
 if [ $is_os_ubuntu == "1" ]
