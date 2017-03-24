@@ -178,6 +178,10 @@ function gitCompare(){
         open $urlToShow
     fi
 }
+
+function getCurrentGitBranch(){
+    git name-rev --name-only HEAD
+}
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
