@@ -15,7 +15,8 @@ git config --global merge.prompt false
 
 #git alias
 echo "    Git Aliases"
-git config --global alias.del-merged "!git fetch --all --prune || !git branch --merged | grep -v '*' | xargs git branch -d"
+git config --global alias.del-merged         "!git fetch --all --prune || !git branch --merged | grep -v '*' | xargs git branch -d"
+git config --global alias.del-merged-staging "!git fetch --all --prune || !git branch --merged origin/staging | grep -v '*' | xargs git branch -d"
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.co 'checkout'
 git config --global alias.cob 'checkout -b'
