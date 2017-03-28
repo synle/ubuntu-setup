@@ -75,8 +75,8 @@ then
   #   rm -f "$dir_sublime_base/aura*.sublime-*"
   curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.attributes.sublime-completions > "$dir_sublime_base/aura.attributes.sublime-completions"
   curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.cmp.sublime-syntax > "$dir_sublime_base/aura.cmp.sublime-syntax"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.event.js.sublime-completions > $"dir_sublime_base/aura.event.js.sublime-completions"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.helper.js.sublime-completions > $"dir_sublime_base/aura.helper.js.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.event.js.sublime-completions > "$dir_sublime_base/aura.event.js.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.helper.js.sublime-completions > "$dir_sublime_base/aura.helper.js.sublime-completions"
   curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.js.sublime-completions > "$dir_sublime_base/aura.js.sublime-completions"
   curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.uitags.sublime-completions > "$dir_sublime_base/aura.uitags.sublime-completions"
 
