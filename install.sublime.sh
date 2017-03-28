@@ -69,6 +69,16 @@ then
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
   cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
+  
+  echo "    Snippets"
+  #   aura snippets
+  #   rm -f "$dir_sublime_base/aura*.sublime-*"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.attributes.sublime-completions > "$dir_sublime_base/aura.attributes.sublime-completions"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.cmp.sublime-syntax > "$dir_sublime_base/aura.cmp.sublime-syntax"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.event.js.sublime-completions > $"dir_sublime_base/aura.event.js.sublime-completions"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.helper.js.sublime-completions > $"dir_sublime_base/aura.helper.js.sublime-completions"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.js.sublime-completions > "$dir_sublime_base/aura.js.sublime-completions"
+  curl -is https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.uitags.sublime-completions > "$dir_sublime_base/aura.uitags.sublime-completions"
 
 
   echo "    Build System"
