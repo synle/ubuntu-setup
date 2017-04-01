@@ -22,7 +22,6 @@ then
   urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
   # paths
   dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  dir_sublime_keymap=$dir_sublime_base/Default\ \(OSX\).sublime-keymap
 else
   echo "  Non-Mac Environment"
 
@@ -32,8 +31,7 @@ else
     echo "  Windows Sublime (via Windows Subsystem Linux)"
     # url
     # paths
-    dir_sublime_base=/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime\ Text\ 3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
+    dir_sublime_base=/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime*3/Packages/User
   elif [ -d "~/.config/sublime-text-3" ]
   then
     #ubuntu sublime
@@ -41,7 +39,6 @@ else
     # url
     # paths
     dir_sublime_base=~/.config/sublime-text-3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Linux\).sublime-keymap
   else
     #N/A (no gui...)
     needToSetUpSublime=0
@@ -55,6 +52,7 @@ if [ $needToSetUpSublime == "1" ]
 then
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
+  dir_sublime_keymap=$dir_sublime_base/Default*.sublime-keymap
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
 
   echo "    Package Control Settings"
