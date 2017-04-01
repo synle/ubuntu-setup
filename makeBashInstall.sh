@@ -90,7 +90,7 @@ else
 
     echoo "    Default to Windows Home Dir"
     echo "# default path to Window home..." >> $TEMP_BASH_SYLE
-    echo "cd /mnt/c/Users/syle" >> $TEMP_BASH_SYLE
+    echo "cd /mnt/c/Users/$(whoami)" >> $TEMP_BASH_SYLE
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
