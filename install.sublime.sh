@@ -10,6 +10,7 @@ urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/subli
 urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-package-control
 urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-default-sublime-theme
 urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-user-preference
+urlSnippetAuraBase=https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet
 if [ -d /Library ]
 then
   # mac OSX sublime
@@ -53,30 +54,30 @@ then
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
   dir_sublime_keymap=$dir_sublime_base/Default*.sublime-keymap
-  curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
+  curlNoCache "$urlKeyBindings" > $dir_sublime_keymap
 
   echo "    Package Control Settings"
   dir_sublime_package_control=$dir_sublime_base/Package\ Control.sublime-settings
   curlNoCache "$urlPackageControlConfig" > /tmp/subl-package-control
-  cat /tmp/subl-package-control > "$dir_sublime_package_control"
+  cat /tmp/subl-package-control > $dir_sublime_package_control
 
   echo "    Default Settings"
-  curlNoCache "$urlDefaultSettings" > "$dir_sublime_base/Default.sublime-theme"
+  curlNoCache "$urlDefaultSettings" > $dir_sublime_base/Default.sublime-theme
 
   echo "    User Settings"
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
-  cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
-  
+  cat /tmp/subl-user-settings > $dir_sublime_base/Preferences.sublime-settings
+
   echo "    Snippets"
   #   aura snippets
   #   rm -f "$dir_sublime_base/aura*.sublime-*"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.attributes.sublime-completions > "$dir_sublime_base/aura.attributes.sublime-completions"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.cmp.sublime-syntax > "$dir_sublime_base/aura.cmp.sublime-syntax"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.event.js.sublime-completions > "$dir_sublime_base/aura.event.js.sublime-completions"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.helper.js.sublime-completions > "$dir_sublime_base/aura.helper.js.sublime-completions"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.js.sublime-completions > "$dir_sublime_base/aura.js.sublime-completions"
-  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.uitags.sublime-completions > "$dir_sublime_base/aura.uitags.sublime-completions"
+  curlNoCache "$urlSnippetAuraBase/aura.attributes.sublime-completions" > $dir_sublime_base/aura.attributes.sublime-completions
+  curlNoCache "$urlSnippetAuraBase/aura.cmp.sublime-syntax" > $dir_sublime_base/aura.cmp.sublime-syntax
+  curlNoCache "$urlSnippetAuraBase/aura.event.js.sublime-completions" > $dir_sublime_base/aura.event.js.sublime-completions
+  curlNoCache "$urlSnippetAuraBase/aura.helper.js.sublime-completions" > $dir_sublime_base/aura.helper.js.sublime-completions
+  curlNoCache "$urlSnippetAuraBase/aura.js.sublime-completions" > $dir_sublime_base/aura.js.sublime-completions
+  curlNoCache "$urlSnippetAuraBase/aura.uitags.sublime-completions" > $dir_sublime_base/aura.uitags.sublime-completions
 
 
   echo "    Build System"
