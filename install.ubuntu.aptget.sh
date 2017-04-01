@@ -9,7 +9,7 @@ function installAptGetModuleIfNeeded(){
     if [ $has_installed_app == "0" ]
     then
         echo "    INSTALL $@"
-        sudo apt-get install -y --force-yes --fix-missing $@
+        sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
     else
         echo "    SKIP    $@"
     fi
@@ -31,6 +31,8 @@ then
     installAptGetModuleIfNeeded make
     installAptGetModuleIfNeeded jq
     installAptGetModuleIfNeeded figlet
+    installAptGetModuleIfNeeded autoconf
+    installAptGetModuleIfNeeded automake
     # sudo apt-get install  -y --fix-missing g++
     # sudo apt-get install  -y --fix-missing mysql-client
     # sudo apt-get install  -y --fix-missing openjdk-8-jdk
@@ -40,13 +42,9 @@ then
     #
     # sudo apt-get install  -y --fix-missing unzip
     # sudo apt-get install  -y --fix-missing make
-    # sudo apt-get install  -y --fix-missing tig
     # sudo apt-get install  -y --fix-missing build-essential
     # sudo apt-get install  -y --fix-missing python-dev
     # sudo apt-get install  -y --fix-missing python-software-properties
     # sudo apt-get install  -y --fix-missing software-properties-common
-    # sudo apt-get install  -y --fix-missing supervisor
-    # sudo apt-get install  -y --fix-missing automake
     # sudo apt-get install  -y --fix-missing gnuplot
-
 fi
