@@ -60,7 +60,7 @@ then
   curlNoCache "$urlKeyBindings" > $dir_sublime_keymap
 
   echo "    Package Control Settings"
-  dir_sublime_package_control=$dir_sublime_base/Package\ Control.sublime-settings
+  dir_sublime_package_control=$dir_sublime_base/Package*Control.sublime-settings
   curlNoCache "$urlPackageControlConfig" > /tmp/subl-package-control
   cat /tmp/subl-package-control > $dir_sublime_package_control
 
@@ -92,7 +92,7 @@ then
         "path": "/usr/local/bin",
         "cmd": ["node", "$file"]
     }
-  ''' > "$dir_sublime_base/node-js.sublime-build"
+  ''' > $dir_sublime_base/node-js.sublime-build
 
 
   # build - nodejs
@@ -103,5 +103,5 @@ then
         "path": "/usr/local/bin",
         "cmd": ["npm", "start"]
     }
-  ''' > "$dir_sublime_base/node-npm-start.sublime-build"
+  ''' > $dir_sublime_base/node-npm-start.sublime-build
 fi
