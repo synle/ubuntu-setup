@@ -6,10 +6,13 @@ function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 ##################################
 needToSetUpSublime=1
 dir_sublime_color_scheme_prefix="Packages\/Color Scheme - Default"
-urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-window
-urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-package-control
-urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-default-sublime-theme
-urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-user-preference
+# configs
+urlSublimeBase=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime
+urlKeyBindings=$urlSublimeBase/keybind-window
+urlPackageControlConfig=$$urlSublimeBase/config-package-control
+urlDefaultSettings=$$urlSublimeBase/config-default-sublime-theme
+urlUserPreference=$$urlSublimeBase/config-user-preference
+# snippets
 urlSnippetAuraBase=https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet
 if [ -d /Library ]
 then
@@ -20,7 +23,7 @@ then
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl
   # url
-  urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
+  urlKeyBindings=$$urlSublimeBase/keybind-mac
   # paths
   dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 else
