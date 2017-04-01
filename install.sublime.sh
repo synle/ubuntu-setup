@@ -25,7 +25,7 @@ then
   # url
   urlKeyBindings=$$urlSublimeBase/keybind-mac
   # paths
-  dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+  dir_sublime_base=~/Library/Application*Support/Sublime*Text*3/Packages/User
 else
   echo "  Non-Mac Environment"
 
@@ -42,7 +42,7 @@ else
     echo "  Ubuntu Sublime"
     # url
     # paths
-    dir_sublime_base=~/.config/sublime-text-3/Packages/User
+    dir_sublime_base=~/.config/sublime*text*3/Packages/User
   else
     #N/A (no gui...)
     needToSetUpSublime=0
