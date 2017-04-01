@@ -88,32 +88,9 @@ else
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
 
-#     echo  "        Install CBWin"
-#     if [ ! -d "/mnt/c/cbwin" ]
-#     then
-#       echo  "        INSTALL"
-
-#       cd /tmp
-#         echo  "        Cloning"
-#         rm -rf cbwin* master.zip cbwin-bin*.zip
-#         wget https://github.com/xilun/cbwin/releases/download/v0.13/cbwin-bin-0.13.zip &> /dev/null
-#         unzip cbwin-bin*.zip &> /dev/null
-#         rm cbwin-bin*.zip
-#         mv cbwin* cbwin
-#         mv cbwin* /mnt/c
-
-#         cd /mnt/c/cbwin
-#           echo  "        Install binary for outbash.exe"
-#           sudo ./install.sh
-#         cd --
-#       cd --
-
-#       echoo "      HyperTerm (Console)"
-#       echo  "        HyperTerm Config"
-#       curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/hyperterm.js > $WINDOWS_HOME_PATH/.hyper.js
-#     else
-#       echo  "        SKIP"
-#     fi
+    echoo "    Default to Windows Home Dir"
+    echo "# default path to Window home..." >> $TEMP_BASH_SYLE
+    echo "cd /mnt/c/Users/syle" >> $TEMP_BASH_SYLE
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
