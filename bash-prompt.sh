@@ -54,7 +54,7 @@ function nonzero_return() {
 }
 
 #bash prompt
-export PS1="\[\e[31m\]====\[\e[m\]
-\[\e[33m\]\T\[\e[m\] \[\e[36m\]\u\[\e[m\] @ \[\e[32m\]\h\[\e[m\]
-\[\e[35m\]\`sps\`\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
-\[\e[31m\]>\[\e[m\]\[\e[33m\]>\[\e[m\]\[\e[36m\]>\[\e[m\] "
+export PS1=" \[\e[31m\]====\[\e[m\]
+ \[\e[33m\]\T\[\e[m\] \[\e[36m\]\u\[\e[m\] @ \[\e[32m\]\h\[\e[m\]
+ \[\e[35m\]\`sps\`\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
+ \[\e[31m\]>\[\e[m\]\[\e[33m\]>\[\e[m\]\[\e[36m\]>\[\e[m\] "
