@@ -158,6 +158,6 @@ echo """
 set -g status off
 set -g status-utf8 on
 
-bind-key v split-window -h
-bind-key s split-window -v
+set-window-option -g automatic-rename on
+set-option -g set-titles on
 """ > ~/.tmux.conf
