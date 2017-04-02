@@ -88,9 +88,12 @@ else
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
 
-    echoo "    Default to Windows Home Dir"
+    echoo "      Default to Windows Home Dir"
     echo "# default path to Window home..." >> $TEMP_BASH_SYLE
     echo "cd /mnt/c/Users/$(whoami)" >> $TEMP_BASH_SYLE
+    
+    echoo "      Use tmux as Default Shell for Subsystem"
+    chsh -s /usr/bin/tmux
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
