@@ -14,3 +14,8 @@ notepad c:\Windows\System32\Drivers\etc\hosts
 
 ## reg from app
 https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-bc79-910278d8fa39/trying-to-change-visual-effects-via-the-registry
+
+
+
+## Tmux default shortcuts
+C:\Windows\System32\bash.exe -c "/usr/bin/tmux"
