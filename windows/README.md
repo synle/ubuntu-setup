@@ -18,4 +18,4 @@ https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-
 
 
 ## Tmux default shortcuts
-C:\Windows\System32\bash.exe -c "/usr/bin/tmux"
+`C:\Windows\System32\bash.exe -c "/usr/bin/tmux"`
