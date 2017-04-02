@@ -158,6 +158,14 @@ echo """
 set -g status off
 set -g status-utf8 on
 
-set-window-option -g automatic-rename on
-set-option -g set-titles on
+# Window options
+set -g monitor-activity off
+set -g automatic-rename on
+
+# Colors
+setw -g window-status-current-fg colour191
+set -g status-bg default
+set -g status-fg white
+set -g message-bg default
+set -g message-fg colour191
 """ > ~/.tmux.conf
