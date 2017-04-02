@@ -158,12 +158,6 @@ echo """
 set -g status off
 set -g status-utf8 on
 
-set -g pane-border-fg black
-set -g pane-active-border-fg brightred
-
-set -g status-bg default
-set -g status-fg colour12
-
-setw -g mode-bg colour6
-setw -g mode-fg colour0
+bind-key v split-window -h
+bind-key s split-window -v
 """ > ~/.tmux.conf
