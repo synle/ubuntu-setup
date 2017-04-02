@@ -40,7 +40,7 @@ function br(){
 
 
 # print formatted text for easy to read console output.
-function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 
