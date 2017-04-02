@@ -152,7 +152,18 @@ echoo "Vim & Vundle"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
 
 #tmux stuffs
+# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 echoo "Tmux"
 echo """
 set -g status off
+set -g status-utf8 on
+
+set -g pane-border-fg black
+set -g pane-active-border-fg brightred
+
+set -g status-bg default
+set -g status-fg colour12
+
+setw -g mode-bg colour6
+setw -g mode-fg colour0
 """ > ~/.tmux.conf
