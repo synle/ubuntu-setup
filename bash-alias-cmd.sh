@@ -218,13 +218,13 @@ function compileSfdcAuraQuick(){
 # fzf - fuzzy find
 # fzf only apply to mac for now
 # https://github.com/junegunn/fzf/wiki/examples
-#
-# for now this is only applied to Mac and Ubuntu
 ############################################
-is_os_window=0
-[ -d /mnt/c/Users ] && is_os_window=1
-if [ $is_os_window == "0" ]
-then
+    alias fvim=fuzzyVim
+    alias fcd=fuzzyDirectory
+    alias fgrep=fuzzyGrep
+    alias fhistory=fuzzyHistory
+    alias fkill=fuzzyKill    
+
     # fzf file view
     function fuzzyVim(){
       local OUT
@@ -311,7 +311,6 @@ then
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       git checkout $(echo "$commit" | sed "s/ .*//")
     }
-fi
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
