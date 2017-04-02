@@ -150,3 +150,9 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 #vim stuffs
 echoo "Vim & Vundle"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
+
+#tmux stuffs
+echoo "Tmux"
+echo """
+set -g status off
+""" > ~/.tmux.conf
