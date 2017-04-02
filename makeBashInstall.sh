@@ -8,7 +8,7 @@ is_os_window=0
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
-function echoo(){ printf "\e[1;33m$@\n\e[0m"; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 
 echoo "Prerequisites"
 # common modules needed for mac or ubuntu or windows subsystem linux
