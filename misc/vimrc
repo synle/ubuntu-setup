@@ -6,6 +6,7 @@
 set hlsearch
 set showmatch
 set ignorecase
+set tabstop=4
 set shell=/bin/bash
 
 
