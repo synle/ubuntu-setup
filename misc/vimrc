@@ -1,29 +1,35 @@
-color desert
-set background=light
+" theme
+  color desert
+  set background=dark
 
-
+" options
 set hlsearch
-set number
 set showmatch
 set ignorecase
 set shell=/bin/bash
-syntax on
 
 
-"vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" syntax highlight
+  syntax on
+  filetype on
+  au BufNewFile,BufRead *.cmp set filetype=xml
+  au BufNewFile,BufRead *.app set filetype=xml
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" vundle stuffs
+  set nocompatible              " be iMproved, required
+  filetype off                  " required
 
-Plugin 'VundleVim/Vundle.vim'
+  " set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
 
-" The following are examples of different formats supported.
-Plugin 'airblade/vim-gitgutter'
-Plugin 'dracula/vim'
+  Plugin 'VundleVim/Vundle.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin on
+  " The following are examples of different formats supported.
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'dracula/vim'
+
+  " All of your Plugins must be added before the following line
+  call vundle#end()            " required
+  
+  filetype on
