@@ -227,6 +227,7 @@ function compileSfdcAuraQuick(){
     alias fkill=fuzzyKill    
     alias glog=fuzzyGitShow
     alias gco=fuzzyGitCobranch
+    alias gbranch=fuzzyGitBranch
     
 
     # fzf file view
@@ -308,6 +309,12 @@ function compileSfdcAuraQuick(){
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
       git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
     }
+    
+    
+    function fuzzyGitBranch() {
+
+    }
+
 
     function fuzzyGitCocommit() {
       local commits commit
