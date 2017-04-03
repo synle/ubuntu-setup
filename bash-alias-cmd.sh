@@ -224,6 +224,9 @@ function compileSfdcAuraQuick(){
     alias fgrep=fuzzyGrep
     alias fhistory=fuzzyHistory
     alias fkill=fuzzyKill    
+    alias glog=fuzzyGitShow
+    alias gco=fuzzyGitCobranch
+    
 
     # fzf file view
     function fuzzyVim(){
@@ -235,7 +238,7 @@ function compileSfdcAuraQuick(){
           QUERY=" -1 --query=$1"
       fi
 
-      OUT=$( find . | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      OUT=$( find . -type f | filterUnwanted | fzf $QUERY --preview="cat {}" )
       if [ "0" == "$?" ] ; then
           echo "$EDITOR $OUT";
           $EDITOR $OUT
