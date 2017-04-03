@@ -35,8 +35,3 @@ then
 else
     echo "    SKIP"
 fi
-
-
-echo "  nvm node symlink"
-sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
-sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
