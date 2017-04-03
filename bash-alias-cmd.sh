@@ -223,6 +223,7 @@ function compileSfdcAuraQuick(){
     alias fcd=fuzzyDirectory
     alias fgrep=fuzzyGrep
     alias fhistory=fuzzyHistory
+    alias fhist=fhistory
     alias fkill=fuzzyKill    
     alias glog=fuzzyGitShow
     alias gco=fuzzyGitCobranch
