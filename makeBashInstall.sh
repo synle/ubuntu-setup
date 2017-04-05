@@ -91,7 +91,7 @@ else
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
 
-    echoo "    Default to Windows Home Dir"
+    echo "      Default to Windows Home Dir"
     echo "# default path to Window home..." >> $TEMP_BASH_SYLE
     echo "cd /mnt/c/Users/$(whoami)" >> $TEMP_BASH_SYLE
   elif [ $is_os_ubuntu == "1" ]
@@ -113,7 +113,7 @@ fi
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
 #added synle make component scripts...
-echo "  Make Component Scripts"
+echoo "  Make Component Scripts"
 rm -rf ~/synle-make-component
 git clone --depth 1 -b master https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
 cd ~/synle-make-component 
