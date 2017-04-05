@@ -243,7 +243,7 @@ function compileSfdcAuraQuick(){
           QUERY=" -1 --query=$1"
       fi
 
-      OUT=$( find . -type f | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      OUT=$( find . -type f | grep -v "No such file or directory" | filterUnwanted | fzf $QUERY --preview="cat {}" )
       if [ "0" == "$?" ] ; then
           echo "$EDITOR $OUT";
           $EDITOR $OUT
@@ -338,6 +338,19 @@ function compileSfdcAuraQuick(){
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       echo "git show $(echo "$commit" | sed "s/ .*//")"
     }
+
+############################################
+#############  SECTION BREAK  ##############
+############################################
+
+
+############################################
+# awesome keybinding
+############################################
+
+# ctrl p to fvim
+bind '"\C-p":"fvim\r"'
+
 
 ############################################
 #############  SECTION BREAK  ##############
