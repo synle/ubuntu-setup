@@ -304,17 +304,22 @@ function compileSfdcAuraQuick(){
       FZF-EOF"
     }
 
+    
     function fuzzyGitCobranch() {
       local branches branch
-      branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed 's/ //g') &&
+      branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed "s/.* //" | sed 's/ //g' | sed "s#remotes/[^/]*/##" | sort | uniq) &&
       branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
-      git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+      git checkout $(echo "$branch")
     }
     
     
     function fuzzyGitBranch() {
-        echo "To be implemented"
+      local branches branch
+      branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed "s/.* //" | sed 's/ //g' | sed "s#remotes/[^/]*/##" | sort | uniq) &&
+      branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+      echo "git checkout $branch"
     }
 
 
