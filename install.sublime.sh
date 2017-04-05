@@ -58,6 +58,7 @@ fi
 if [ $needToSetUpSublime == "1" ]
 then
   pushd $dir_sublime_base/
+
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
@@ -108,7 +109,6 @@ then
     }
   ''' > node-npm-start.sublime-build
 
-
-  #popd
+  popd
 fi
 ls
