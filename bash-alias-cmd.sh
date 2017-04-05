@@ -342,6 +342,7 @@ function compileSfdcAuraQuick(){
     
     function fuzzyMakeComponent(){
         makeComponentCommand=$(make-help | sed '/^\s*$/d' | fzf)
+        echo "$makeComponentCommand"
         $makeComponentCommand
     }
 
