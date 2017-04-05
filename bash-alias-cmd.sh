@@ -230,7 +230,7 @@ function compileSfdcAuraQuick(){
     alias glog=fuzzyGitShow
     alias gco=fuzzyGitCobranch
     alias gbranch=fuzzyGitBranch
-    alias glot=fuzzyGitLog
+    alias glog=fuzzyGitLog
     
 
     # fzf file view
