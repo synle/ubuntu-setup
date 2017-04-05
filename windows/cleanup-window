@@ -20,3 +20,10 @@ Get-AppxPackage *bingsports* | Remove-AppxPackage
 Get-AppxPackage *soundrecorder* | Remove-AppxPackage
 Get-AppxPackage *bingweather* | Remove-AppxPackage
 Get-AppxPackage *xboxapp* | Remove-AppxPackage
+Get-AppxPackage *Facebook* | Remove-AppxPackage
+Get-AppxPackage *Food* | Remove-AppxPackage
+Get-AppxPackage *Health* | Remove-AppxPackage
+Get-AppxPackage *Netflix* | Remove-AppxPackage
+Get-AppxPackage *Sling* | Remove-AppxPackage
+Get-AppxPackage *Travel* | Remove-AppxPackage
+Get-AppxPackage *Paid*Wifi* | Remove-AppxPackage
