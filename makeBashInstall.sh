@@ -172,3 +172,8 @@ set -g status-fg white
 set -g message-bg default
 set -g message-fg colour191
 """ > ~/.tmux.conf
+
+
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+~/.fzf/install
