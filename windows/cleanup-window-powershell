@@ -28,7 +28,6 @@ Get-AppxPackage -allusers *Sling* | Remove-AppxPackage
 Get-AppxPackage -allusers *Travel* | Remove-AppxPackage
 Get-AppxPackage -allusers *Paid*Wifi* | Remove-AppxPackage
 Get-appxpackage -allusers *WindowsFeedbackHub* | Remove-AppxPackage
-Get-appxpackage -allusers *ContactSupport* | Remove-AppxPackage
 Get-appxpackage -allusers *officehub* | Remove-AppxPackage
 Get-appxpackage -allusers *getstarted* | Remove-AppxPackage
 Get-appxpackage -allusers *Messaging* | Remove-AppxPackage
