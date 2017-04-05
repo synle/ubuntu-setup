@@ -175,5 +175,6 @@ set -g message-fg colour191
 
 
 # fzf
+echoo "fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install
+~/.fzf/install  &> /dev/null
