@@ -243,7 +243,7 @@ function compileSfdcAuraQuick(){
           QUERY=" -1 --query=$1"
       fi
 
-      OUT=$( find . -type f | grep -v "No such file or directory" | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY --preview="cat {}" )
       if [ "0" == "$?" ] ; then
           echo "$EDITOR $OUT";
           $EDITOR $OUT
