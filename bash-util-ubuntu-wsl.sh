@@ -1,1 +1,1 @@
-alias subl="wstart subl"
+# alias subl="wstart subl"
