@@ -306,7 +306,7 @@ function compileSfdcAuraQuick(){
 
     function fuzzyGitCobranch() {
       local branches branch
-      branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed 's/ //g' | vim -) &&
+      branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed 's/ //g') &&
       branch=$(echo "$branches" |
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
       git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
