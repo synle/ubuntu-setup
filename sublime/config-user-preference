@@ -67,7 +67,10 @@
         "*.seed",
         "*.pid.lock",
         ".eslintcache",
-        "npm-debug.log"
+        "npm-debug.log",
+        "staticresources.resource",
+        "remoteSiteSettings.resource",
+        "corsWhitelistOrigins.resource"
     ],
     "folder_exclude_patterns":
     [
