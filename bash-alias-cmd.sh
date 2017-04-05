@@ -148,6 +148,8 @@ function filterUnwanted(){
     | grep -v release/ \
     | grep -v .DS_Store \
     | grep -v .git \
+    | grep -v .png \
+    | grep -v .jpg \
     | grep -v .sass-cache
 }
 
