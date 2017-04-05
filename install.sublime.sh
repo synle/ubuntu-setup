@@ -57,7 +57,7 @@ fi
 # only run install script if needed
 if [ $needToSetUpSublime == "1" ]
 then
-  pushd $dir_sublime_base/
+  pushd $dir_sublime_base  &> /dev/null
 
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
@@ -109,6 +109,6 @@ then
     }
   ''' > node-npm-start.sublime-build
 
-  popd
+  popd  &> /dev/null
 fi
 ls
