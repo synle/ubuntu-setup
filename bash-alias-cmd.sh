@@ -230,6 +230,7 @@ function compileSfdcAuraQuick(){
     alias glog=fuzzyGitShow
     alias gco=fuzzyGitCobranch
     alias gbranch=fuzzyGitBranch
+    alias glot=fuzzyGitLog
     
 
     # fzf file view
@@ -329,6 +330,15 @@ function compileSfdcAuraQuick(){
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       git checkout $(echo "$commit" | sed "s/ .*//")
     }
+    
+    
+    function fuzzyGitLog() {
+      local commits commit
+      commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+      commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+      echo "git show $(echo "$commit" | sed "s/ .*//")"
+    }
+
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
