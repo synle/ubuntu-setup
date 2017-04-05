@@ -338,6 +338,12 @@ function compileSfdcAuraQuick(){
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       echo "git show $(echo "$commit" | sed "s/ .*//")"
     }
+    
+    
+    function fuzzyMakeComponent(){
+        makeComponentCommand=$(make-help | sed '/^\s*$/d' | fzf)
+        $makeComponentCommand
+    }
 
 ############################################
 #############  SECTION BREAK  ##############
@@ -350,6 +356,9 @@ function compileSfdcAuraQuick(){
 
 # ctrl p to fvim
 bind '"\C-p":"fvim\r"'
+
+# ctrl n to view make new component options
+bind '"\C-n":"fuzzyMakeComponent\r"'
 
 
 ############################################
