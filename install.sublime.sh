@@ -6,14 +6,10 @@ function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 ##################################
 needToSetUpSublime=1
 dir_sublime_color_scheme_prefix="Packages\/Color Scheme - Default"
-# configs
-urlSublimeBase=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime
-urlKeyBindings=$urlSublimeBase/keybind-window
-urlPackageControlConfig=$$urlSublimeBase/config-package-control
-urlDefaultSettings=$$urlSublimeBase/config-default-sublime-theme
-urlUserPreference=$$urlSublimeBase/config-user-preference
-# snippets
-urlSnippetAuraBase=https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet
+urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-window
+urlPackageControlConfig=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-package-control
+urlDefaultSettings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-default-sublime-theme
+urlUserPreference=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/config-user-preference
 if [ -d /Library ]
 then
   # mac OSX sublime
@@ -23,10 +19,10 @@ then
   ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl
   # url
-  urlKeyBindings=$$urlSublimeBase/keybind-mac
+  urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
   # paths
-  dir_sublime_base=~/Library/Application*Support/Sublime*Text*3/Packages/User
-  dir_sublime_keymap=Default\ \(OSX\).sublime-keymap
+  dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+  dir_sublime_keymap=$dir_sublime_base/Default\ \(OSX\).sublime-keymap
 else
   echo "  Non-Mac Environment"
 
@@ -36,16 +32,16 @@ else
     echo "  Windows Sublime (via Windows Subsystem Linux)"
     # url
     # paths
-    dir_sublime_base=/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime*3/Packages/User
-    dir_sublime_keymap=Default\ \(Windows\).sublime-keymap
+    dir_sublime_base=/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime\ Text\ 3/Packages/User
+    dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
   elif [ -d "~/.config/sublime-text-3" ]
   then
     #ubuntu sublime
     echo "  Ubuntu Sublime"
     # url
     # paths
-    dir_sublime_base=~/.config/sublime*text*3/Packages/User
-    dir_sublime_keymap=Default\ \(Linux\).sublime-keymap
+    dir_sublime_base=~/.config/sublime-text-3/Packages/User
+    dir_sublime_keymap=$dir_sublime_base/Default\ \(Linux\).sublime-keymap
   else
     #N/A (no gui...)
     needToSetUpSublime=0
@@ -57,34 +53,32 @@ fi
 # only run install script if needed
 if [ $needToSetUpSublime == "1" ]
 then
-  pushd $dir_sublime_base  &> /dev/null
-
   echo "  Finishing Sublime Config Final Touches..."
   echo "    Keybinding"
   curlNoCache "$urlKeyBindings" > "$dir_sublime_keymap"
 
   echo "    Package Control Settings"
-  dir_sublime_package_control=Package*Control.sublime-settings
+  dir_sublime_package_control=$dir_sublime_base/Package\ Control.sublime-settings
   curlNoCache "$urlPackageControlConfig" > /tmp/subl-package-control
-  cat /tmp/subl-package-control > $dir_sublime_package_control
+  cat /tmp/subl-package-control > "$dir_sublime_package_control"
 
   echo "    Default Settings"
-  curlNoCache "$urlDefaultSettings" > Default.sublime-theme
+  curlNoCache "$urlDefaultSettings" > "$dir_sublime_base/Default.sublime-theme"
 
   echo "    User Settings"
   curlNoCache "$urlUserPreference" > /tmp/subl-user-settings
   sed -ie "s/{{COLOR_SCHEME_PATH}}/$dir_sublime_color_scheme_prefix/g" /tmp/subl-user-settings
-  cat /tmp/subl-user-settings > Preferences.sublime-settings
-
+  cat /tmp/subl-user-settings > "$dir_sublime_base/Preferences.sublime-settings"
+  
   echo "    Snippets"
   #   aura snippets
   #   rm -f "$dir_sublime_base/aura*.sublime-*"
-  curlNoCache "$urlSnippetAuraBase/aura.attributes.sublime-completions" > aura.attributes.sublime-completions
-  curlNoCache "$urlSnippetAuraBase/aura.cmp.sublime-syntax" > aura.cmp.sublime-syntax
-  curlNoCache "$urlSnippetAuraBase/aura.event.js.sublime-completions" > aura.event.js.sublime-completions
-  curlNoCache "$urlSnippetAuraBase/aura.helper.js.sublime-completions" > aura.helper.js.sublime-completions
-  curlNoCache "$urlSnippetAuraBase/aura.js.sublime-completions" > aura.js.sublime-completions
-  curlNoCache "$urlSnippetAuraBase/aura.uitags.sublime-completions" > aura.uitags.sublime-completions
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.attributes.sublime-completions > "$dir_sublime_base/aura.attributes.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.cmp.sublime-syntax > "$dir_sublime_base/aura.cmp.sublime-syntax"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.event.js.sublime-completions > "$dir_sublime_base/aura.event.js.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.helper.js.sublime-completions > "$dir_sublime_base/aura.helper.js.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.js.sublime-completions > "$dir_sublime_base/aura.js.sublime-completions"
+  curlNoCache https://raw.githubusercontent.com/synle/aura_autocomplete_sublime/master/snippet/aura.uitags.sublime-completions > "$dir_sublime_base/aura.uitags.sublime-completions"
 
 
   echo "    Build System"
@@ -96,7 +90,7 @@ then
         "path": "/usr/local/bin",
         "cmd": ["node", "$file"]
     }
-  ''' > node-js.sublime-build
+  ''' > "$dir_sublime_base/node-js.sublime-build"
 
 
   # build - nodejs
@@ -107,8 +101,5 @@ then
         "path": "/usr/local/bin",
         "cmd": ["npm", "start"]
     }
-  ''' > node-npm-start.sublime-build
-
-  popd  &> /dev/null
+  ''' > "$dir_sublime_base/node-npm-start.sublime-build"
 fi
-ls
