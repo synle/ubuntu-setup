@@ -123,4 +123,23 @@ then
     ]
   }
   ''' > "$dir_sublime_base/node-js.sublime-build"
+  
+  
+  echo '''
+  
+  {
+    "working_dir": "${project_path}",
+    "selector": "text.xml, source.cmp, source.app",
+    "variants": [
+        {
+            "name": "fetch",
+            "shell_cmd": "force fetch -t AuraDefinitionBundle && force fetch -t StaticResource && force fetch -t RemoteSiteSetting && force fetch -t CorsWhitelistOrigin"
+        },
+        {
+            "name": "push",
+            "shell_cmd": "force push -r -t AuraDefinitionBundle && force push -r -t StaticResource && force push -r -t RemoteSiteSetting && force push -r -t CorsWhitelistOrigin",
+        }
+    ]
+  }
+  ''' > "$dir_sublime_base/force-lightning.sublime-build"
 fi
