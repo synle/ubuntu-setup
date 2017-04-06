@@ -1,3 +1,4 @@
+:remove bloatware from windows 10
 Get-AppxPackage -allusers *3dbuilder* | Remove-AppxPackage
 Get-AppxPackage -allusers *windowsalarms* | Remove-AppxPackage
 Get-AppxPackage -allusers *windowscalculator* | Remove-AppxPackage
@@ -35,3 +36,14 @@ Get-appxprovisionedpackage –online | where-object {$_.packagename –like "*so
 Get-appxpackage -allusers *OneConnect* | Remove-AppxPackage
 Get-appxpackage -allusers *MSPaint* | Remove-AppxPackage
 Get-appxpackage -allusers *PandoraMediaInc* | Remove-AppxPackage
+
+
+: associate
+: 7zip 
+cmd /c assoc .7z=7-Zip.7z
+cmd /c assoc .bz2=7-Zip.bz2
+cmd /c assoc .gz=7-Zip.gz
+cmd /c assoc .tar=7-Zip.tar
+cmd /c assoc .tgz=7-Zip.tgz
+cmd /c assoc .zip=7-Zip.zip
+cmd /c assoc .rar=7-Zip.rar
