@@ -96,7 +96,7 @@ then
   ''' > "$dir_sublime_base/node-js.sublime-build"
 
 
-  # build - nodejs
+  # build - npm
   echo '''
     {
         "working_dir": "${project_path}",
