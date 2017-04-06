@@ -125,8 +125,9 @@ then
   ''' > "$dir_sublime_base/node-js.sublime-build"
   
   
-  echo '''
   
+  #   force cli build
+  echo '''
   {
     "working_dir": "${project_path}",
     "selector": "text.xml, source.cmp, source.app",
@@ -138,6 +139,10 @@ then
         {
             "name": "push",
             "shell_cmd": "force push -r -t AuraDefinitionBundle && force push -r -t StaticResource && force push -r -t RemoteSiteSetting && force push -r -t CorsWhitelistOrigin",
+        },
+        {
+            "name": "login",
+            "shell_cmd": "force logins",
         }
     ]
   }
