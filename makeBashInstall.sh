@@ -91,14 +91,16 @@ else
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
 
-    echo "      Default to Windows Home Dir"
+    echoo "      Default to Windows Home Dir"
     echo "# default path to Window home..." >> $TEMP_BASH_SYLE
     echo "cd /mnt/c/Users/$(whoami)" >> $TEMP_BASH_SYLE
     
     
-    echo "      Prepping some binary"
+    echoo "      Downloading some exe"
     mkdir -p /mnt/c/opt
+    echo  "        Win32Yank"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://github.com/synle/ubuntu-setup/raw/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
+    echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/win32yank.exe
   elif [ $is_os_ubuntu == "1" ]
   then
