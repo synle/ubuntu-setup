@@ -145,53 +145,49 @@ function sps() {
 
 function filterUnwanted(){
     grep -v node_modules \
-        | grep -v release/ \
-        | grep -v .DS_Store \
-        | grep -v .git \
-        | grep -v .png \
-        | grep -v .jpg \
-        | grep -v .sass-cache \
-        | grep -v .a \
-        | grep -v .cache.js \
-        | grep -v .class \
-        | grep -v .db \
-        | grep -v .dll \
-        | grep -v .doc \
-        | grep -v .docx \
-        | grep -v .dylib \
-        | grep -v .exe \
-        | grep -v .idb \
-        | grep -v .jar \
-        | grep -v .js.map \
-        | grep -v .lib \
-        | grep -v .min.js \
-        | grep -v .mp3 \
-        | grep -v .ncb \
-        | grep -v .o \
-        | grep -v .obj \
-        | grep -v .ogg \
-        | grep -v .pdb \
-        | grep -v .pdf \
-        | grep -v .psd \
-        | grep -v .pyc \
-        | grep -v .pyo \
-        | grep -v .sdf \
-        | grep -v .so \
-        | grep -v .sublime-project \
-        | grep -v .sublime-workspace \
-        | grep -v .suo \
-        | grep -v .swf \
-        | grep -v .zip \
-        | grep -v .swp \
-        | grep -v .DS_Store \
-        | grep -v .pid \
-        | grep -v .seed \
-        | grep -v .pid.lock \
-        | grep -v .eslintcache \
-        | grep -v npm-debug.log \
-        | grep -v staticresources.resource \
-        | grep -v remoteSiteSettings.resource \
-        | grep -v corsWhitelistOrigins.resource
+    | grep -v .cache.js \
+    | grep -v .class \
+    | grep -v .db \
+    | grep -v .dll \
+    | grep -v .doc \
+    | grep -v .docx \
+    | grep -v .DS_Store \
+    | grep -v .dylib \
+    | grep -v .eslintcache \
+    | grep -v .exe \
+    | grep -v .git \
+    | grep -v .idb \
+    | grep -v .jar \
+    | grep -v .jpg \
+    | grep -v .js.map \
+    | grep -v .lib \
+    | grep -v .min.js \
+    | grep -v .mp3 \
+    | grep -v .ncb \
+    | grep -v .obj \
+    | grep -v .ogg \
+    | grep -v .pdb \
+    | grep -v .pdf \
+    | grep -v .pid \
+    | grep -v .pid.lock \
+    | grep -v .png \
+    | grep -v .psd \
+    | grep -v .pyc \
+    | grep -v .pyo \
+    | grep -v .sass-cache \
+    | grep -v .sdf \
+    | grep -v .seed \
+    | grep -v .so \
+    | grep -v .sublime-project \
+    | grep -v .sublime-workspace \
+    | grep -v .suo \
+    | grep -v .swf \
+    | grep -v .swp \
+    | grep -v .zip \
+    | grep -v corsWhitelistOrigins.resource \
+    | grep -v npm-debug.log \
+    | grep -v remoteSiteSettings.resource \
+    | grep -v staticresources.resource
 }
 
 
