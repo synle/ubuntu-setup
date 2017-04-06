@@ -244,23 +244,13 @@ function compileSfdcAuraQuick(){
           QUERY=" -1 --query=$1"
       fi
 
-      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY )
       if [ "0" == "$?" ] ; then
           echo "$EDITOR $OUT";
           $EDITOR $OUT
       else
           echo "Aborting..."
       fi
-    }
-
-    # cdf - cd into the directory of the selected file
-    function fuzzyDirectory() {
-      local dir
-      dir=$(find ${1:-.} -path '*/\.*' -prune \
-          -o -type d -print 2> /dev/null | filterUnwanted | fzf );
-      echo "PWD: $PWD"
-      echo "Selected: $dir";
-      cd "$dir"
     }
     
     
