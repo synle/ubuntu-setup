@@ -86,12 +86,13 @@ then
   echo '''
   {
     "working_dir": "${file_path}",
-    "selector" : "source.js",
+    "selector": "source.js, source.json",
     "shell_cmd": "node $file_name",
     "windows" :
     {
         "shell_cmd": "bash -c \"node $file_name\""
     },
+
     "variants": [
         {
             "name": "npm start",
@@ -103,6 +104,7 @@ then
         },
         {
             "name": "npm test",
+            "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm test",
             "windows" :
             {
@@ -111,6 +113,7 @@ then
         },
         {
             "name": "npm install",
+            "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm install",
             "windows" :
             {
@@ -119,6 +122,5 @@ then
         }
     ]
   }
-
   ''' > "$dir_sublime_base/node-js.sublime-build"
 fi
