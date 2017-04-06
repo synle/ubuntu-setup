@@ -84,23 +84,15 @@ then
   echo "    Build System"
   # build - npm
   echo '''
-{
+  {
     "working_dir": "${file_path}",
     "selector" : "source.js",
-    "shell_cmd": "npm start",
+    "shell_cmd": "node $file_name",
     "windows" :
     {
-        "shell_cmd": "bash -c \"npm start\""
+        "shell_cmd": "bash -c \"node $file_name\""
     },
     "variants": [
-        {
-            "name": "compile a single file",
-            "shell_cmd": "node $file_name",
-            "windows" :
-            {
-                "shell_cmd": "bash -c \"node $file_name\""
-            }
-        },
         {
             "name": "npm start",
             "shell_cmd": "npm start",
@@ -126,6 +118,7 @@ then
             }
         }
     ]
-}
-  ''' > "$dir_sublime_base/node-npm-start.sublime-build"
+  }
+
+  ''' > "$dir_sublime_base/node-js.sublime-build"
 fi
