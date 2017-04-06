@@ -223,6 +223,7 @@ function compileSfdcAuraQuick(){
 ############################################
     alias fvim=fuzzyVim
     alias fvim2=fuzzyVim2
+    alias fsubl=fuzzySublime
     alias fcd=fuzzyDirectory
     alias fgrep=fuzzyGrep
     alias fhistory=fuzzyHistory
@@ -235,6 +236,24 @@ function compileSfdcAuraQuick(){
     
 
     # fzf file view
+    function fuzzySublime(){
+      local OUT
+      local QUERY
+
+      QUERY=""
+      if [ "$1" != "" ] ; then
+          QUERY=" -1 --query=$1"
+      fi
+
+      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY )
+      if [ "0" == "$?" ] ; then
+          echo "subl $OUT";
+          subl $OUT
+      else
+          echo "Aborting..."
+      fi
+    }
+    
     function fuzzyVim(){
       local OUT
       local QUERY
