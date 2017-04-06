@@ -82,20 +82,6 @@ then
 
 
   echo "    Build System"
-  # build - nodejs
-  echo '''
-{
-    "working_dir": "${file_path}",
-    "selector" : "source.js",
-    "shell_cmd": "node $file_name",
-    "windows" :
-    {
-        "shell_cmd": "bash -c \"node $file_name\""
-    }
-}
-  ''' > "$dir_sublime_base/node-js.sublime-build"
-
-
   # build - npm
   echo '''
 {
@@ -107,6 +93,14 @@ then
         "shell_cmd": "bash -c \"npm start\""
     },
     "variants": [
+        {
+            "name": "compile a single file",
+            "shell_cmd": "node $file_name",
+            "windows" :
+            {
+                "shell_cmd": "bash -c \"node $file_name\""
+            }
+        },
         {
             "name": "npm start",
             "shell_cmd": "npm start",
