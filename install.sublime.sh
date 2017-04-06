@@ -85,12 +85,12 @@ then
   # build - nodejs
   echo '''
     {
-        "working_dir": "${project_path}",
+        "working_dir": "${file_path}",
         "selector" : "source.js",
-        "shell_cmd": "cd $file_path && node $file_name",
+        "shell_cmd": "node $file_name",
         "windows" :
         {
-            "shell_cmd": "cd $file_path && bash -c \"node $file_name\""
+            "shell_cmd": "bash -c \"node $file_name\""
         }
     }
   ''' > "$dir_sublime_base/node-js.sublime-build"
@@ -101,10 +101,10 @@ then
     {
         "working_dir": "${project_path}",
         "selector" : "source.json",
-        "shell_cmd": "cd $project_path && npm start",
+        "shell_cmd": "npm start",
         "windows" :
         {
-            "shell_cmd": "cd $project_path && bash -c \"npm start\""
+            "shell_cmd": "bash -c \"pwd && npm start\""
         }
     }
   ''' > "$dir_sublime_base/node-npm-start.sublime-build"
