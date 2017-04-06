@@ -86,9 +86,12 @@ then
   echo '''
     {
         "working_dir": "${project_path}",
-        "selector" : "source.json",
-        "path": "/usr/local/bin",
-        "cmd": ["node", "$file"]
+        "selector" : "source.js",
+        "shell_cmd": "cd $file_path && node $file_name",
+        "windows" :
+        {
+            "shell_cmd": "cd $file_path && bash -c \"node $file_name\""
+        }
     }
   ''' > "$dir_sublime_base/node-js.sublime-build"
 
@@ -98,8 +101,11 @@ then
     {
         "working_dir": "${project_path}",
         "selector" : "source.json",
-        "path": "/usr/local/bin",
-        "cmd": ["npm", "start"]
+        "shell_cmd": "cd $project_path && npm start",
+        "windows" :
+        {
+            "shell_cmd": "cd $project_path && bash -c \"npm start\""
+        }
     }
   ''' > "$dir_sublime_base/node-npm-start.sublime-build"
 fi
