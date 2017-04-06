@@ -222,6 +222,7 @@ function compileSfdcAuraQuick(){
 # https://github.com/junegunn/fzf/wiki/examples
 ############################################
     alias fvim=fuzzyVim
+    alias fvim2=fuzzyVim2
     alias fcd=fuzzyDirectory
     alias fgrep=fuzzyGrep
     alias fhistory=fuzzyHistory
@@ -235,6 +236,35 @@ function compileSfdcAuraQuick(){
 
     # fzf file view
     function fuzzyVim(){
+      local OUT
+      local QUERY
+
+      QUERY=""
+      if [ "$1" != "" ] ; then
+          QUERY=" -1 --query=$1"
+      fi
+
+      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY --preview="cat {}" )
+      if [ "0" == "$?" ] ; then
+          echo "$EDITOR $OUT";
+          $EDITOR $OUT
+      else
+          echo "Aborting..."
+      fi
+    }
+
+    # cdf - cd into the directory of the selected file
+    function fuzzyDirectory() {
+      local dir
+      dir=$(find ${1:-.} -path '*/\.*' -prune \
+          -o -type d -print 2> /dev/null | filterUnwanted | fzf );
+      echo "PWD: $PWD"
+      echo "Selected: $dir";
+      cd "$dir"
+    }
+    
+    
+    function fuzzyVim2(){
       local OUT
       local QUERY
 
