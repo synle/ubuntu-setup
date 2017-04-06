@@ -84,28 +84,54 @@ then
   echo "    Build System"
   # build - nodejs
   echo '''
+{
+    "working_dir": "${file_path}",
+    "selector" : "source.js",
+    "shell_cmd": "node $file_name",
+    "windows" :
     {
-        "working_dir": "${file_path}",
-        "selector" : "source.js",
-        "shell_cmd": "node $file_name",
-        "windows" :
-        {
-            "shell_cmd": "bash -c \"node $file_name\""
-        }
+        "shell_cmd": "bash -c \"node $file_name\""
     }
+}
   ''' > "$dir_sublime_base/node-js.sublime-build"
 
 
   # build - npm
   echo '''
+{
+    "working_dir": "${file_path}",
+    "selector" : "source.js",
+    "shell_cmd": "npm start",
+    "windows" :
     {
-        "working_dir": "${project_path}",
-        "selector" : "source.json",
-        "shell_cmd": "npm start",
-        "windows" :
+        "shell_cmd": "bash -c \"npm start\""
+    },
+    "variants": [
         {
-            "shell_cmd": "bash -c \"pwd && npm start\""
+            "name": "npm start",
+            "shell_cmd": "npm start",
+            "windows" :
+            {
+                "shell_cmd": "bash -c \"npm start\""
+            }
+        },
+        {
+            "name": "npm test",
+            "shell_cmd": "npm test",
+            "windows" :
+            {
+                "shell_cmd": "bash -c \"npm test\""
+            }
+        },
+        {
+            "name": "npm install",
+            "shell_cmd": "npm install",
+            "windows" :
+            {
+                "shell_cmd": "bash -c \"npm install\""
+            }
         }
-    }
+    ]
+}
   ''' > "$dir_sublime_base/node-npm-start.sublime-build"
 fi
