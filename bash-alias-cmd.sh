@@ -314,7 +314,7 @@ function compileSfdcAuraQuick(){
     }
     
     function printFullPath(){
-        readlink -e $@
+        echo $@
     }
     
 
