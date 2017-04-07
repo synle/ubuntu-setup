@@ -281,15 +281,24 @@ function compileSfdcAuraQuick(){
     alias glog=fuzzyGitLog
     
     function viewFile(){
-        local editorCmd=vim;
-        
-        if isCommandExists subl ; then
-            editorCmd=subl
+        local editorCmd
+
+        if [[ $# -eq 0 ]] ; then
+            return 1 # silent exit
         fi
+
         if isCommandExists subl.exe ; then
+            # wsl mode
             editorCmd=subl.exe
+        elif isCommandExists subl ; then
+            # mac or other linux
+            editorCmd=subl
+        else
+            # no subl, fall back to vim
+            editorCmd=vim;
         fi
-        
+
+        echo "viewFile $@"
         $editorCmd $@
     }
     
@@ -307,10 +316,7 @@ function compileSfdcAuraQuick(){
     
     function fuzzyViewFile(){
       local OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf )
-      if [ "0" == "$?" ] ; then
-          echo "viewFile $OUT";
-          viewFile $OUT;
-      fi
+      viewFile $OUT
     }
 
     # cdf - cd into the directory of the selected file
