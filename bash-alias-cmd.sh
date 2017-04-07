@@ -260,6 +260,7 @@ function compileSfdcAuraQuick(){
 ############################################
     alias fvim=fuzzyVim
     alias fvim2=fuzzyVim2
+    alias fviewfile=fsubl
     alias fsubl=fuzzySublime
     alias fcd=fuzzyDirectory
     alias fgrep=fuzzyGrep
@@ -432,7 +433,7 @@ function compileSfdcAuraQuick(){
 ############################################
 
 # ctrl p to fvim
-bind '"\C-p":"fvim\r"'
+bind '"\C-p":"fviewfile\r"'
 
 # ctrl n to view make new component options
 bind '"\C-n":"fuzzyMakeComponent\r"'
