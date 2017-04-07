@@ -304,6 +304,8 @@ function compileSfdcAuraQuick(){
     }
     
     function listDirsInPwd(){
+        # use either ls tree or find
+        git ls-tree -r --name-only HEAD 2> /dev/null || \
         find ${1:-.} -path '*/\.*' -prune \
               -o -type d -print 2> /dev/null
         echo ".." # append parent folder
