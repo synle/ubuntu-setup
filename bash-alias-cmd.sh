@@ -303,6 +303,12 @@ function compileSfdcAuraQuick(){
         $editorCmd $@
     }
     
+    function listDir(){
+        find ${1:-.} -path '*/\.*' -prune \
+              -o -type d -print 2> /dev/null
+        echo ".." # append parent folder
+    }
+    
 
     # fzf file view
     function fuzzyVim(){
@@ -322,9 +328,9 @@ function compileSfdcAuraQuick(){
 
     # cdf - cd into the directory of the selected file
     function fuzzyDirectory() {
-      local dir
-      dir=$(find ${1:-.} -path '*/\.*' -prune \
-          -o -type d -print 2> /dev/null | filterUnwanted | fzf +m --preview="ls -la {}");
+      local dir=$(listDir | \
+          filterUnwanted | \
+          fzf +m);
       echo "PWD: $PWD"
       echo "Selected: $dir";
       cd "$dir"
