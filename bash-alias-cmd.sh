@@ -349,9 +349,8 @@ function compileSfdcAuraQuick(){
 
     function fuzzyGrep(){
       local OUT
-      OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf)
-      echo $OUT | cut -d ":" -f1 | xargs echo;
-      echo $OUT | cut -d ":" -f1 | xargs $EDITOR;
+      OUT=$(grep --line-buffered --color=never -r "" * | filterUnwanted | fzf | cut -d ":" -f1)
+      viewFile $OUT
     }
 
 
