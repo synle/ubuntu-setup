@@ -196,7 +196,8 @@ function filterUnwanted(){
     | grep -v corsWhitelistOrigins.resource \
     | grep -v npm-debug.log \
     | grep -v remoteSiteSettings.resource \
-    | grep -v staticresources.resource
+    | grep -v staticresources.resource \
+    | uniq
 }
 
 
