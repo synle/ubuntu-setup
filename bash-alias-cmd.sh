@@ -427,6 +427,11 @@ function compileSfdcAuraQuick(){
         echo "$makeComponentCommand"
         $makeComponentCommand
     }
+    
+    
+    # allow default fzf completion for node and subl
+    complete -F _fzf_path_completion node
+    complete -F _fzf_path_completion subl
 
 ############################################
 #############  SECTION BREAK  ##############
