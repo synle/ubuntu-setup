@@ -357,8 +357,7 @@ function compileSfdcAuraQuick(){
 
 
     function fuzzyHistory() {
-      local OUT;
-      OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
+      local OUT=$( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//');
       echo $OUT;
       echo '===='
       eval $OUT
@@ -367,7 +366,7 @@ function compileSfdcAuraQuick(){
 
     # fkill - kill process
     function fuzzyKill() {
-      pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+      local pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
 
       if [ "x$pid" != "x" ]
       then
