@@ -313,6 +313,10 @@ function compileSfdcAuraQuick(){
         find . -type f 2>/dev/null
     }
     
+    function printFullPath(){
+        readlink -e $@
+    }
+    
 
     # fzf file view
     function fuzzyVim(){
@@ -336,7 +340,7 @@ function compileSfdcAuraQuick(){
           filterUnwanted | \
           fzf +m);
       echo "PWD: $PWD"
-      echo "Selected: $dir";
+      printFullPath $dir;
       cd "$dir"
     }
 
