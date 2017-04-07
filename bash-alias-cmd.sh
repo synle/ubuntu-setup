@@ -457,6 +457,9 @@ function compileSfdcAuraQuick(){
 # ctrl p to fvim
 bind '"\C-p":"fviewfile\r"'
 
+# alt p to fcd
+bind '"\ep":"fcd\r"'
+
 # ctrl n to view make new component options
 bind '"\C-n":"fuzzyMakeComponent\r"'
 
