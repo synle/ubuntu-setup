@@ -64,6 +64,15 @@ function openSublimePackageControl(){
 }
 
 
+# check if a command exists
+# if isCommandExists subl ; then
+#     alias editorCmd=subl
+# fi
+function isCommandExists () {
+    type "$1" &> /dev/null ;
+}
+
+
 function removeNodeModules(){
     echoo "Removed nested node_modules...";
     find . | grep node_modules | xargs rm -rf > /dev/null
@@ -259,8 +268,7 @@ function compileSfdcAuraQuick(){
 # https://github.com/junegunn/fzf/wiki/examples
 ############################################
     alias fvim=fuzzyVim
-    alias fvim2=fuzzyVim2
-    alias fviewfile=fsubl
+    alias fviewfile=fuzzyViewFile
     alias fsubl=fuzzySublime
     alias fcd=fuzzyDirectory
     alias fgrep=fuzzyGrep
@@ -272,60 +280,36 @@ function compileSfdcAuraQuick(){
     alias gbranch=fuzzyGitBranch
     alias glog=fuzzyGitLog
     
+    function viewFile(){
+        local editorCmd=vim;
+        
+        if isCommandExists subl ; then
+            editorCmd=subl
+        fi
+        if isCommandExists subl.exe ; then
+            editorCmd=subl.exe
+        fi
+        
+        $editorCmd $@
+    }
+    
 
     # fzf file view
-    function fuzzySublime(){
-      local OUT
-      local QUERY
-
-      QUERY=""
-      if [ "$1" != "" ] ; then
-          QUERY=" -1 --query=$1"
-      fi
-
-      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY )
-      if [ "0" == "$?" ] ; then
-          echo "subl $OUT";
-          subl $OUT
-      else
-          echo "Aborting..."
-      fi
-    }
-    
     function fuzzyVim(){
-      local OUT
-      local QUERY
-
-      QUERY=""
-      if [ "$1" != "" ] ; then
-          QUERY=" -1 --query=$1"
-      fi
-
-      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY )
+      local OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf )
+      
       if [ "0" == "$?" ] ; then
-          echo "$EDITOR $OUT";
-          $EDITOR $OUT
-      else
-          echo "Aborting..."
+          echo "vim $OUT";
+          vim $OUT
       fi
     }
     
     
-    function fuzzyVim2(){
-      local OUT
-      local QUERY
-
-      QUERY=""
-      if [ "$1" != "" ] ; then
-          QUERY=" -1 --query=$1"
-      fi
-
-      OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf $QUERY --preview="cat {}" )
+    function fuzzyViewFile(){
+      local OUT=$( find . -type f 2>/dev/null | filterUnwanted | fzf )
       if [ "0" == "$?" ] ; then
-          echo "$EDITOR $OUT";
-          $EDITOR $OUT
-      else
-          echo "Aborting..."
+          echo "viewFile $OUT";
+          viewFile $OUT;
       fi
     }
 
