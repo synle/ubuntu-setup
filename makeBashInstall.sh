@@ -101,7 +101,8 @@ else
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     echo  "        force-cli (Salesforce)"
-    [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/win32yank.exe
+    [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
+    sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
