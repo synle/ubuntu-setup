@@ -149,7 +149,7 @@ function new-express-project(){
 
 #short path
 function sps() {
-    python -c "import sys; dirs = sys.argv[1].split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
+    python -c "import sys; mypath = ' '.join(sys.argv[1:]); dirs = mypath.split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
 }
 
 function filterUnwanted(){
