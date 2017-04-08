@@ -102,3 +102,16 @@ Windows Registry Editor Version 5.00
 "ColorPrevalence"=dword:00000001
 "EnableTransparency"=dword:00000000
 "AppsUseLightTheme"=dword:00000000
+
+
+;more cool stuffs
+;https://ss64.com/nt/syntax-reghacks.html
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="50"
+
+;;Don't add "-Shortcut" text to the name of newly created shortcuts.
+;Don't Hide file extensions
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideFileExt"=dword:00000000
+"TaskbarAnimations"=dword:00000000
+"TaskbarSmallIcons"=dword:00000001
