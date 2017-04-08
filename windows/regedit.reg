@@ -89,7 +89,7 @@ Windows Registry Editor Version 5.00
 "UserPreferencesMask"=hex:90,32,07,80,10,00,00,00
 
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects]
-"VisualFXSetting"=dword:00000003
+"VisualFXSetting"=dword:00001006
 
 
 ; 7-zip context menu
