@@ -19,7 +19,7 @@ https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-
 
 ## Themes
 `%userprofile%\AppData\Local\Microsoft\Windows\Themes`
-
+`C:\Users\**\AppData\Local\Microsoft\Windows\Themes`
 
 Shortcuts
 ### Tmux default shortcuts
