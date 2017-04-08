@@ -107,14 +107,17 @@ else
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
     
-    echoo "      Theming"
+    echoo "      Settings"
+    echo  "       Theme Tweaks"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -o $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
     
-    echoo "      Regedit"
+    echoo "       Regedit"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -o $WINDOWS_DESKTOP_PATH/setup1.regedit
     
-    echoo "      Commands"
+    echoo "       Powershell Commands"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -o $WINDOWS_DESKTOP_PATH/setup2.ps1
+    echoo "       Greenshots"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -o $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
