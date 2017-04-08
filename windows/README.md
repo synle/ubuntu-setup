@@ -17,6 +17,10 @@ https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-
 
 
 
+## Themes
+`%userprofile%\AppData\Local\Microsoft\Windows\Themes`
+
+
 Shortcuts
 ### Tmux default shortcuts
 ```%windir%\system32\bash.exe -c "/usr/bin/tmux"```
