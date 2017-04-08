@@ -109,15 +109,15 @@ else
     
     echoo "      Settings"
     echo  "       Theme Tweaks"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -o $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -so $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
     
     echoo "       Regedit"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -o $WINDOWS_DESKTOP_PATH/setup1.regedit
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
     
     echoo "       Powershell Commands"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -o $WINDOWS_DESKTOP_PATH/setup2.ps1
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
     echoo "       Greenshots"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -o $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
