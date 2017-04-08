@@ -87,6 +87,7 @@ else
   if [ $is_os_window == "1" ]
   then
     WINDOWS_HOME_PATH=/mnt/c/Users/$USER
+    WINDOWS_APPDATA_PATH=$WINDOWS_HOME_PATH/AppData
     echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
@@ -103,6 +104,9 @@ else
     echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
+    
+    echoo "      Theming"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -o $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
