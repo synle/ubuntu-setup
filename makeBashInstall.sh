@@ -88,6 +88,8 @@ else
   then
     WINDOWS_HOME_PATH=/mnt/c/Users/$USER
     WINDOWS_APPDATA_PATH=$WINDOWS_HOME_PATH/AppData
+    WINDOWS_DOWNLOAD_PATH=$WINDOWS_HOME_PATH/Download
+    WINDOWS_DESKTOP_PATH=$WINDOWS_HOME_PATH/Desktop
     echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
     echo  "      WSL only aliases/commands"
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
@@ -107,6 +109,12 @@ else
     
     echoo "      Theming"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -o $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
+    
+    echoo "      Regedit"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -o $WINDOWS_DESKTOP_PATH/setup1.regedit
+    
+    echoo "      Commands"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -o $WINDOWS_DESKTOP_PATH/setup2.ps1
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
