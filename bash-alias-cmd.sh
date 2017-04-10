@@ -146,6 +146,10 @@ function new-express-project(){
     express -H --css less --git --force
 }
 
+function getIpAddress(){
+    ifconfig eth| grep "inet" | awk '{print $2}' | sed 's/[^0-9.]*//g'
+}
+
 
 #short path
 function sps() {
