@@ -50,3 +50,26 @@ Func MoveWindowRight($hWnd)
    WinActivate($hWnd)
    WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
 EndFunc
+
+
+; 3 | 2
+; 4 | 1
+Func MoveWindowQ1($hWnd)
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+EndFunc
+
+Func MoveWindowQ2($hWnd)
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+EndFunc
+
+Func MoveWindowQ3($hWnd)
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+EndFunc
+
+Func MoveWindowQ4($hWnd)
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+EndFunc
