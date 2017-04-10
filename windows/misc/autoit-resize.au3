@@ -50,23 +50,23 @@ EndFunc
 Func MoveWindowQ1()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
+   WinMove($hWnd, "", @DesktopWidth / 2, @DesktopHeight / 2, @DesktopWidth / 2, @DesktopHeight / 2)
 EndFunc
 
 Func MoveWindowQ2()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
+   WinMove($hWnd, "", @DesktopWidth / 2, 0, @DesktopWidth / 2, @DesktopHeight / 2)
 EndFunc
 
 Func MoveWindowQ3()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
+   WinMove($hWnd, "", 0, 0, @DesktopWidth / 2, @DesktopHeight / 2)
 EndFunc
 
 Func MoveWindowQ4()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
+   WinMove($hWnd, "", 0, @DesktopHeight / 2, @DesktopWidth / 2, @DesktopHeight / 2)
 EndFunc
