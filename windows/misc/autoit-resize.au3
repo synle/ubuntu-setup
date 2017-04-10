@@ -1,5 +1,6 @@
 ;http://stackoverflow.com/questions/23190825/autoit-detecting-window-screen-resolution-in-an-if-statement
-local $myWidth = @DesktopWidth / 3
+local $myWidth1 = @DesktopWidth / 3;
+local $myWidth2 = @DesktopWidth / 2;
 local $myHeight = @DesktopHeight
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
@@ -7,6 +8,11 @@ local $myHeight = @DesktopHeight
 HotKeySet("^!{LEFT}", "MoveWindowLeft") ;
 HotKeySet("^!{RIGHT}", "MoveWindowRight") ;
 HotKeySet("^!c", "MoveWindowCenter") ;
+
+HotKeySet("^!1", "MoveWindowQ3") ;
+HotKeySet("^!2", "MoveWindowQ2") ;
+HotKeySet("^!3", "MoveWindowQ4") ;
+HotKeySet("^!4", "MoveWindowQ1") ;
 
 
 ;holding
@@ -21,21 +27,21 @@ EndFunc
 Func MoveWindowLeft()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", 0, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", 0, 0, $myWidth1, $myHeight)
 EndFunc
 
 
 Func MoveWindowCenter()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", $myWidth1, 0, $myWidth1, $myHeight)
 EndFunc
 
 
 Func MoveWindowRight()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", $myWidth1 * 2, 0, $myWidth1, $myHeight)
 EndFunc
 
 
@@ -44,22 +50,23 @@ EndFunc
 Func MoveWindowQ1()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
 EndFunc
 
 Func MoveWindowQ2()
-   WinActivate
-   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
 EndFunc
 
 Func MoveWindowQ3()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
 EndFunc
 
 Func MoveWindowQ4()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth * 2, 0, $myWidth, $myHeight)
+   WinMove($hWnd, "", $myWidth2, $myHeight / 2, $myWidth2 / 2, $myHeight / 2)
 EndFunc
