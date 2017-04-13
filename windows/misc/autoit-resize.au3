@@ -93,7 +93,16 @@ Func MakeWindowBigger()
    Local $aPos = WinGetPos("[ACTIVE]")
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $aPos[0], $aPos[1], $aPos[2] + $myDeltaWidth2, $aPos[3])
+
+   local $newWidth = $aPos[2] + $myDeltaWidth2
+   local $newLeft = $aPos[0]
+
+   If $newWidth + $aPos[0] >= @DesktopWidth Then
+	  $newLeft= $aPos[0] - $myDeltaWidth2
+	  $newWidth = @DesktopWidth - $newLeft
+   EndIf
+
+   WinMove($hWnd, "", $newLeft, $aPos[1], $newWidth, $aPos[3])
 EndFunc
 
 
