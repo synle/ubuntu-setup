@@ -4,7 +4,7 @@ local $myWidth2 = @DesktopWidth / 2;
 local $myHeight1 = @DesktopHeight
 local $myHeight2 = @DesktopHeight / 2
 local $myDeltaWidth1 = 30
-local $myDeltaWidth2 = 60
+local $myDeltaWidth2 = @DesktopWidth / 10
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
 ;Ctrl-Alt
@@ -12,6 +12,10 @@ HotKeySet("^!{LEFT}", "MoveWindowLeft")
 HotKeySet("^!{RIGHT}", "MoveWindowRight")
 HotKeySet("^!c", "MoveWindowCenter")
 HotKeySet("^!m", "MaximizeWindow")
+
+HotKeySet("^!{UP}", "MoveWindowTop")
+HotKeySet("^!{DOWN}", "MoveWindowBottom")
+
 
 ; make it bigger or smaller
 HotKeySet("^!=", "MakeWindowBigger")
@@ -58,6 +62,19 @@ Func MoveWindowRight()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
    WinMove($hWnd, "", $myWidth1 * 2, 0, $myWidth1, $myHeight1)
+EndFunc
+
+
+Func MoveWindowTop()
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", 0, 0, @DesktopWidth, $myHeight2)
+EndFunc
+
+Func MoveWindowBottom()
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", 0, $myHeight2, @DesktopWidth, $myHeight2)
 EndFunc
 
 
