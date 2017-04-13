@@ -89,7 +89,6 @@ EndFunc
 
 
 Func MakeWindowBigger()
-   ; implement me
    Local $aPos = WinGetPos("[ACTIVE]")
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
@@ -107,9 +106,16 @@ EndFunc
 
 
 Func MakeWindowSmaller()
-   ; implement me
    Local $aPos = WinGetPos("[ACTIVE]")
    Local $hWnd = GetActiveWindow()
+   Local $minWidth = 400
    WinActivate($hWnd)
-   WinMove($hWnd, "", $aPos[0], $aPos[1], $aPos[2] - $myDeltaWidth2, $aPos[3])
+
+   local $newWidth = $aPos[2] - $myDeltaWidth2
+
+   If $newWidth < $minWidth Then
+	  $newWidth = $minWidth
+   EndIf
+
+   WinMove($hWnd, "", $aPos[0], $aPos[1], $newWidth, $aPos[3])
 EndFunc
