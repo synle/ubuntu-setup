@@ -4,6 +4,7 @@ local $myWidth2 = @DesktopWidth / 2;
 local $myHeight1 = @DesktopHeight
 local $myHeight2 = @DesktopHeight / 2
 local $myDeltaWidth1 = 30
+local $myDeltaWidth2 = 60
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
 ;Ctrl-Alt
@@ -89,11 +90,17 @@ EndFunc
 
 Func MakeWindowBigger()
    ; implement me
-   MaximizeWindow()
+   Local $aPos = WinGetPos("[ACTIVE]")
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $aPos[0], $aPos[1], $aPos[2] + $myDeltaWidth2, $aPos[3])
 EndFunc
 
 
 Func MakeWindowSmaller()
    ; implement me
-   MaximizeWindow()
+   Local $aPos = WinGetPos("[ACTIVE]")
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", $aPos[0], $aPos[1], $aPos[2] - $myDeltaWidth2, $aPos[3])
 EndFunc
