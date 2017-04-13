@@ -7,17 +7,21 @@ local $myDeltaWidth1 = 30
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
 ;Ctrl-Alt
-HotKeySet("^!{LEFT}", "MoveWindowLeft") ;
-HotKeySet("^!{RIGHT}", "MoveWindowRight") ;
-HotKeySet("^!c", "MoveWindowCenter") ;
+HotKeySet("^!{LEFT}", "MoveWindowLeft")
+HotKeySet("^!{RIGHT}", "MoveWindowRight")
+HotKeySet("^!c", "MoveWindowCenter")
+HotKeySet("^!m", "MaximizeWindow")
 
+; make it bigger or smaller
+HotKeySet("^!=", "MakeWindowBigger")
+HotKeySet("^!-", "MakeWindowSmaller")
 
 ; 3 | 2
 ; 4 | 1
-HotKeySet("^!1", "MoveWindowQ3") ;
-HotKeySet("^!2", "MoveWindowQ2") ;
-HotKeySet("^!3", "MoveWindowQ4") ;
-HotKeySet("^!4", "MoveWindowQ1") ;
+HotKeySet("^!1", "MoveWindowQ3")
+HotKeySet("^!2", "MoveWindowQ2")
+HotKeySet("^!3", "MoveWindowQ4")
+HotKeySet("^!4", "MoveWindowQ1")
 
 
 ;holding
@@ -27,6 +31,12 @@ WEnd
 
 Func GetActiveWindow()
    return WinGetTitle("[ACTIVE]")
+EndFunc
+
+Func MaximizeWindow()
+   Local $hWnd = GetActiveWindow()
+   WinActivate($hWnd)
+   WinMove($hWnd, "", 0, 0, @DesktopWidth, @DesktopHeight)
 EndFunc
 
 Func MoveWindowLeft()
@@ -39,7 +49,7 @@ EndFunc
 Func MoveWindowCenter()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
-   WinMove($hWnd, "", $myWidth1 - $myDeltaWidth1, 0, $myWidth1 + $myDeltaWidth1, $myHeight1)
+   WinMove($hWnd, "", $myWidth1 -5, 0, $myWidth1 + $myDeltaWidth1, $myHeight1)
 EndFunc
 
 
@@ -74,4 +84,16 @@ Func MoveWindowQ4()
    Local $hWnd = GetActiveWindow()
    WinActivate($hWnd)
    WinMove($hWnd, "", 0, $myHeight2, $myWidth2, $myHeight2)
+EndFunc
+
+
+Func MakeWindowBigger()
+   ; implement me
+   MaximizeWindow()
+EndFunc
+
+
+Func MakeWindowSmaller()
+   ; implement me
+   MaximizeWindow()
 EndFunc
