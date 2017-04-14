@@ -5,20 +5,17 @@ NVM_BASE_PATH=~/.nvm
 type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
 
 function installNodeModulesIfNeeded(){
-    for i; do 
-        echo "    INSTALL $i"
-    done
-
-    npm i -g $@ &> /dev/null
+    type $@ &> /dev/null || (echo "    INSTALL $@" && npm i -g $@ &> /dev/null)
+    type $@ &> /dev/null &&  echo "    SKIP    $@"
 }
 
 #download node npm deps
 echo "  npm i -g";
-installNodeModulesIfNeeded grunt-init \
-    bower \
-    gulp \
-    browserify \
-    webpack \
-    eslint \
-    typings
-    
+# npm i -g grunt-cli;
+installNodeModulesIfNeeded grunt-init;
+installNodeModulesIfNeeded bower;
+installNodeModulesIfNeeded gulp;
+installNodeModulesIfNeeded browserify;
+installNodeModulesIfNeeded webpack;
+installNodeModulesIfNeeded eslint;
+installNodeModulesIfNeeded typings;
