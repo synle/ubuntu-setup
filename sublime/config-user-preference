@@ -87,7 +87,6 @@
         "CVS",
         "gmail-release",
         "node_modules",
-        "packaged",
         "release",
         "target",
         "tmp",
