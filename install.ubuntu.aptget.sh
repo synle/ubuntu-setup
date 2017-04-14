@@ -7,6 +7,11 @@ function installAptGetModuleIfNeeded(){
     type $0 &> /dev/null && has_installed_app=1
     type $1 &> /dev/null && has_installed_app=1
     
+    echo $0
+    echo $1
+    echo $2
+    echo $3
+    
     if [ $has_installed_app == "0" ]
     then
         echo "    INSTALL $0"
