@@ -3,28 +3,12 @@ is_os_ubuntu=0
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
-    has_installed_app=0
-    type $@ &> /dev/null && has_installed_app=1
-    
-    echo "    INSTALL $@"
-    
-    if [ $has_installed_app == "0" ]
-    then
-        sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
-    fi
+    sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
 
 
 function installAptGetModuleIfNeededBackground(){
-    has_installed_app=0
-    type $@ &> /dev/null && has_installed_app=1
-    
-    echo "    INSTALL $@"
-    
-    if [ $has_installed_app == "0" ]
-    then
-        sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
-    fi
+    sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
 }
 
 if [ $is_os_ubuntu == "1" ]
