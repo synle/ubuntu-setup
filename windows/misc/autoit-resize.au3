@@ -4,7 +4,7 @@ local $myWidth2 = @DesktopWidth / 2;
 local $myHeight1 = @DesktopHeight
 local $myHeight2 = @DesktopHeight / 2
 local $myDeltaWidth1 = 30
-local $myDeltaWidth2 = @DesktopWidth / 10
+local $myDeltaWidth2 = @DesktopWidth / 9
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
 ;Ctrl-Alt
