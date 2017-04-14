@@ -6,7 +6,7 @@ type nvm &> /dev/null || . "$NVM_BASE_PATH/nvm.sh"
 
 function installNodeModulesIfNeeded(){
     type $@ &> /dev/null || (echo "    INSTALL $@" && nohup npm i -g $@ &> /dev/null &)
-    type $@ &> /dev/null &&  echo "    SKIP    $@"
+    type $@ &> /dev/null &&  (echo "    SKIP    $@")
 }
 
 #download node npm deps
