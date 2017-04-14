@@ -47,11 +47,4 @@ then
         ant \
         gradle \
         maven
-    
-    # sudo apt-get install  -y --fix-missing mysql-client
-    #
-    # sudo apt-get install  -y --fix-missing python-dev
-    # sudo apt-get install  -y --fix-missing python-software-properties
-    # sudo apt-get install  -y --fix-missing software-properties-common
-    # sudo apt-get install  -y --fix-missing gnuplot
 fi
