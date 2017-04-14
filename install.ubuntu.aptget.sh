@@ -23,7 +23,7 @@ function installAptGetModuleIfNeededBackground(){
     
     if [ $has_installed_app == "0" ]
     then
-        nohup sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
+        sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
     fi
 }
 
@@ -36,19 +36,19 @@ then
     installAptGetModuleIfNeeded git
     installAptGetModuleIfNeeded vim
     installAptGetModuleIfNeeded curl
-    installAptGetModuleIfNeeded tmux
-    installAptGetModuleIfNeeded python
-    installAptGetModuleIfNeeded tig
-    installAptGetModuleIfNeeded unzip
-    installAptGetModuleIfNeeded make
-    installAptGetModuleIfNeeded jq
-    installAptGetModuleIfNeeded figlet
-    installAptGetModuleIfNeeded autoconf
-    installAptGetModuleIfNeeded automake
-    installAptGetModuleIfNeeded gcc
-    installAptGetModuleIfNeeded g++
-    installAptGetModuleIfNeeded build-essential
-    installAptGetModuleIfNeeded unzip
+    installAptGetModuleIfNeededBackground tmux
+    installAptGetModuleIfNeededBackground python
+    installAptGetModuleIfNeededBackground tig
+    installAptGetModuleIfNeededBackground unzip
+    installAptGetModuleIfNeededBackground make
+    installAptGetModuleIfNeededBackground jq
+    installAptGetModuleIfNeededBackground figlet
+    installAptGetModuleIfNeededBackground autoconf
+    installAptGetModuleIfNeededBackground automake
+    installAptGetModuleIfNeededBackground gcc
+    installAptGetModuleIfNeededBackground g++
+    installAptGetModuleIfNeededBackground build-essential
+    installAptGetModuleIfNeededBackground unzip
     
     # java stuffs
     installAptGetModuleIfNeededBackground openjdk-7-jdk
