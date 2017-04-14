@@ -141,7 +141,7 @@ echoo "  Make Component Scripts"
 rm -rf ~/synle-make-component
 git clone --depth 1 -b master https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
 cd ~/synle-make-component 
-npm i &> /dev/null && npm run build &> /dev/null
+nohup npm i &> /dev/null && npm run build &> /dev/null &
 echo """
   # sourcing synle make component
   [ -s ~/synle-make-component/setup.sh ] && . ~/synle-make-component/setup.sh
