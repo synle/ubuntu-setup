@@ -242,6 +242,9 @@ function setGitUpstreamBranch(){
     git branch -u origin/$(git name-rev --name-only HEAD)
 }
 
+
+alias gitOpen="echo `git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'`| head -n1"
+
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
