@@ -22,7 +22,6 @@ Get-AppxPackage -allusers *bingweather* | Remove-AppxPackage
 Get-AppxPackage -allusers *xboxapp* | Remove-AppxPackage
 Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage
 Get-AppxPackage -allusers *Food* | Remove-AppxPackage
-Get-AppxPackage -allusers *Health* | Remove-AppxPackage
 Get-AppxPackage -allusers *Netflix* | Remove-AppxPackage
 Get-AppxPackage -allusers *Sling* | Remove-AppxPackage
 Get-AppxPackage -allusers *Travel* | Remove-AppxPackage
