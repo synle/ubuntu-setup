@@ -25,8 +25,8 @@ then
     echo "  apt-get install..."
     #     must have
     installAptGetModuleIfNeeded git \
-    vim \
-    curl
+        vim \
+        curl
     
     
     #     async can be done in background
