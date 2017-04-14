@@ -8,7 +8,7 @@ function installAptGetModuleIfNeeded(){
 
 
 function installAptGetModuleIfNeededBackground(){
-    sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
+    sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
 
 if [ $is_os_ubuntu == "1" ]
