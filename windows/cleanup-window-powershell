@@ -34,6 +34,7 @@ Get-appxpackage -allusers *Messaging* | Remove-AppxPackage
 Get-appxpackage -allusers *OneConnect* | Remove-AppxPackage
 Get-appxpackage -allusers *MSPaint* | Remove-AppxPackage
 Get-appxpackage -allusers *PandoraMediaInc* | Remove-AppxPackage
+Get-AppxPackage -allusers *one*drive* | Remove-AppxPackage
 Get-appxprovisionedpackage –online | where-object {$_.packagename –like "*solitairecollection*"} | remove-appxprovisionedpackage –online
 
 
