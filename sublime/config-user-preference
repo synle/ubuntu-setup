@@ -70,7 +70,12 @@
         "npm-debug.log",
         "staticresources.resource",
         "remoteSiteSettings.resource",
-        "corsWhitelistOrigins.resource"
+        "corsWhitelistOrigins.resource",
+        "*.app-meta.xml",
+        "*.evt-meta.xml",
+        "*.cmp-meta.xml",
+        "*.resource-meta.xml",
+        ".manifest"
     ],
     "folder_exclude_patterns":
     [
