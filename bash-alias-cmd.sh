@@ -59,8 +59,8 @@ function refreshBashSyLe(){
 
 
 function openSublimePackageControl(){
-    cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings;
-#     cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings;
+    cat ~/Library/Application*/Sublime*/Packages/User/Package*Control.sublime-settings;
+    cat /mnt/c/Users/*/AppData/Roaming/Sublime*/Packages/User/Package*Control.sublime-settings
 }
 
 
