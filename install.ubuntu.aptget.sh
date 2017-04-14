@@ -14,6 +14,19 @@ function installAptGetModuleIfNeeded(){
     fi
 }
 
+
+function installAptGetModuleIfNeededBackground(){
+    has_installed_app=0
+    type $@ &> /dev/null && has_installed_app=1
+    
+    echo "    INSTALL $@"
+    
+    if [ $has_installed_app == "0" ]
+    then
+        nohup sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null &
+    fi
+}
+
 if [ $is_os_ubuntu == "1" ]
 then
     # echo "  apt-get update..."
@@ -38,10 +51,10 @@ then
     installAptGetModuleIfNeeded unzip
     
     # java stuffs
-    installAptGetModuleIfNeeded openjdk-7-jdk
-    installAptGetModuleIfNeeded ant
-    installAptGetModuleIfNeeded gradle
-    installAptGetModuleIfNeeded maven
+    installAptGetModuleIfNeededBackground openjdk-7-jdk
+    installAptGetModuleIfNeededBackground ant
+    installAptGetModuleIfNeededBackground gradle
+    installAptGetModuleIfNeededBackground maven
     
     # sudo apt-get install  -y --fix-missing mysql-client
     #
