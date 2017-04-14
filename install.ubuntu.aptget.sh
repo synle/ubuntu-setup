@@ -4,14 +4,15 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     has_installed_app=0
-    type $@ &> /dev/null && has_installed_app=1
+    type $0 &> /dev/null && has_installed_app=1
+    type $1 &> /dev/null && has_installed_app=1
     
     if [ $has_installed_app == "0" ]
     then
-        echo "    INSTALL $@"
-        sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
+        echo "    INSTALL $0"
+        sudo apt-get install -y --force-yes --fix-missing $0 &> /dev/null
     else
-        echo "    SKIP    $@"
+        echo "    SKIP    $0"
     fi
 }
 
@@ -39,10 +40,10 @@ then
     installAptGetModuleIfNeeded unzip
     
     # java stuffs
-    installAptGetModuleIfNeeded openjdk-7-jdk
-    installAptGetModuleIfNeeded ant
-    installAptGetModuleIfNeeded gradle
-    installAptGetModuleIfNeeded maven
+    installAptGetModuleIfNeeded openjdk-7-jdk java
+    installAptGetModuleIfNeeded ant ant
+    installAptGetModuleIfNeeded gradle gradle
+    installAptGetModuleIfNeeded maven mvn
     
     # sudo apt-get install  -y --fix-missing mysql-client
     #
