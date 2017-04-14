@@ -19,28 +19,30 @@ then
     # sudo apt-get update -y &> /dev/null
 
     echo "  apt-get install..."
-    installAptGetModuleIfNeeded git
-    installAptGetModuleIfNeeded vim
-    installAptGetModuleIfNeeded curl
-    installAptGetModuleIfNeededBackground tmux
-    installAptGetModuleIfNeededBackground python
-    installAptGetModuleIfNeededBackground tig
-    installAptGetModuleIfNeededBackground unzip
-    installAptGetModuleIfNeededBackground make
-    installAptGetModuleIfNeededBackground jq
-    installAptGetModuleIfNeededBackground figlet
-    installAptGetModuleIfNeededBackground autoconf
-    installAptGetModuleIfNeededBackground automake
-    installAptGetModuleIfNeededBackground gcc
-    installAptGetModuleIfNeededBackground g++
-    installAptGetModuleIfNeededBackground build-essential
-    installAptGetModuleIfNeededBackground unzip
+    #     must have
+    installAptGetModuleIfNeeded git \
+    vim \
+    curl
     
-    # java stuffs
-    installAptGetModuleIfNeededBackground openjdk-7-jdk
-    installAptGetModuleIfNeededBackground ant
-    installAptGetModuleIfNeededBackground gradle
-    installAptGetModuleIfNeededBackground maven
+    
+    #     async can be done in background
+    installAptGetModuleIfNeededBackground tmux \
+        python \
+        tig \
+        unzip \
+        make \
+        jq \
+        figlet \
+        autoconf \
+        automake \
+        gcc \
+        g++ \
+        build-essential \
+        unzip \
+        openjdk-7-jdk \
+        ant \
+        gradle \
+        maven
     
     # sudo apt-get install  -y --fix-missing mysql-client
     #
