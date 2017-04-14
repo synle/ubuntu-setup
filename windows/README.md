@@ -27,3 +27,11 @@ Shortcuts
 
 ### Cmd with shortcuts
 ```%windir%\system32\cmd.exe /K C:\Users\syle\alias.cmd```
+
+
+
+WSL Bash Home
+```
+C:\Users\syle\AppData\Local\lxss\home
+C:\Users\syle\AppData\Local\lxss\root
+```
