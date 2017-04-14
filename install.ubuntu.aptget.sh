@@ -4,20 +4,15 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     has_installed_app=0
-    type $0 &> /dev/null && has_installed_app=1
     type $1 &> /dev/null && has_installed_app=1
-    
-    echo $0
-    echo $1
-    echo $2
-    echo $3
+    type $2 &> /dev/null && has_installed_app=1
     
     if [ $has_installed_app == "0" ]
     then
-        echo "    INSTALL $0"
-        sudo apt-get install -y --force-yes --fix-missing $0 &> /dev/null
+        echo "    INSTALL $1"
+        sudo apt-get install -y --force-yes --fix-missing $1 &> /dev/null
     else
-        echo "    SKIP    $0"
+        echo "    SKIP    $1"
     fi
 }
 
