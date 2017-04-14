@@ -9,7 +9,7 @@ function installNodeModulesIfNeeded(){
         echo "    INSTALL $i"
     done
 
-    npm i -g -dd $@ &> /dev/null
+    npm i -g $@ &> /dev/null
 }
 
 #download node npm deps
