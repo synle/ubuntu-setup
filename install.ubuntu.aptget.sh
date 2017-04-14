@@ -4,7 +4,7 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     for i; do 
-        echo "    INSTALL $i"
+        echo "    INSTALL Foreground $i"
     done
     sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
@@ -12,7 +12,7 @@ function installAptGetModuleIfNeeded(){
 
 function installAptGetModuleIfNeededBackground(){
     for i; do 
-        echo "    INSTALL $i"
+        echo "    INSTALL Background $i"
     done
     sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
