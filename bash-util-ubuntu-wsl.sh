@@ -1,7 +1,7 @@
 # wsl only alias
 alias subl="subl.exe"
-alias pbcopy="win32yank.exe -i"
-alias pbpaste="win32yank.exe -o"
+alias pbcopy="win32yank -i"
+alias pbpaste="win32yank -o"
 alias open="explorer.exe"
 
 # for android.
