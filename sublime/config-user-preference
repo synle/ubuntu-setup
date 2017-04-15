@@ -75,6 +75,7 @@
         "*.evt-meta.xml",
         "*.cmp-meta.xml",
         "*.resource-meta.xml",
+        "*.cls-meta.xml",
         ".manifest"
     ],
     "folder_exclude_patterns":
