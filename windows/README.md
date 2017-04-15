@@ -23,7 +23,11 @@ https://social.technet.microsoft.com/Forums/sharepoint/en-US/d7f1b70f-03ed-4c5b-
 
 Shortcuts
 ### Tmux default shortcuts
-```%windir%\system32\bash.exe -c "/usr/bin/tmux"```
+https://github.com/mintty/wsltty
+```
+%windir%\system32\bash.exe -c "/usr/bin/tmux"
+%LOCALAPPDATA%\wsltty\bin\mintty.exe --wsl -o Locale=C -o Charset=UTF-8 /bin/wslbridge -C~ -t /usr/bin/tmux
+```
 
 ### Cmd with shortcuts
 ```%windir%\system32\cmd.exe /K C:\Users\syle\alias.cmd```
