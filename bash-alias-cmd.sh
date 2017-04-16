@@ -30,11 +30,12 @@ echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc
 ############################################
 # aliases & function
 ############################################
-alias g=git
 alias ..="cd .."
 alias ls="ls -1"
 alias composer="php ~/composer.phar" # php composer
 alias startSilex="php -S localhost:8080 -t web web/index.php" # php silex start
+alias g=git
+__git_complete g _git #auto complete for git with this short hand g
 
 function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
