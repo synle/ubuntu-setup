@@ -85,7 +85,7 @@ function makeNewSublimeProjectFromCurrentPath(){
     > "$MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project"
     
     echo "New Sublime Project File is created here:"   
-    echo "$($MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project | getAbsolutePathForAllSystem)"
+    echo "$MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project"
 }
 
 # print formatted text for easy to read console output.
