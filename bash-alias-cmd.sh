@@ -47,9 +47,18 @@ function getAbsolutePathForAllSystem(){
     :
 }
 
+export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
 function makeNewSublimeProjectFromCurrentPath(){
+    MY_SUBLIME_PROJECT_PATH=~/.sublime_project
     echo -n "Enter Project Name:"
     read myProjectName
+
+
+    if [ -z "$myProjectName" ];
+    then
+        # get the current dir name
+        myProjectName="${PWD##*/}"
+    fi
     
     
     echo '''
@@ -71,7 +80,7 @@ function makeNewSublimeProjectFromCurrentPath(){
     }
     ''' \
     | awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
-    > "$myProjectName.sublime-project"
+    > "$MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project"
 }
 
 # print formatted text for easy to read console output.
