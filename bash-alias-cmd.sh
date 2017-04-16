@@ -40,6 +40,11 @@ function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
 }
 
+# convert wsl path to windows path
+function getWslConvertedPath(){
+    sed 's/\/mnt\///' | sed 's/\//:\//1'
+}
+
 
 # print formatted text for easy to read console output.
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
