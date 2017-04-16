@@ -112,6 +112,15 @@ then
             }
         },
         {
+            "name": "npm build",
+            "selector": "source.json.npm meta.structure.dictionary.json",
+            "shell_cmd": "npm build",
+            "windows" :
+            {
+                "shell_cmd": "bash -c \"npm build\""
+            }
+        },
+        {
             "name": "npm install",
             "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm install",
