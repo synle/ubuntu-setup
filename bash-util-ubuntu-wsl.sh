@@ -11,7 +11,12 @@ alias fastboot="fastboot.exe"
 
 # path conversion for window
 function getAbsolutePathForAllSystem(){
-    sed 's/\/mnt\///' | sed 's/\//:\//1'
+    if [ "$#" = "1" ];
+    then
+        echo $@ | sed 's/\/mnt\///' | sed 's/\//:\//1'
+    else
+        sed 's/\/mnt\///' | sed 's/\//:\//1'
+    fi
 }
 
 
