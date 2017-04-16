@@ -86,15 +86,28 @@ function subl-new-project(){
         [
             {
                 "path": "NEW_PROJECT_PATH",
-                "follow_symlinks": true
+                "follow_symlinks": true,
+                "file_exclude_patterns":
+                [
+                    "npm-debug.log",
+                    "*.dll"
+                ]
             }
         ],
+        "settings":
+        {
+            "tab_size": 4
+        },
         "build_systems":
         [
             {
-                "name": "Build My Project",
                 "working_dir": "${file_path}",
-                "shell_cmd": "ls -l"
+                "name": "Build My Project",
+                "shell_cmd": "ls",
+                "windows" :
+                {
+                    "shell_cmd": "bash -c \"ls\""
+                }
             }
         ]
     }
@@ -104,6 +117,48 @@ function subl-new-project(){
     
     echo "Open New Sublime Project by:"
     echo "subl $MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project" | getAbsolutePathForAllSystem
+}
+
+function subl-new-project-clean(){
+    #default filename
+    myProjectName="${PWD##*/}"
+    
+    echo '''
+    {
+        "folders":
+        [
+            {
+                "path": ".",
+                "follow_symlinks": true,
+                "file_exclude_patterns":
+                [
+                    "npm-debug.log",
+                    "*.dll"
+                ]
+            }
+        ],
+        "settings":
+        {
+            "tab_size": 4
+        },
+        "build_systems":
+        [
+            {
+                "working_dir": "${project_path}",
+                "name": "Build My Project",
+                "shell_cmd": "ls",
+                "windows" :
+                {
+                    "shell_cmd": "bash -c \"ls\""
+                }
+            }
+        ]
+    }
+    ''' \
+    > "$myProjectName.sublime-project"
+    
+    echo "Open New Sublime Project by:"
+    echo "subl $myProjectName.sublime-project" | getAbsolutePathForAllSystem
 }
 
 # print formatted text for easy to read console output.
