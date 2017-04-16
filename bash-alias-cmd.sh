@@ -48,9 +48,19 @@ function getAbsolutePathForAllSystem(){
     :
 }
 
+# sublime tricks
 export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
 function subl-list-project(){
     ls $MY_SUBLIME_PROJECT_PATH
+}
+
+function subl-open-project(){
+    mySublimeProjectFriendlyPath="getAbsolutePathForAllSystem $MY_SUBLIME_PROJECT_PATH"
+    myProjectPath="$MY_SUBLIME_PROJECT_PATH/$(subl-list-project | fzf)"
+    
+    # running the command
+    echo "subl $myProjectPath"
+    subl $myProjectPath
 }
 
 function subl-new-project(){
