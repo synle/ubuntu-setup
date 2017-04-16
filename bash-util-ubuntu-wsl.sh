@@ -13,3 +13,7 @@ alias fastboot="fastboot.exe"
 function getAbsolutePathForAllSystem(){
     sed 's/\/mnt\///' | sed 's/\//:\//1'
 }
+
+
+# folder where we store all the sublime project
+export MY_SUBLIME_PROJECT_PATH=/mnt/c/Users/$(whoami)/.sublime-project
