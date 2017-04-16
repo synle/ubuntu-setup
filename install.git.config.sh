@@ -36,6 +36,7 @@ git config --global alias.graph "log --all --graph --pretty=format:'%Cred%h%Cres
 git config --global alias.logs 'log --oneline --decorate'
 git config --global alias.l "log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 git config --global alias.r 'rebase'
+git config --global alias.reb 'rebase'
 git config --global alias.ri 'rebase -i'
 git config --global alias.fap 'fetch --all --prune'
 git config --global alias.st 'status'
@@ -46,6 +47,7 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
 git config --global alias.stash-all 'stash --all'
 git config --global alias.fix-author 'commit --amend --reset-author'
+
 
 
 echo "    Git Global Ignores"
