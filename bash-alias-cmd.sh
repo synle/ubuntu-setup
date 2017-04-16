@@ -40,11 +40,37 @@ function br(){
     clear &&  echo $'\e[31m=============================================\e[m' && echo '' && echo ''
 }
 
-# convert wsl path to windows path
-function getWslConvertedPath(){
-    sed 's/\/mnt\///' | sed 's/\//:\//1'
+# this get support path for all system (mainly support for wsl)
+function getAbsolutePathForAllSystem(){
+    # temporary make this a empty method for support in unix
 }
 
+function makeNewSublimeProjectFromCurrentPath(){
+    echo -n "Enter Project Name:"
+    read myProjectName
+    
+    
+    echo """
+    {
+        "folders":
+        [
+            {
+                "path": "NEW_PROJECT_PATH",
+                "follow_symlinks": true
+            }
+        ],
+        "build_systems":
+        [
+            {
+                "name": "Build My Project",
+                "shell_cmd": "ls -l"
+            }
+        ]
+    }
+    """ \
+    awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
+    > $myProjectName
+}
 
 # print formatted text for easy to read console output.
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
