@@ -32,6 +32,7 @@ echo '"\e[Z": "\e-1\C-i"'  >> ~/.inputrc
 ############################################
 alias g=git
 alias ..="cd .."
+alias ls="ls -1"
 alias composer="php ~/composer.phar" # php composer
 alias startSilex="php -S localhost:8080 -t web web/index.php" # php silex start
 
