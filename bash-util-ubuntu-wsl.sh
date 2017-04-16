@@ -13,8 +13,10 @@ alias fastboot="fastboot.exe"
 function getAbsolutePathForAllSystem(){
     if [ "$#" = "1" ];
     then
+        # data is passed in
         echo $@ | sed 's/\/mnt\///' | sed 's/\//:\//1'
     else
+        # handled via pipe
         sed 's/\/mnt\///' | sed 's/\//:\//1'
     fi
 }
