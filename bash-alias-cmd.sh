@@ -50,6 +50,8 @@ function getAbsolutePathForAllSystem(){
 
 # sublime tricks
 export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
+
+# open sublime project with fzf (fuzzy find)
 function subl-open-project(){
     mySublimeProjectFriendlyPath="$(getAbsolutePathForAllSystem $MY_SUBLIME_PROJECT_PATH)"
     myProjectPath="$MY_SUBLIME_PROJECT_PATH/$(ls $MY_SUBLIME_PROJECT_PATH | fzf)"
@@ -59,6 +61,7 @@ function subl-open-project(){
     subl $myProjectPath
 }
 
+# bootstrap new sublime project
 function subl-new-project(){
     # make the folder if needed
     mkdir -p $MY_SUBLIME_PROJECT_PATH
