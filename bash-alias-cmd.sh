@@ -93,6 +93,7 @@ function subl-new-project(){
         [
             {
                 "name": "Build My Project",
+                "working_dir": "${file_path}",
                 "shell_cmd": "ls -l"
             }
         ]
