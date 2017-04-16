@@ -83,6 +83,9 @@ function makeNewSublimeProjectFromCurrentPath(){
     ''' \
     | awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
     > "$MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project"
+    
+    echo "New Sublime Project File is created here:"   
+    echo "$($MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project | getAbsolutePathForAllSystem)"
 }
 
 # print formatted text for easy to read console output.
