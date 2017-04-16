@@ -109,16 +109,21 @@ else
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
     
     echoo "      Settings"
-    echo  "       Theme Tweaks"
+    echo  "        Theme Tweaks"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -so $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
     
-    echoo "       Regedit"
+    echoo "        Regedit"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
     
-    echoo "       Powershell Commands"
+    echoo "        Powershell Commands"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
-    echoo "       Greenshots"
+    
+    echoo "        Greenshots"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
+    
+    echoo "        AutoIt Script"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/autoit-resize.au3 -so $WINDOWS_DESKTOP_PATH/autoit-resize.au3
+    
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
