@@ -52,7 +52,7 @@ function makeNewSublimeProjectFromCurrentPath(){
     read myProjectName
     
     
-    echo """
+    echo '''
     {
         "folders":
         [
@@ -69,9 +69,9 @@ function makeNewSublimeProjectFromCurrentPath(){
             }
         ]
     }
-    """ \
-    awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
-    > $myProjectName
+    ''' \
+    | awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
+    > "$myProjectName.sublime-project"
 }
 
 # print formatted text for easy to read console output.
