@@ -7,3 +7,9 @@ alias open="explorer.exe"
 # for android.
 alias adb="adb.exe"
 alias fastboot="fastboot.exe"
+
+
+# path conversion for window
+function getAbsolutePathForAllSystem(){
+    sed 's/\/mnt\///' | sed 's/\//:\//1'
+}
