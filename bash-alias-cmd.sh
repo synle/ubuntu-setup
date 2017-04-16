@@ -49,6 +49,10 @@ function getAbsolutePathForAllSystem(){
 }
 
 export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
+function subl-list-project(){
+    ls $MY_SUBLIME_PROJECT_PATH
+}
+
 function subl-new-project(){
     # make the folder if needed
     mkdir -p $MY_SUBLIME_PROJECT_PATH
