@@ -43,6 +43,8 @@ function br(){
 # this get support path for all system (mainly support for wsl)
 function getAbsolutePathForAllSystem(){
     # temporary make this a empty method for support in unix
+    # empty function
+    :
 }
 
 function makeNewSublimeProjectFromCurrentPath(){
