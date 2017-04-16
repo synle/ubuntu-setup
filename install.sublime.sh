@@ -96,6 +96,7 @@ then
     "variants": [
         {
             "name": "npm start",
+            "working_dir": "${file_path}",
             "shell_cmd": "npm start",
             "windows" :
             {
@@ -104,6 +105,7 @@ then
         },
         {
             "name": "npm test",
+            "working_dir": "${file_path}",
             "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm test",
             "windows" :
@@ -113,6 +115,7 @@ then
         },
         {
             "name": "npm build",
+            "working_dir": "${file_path}",
             "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm build",
             "windows" :
@@ -122,6 +125,7 @@ then
         },
         {
             "name": "npm install",
+            "working_dir": "${file_path}",
             "selector": "source.json.npm meta.structure.dictionary.json",
             "shell_cmd": "npm install",
             "windows" :
