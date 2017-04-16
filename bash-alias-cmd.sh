@@ -49,7 +49,9 @@ function getAbsolutePathForAllSystem(){
 
 export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
 function makeNewSublimeProjectFromCurrentPath(){
-    MY_SUBLIME_PROJECT_PATH=~/.sublime_project
+    # make the folder if needed
+    mkdir -p $MY_SUBLIME_PROJECT_PATH
+    
     echo -n "Enter Project Name:"
     read myProjectName
 
