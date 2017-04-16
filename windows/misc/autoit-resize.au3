@@ -1,10 +1,10 @@
 ;http://stackoverflow.com/questions/23190825/autoit-detecting-window-screen-resolution-in-an-if-statement
+local $myDeltaWidth1 = 30
+local $myDeltaWidth2 = @DesktopWidth / 9
 local $myWidth1 = @DesktopWidth / 3;
 local $myWidth2 = @DesktopWidth / 2;
 local $myHeight1 = @DesktopHeight - $myDeltaWidth1
 local $myHeight2 = @DesktopHeight / 2
-local $myDeltaWidth1 = 30
-local $myDeltaWidth2 = @DesktopWidth / 9
 
 ;https://www.autoitscript.com/autoit3/docs/functions/Send.htm
 ;Ctrl-Alt
