@@ -530,6 +530,9 @@ function compileSfdcAuraQuick(){
 bind '"\C-p":"fcd\r"'
 bind '"\ep":"fviewfile\r"'
 
+# ctrl alt p to open sublime project
+bind '"\e\C-p":"subl-open-project\r"'
+
 # ctrl n to view make new component options
 bind '"\C-n":"fuzzyMakeComponent\r"'
 
