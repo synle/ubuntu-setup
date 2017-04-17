@@ -28,6 +28,7 @@
 		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-contrib-scss-lint",
 		"SyncedSideBar",
+		"TodoReview",
 		"TypeScript"
 	]
 }
