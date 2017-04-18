@@ -187,22 +187,27 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 #tmux stuffs
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 # https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
+# http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
 echoo "Tmux"
 echo """
+#set inactive/active window styles
+set -g window-style 'fg=colour247,bg=colour236'
+set -g window-active-style 'fg=colour250,bg=black'
+
+# set the pane border colors 
+set -g pane-border-fg colour250
+set -g pane-border-bg colour236
+set -g pane-active-border-fg colour250 
+set -g pane-active-border-bg colour250
+
+#mouse support
 set -g mouse on
-set -g status off
-set -g status-utf8 on
+
+#sroll history
+set -g history-limit 30000
 
 # Window options
 set -g monitor-activity off
-set -g automatic-rename on
-
-# Colors
-setw -g window-status-current-fg colour191
-set -g status-bg default
-set -g status-fg white
-set -g message-bg default
-set -g message-fg colour191
 """ > ~/.tmux.conf
 
 
