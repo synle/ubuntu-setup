@@ -200,6 +200,10 @@ set -g pane-border-bg colour236
 set -g pane-active-border-fg colour250 
 set -g pane-active-border-bg colour250
 
+#not show status bar
+set -g status off
+
+
 #mouse support
 set -g mouse on
 
