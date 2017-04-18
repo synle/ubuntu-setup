@@ -188,6 +188,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
 echoo "Tmux"
 echo """
+set -g mouse on
 set -g status off
 set -g status-utf8 on
 
