@@ -186,6 +186,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 
 #tmux stuffs
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+# https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
 echoo "Tmux"
 echo """
 set -g mouse on
