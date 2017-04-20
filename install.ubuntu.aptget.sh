@@ -12,7 +12,7 @@ function installAptGetModuleIfNeeded(){
 if [ $is_os_ubuntu == "1" ]
 then
     # echo "  apt-get update..."
-    # sudo apt-get update -y  >> /tmp/debug
+    # sudo apt-get update -y
 
     echo "  apt-get install..."
     #     must have
