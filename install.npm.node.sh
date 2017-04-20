@@ -5,7 +5,7 @@ NVM_BASE_PATH=~/.nvm
 type nvm &> /dev/null || (. "$NVM_BASE_PATH/nvm.sh")
 
 function installNodeModulesIfNeeded(){
-    type $@ &> /dev/null || (echo "    INSTALL $@" && nohup npm i -g $@ >> /tmp/debug &)
+    type $@ &> /dev/null || (echo "    INSTALL $@" && npm i -g $@ >> /tmp/debug)
     type $@ &> /dev/null &&  (echo "    SKIP    $@")
 }
 
