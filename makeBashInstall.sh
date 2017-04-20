@@ -8,7 +8,8 @@ is_os_window=0
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
 # clean up the old debug log
-rm -rf /tmp/debug;
+echo > /tmp/debug;
+sudo chown -R syle:syle /tmp/debug
 
 
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
