@@ -6,7 +6,7 @@ function installAptGetModuleIfNeeded(){
     for i; do 
         echo "    INSTALL $i"
     done
-    sudo apt-get install -y --force-yes --fix-missing $@ >> /tmp/debug
+    sudo apt-get install -y --force-yes --fix-missing $@
 }
 
 if [ $is_os_ubuntu == "1" ]
