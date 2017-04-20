@@ -4,7 +4,7 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     for i; do 
-        echo "    INSTALL FG $i"
+        echo "    INSTALL $i"
     done
     sudo apt-get install -y --force-yes --fix-missing $@ >> /tmp/debug
 }
