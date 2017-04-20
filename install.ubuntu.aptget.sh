@@ -6,31 +6,20 @@ function installAptGetModuleIfNeeded(){
     for i; do 
         echo "    INSTALL FG $i"
     done
-    sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
-}
-
-
-function installAptGetModuleIfNeededBackground(){
-    for i; do 
-        echo "    INSTALL BG $i"
-    done
-    sudo -b apt-get install -y --force-yes --fix-missing $@ &> /dev/null
+    sudo apt-get install -y --force-yes --fix-missing $@ >> /tmp/debug
 }
 
 if [ $is_os_ubuntu == "1" ]
 then
     # echo "  apt-get update..."
-    # sudo apt-get update -y &> /dev/null
+    # sudo apt-get update -y  >> /tmp/debug
 
     echo "  apt-get install..."
     #     must have
     installAptGetModuleIfNeeded git \
         vim \
-        curl
-    
-    
-    #     async can be done in background
-    installAptGetModuleIfNeededBackground tmux \
+        curl \
+        tmux \
         python \
         tig \
         unzip \
@@ -43,7 +32,7 @@ then
         g++ \
         build-essential \
         unzip \
-        openjdk-7-jdk \
+        openjdk-8-jdk \
         ant \
         gradle \
         maven
