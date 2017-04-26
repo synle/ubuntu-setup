@@ -106,20 +106,55 @@ else
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     sudo ln -f -s /mnt/c/opt/win32yank.exe /usr/local/bin/win32yank
-    sudo echo """
+    echo """
       #/usr/bin/bash
-      win32yank -i
+      win32yank.exe -i
     """ > /tmp/pbcopy
-    sudo echo """
+    echo """
       #/usr/bin/bash
-      win32yank -o
+      win32yank.exe -o
     """ > /tmp/pbpaste
     sudo mv /tmp/pbpaste /usr/local/bin/pbpaste
     sudo mv /tmp/pbcopy /usr/local/bin/pbcopy
     sudo chmod +x /usr/local/bin/pbcopy /usr/local/bin/pbpaste
-    sudo chmod +x /usr/local/bin/pbpaste
     
     
+    #subl
+    echo  "        Sublime Alias"
+    echo """
+      #/usr/bin/bash
+      subl.exe $@
+    """ > /tmp/subl
+    sudo mv /tmp/subl /usr/local/bin/subl
+    sudo chmod +x /usr/local/bin/subl
+    
+    
+    #subl
+    echo  "        Open (Explorer.exe)"
+    echo """
+      #/usr/bin/bash
+      explorer.exe $@
+    """ > /tmp/open
+    sudo mv /tmp/open /usr/local/bin/open
+    sudo chmod +x /usr/local/bin/open
+    
+    
+    #adb and fastboot
+    echo  "        Android ADB and Fastboot"
+    echo """
+      #/usr/bin/bash
+      adb.exe $@
+    """ > /tmp/adb
+    echo """
+      #/usr/bin/bash
+      fastboot.exe $@
+    """ > /tmp/fastboot
+    sudo mv /tmp/adb /usr/local/bin/adb
+    sudo mv /tmp/fastboot /usr/local/bin/fastboot
+    sudo chmod +x /usr/local/bin/adb /usr/local/bin/fastboot
+    
+    
+    #force cli
     echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
