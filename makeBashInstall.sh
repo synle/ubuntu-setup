@@ -106,14 +106,14 @@ else
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     sudo ln -f -s /mnt/c/opt/win32yank.exe /usr/local/bin/win32yank
-    echo """
+    echo '''
       #/usr/bin/bash
       win32yank.exe -i
-    """ > /tmp/pbcopy
-    echo """
+    ''' > /tmp/pbcopy
+    echo '''
       #/usr/bin/bash
       win32yank.exe -o
-    """ > /tmp/pbpaste
+    ''' > /tmp/pbpaste
     sudo mv /tmp/pbpaste /usr/local/bin/pbpaste
     sudo mv /tmp/pbcopy /usr/local/bin/pbcopy
     sudo chmod +x /usr/local/bin/pbcopy /usr/local/bin/pbpaste
@@ -121,34 +121,34 @@ else
     
     #subl
     echo  "        Sublime Alias"
-    echo """
+    echo '''
       #/usr/bin/bash
       subl.exe $@
-    """ > /tmp/subl
+    ''' > /tmp/subl
     sudo mv /tmp/subl /usr/local/bin/subl
     sudo chmod +x /usr/local/bin/subl
     
     
     #subl
     echo  "        Open (Explorer.exe)"
-    echo """
+    echo '''
       #/usr/bin/bash
       explorer.exe $@
-    """ > /tmp/open
+    ''' > /tmp/open
     sudo mv /tmp/open /usr/local/bin/open
     sudo chmod +x /usr/local/bin/open
     
     
     #adb and fastboot
     echo  "        Android ADB and Fastboot"
-    echo """
+    echo '''
       #/usr/bin/bash
       adb.exe $@
-    """ > /tmp/adb
-    echo """
+    ''' > /tmp/adb
+    echo '''
       #/usr/bin/bash
       fastboot.exe $@
-    """ > /tmp/fastboot
+    ''' > /tmp/fastboot
     sudo mv /tmp/adb /usr/local/bin/adb
     sudo mv /tmp/fastboot /usr/local/bin/fastboot
     sudo chmod +x /usr/local/bin/adb /usr/local/bin/fastboot
