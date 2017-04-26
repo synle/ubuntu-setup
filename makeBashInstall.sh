@@ -207,8 +207,12 @@ set -g status off
 #mouse support
 set -g mouse on
 
-#sroll history
+#scroll history
 set -g history-limit 30000
+
+#scrolling speed
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
 
 # Window options
 set -g monitor-activity off
