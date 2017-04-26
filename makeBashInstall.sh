@@ -194,12 +194,6 @@ echo """
 set -g window-style 'fg=colour250,bg=colour234'
 set -g window-active-style 'fg=colour250,bg=black'
 
-# set the pane border colors 
-set -g pane-border-fg colour250
-set -g pane-border-bg colour236
-set -g pane-active-border-fg colour250 
-set -g pane-active-border-bg colour250
-
 #not show status bar
 set -g status off
 
