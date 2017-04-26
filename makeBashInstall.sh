@@ -106,12 +106,12 @@ else
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     sudo ln -f -s /mnt/c/opt/win32yank.exe /usr/local/bin/win32yank
-    sudo echo """"
+    sudo echo """
     #/usr/bin/bash
     win32yank -i
     """" > /usr/local/bin/pbcopy
     sudo chmod +x /usr/local/bin/pbcopy
-    sudo echo """"
+    sudo echo """
     #/usr/bin/bash
     win32yank -o
     """" > /usr/local/bin/pbpaste
