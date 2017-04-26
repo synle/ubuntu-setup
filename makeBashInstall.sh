@@ -109,12 +109,12 @@ else
     sudo echo """
     #/usr/bin/bash
     win32yank -i
-    """" > /usr/local/bin/pbcopy
+    """ > /usr/local/bin/pbcopy
     sudo chmod +x /usr/local/bin/pbcopy
     sudo echo """
     #/usr/bin/bash
     win32yank -o
-    """" > /usr/local/bin/pbpaste
+    """ > /usr/local/bin/pbpaste
     sudo chmod +x /usr/local/bin/pbpaste
     
     
