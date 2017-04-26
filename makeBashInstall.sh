@@ -133,7 +133,18 @@ else
     echo  "        Open (Explorer.exe)"
     echo '''
       #/usr/bin/bash
-      explorer.exe $@
+      inputToOpen=$@
+
+      case "$inputToOpen" in
+          http*)
+              echo "1"
+              chrome.exe $inputToOpen
+          ;;
+          *)
+              echo "2"
+              explorer.exe $inputToOpen
+          ;;
+      esac
     ''' > /tmp/open
     sudo mv /tmp/open /usr/local/bin/open
     sudo chmod +x /usr/local/bin/open
