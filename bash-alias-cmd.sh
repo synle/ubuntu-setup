@@ -583,8 +583,10 @@ function compileSfdcAuraQuick(){
 ############################################
 
 # ctrl p and alt p binding
-bind '"\C-p":"fcd\r"'
-bind '"\ep":"fviewfile\r"'
+#bind '"\C-p":"fcd\r"'
+#bind '"\ep":"fviewfile\r"'
+bind '"\C-o":"fcd\r"'
+bind '"\C-p":"fviewfile\r"'
 
 # ctrl alt p to open sublime project
 bind '"\e\C-p":"subl-open-project\r"'
