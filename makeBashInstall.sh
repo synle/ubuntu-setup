@@ -191,7 +191,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 echoo "Tmux"
 echo """
 #set inactive/active window styles
-set -g window-style 'fg=colour247,bg=colour236'
+set -g window-style 'fg=colour250,bg=colour234'
 set -g window-active-style 'fg=colour250,bg=black'
 
 # set the pane border colors 
