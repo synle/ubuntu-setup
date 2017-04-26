@@ -1,12 +1,3 @@
-# wsl only alias
-alias open="explorer.exe"
-alias subl="subl.exe
-
-# for android.
-alias adb="adb.exe"
-alias fastboot="fastboot.exe"
-
-
 # path conversion for window
 function getAbsolutePathForAllSystem(){
     if [ "$#" = "1" ];
