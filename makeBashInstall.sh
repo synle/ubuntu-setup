@@ -207,14 +207,8 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 echoo "Tmux"
 echo """
 #set inactive/active window styles
-set -g window-style 'fg=colour247,bg=colour236'
+set -g window-style 'fg=colour250,bg=colour234'
 set -g window-active-style 'fg=colour250,bg=black'
-
-# set the pane border colors 
-set -g pane-border-fg colour250
-set -g pane-border-bg colour236
-set -g pane-active-border-fg colour250 
-set -g pane-active-border-bg colour250
 
 #not show status bar
 set -g status off
@@ -223,8 +217,12 @@ set -g status off
 #mouse support
 set -g mouse on
 
-#sroll history
+#scroll history
 set -g history-limit 30000
+
+#scrolling speed
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
 
 # Window options
 set -g monitor-activity off
