@@ -134,14 +134,14 @@ else
     echo '''
       #/usr/bin/bash
       inputToOpen=$@
+      
+      echo "open $inputToOpen"
 
       case "$inputToOpen" in
           http*)
-              echo "1"
               chrome.exe $inputToOpen
           ;;
           *)
-              echo "2"
               explorer.exe $inputToOpen
           ;;
       esac
