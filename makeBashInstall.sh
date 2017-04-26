@@ -101,26 +101,9 @@ else
     
     echoo "      Downloading some exe"
     mkdir -p /mnt/c/opt
-    
-    #yank - pbcopy and pbpaste
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     sudo ln -f -s /mnt/c/opt/win32yank.exe /usr/local/bin/win32yank
-    sudo echo """
-      #/usr/bin/bash
-      win32yank -i
-    """ > /tmp/pbcopy
-    sudo echo """
-      #/usr/bin/bash
-      win32yank -o
-    """ > /tmp/pbpaste
-    sudo mv /tmp/pbpaste /usr/local/bin/pbpaste
-    sudo mv /tmp/pbcopy /usr/local/bin/pbcopy
-    sudo chmod +x /usr/local/bin/pbcopy /usr/local/bin/pbpaste
-    sudo chmod +x /usr/local/bin/pbpaste
-    
-    
-    #force cli
     echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
@@ -133,7 +116,7 @@ else
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
     
     echoo "        Powershell Commands"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.txt
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
     
     echoo "        Greenshots"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
@@ -208,8 +191,14 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 echoo "Tmux"
 echo """
 #set inactive/active window styles
-set -g window-style 'fg=colour250,bg=colour234'
+set -g window-style 'fg=colour247,bg=colour236'
 set -g window-active-style 'fg=colour250,bg=black'
+
+# set the pane border colors 
+set -g pane-border-fg colour250
+set -g pane-border-bg colour236
+set -g pane-active-border-fg colour250 
+set -g pane-active-border-bg colour250
 
 #not show status bar
 set -g status off
@@ -218,12 +207,8 @@ set -g status off
 #mouse support
 set -g mouse on
 
-#scroll history
+#sroll history
 set -g history-limit 30000
-
-#scrolling speed
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
 
 # Window options
 set -g monitor-activity off
