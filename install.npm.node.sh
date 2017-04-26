@@ -19,3 +19,4 @@ installNodeModulesIfNeeded browserify;
 installNodeModulesIfNeeded webpack;
 installNodeModulesIfNeeded eslint;
 installNodeModulesIfNeeded typings;
+installNodeModulesIfNeeded less;
