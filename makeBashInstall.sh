@@ -101,9 +101,24 @@ else
     
     echoo "      Downloading some exe"
     mkdir -p /mnt/c/opt
+    
+    #yank - pbcopy and pbpaste
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
     sudo ln -f -s /mnt/c/opt/win32yank.exe /usr/local/bin/win32yank
+    sudo echo """"
+    #/usr/bin/bash
+    win32yank -i
+    """" > /usr/local/bin/pbcopy
+    sudo chmod +x /usr/local/bin/pbcopy
+    sudo echo """"
+    #/usr/bin/bash
+    win32yank -o
+    """" > /usr/local/bin/pbpaste
+    sudo chmod +x /usr/local/bin/pbpaste
+    
+    
+    #force cli
     echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
@@ -116,7 +131,7 @@ else
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
     
     echoo "        Powershell Commands"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.txt
     
     echoo "        Greenshots"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
