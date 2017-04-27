@@ -18,7 +18,6 @@ Get-AppxPackage -allusers *windowsphone* | Remove-AppxPackage
 Get-AppxPackage -allusers *photos* | Remove-AppxPackage
 Get-AppxPackage -allusers *bingsports* | Remove-AppxPackage
 Get-AppxPackage -allusers *soundrecorder* | Remove-AppxPackage
-Get-AppxPackage -allusers *bingweather* | Remove-AppxPackage
 Get-AppxPackage -allusers *xboxapp* | Remove-AppxPackage
 Get-AppxPackage -allusers *Facebook* | Remove-AppxPackage
 Get-AppxPackage -allusers *Food* | Remove-AppxPackage
@@ -27,11 +26,9 @@ Get-AppxPackage -allusers *Sling* | Remove-AppxPackage
 Get-AppxPackage -allusers *Travel* | Remove-AppxPackage
 Get-AppxPackage -allusers *Paid*Wifi* | Remove-AppxPackage
 Get-AppxPackage -allusers *WindowsFeedbackHub* | Remove-AppxPackage
-Get-AppxPackage -allusers *officehub* | Remove-AppxPackage
-Get-AppxPackage -allusers *getstarted* | Remove-AppxPackage
-Get-AppxPackage -allusers *Messaging* | Remove-AppxPackage
 Get-AppxPackage -allusers *OneConnect* | Remove-AppxPackage
 Get-AppxPackage -allusers *MSPaint* | Remove-AppxPackage
+Get-AppxPackage -allusers *twitter* | Remove-AppxPackage
 Get-AppxPackage -allusers *PandoraMediaInc* | Remove-AppxPackage
 Get-AppxPackage -allusers *one*drive* | Remove-AppxPackage
 Get-appxprovisionedpackage –online | where-object {$_.packagename –like "*solitairecollection*"} | remove-appxprovisionedpackage –online
