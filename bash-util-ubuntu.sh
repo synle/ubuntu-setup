@@ -1,3 +1,4 @@
+# applies to both wsl and ubuntu
 export EDITOR='vim'
 
 #Fix color styles for ls
