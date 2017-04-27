@@ -24,3 +24,9 @@ https://addyosmani.com/blog/custom-sublime-text-build-systems-for-popular-tools-
         }
     }
 ```
+
+
+## DPI Scaling
+```
+"dpi_scale": 1.5,
+```
