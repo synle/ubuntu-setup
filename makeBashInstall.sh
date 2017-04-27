@@ -189,13 +189,19 @@ else
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
+    echo "         Bash for Git With GUI"
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ubuntu-with-gui.sh >> $TEMP_BASH_SYLE
+    echo "         Install Xclip"
+    sudo apt-get install -y xclip
+    
+    
 
     #ubuntu gui tweaks
     #lcfe tweak: speed bump
     #vim ~/.config/openbox/lubuntu-rc.xml
-    [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
-        sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
-        ~/.config/openbox/lubuntu-rc.xml
+#     [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
+#         sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
+#         ~/.config/openbox/lubuntu-rc.xml
   fi
 fi
 
