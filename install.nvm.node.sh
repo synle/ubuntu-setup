@@ -27,11 +27,8 @@ then
     installNvmNodeVersionIfNeeded v0.12.15
 
     echo "       Setting nvm default"
-    nvm alias default v0.12.15
+    nvm alias default v6.10.0
     nvm use default
-
-    echo "       Install npm@2.15.1"
-    npm i -g npm@2.15.1
 else
     echo "    SKIP"
 fi
