@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 NVM_BASE_PATH=~/.nvm
 
-#resource nvm if needed
-type nvm &> /dev/null || (. "$NVM_BASE_PATH/nvm.sh")
+# resource nvm
+. "$NVM_BASE_PATH/nvm.sh"
 
 function installNodeModulesIfNeeded(){
     #type $@ &> /dev/null || (echo "    INSTALL $@" && npm i -g $@)
