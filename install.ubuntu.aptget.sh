@@ -35,5 +35,9 @@ then
         openjdk-8-jdk \
         ant \
         gradle \
-        maven
+        maven \
+        nginx \
+        php7.0-cli \
+        php7.0-fpm \
+        php7.0-common
 fi
