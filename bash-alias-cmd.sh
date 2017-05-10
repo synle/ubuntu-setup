@@ -368,6 +368,14 @@ function setGitUpstreamBranch(){
 
 #alias gitOpen="echo `git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'`| head -n1"
 
+# rebase
+function rebase-repo(){
+    pushd $@
+    git fetch --all --prune
+    git rebase
+    popd
+}
+
 ############################################
 #############  SECTION BREAK  ##############
 ############################################
