@@ -12,10 +12,13 @@
 	<Run value="0"/>
 	<RecentPrograms value="None"/>
 	<StartScreenShortcut value="0"/>
+	<SearchKeywords value="0"/>
+	<SearchFiles value="0"/>
 	<SearchInternet value="1"/>
-	<SmallIconSize value="20"/>
-	<LargeIconSize value="35"/>
-	<MenuShadow value="1"/>
+	<SmallIconSize value="40"/>
+	<LargeIconSize value="60"/>
+	<FontSmoothing value="None"/>
+	<MenuShadow value="0"/>
 	<EnableGlass value="0"/>
 	<GlassOverride value="0"/>
 	<SkinC2 value="Metro"/>
@@ -25,9 +28,9 @@
 		<Line>USER_IMAGE=1</Line>
 		<Line>USER_NAME=1</Line>
 		<Line>CENTER_NAME=0</Line>
-		<Line>SMALL_ICONS=1</Line>
+		<Line>SMALL_ICONS=0</Line>
 		<Line>LARGE_FONT=1</Line>
-		<Line>ICON_FRAMES=0</Line>
+		<Line>ICON_FRAMES=1</Line>
 		<Line>OPAQUE=1</Line>
 	</SkinOptionsC2>
 	<SkinW7 value="Metro"/>
