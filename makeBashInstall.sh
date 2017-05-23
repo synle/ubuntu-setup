@@ -235,6 +235,18 @@ echo """
 """ >> $TEMP_BASH_SYLE
 cd --
 
+
+
+# fzf (fuzzy find)
+echoo "fzf"
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+echo """
+# fzf (fuzzy file)
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+""" >> $TEMP_BASH_SYLE
+
+
+
 #prompt
 echoo "Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
@@ -292,12 +304,3 @@ bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-ke
 # Window options
 set -g monitor-activity off
 """ > ~/.tmux.conf
-
-
-# fzf
-echoo "fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-echo """
-# fzf (fuzzy file)
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-""" >> $TEMP_BASH_SYLE
