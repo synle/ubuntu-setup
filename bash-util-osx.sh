@@ -1,10 +1,10 @@
 #MAC only stuffs
 #random background color
-COLOR=""
-for X in 1 2 3 4 5 6 ; do
-  COLOR=$COLOR`expr $RANDOM % 3`
-done
-echo -e -n "\033]Ph${COLOR}\033\\"
+# COLOR=""
+# for X in 1 2 3 4 5 6 ; do
+#   COLOR=$COLOR`expr $RANDOM % 3`
+# done
+# echo -e -n "\033]Ph${COLOR}\033\\"
 
 
 
