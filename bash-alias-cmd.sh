@@ -168,7 +168,7 @@ function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 
 function refreshBashSyLe(){
     echoo "Running refresh scripts"
-    sudo apt-get update -y;
+#     sudo apt-get update -y;
     curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 
     # resource bash profile / bash rc
