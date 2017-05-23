@@ -225,15 +225,16 @@ fi
 
 #added synle make component scripts...
 echoo "  Make Component Scripts"
-rm -rf ~/synle-make-component
-git clone --depth 1 -b master https://github.com/synle/make-component.git ~/synle-make-component &> /dev/null
-cd ~/synle-make-component 
+UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
+rm -rf $UTIL_MAKE_COMPONENT_PATH
+git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
+pushd $UTIL_MAKE_COMPONENT_PATH 
 nohup npm i &> /dev/null && npm run build &> /dev/null &
 echo """
-  # sourcing synle make component
-  [ -s ~/synle-make-component/setup.sh ] && . ~/synle-make-component/setup.sh
+# synle make component
+PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 """ >> $TEMP_BASH_SYLE
-cd --
+popd
 
 
 
