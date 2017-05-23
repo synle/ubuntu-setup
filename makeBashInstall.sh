@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # go to home and start
 cd ~
+sudo echo 'Initialize with sudo access...'
 
 # os flags
 is_os_darwin_mac=0
