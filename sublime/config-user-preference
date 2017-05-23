@@ -17,7 +17,7 @@
     "tab_size": 4,
     "trim_trailing_white_space_on_save": true,
     "rulers": [100],
-    "font_face": "Consolas Bold",
+    "font_face": "Courier New Bold",
     "font_options":
     [
         "gray_antialias",
