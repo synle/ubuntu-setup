@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# go to home and start
+cd ~
+
 # os flags
 is_os_darwin_mac=0
 is_os_ubuntu=0
@@ -40,8 +43,14 @@ sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
 #################################
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
-BASH_PATH=~/.bashrc
-[ -s ~/.bash_profile ] && BASH_PATH=~/.bash_profile
+
+if [ $is_os_darwin_mac == "1" ]
+then
+  touch ~/.bash_profile
+  BASH_PATH=~/.bash_profile
+else
+  BASH_PATH=~/.bashrc
+fi
 
 echoo "Setting up in bash folder: $BASH_PATH"
 
