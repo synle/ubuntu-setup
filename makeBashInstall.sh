@@ -57,8 +57,9 @@ sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
 # script begins....
 # refresh script starts here...
 #################################
+echoo "Install .bash_syle if needed"
 grep -q -F '.bash_syle' $BASH_PATH || echo  """
-#syle bash
+# syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
 """ >> $BASH_PATH
 
@@ -296,4 +297,7 @@ set -g monitor-activity off
 # fzf
 echoo "fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install  &> /dev/null
+echo """
+# fzf (fuzzy file)
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+""" >> $TEMP_BASH_SYLE
