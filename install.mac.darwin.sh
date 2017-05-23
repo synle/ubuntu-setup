@@ -24,6 +24,8 @@ then
     
     if [ $hasHomebrewInstalled == "0" ]
     then
+        touch ~/.bash_profile;
+        
         echo "  INSTALL homebrew"
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         
