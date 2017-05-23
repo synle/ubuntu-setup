@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# go to home and start
-cd ~
-sudo echo 'Initialize with sudo access...'
+# common functions
+function curlNoCache(){ curl -s "$@?$(date +%s)"; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 
 # os flags
 is_os_darwin_mac=0
@@ -11,8 +11,23 @@ is_os_window=0
 [ -d /mnt/c/Users ] && is_os_window=1
 apt-get -v &> /dev/null && is_os_ubuntu=1
 
-function curlNoCache(){ curl -s "$@?$(date +%s)"; }
-function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
+# prep works...
+# go to home and start
+cd ~
+sudo echo 'Initialize with sudo access...'
+
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
+
+if [ $is_os_darwin_mac == "1" ]
+then
+  BASH_PATH=~/.bash_profile
+else
+  BASH_PATH=~/.bashrc
+fi
+
+echoo "Setting up in bash folder: $BASH_PATH";
+touch $BASH_PATH;
 
 echoo "Prerequisites"
 # common modules needed for mac or ubuntu or windows subsystem linux
@@ -42,19 +57,6 @@ sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
 # script begins....
 # refresh script starts here...
 #################################
-BASH_SYLE=~/.bash_syle
-TEMP_BASH_SYLE=/tmp/.bash_syle
-
-if [ $is_os_darwin_mac == "1" ]
-then
-  touch ~/.bash_profile
-  BASH_PATH=~/.bash_profile
-else
-  BASH_PATH=~/.bashrc
-fi
-
-echoo "Setting up in bash folder: $BASH_PATH"
-
 grep -q -F '.bash_syle' $BASH_PATH || echo  """
 #syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
