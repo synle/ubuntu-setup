@@ -229,8 +229,7 @@ UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 rm -rf $UTIL_MAKE_COMPONENT_PATH
 git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
 pushd $UTIL_MAKE_COMPONENT_PATH 
-nohup npm i &> /dev/null &
-nohup npm run build &> /dev/null &
+npm i && npm run build
 echo """
 # synle make component
 PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
