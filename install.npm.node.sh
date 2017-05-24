@@ -21,3 +21,4 @@ installNodeModulesIfNeeded webpack;
 installNodeModulesIfNeeded eslint;
 installNodeModulesIfNeeded typings;
 installNodeModulesIfNeeded less;
+installNodeModulesIfNeeded create-react-app;
