@@ -29,6 +29,8 @@ git config --global alias.del 'branch -D'
 git config --global alias.b 'branch'
 git config --global alias.br 'branch -v'
 git config --global alias.diff-no-space 'diff -w'
+git config --global alias.d-no-space 'diff -w'
+git config --global alias.d 'git diff --word-diff'
 git config --global alias.brav 'branch -av'
 git config --global alias.p "push origin"
 git config --global alias.p-force "push --force-with-lease origin"
