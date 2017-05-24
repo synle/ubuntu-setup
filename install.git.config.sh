@@ -28,8 +28,8 @@ git config --global alias.clone-shallow 'clone --depth 1 -b master'
 git config --global alias.del 'branch -D'
 git config --global alias.b 'branch'
 git config --global alias.br 'branch -v'
+git config --global alias.diff-no-space 'diff -w'
 git config --global alias.brav 'branch -av'
-# \"$(git rev-parse --abbrev-ref HEAD)\"
 git config --global alias.p "push origin"
 git config --global alias.p-force "push --force-with-lease origin"
 git config --global alias.graph "log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
