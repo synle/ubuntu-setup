@@ -575,7 +575,7 @@ function compileSfdcAuraQuick(){
         cat ~/.syle_bookmark
     }
     
-    function addCommandFromBookmark(){
+    function addCommandToBookmarks(){
         echo $@ > ~/.syle_bookmark
     }
 
