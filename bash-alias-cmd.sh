@@ -567,11 +567,33 @@ function compileSfdcAuraQuick(){
     }
     
     
+    function getMakeComponentOptions(){
+        make-help
+    }
+
+    function getCommandFromBookmark(){
+        cat ~/.syle_bookmark
+    }
+
     function fuzzyMakeComponent(){
-        makeComponentCommand=$(make-help | sed '/^\s*$/d' | fzf)
+        makeComponentCommand=$(( \
+            getMakeComponentOptions \
+            ) | sed '/^\s*$/d' | uniq | fzf)
         echo "$makeComponentCommand"
         $makeComponentCommand
     }
+
+
+    function fuzzyFavoriteCommand(){
+        makeComponentCommand=$(( \
+            getCommandFromBookmark
+            ) | sed '/^\s*$/d' | uniq | fzf)
+        echo "$makeComponentCommand"
+        $makeComponentCommand
+    }
+
+    
+
     
     
     # allow default fzf completion for node and subl
@@ -603,6 +625,8 @@ function compileSfdcAuraQuick(){
 #bind '"\ep":"fviewfile\r"'
 bind '"\C-o":"fcd\r"'
 bind '"\C-p":"fviewfile\r"'
+bind '"\C-p":"fuzzyFavoriteCommand\r"'
+
 
 # ctrl alt p to open sublime project
 bind '"\e\C-p":"subl-open-project\r"'
