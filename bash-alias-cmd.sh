@@ -597,8 +597,8 @@ function compileSfdcAuraQuick(){
     
     
     # allow default fzf completion for node and subl
-    complete -F _fzf_path_completion node
-    complete -F _fzf_path_completion subl
+#     complete -F _fzf_path_completion node
+#     complete -F _fzf_path_completion subl
 
     # different completion trigger
     export FZF_COMPLETION_TRIGGER='*'
