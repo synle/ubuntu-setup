@@ -327,6 +327,12 @@ function filterUnwanted(){
     | uniq
 }
 
+function filterUnwantedLight(){
+    grep -v .DS_Store"
+}
+
+alias ll="ls -la | filterUnwantedLight"
+
 
 function gitCompare(){
     #get current branch name
