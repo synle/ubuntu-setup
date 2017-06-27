@@ -280,7 +280,7 @@ function sps() {
 }
 
 function filterUnwanted(){
-    filterUnwantedLight
+    filterUnwantedLight \
     | grep -v .cache.js \
     | grep -v .class \
     | grep -v .db \
