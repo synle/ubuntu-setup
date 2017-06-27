@@ -328,7 +328,8 @@ function filterUnwanted(){
 }
 
 function filterUnwantedLight(){
-    grep -v .DS_Store"
+    grep -v .DS_Store \
+        | uniq
 }
 
 alias ll="ls -la | filterUnwantedLight"
