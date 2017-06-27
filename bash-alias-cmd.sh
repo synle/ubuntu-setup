@@ -574,6 +574,10 @@ function compileSfdcAuraQuick(){
     function getCommandFromBookmark(){
         cat ~/.syle_bookmark
     }
+    
+    function addCommandFromBookmark(){
+        echo $@ > ~/.syle_bookmark
+    }
 
     function fuzzyMakeComponent(){
         makeComponentCommand=$(( \
