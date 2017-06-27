@@ -625,7 +625,7 @@ function compileSfdcAuraQuick(){
 #bind '"\ep":"fviewfile\r"'
 bind '"\C-o":"fcd\r"'
 bind '"\C-p":"fviewfile\r"'
-bind '"\C-p":"fuzzyFavoriteCommand\r"'
+bind '"\C-b":"fuzzyFavoriteCommand\r"'
 
 
 # ctrl alt p to open sublime project
