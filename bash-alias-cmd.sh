@@ -280,18 +280,16 @@ function sps() {
 }
 
 function filterUnwanted(){
-    grep -v node_modules \
+    filterUnwantedLight
     | grep -v .cache.js \
     | grep -v .class \
     | grep -v .db \
     | grep -v .dll \
     | grep -v .doc \
     | grep -v .docx \
-    | grep -v .DS_Store \
     | grep -v .dylib \
     | grep -v .eslintcache \
     | grep -v .exe \
-    | grep -v .git \
     | grep -v .idb \
     | grep -v .jar \
     | grep -v .jpg \
@@ -329,6 +327,8 @@ function filterUnwanted(){
 
 function filterUnwantedLight(){
     grep -v .DS_Store \
+        | grep -v .git \
+        | grep -v node_modules \
         | uniq
 }
 
