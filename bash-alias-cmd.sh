@@ -577,6 +577,16 @@ function compileSfdcAuraQuick(){
     
     function addCommandToBookmarks(){
         echo $@ >> ~/.syle_bookmark
+        echo "Bookmarking '"$@"'"
+        removeDuplicateLines ~/.syle_bookmark > /tmp/syle-bookmark-temp
+        cat /tmp/syle-bookmark-temp > ~/.syle_bookmark
+        
+        # remove the temp file
+        rm /tmp/syle-bookmark-temp
+    }
+    
+    function removeDuplicateLines(){
+        perl -ne 'print unless $dup{$_}++;' $@
     }
 
     function fuzzyMakeComponent(){
