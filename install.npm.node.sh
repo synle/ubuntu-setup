@@ -7,7 +7,7 @@ NVM_BASE_PATH=~/.nvm
 #download node npm deps
 echo "  npm i -g";
 npm i -g \
-    grunt-init \
+#     grunt-init \
     bower \
     gulp \
     browserify \
