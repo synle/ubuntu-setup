@@ -72,11 +72,6 @@ echo  "" > $TEMP_BASH_SYLE
 echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 
 
-# needed to some quick work for fzf
-rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install
-
 # bash completion
 echoo "Bash Completions"
 echo  "  Git Completion"
@@ -248,12 +243,11 @@ PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 popd
 
 # fzf (fuzzy find)
-echoo "fzf sourcing"
-echo """
-# fzf (fuzzy file)
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-""" >> $TEMP_BASH_SYLE
-
+echoo "fzf installation"
+# needed to some quick work for fzf
+rm -rf ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+~/.fzf/install
 
 
 #prompt
