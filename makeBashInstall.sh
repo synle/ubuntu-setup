@@ -15,9 +15,6 @@ apt-get -v &> /dev/null && is_os_ubuntu=1
 # go to home and start
 cd ~
 
-# set up the bookmark file
-touch ~/.syle_bookmark
-
 sudo echo 'Initialize with sudo access...'
 
 BASH_SYLE=~/.bash_syle
@@ -51,6 +48,12 @@ echoo "fzf installation"
 rm -rf ~/.fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
 ~/.fzf/install
+
+
+
+# bootstrap bookmark file
+echoo "bootstrap syle bookmark file"
+touch ~/.syle_bookmark
 
 
 
