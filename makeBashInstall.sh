@@ -43,6 +43,17 @@ then
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.ubuntu.aptget.sh | sudo bash -
 fi
 
+
+
+# fzf (fuzzy find)
+echoo "fzf installation"
+# needed to some quick work for fzf
+rm -rf ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+~/.fzf/install
+
+
+
 echoo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
 # "Install nvm, node. npm and stuffs"
@@ -241,13 +252,6 @@ PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 [ -s '$UTIL_MAKE_COMPONENT_PATH/setup.sh' ] && . '$UTIL_MAKE_COMPONENT_PATH/setup.sh'
 """ >> $TEMP_BASH_SYLE
 popd
-
-# fzf (fuzzy find)
-echoo "fzf installation"
-# needed to some quick work for fzf
-rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install
 
 
 #prompt
