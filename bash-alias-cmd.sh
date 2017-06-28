@@ -576,7 +576,7 @@ function compileSfdcAuraQuick(){
     }
     
     function addCommandToBookmarks(){
-        echo $@ > ~/.syle_bookmark
+        echo $@ >> ~/.syle_bookmark
     }
 
     function fuzzyMakeComponent(){
