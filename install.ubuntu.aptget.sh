@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-is_os_ubuntu=0
-apt-get -v &> /dev/null && is_os_ubuntu=1
 
 function installAptGetModuleIfNeeded(){
     for i; do 
@@ -9,35 +7,28 @@ function installAptGetModuleIfNeeded(){
     sudo apt-get install -y --force-yes --fix-missing $@
 }
 
-if [ $is_os_ubuntu == "1" ]
-then
-    # echo "  apt-get update..."
-    # sudo apt-get update -y
-
-    echo "  apt-get install..."
-    #     must have
-    installAptGetModuleIfNeeded git \
-        vim \
-        curl \
-        tmux \
-        python \
-        tig \
-        unzip \
-        make \
-        jq \
-        figlet \
-        autoconf \
-        automake \
-        gcc \
-        g++ \
-        build-essential \
-        unzip \
-        openjdk-8-jdk \
-        ant \
-        gradle \
-        maven \
-        nginx \
-        php7.0-cli \
-        php7.0-fpm \
-        php7.0-common
-fi
+# start the installation...
+installAptGetModuleIfNeeded git \
+    vim \
+    curl \
+    tmux \
+    python \
+    tig \
+    unzip \
+    make \
+    jq \
+    figlet \
+    autoconf \
+    automake \
+    gcc \
+    g++ \
+    build-essential \
+    unzip \
+    openjdk-8-jdk \
+    ant \
+    gradle \
+    maven \
+    nginx \
+    php7.0-cli \
+    php7.0-fpm \
+    php7.0-common
