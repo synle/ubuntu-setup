@@ -6,7 +6,7 @@ NVM_BASE_PATH=~/.nvm
 
 #download node npm deps
 echo "  npm i -g";
-npm i -g \
+echo "    begin global modules npm installs" && npm i -g \
     bower \
     gulp \
     browserify \
@@ -15,4 +15,4 @@ npm i -g \
     typings \
     less \
     create-react-app \
-    && echo "    starting global npm install"
+&& echo "    end global modules npm installs
