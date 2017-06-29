@@ -209,14 +209,14 @@ else
     echoo "        Regedit"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
     
-    echoo "        Powershell Commands"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
+#     echoo "        Powershell Commands"
+#     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
     
-    echoo "        Greenshots"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
+#     echoo "        Greenshots"
+#     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
     
-    echoo "        AutoIt Script"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/autoit-resize.au3 -so $WINDOWS_DESKTOP_PATH/autoit-resize.au3
+#     echoo "        AutoIt Script"
+#     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/autoit-resize.au3 -so $WINDOWS_DESKTOP_PATH/autoit-resize.au3
     
   elif [ $is_os_ubuntu == "1" ]
   then
