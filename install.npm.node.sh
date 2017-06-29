@@ -15,4 +15,4 @@ echo "    begin global modules npm installs" && npm i -g \
     typings \
     less \
     create-react-app \
-&& echo "    end global modules npm installs
+&& echo "    end global modules npm installs"
