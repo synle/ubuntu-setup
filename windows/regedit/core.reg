@@ -92,11 +92,6 @@ Windows Registry Editor Version 5.00
 "VisualFXSetting"=dword:00001006
 
 
-; 7-zip context menu
-[HKEY_CURRENT_USER\SOFTWARE\7-Zip\Options]
-"ContextMenu"=dword:00001006
-
-
 ;color and theme
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
 "ColorPrevalence"=dword:00000001
@@ -122,3 +117,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
 @="OneDrive"
 "System.IsPinnedToNameSpaceTree"=dword:00000000
+
+[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
+"ScrollHeight"="-90"
+"ScrollWidth"="-90"
