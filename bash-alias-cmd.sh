@@ -253,9 +253,20 @@ function killAllNode(){
 
 function stopAllNodeProcesses(){
     echoo "Stopping all node processes";
-    ps aux | grep node | awk '{ print $2 }' | xargs kill;
-    #ps aux | grep node | grep -v tsserver | grep -v Adobe | awk '{ print $2 }' | xargs kill;
-    #ps wwax | grep -E '[s]tart-server|[i]qb' | awk '{ print $1 }' | xargs kill;
+    ps aux | grep node | grep /git | awk '{ print $2 }' | xargs kill;
+    # ps aux | grep node | grep -v tsserver | grep -v Adobe | awk '{ print $2 }' | xargs kill;
+    # ps wwax | grep -E '[s]tart-server|[i]qb' | awk '{ print $1 }' | xargs kill;
+}
+
+function stopAllPythonProcesses(){
+    echoo "Stopping all python processes"
+    ps aux | grep python | grep /git | awk '{ print $2 }' | xargs kill;
+}
+
+function createSelfSignedCertificate(){
+    # https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
+    echoo "creating self signed certificate"
+    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
 }
 
 function getIpAddrress(){
