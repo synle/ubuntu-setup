@@ -614,7 +614,12 @@ function compileSfdcAuraQuick(){
             getCommandFromBookmark
             ) | sed '/^\s*$/d' | uniq | fzf)
         echo "$makeComponentCommand"
+        
+        # run the command
         $makeComponentCommand
+        
+        # put the command into history
+        history -s "$makeComponentCommand"
     }
 
     
