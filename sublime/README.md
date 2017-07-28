@@ -30,3 +30,16 @@ https://addyosmani.com/blog/custom-sublime-text-build-systems-for-popular-tools-
 ```
 "dpi_scale": 1.5,
 ```
+
+
+## Sample Linter Config
+### Mac
+```
+"paths": {
+    "linux": [],
+    "osx": [
+        "/Users/syle/.nvm/versions/node/v7.4.0/bin"
+    ],
+    "windows": []
+},
+```
