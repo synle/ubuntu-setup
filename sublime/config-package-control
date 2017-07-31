@@ -25,6 +25,7 @@
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
 		"SublimeLinter",
+		"SublimeLinter-contrib-eslint",
 		"SyncedSideBar",
 		"TodoReview",
 		"TypeScript"
