@@ -161,6 +161,12 @@ function subl-new-project-clean(){
     echo "subl $myProjectName.sublime-project" | getAbsolutePathForAllSystem
 }
 
+function port-forwarding(){
+    echo "ssh -L 8080:localhost:8080 my-awesome-host"
+}
+
+function 
+
 # print formatted text for easy to read console output.
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 
