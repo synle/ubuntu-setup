@@ -651,6 +651,9 @@ function compileSfdcAuraQuick(){
 #############  SECTION BREAK  ##############
 ############################################
 
+# function port-forwarding(){
+#     echo "ssh -L 8080:localhost:8080 my-awesome-host"
+# }
 
 ############################################
 # awesome keybinding
