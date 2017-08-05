@@ -6,6 +6,10 @@
     "plugins": [
         "jsx-a11y"
     ],
+    "globals": {
+        "$": true,
+        "angular": true
+    },
     "rules": {
         "indent": [
             2,
@@ -22,6 +26,7 @@
         "jsx-a11y/aria-role": [0],
         "no-else-return": [0],
         "quote-props": [0],
+        "one-var": [0],
         "react/prop-types": [0],
         "react/self-closing-comp": [0],
         "react/jsx-filename-extension": [0],
