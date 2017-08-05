@@ -33,13 +33,30 @@ https://addyosmani.com/blog/custom-sublime-text-build-systems-for-popular-tools-
 
 
 ## Sample Linter Config
-### Mac
+### Path for NVM Nodes
 ```
 "paths": {
-    "linux": [],
+    "linux": [
+        "/home/syle/.nvm/versions/node/v6.10.0/bin"
+    ],
     "osx": [
         "/Users/syle/.nvm/versions/node/v7.4.0/bin"
     ],
     "windows": []
 },
+```
+
+### Dep
+#### scripts
+```
+"lint": "./node_modules/.bin/eslint src",
+```
+
+#### devDeps
+```
+"eslint": "^3",
+"eslint-config-airbnb": "^15.1.0",
+"eslint-plugin-import": "^2.7.0",
+"eslint-plugin-jsx-a11y": "^5.1.1",
+"eslint-plugin-react": "^7.1.0"
 ```
