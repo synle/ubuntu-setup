@@ -39,15 +39,17 @@ https://github.com/synle/ubuntu-setup/blob/master/misc/eslintrc
 ### Path for NVM Nodes
 Linux : Preferences > Packages >...
 ```
-"paths": {
-    "linux": [
-        "/home/syle/.nvm/versions/node/v6.10.0/bin"
-    ],
-    "osx": [
-        "/Users/syle/.nvm/versions/node/v7.4.0/bin"
-    ],
-    "windows": []
-},
+{
+    "paths": {
+        "linux": [
+            "/home/syle/.nvm/versions/node/v6.10.0/bin"
+        ],
+        "osx": [
+            "/Users/syle/.nvm/versions/node/v7.4.0/bin"
+        ],
+        "windows": []
+    }
+}
 ```
 
 ### Dep
