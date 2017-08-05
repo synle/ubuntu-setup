@@ -33,6 +33,9 @@ https://addyosmani.com/blog/custom-sublime-text-build-systems-for-popular-tools-
 
 
 ## Sample Linter Config
+### Common Def
+https://github.com/synle/ubuntu-setup/blob/master/misc/eslintrc
+
 ### Path for NVM Nodes
 ```
 "paths": {
