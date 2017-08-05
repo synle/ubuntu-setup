@@ -185,7 +185,9 @@ function refreshBashSyLe(){
 }
 
 
-function startHttpServer(){ http-server --cors }
+function startHttpServer(){ 
+    http-server --cors 
+}
 
 function openSublimePackageControl(){
     cat ~/Library/Application*/Sublime*/Packages/User/Package*Control.sublime-settings;
