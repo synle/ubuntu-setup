@@ -272,9 +272,27 @@ function stopAllPythonProcesses(){
 }
 
 function createSelfSignedCertificate(){
-    # https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
     echoo "creating self signed certificate"
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
+    echo """
+    https://stackoverflow.com/questions/10175812/how-to-create-a-self-signed-certificate-with-openssl
+    https://github.com/synle/node-proxy-example
+    https://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate
+    """
+    
+    echo "====="
+    echo """
+    # pem
+    openssl genrsa -out key.pem
+    openssl req -new -key key.pem -out csr.pem
+    openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
+    rm csr.pem
+
+    # pem to crt
+    openssl x509 -in cert.pem -inform PEM -out cert.crt
+
+    # accept crt in ubuntu
+    sudo cp cert.crt /usr/local/share/ca-certificates/localhost-com.crt
+    """
 }
 
 function getIpAddrress(){
