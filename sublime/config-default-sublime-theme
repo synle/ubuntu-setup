@@ -1,11 +1,11 @@
 [
     {
         "class": "sidebar_label",
-        "font.size": 13,
+        "font.size": 12,
         "color": [0, 0, 0]
     },
     {
         "class": "tab_label",
-        "font.size": 13
+        "font.size": 12
     }
 ]
