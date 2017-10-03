@@ -315,4 +315,6 @@ echoo "fzf installation"
 # needed to some quick work for fzf
 rm -rf ~/.fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install
+
+echo "install fzf with this command"
+echo "~/.fzf/install"
