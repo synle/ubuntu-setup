@@ -44,15 +44,6 @@ fi
 
 
 
-# fzf (fuzzy find)
-echoo "fzf installation"
-# needed to some quick work for fzf
-rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-~/.fzf/install
-
-
-
 # bootstrap bookmark file
 echoo "bootstrap syle bookmark file"
 touch ~/.syle_bookmark
@@ -316,3 +307,12 @@ bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-ke
 # Window options
 set -g monitor-activity off
 """ > ~/.tmux.conf
+
+
+
+# fzf (fuzzy find)
+echoo "fzf installation"
+# needed to some quick work for fzf
+rm -rf ~/.fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+~/.fzf/install
