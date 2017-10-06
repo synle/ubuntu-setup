@@ -313,7 +313,17 @@ function getIpAddress(){
 
 #short path
 function sps() {
-    python -c "import sys; mypath = ' '.join(sys.argv[1:]); dirs = mypath.split('/'); print '/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1]" $PWD
+    python -c """
+#!/usr/bin/python
+import sys;
+originalPath = sys.argv[1:]
+try:
+    mypath = ' '.join(originalPath);
+    dirs = mypath.split('/');
+    print ('/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1])
+except:
+    print (originalPath)
+""" $PWD
 }
 
 function filterUnwanted(){
