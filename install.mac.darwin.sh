@@ -41,7 +41,8 @@ then
     installMacAppIfNotThereAlready jq;
     installMacAppIfNotThereAlready fzf;
     installMacAppIfNotThereAlready tig;
-    
+    brew install azure-cli &> /dev/null && echo "    Install azure-cli"
+    brew install heroku/brew/heroku &> /dev/null && echo "    Install heroku/brew/heroku"
     
     
     #################################
