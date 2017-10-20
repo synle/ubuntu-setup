@@ -89,6 +89,11 @@ then
     # sending messages and opening windows for replies
     defaults write com.apple.Mail DisableSendAnimations -bool true;
     defaults write com.apple.Mail DisableReplyAnimations -bool true;
+    
+    
+    # key repeat
+    defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 
 
 
