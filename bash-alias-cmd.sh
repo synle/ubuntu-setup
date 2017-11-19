@@ -420,6 +420,13 @@ function setGitUpstreamBranch(){
 }
 
 
+function removeFileFromGitHistory(){
+    git filter-branch --force --index-filter \
+    'git rm -r --cached --ignore-unmatch $@' \
+    --prune-empty --tag-name-filter cat -- --all
+}
+
+
 #alias gitOpen="echo `git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'`| head -n1"
 
 # rebase
