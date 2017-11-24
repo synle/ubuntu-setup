@@ -241,7 +241,9 @@ function searchFileName(){
 
 
 function renpm(){
-    rm -rf node_modules /tmp/*.cache || npm install
+    rm -rf node_modules;
+    rm -rf /tmp/*.cache;
+    npm install
 }
 
 
