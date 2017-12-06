@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Settings component="StartMenu" version="4.3.0">
+<Settings component="StartMenu" version="4.3.1">
 	<MenuStyle value="Classic2"/>
 	<ShiftClick value="Nothing"/>
 	<WinKey value="ClassicMenu"/>
@@ -12,13 +12,10 @@
 	<Run value="0"/>
 	<RecentPrograms value="None"/>
 	<StartScreenShortcut value="0"/>
-	<SearchKeywords value="0"/>
-	<SearchFiles value="0"/>
 	<SearchInternet value="1"/>
-	<SmallIconSize value="40"/>
-	<LargeIconSize value="60"/>
-	<FontSmoothing value="None"/>
-	<MenuShadow value="0"/>
+	<SmallIconSize value="20"/>
+	<LargeIconSize value="35"/>
+	<MenuShadow value="1"/>
 	<EnableGlass value="0"/>
 	<GlassOverride value="0"/>
 	<SkinC2 value="Metro"/>
@@ -28,9 +25,9 @@
 		<Line>USER_IMAGE=1</Line>
 		<Line>USER_NAME=1</Line>
 		<Line>CENTER_NAME=0</Line>
-		<Line>SMALL_ICONS=0</Line>
+		<Line>SMALL_ICONS=1</Line>
 		<Line>LARGE_FONT=1</Line>
-		<Line>ICON_FRAMES=1</Line>
+		<Line>ICON_FRAMES=0</Line>
 		<Line>OPAQUE=1</Line>
 	</SkinOptionsC2>
 	<SkinW7 value="Metro"/>
@@ -41,7 +38,7 @@
 	<StartButtonType value="AeroButton"/>
 	<SkipMetro value="1"/>
 	<MenuItems2>
-		<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,RecentDocumentsItem,SEPARATOR,ControlPanelItem,PCSettingsItem,SecurityItem,NetworkItem,CustomItem2,SEPARATOR,SearchMenu,HelpItem,RunItem,COLUMN_PADDING,SEPARATOR,LogOffItem2,ShutdownBoxItem</Line>
+		<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,RecentDocumentsItem,SEPARATOR,ControlPanelItem,PCSettingsItem,CustomItem3,SecurityItem,NetworkItem,CustomItem2,SEPARATOR,SearchMenu,HelpItem,RunItem,COLUMN_PADDING,SEPARATOR,SleepItem,ShutdownBoxItem</Line>
 		<Line>ProgramsMenu.Command=programs</Line>
 		<Line>ProgramsMenu.Label=$Menu.Programs</Line>
 		<Line>ProgramsMenu.Icon=shell32.dll,326</Line>
@@ -55,7 +52,7 @@
 		<Line>ComputerItem.Command=computer</Line>
 		<Line>UserFilesItem.Command=user_files</Line>
 		<Line>UserFilesItem.Tip=$Menu.UserFilesTip</Line>
-		<Line>CustomItem.Link=Downloads | %USERPROFILE%\Downloads</Line>
+		<Line>CustomItem.Link=D:\Download</Line>
 		<Line>CustomItem.Settings=NOEXPAND</Line>
 		<Line>RecentDocumentsItem.Command=recent_documents</Line>
 		<Line>RecentDocumentsItem.Settings=ITEMS_FIRST</Line>
@@ -68,6 +65,9 @@
 		<Line>PCSettingsItem.Label=$Menu.PCSettings</Line>
 		<Line>PCSettingsItem.Icon=%windir%\ImmersiveControlPanel\SystemSettings.exe,10</Line>
 		<Line>PCSettingsItem.Settings=TRACK_RECENT</Line>
+		<Line>CustomItem3.Command=explorer ms-settings:windowsupdate-action</Line>
+		<Line>CustomItem3.Label=Check For Windows Update</Line>
+		<Line>CustomItem3.Icon=shell32.dll, 244</Line>
 		<Line>SecurityItem.Command=windows_security</Line>
 		<Line>SecurityItem.Label=$Menu.Security</Line>
 		<Line>SecurityItem.Tip=$Menu.SecurityTip</Line>
@@ -104,19 +104,15 @@
 		<Line>RunItem.Label=$Menu.Run</Line>
 		<Line>RunItem.Tip=$Menu.RunTip</Line>
 		<Line>RunItem.Icon=shell32.dll,328</Line>
-		<Line>LogOffItem2.Command=logoff</Line>
-		<Line>LogOffItem2.Label=$Menu.Logoff</Line>
-		<Line>LogOffItem2.Tip=$Menu.LogOffTip</Line>
-		<Line>LogOffItem2.Icon=none</Line>
-		<Line>ShutdownBoxItem.Items=SleepItem,SwitchUserItem,RestartItem,ShutdownItem</Line>
-		<Line>ShutdownBoxItem.Command=shutdown_box</Line>
-		<Line>ShutdownBoxItem.Label=$Menu.ShutdownBox</Line>
-		<Line>ShutdownBoxItem.Icon=shell32.dll,329</Line>
-		<Line>ShutdownBoxItem.Settings=SPLIT</Line>
 		<Line>SleepItem.Command=sleep</Line>
 		<Line>SleepItem.Label=$Menu.Sleep</Line>
 		<Line>SleepItem.Tip=$Menu.SleepTip</Line>
 		<Line>SleepItem.Icon=none</Line>
+		<Line>ShutdownBoxItem.Items=SwitchUserItem,RestartItem,ShutdownItem,LogOffItem2</Line>
+		<Line>ShutdownBoxItem.Command=shutdown_box</Line>
+		<Line>ShutdownBoxItem.Label=$Menu.ShutdownBox</Line>
+		<Line>ShutdownBoxItem.Icon=shell32.dll,329</Line>
+		<Line>ShutdownBoxItem.Settings=SPLIT</Line>
 		<Line>SwitchUserItem.Command=switch_user</Line>
 		<Line>SwitchUserItem.Label=$Menu.SwitchUser</Line>
 		<Line>SwitchUserItem.Tip=$Menu.SwitchUserTip</Line>
@@ -129,5 +125,9 @@
 		<Line>ShutdownItem.Label=$Menu.Shutdown</Line>
 		<Line>ShutdownItem.Tip=$Menu.ShutdownTip</Line>
 		<Line>ShutdownItem.Icon=none</Line>
+		<Line>LogOffItem2.Command=logoff</Line>
+		<Line>LogOffItem2.Label=$Menu.Logoff</Line>
+		<Line>LogOffItem2.Tip=$Menu.LogOffTip</Line>
+		<Line>LogOffItem2.Icon=none</Line>
 	</MenuItems2>
 </Settings>
