@@ -39,3 +39,10 @@ WSL Bash Home
 C:\Users\syle\AppData\Local\lxss\home
 C:\Users\syle\AppData\Local\lxss\root
 ```
+
+
+
+### Classic Shell Pinned Path
+```
+ %APPDATA%\ClassicShell\Pinned
+```
