@@ -10,9 +10,13 @@
 	<Search value="0"/>
 	<Help value="0"/>
 	<Run value="0"/>
+	<PinnedPrograms value="PinnedItems"/>
 	<RecentPrograms value="None"/>
 	<StartScreenShortcut value="0"/>
-	<SearchInternet value="1"/>
+	<SearchPath value="1"/>
+	<SearchKeywords value="1"/>
+	<SearchSubWord value="1"/>
+	<SearchInternet value="0"/>
 	<SmallIconSize value="20"/>
 	<LargeIconSize value="35"/>
 	<MenuShadow value="1"/>
