@@ -46,3 +46,14 @@ C:\Users\syle\AppData\Local\lxss\root
 ```
  %APPDATA%\ClassicShell\Pinned
 ```
+
+
+### Pinned Task Items
+https://helpdeskgeek.com/windows-7/backup-and-restore-your-pinned-taskbar-items-in-windows-7/
+```
+Path
+%AppData%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar
+
+RegEdit
+HKEY_CURRENT_USER \ Software \ Microsoft \ Windows \ CurrentVersion \ Explorer \ Taskband
+```
