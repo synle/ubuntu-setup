@@ -38,8 +38,8 @@ then
     fi
     
     echo "  install themes"
-    mkdir -p ~/_themes
-    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/themes/mac/iterm.Dracula.itermcolors > ~/_themes/iterm.Dracula.itermcolors
+    mkdir -p ~/_extra/themes ~/_extra/tools
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/themes/mac/iterm.Dracula.itermcolors > ~/_extra/themes/iterm.Dracula.itermcolors
     
     
     
