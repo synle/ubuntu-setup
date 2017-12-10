@@ -98,6 +98,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ali
 
 
 #OSX MAC GUI Stuffs
+UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 if [ $is_os_darwin_mac == "1" ]
 then
   echoo "  OSX (Darwin) specifics..."
@@ -105,6 +106,8 @@ then
   # mac alias
   echo  "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
+  
+  UTIL_MAKE_COMPONENT_PATH=~/_extra/tools/synle-make-component
 else
   echoo "  Non-Mac Bash Specifics..."
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
@@ -237,7 +240,6 @@ fi
 
 #added synle make component scripts...
 echoo "  Make Component Scripts"
-UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 rm -rf $UTIL_MAKE_COMPONENT_PATH
 git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
 pushd $UTIL_MAKE_COMPONENT_PATH 
