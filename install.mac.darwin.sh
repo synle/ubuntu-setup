@@ -37,6 +37,12 @@ then
         #     brew install php70;
     fi
     
+    echo "  install themes"
+    mkdir -p ~/_themes
+    curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/themes/mac/iterm.Dracula.itermcolors > ~/_themes/iterm.Dracula.itermcolors
+    
+    
+    
     echo "  brew install"
     installMacAppIfNotThereAlready jq;
     installMacAppIfNotThereAlready fzf;
