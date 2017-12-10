@@ -47,6 +47,7 @@ then
     installMacAppIfNotThereAlready jq;
     installMacAppIfNotThereAlready fzf;
     installMacAppIfNotThereAlready tig;
+    brew cask install android-platform-tools &> /dev/null && echo "    android-platform-tools"
     brew install azure-cli &> /dev/null && echo "    Install azure-cli"
     brew install heroku/brew/heroku &> /dev/null && echo "    Install heroku/brew/heroku"
     
