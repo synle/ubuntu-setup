@@ -27,3 +27,17 @@ pm.max_requests = 500
 
 /var/www/html
 ```
+
+
+## Custom Resolution in Ubuntu
+http://ubuntuhandbook.org/index.php/2017/04/custom-screen-resolution-ubuntu-desktop/
+```
+>>> cvt 2560 1440
+# 2560x1440 59.96 Hz (CVT 3.69M9) hsync: 89.52 kHz; pclk: 312.25 MHz
+Modeline "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+
+
+>>> sudo xrandr --newmode  "2560x1440_60.00"  312.25  2560 2752 3024 3488  1440 1443 1448 1493 -hsync +vsync
+
+>>>  sudo xrandr --addmode eDP-1  "2560x1440_60.00"
+```
