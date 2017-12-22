@@ -35,6 +35,7 @@ git config --global alias.brav 'branch -av'
 git config --global alias.p "push origin"
 git config --global alias.pd "push origin"
 git config --global alias.push-delete "push -d"
+git config --global alias.pushd "push -d"
 git config --global alias.del-push "push -d"
 git config --global alias.p-force "push --force-with-lease origin"
 git config --global alias.graph "log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
