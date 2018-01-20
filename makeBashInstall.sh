@@ -115,6 +115,8 @@ else
   if [ $is_os_window == "1" ]
   then
     WINDOWS_HOME_PATH=/mnt/c/Users/$USER
+    # fail safe for /mnt/c/Users/Sy Le
+    [ -d $WINDOWS_HOME_PATH ] || WINDOWS_HOME_PATH="/mnt/c/Users/Sy*"
     WINDOWS_APPDATA_PATH=$WINDOWS_HOME_PATH/AppData
     WINDOWS_DOWNLOAD_PATH=$WINDOWS_HOME_PATH/Download
     WINDOWS_DESKTOP_PATH=$WINDOWS_HOME_PATH/Desktop
