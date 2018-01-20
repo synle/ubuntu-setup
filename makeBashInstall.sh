@@ -126,7 +126,7 @@ else
 
     echoo "      Default to Windows Home Dir"
     echo "# default path to Window home..." >> $TEMP_BASH_SYLE
-    echo "cd /mnt/c/Users/$(whoami)" >> $TEMP_BASH_SYLE
+    echo "cd $WINDOWS_HOME_PATH" >> $TEMP_BASH_SYLE
     
     
     echoo "      Downloading some exe"
