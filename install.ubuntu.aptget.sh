@@ -34,10 +34,14 @@ installAptGetModuleIfNeeded git \
     php7.0-common \
     apt-transport-https \
     ca-certificates \
-    linux-image-extra-$(uname -r) \
+    software-properties-common  \
+    && echo "done core deps..."
+    
+    
+installAptGetModuleIfNeeded linux-image-extra-$(uname -r) \
     linux-image-extra-virtual \
     software-properties-common  \
-    && echo "done..."
+    && echo "done optional deps..."
 
 
 echo '''
