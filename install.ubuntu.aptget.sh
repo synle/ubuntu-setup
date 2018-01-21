@@ -45,9 +45,11 @@ if [ -d "/mnt/c/Users" ]
     installAptGetModuleIfNeeded linux-image-extra-$(uname -r) \
     linux-image-extra-virtual \
     && echo "done optional deps..."
-  fi
+fi
 
-echo '''
-# Other Packages for GUI
-compizconfig-settings-manager
-'''
+
+
+# echo '''
+# # Other Packages for GUI
+# compizconfig-settings-manager
+# '''
