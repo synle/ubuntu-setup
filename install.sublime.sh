@@ -21,27 +21,31 @@ then
   # url
   urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
   # paths
-  dir_sublime_base=~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
-  dir_sublime_keymap=$dir_sublime_base/Default\ \(OSX\).sublime-keymap
+  dir_sublime_base="~/Library/Application Support/Sublime Text 3/Packages/User"
+  dir_sublime_keymap="$dir_sublime_base/Default (OSX).sublime-keymap"
 else
   echo "  Non-Mac Environment"
 
   if [ -d "/mnt/c/Users" ]
   then
+  	WINDOWS_HOME_PATH=/mnt/c/Users/$USER
+    # fail safe for /mnt/c/Users/Sy Le
+    [ -d $WINDOWS_HOME_PATH ] || WINDOWS_HOME_PATH="/mnt/c/Users/Sy Le"
+
     # windows subsystem ubuntu bash sublime
     echo "  Windows Sublime (via Windows Subsystem Linux)"
     # url
     # paths
-    dir_sublime_base=/mnt/c/Users/$(whoami)/AppData/Roaming/Sublime\ Text\ 3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Windows\).sublime-keymap
+    dir_sublime_base="$WINDOWS_HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
+    dir_sublime_keymap="$dir_sublime_base/Default (Windows).sublime-keymap"
   elif [ -d "~/.config/sublime-text-3" ]
   then
     #ubuntu sublime
     echo "  Ubuntu Sublime"
     # url
     # paths
-    dir_sublime_base=~/.config/sublime-text-3/Packages/User
-    dir_sublime_keymap=$dir_sublime_base/Default\ \(Linux\).sublime-keymap
+    dir_sublime_base="~/.config/sublime-text-3/Packages/User"
+    dir_sublime_keymap="$dir_sublime_base/Default (Linux).sublime-keymap"
   else
     #N/A (no gui...)
     needToSetUpSublime=0
