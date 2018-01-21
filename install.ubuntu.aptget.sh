@@ -36,12 +36,16 @@ installAptGetModuleIfNeeded git \
     ca-certificates \
     software-properties-common  \
     && echo "done core deps..."
-    
-    
-installAptGetModuleIfNeeded linux-image-extra-$(uname -r) \
+
+if [ -d "/mnt/c/Users" ]
+  then
+  	echo "ignore optional deps for Windows Bash"
+  else
+    echo "install optionals deps for Ubuntu"
+    installAptGetModuleIfNeeded linux-image-extra-$(uname -r) \
     linux-image-extra-virtual \
     && echo "done optional deps..."
-
+  fi
 
 echo '''
 # Other Packages for GUI
