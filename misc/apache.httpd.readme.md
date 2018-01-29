@@ -66,8 +66,8 @@ Listen 443
     SSLEngine on
     SSLProtocol all -SSLv2
     SSLCipherSuite DEFAULT:!EXP:!SSLv2:!DES:!IDEA:!SEED:+3DES
-    SSLCertificateFile /etc/pki/tls/certs/01198793-Certificate.crt
-    SSLCertificateKeyFile /etc/pki/tls/certs/01198793-PrivateKey_no_pass.key
+    SSLCertificateFile /etc/certs/server.crt
+    SSLCertificateKeyFile /etc/certs/server.key
 
     ProxyPass "/" "http://localhost:8099/"
     ProxyPassReverse "/" "http://localhost:8099/"
