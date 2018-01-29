@@ -1,5 +1,4 @@
-We need to load these modules...
-
+# Apache HTTPD
 ## Location
 ### Mac
 ```
@@ -17,6 +16,8 @@ sudo apachectl restart; sudo httpd
 ```
 
 ## Required Modules
+We need to load these modules...
+
 ### Mac
 ```
 #LoadModule ssl_module libexec/apache2/mod_ssl.so
