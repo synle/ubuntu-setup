@@ -25,7 +25,7 @@ function kd(){
 # sleep in mac
 function s(){
   echo "starting screensaver for mac";
-  if [ -f /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app ]; then
+  if [ -d /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app ]; then
      open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
   else
      open -a /System/Library/CoreServices/ScreenSaverEngine.app
