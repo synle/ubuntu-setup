@@ -22,10 +22,12 @@ function kd(){
   killall Dock
 }
 
-#screensaver
+# sleep in mac
 function s(){
+  open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app \
+  || \
+  open -a /System/Library/CoreServices/ScreenSaverEngine.app \
   echo "starting screensaver for mac";
-  open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app
 }
 
 
