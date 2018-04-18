@@ -241,8 +241,7 @@ function searchFileName(){
 
 
 function renpm(){
-    rm -rf node_modules;
-    rm -rf /tmp/*.cache;
+    rm -rf node_modules bower_components /tmp/*.cache;
     npm install
 }
 
