@@ -415,6 +415,10 @@ function getCurrentGitBranch(){
     git name-rev --name-only HEAD
 }
 
+function getCurrentGitRepo(){
+	basename `git rev-parse --show-toplevel`
+}
+
 # set current upstream ref
 function setGitUpstreamBranch(){
     git branch -u origin/$(git name-rev --name-only HEAD)
