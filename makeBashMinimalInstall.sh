@@ -5,3 +5,5 @@ curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $BASH_SYLE
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
+
+. $BASH_SYLE
