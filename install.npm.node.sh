@@ -15,4 +15,5 @@ echo "    begin global modules npm installs" && npm i -g \
     typings \
     less \
     create-react-app \
+    ember-cli \
 && echo "    end global modules npm installs"
