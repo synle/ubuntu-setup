@@ -83,12 +83,11 @@ echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 echoo "Bash Completions"
 echo  "  Git Completion"
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo  "  Grunt(Node JS) Completion"
-curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
-type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 echo  "  NPM Completion"
-type npm &> /dev/null && npm completion >> $TEMP_BASH_SYLE
-type npm &> /dev/null && npm set progress=false;
+type npm &> /dev/null && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
+# echo  "  Grunt(Node JS) Completion"
+# curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
+# type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
 
 # bash alias
 echoo "Bash Aliases"
