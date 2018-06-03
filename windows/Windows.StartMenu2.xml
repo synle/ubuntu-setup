@@ -44,7 +44,7 @@
 	<StartButtonType value="AeroButton"/>
 	<SkipMetro value="1"/>
 	<MenuItems2>
-		<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,COLUMN_PADDING,SEPARATOR,ControlPanelItem,PCSettingsItem,CustomItem4,CustomItem3,COLUMN_PADDING,SEPARATOR,NetworkItem,CustomItem2,COLUMN_PADDING,SEPARATOR,SleepItem,LogOffItem2,ShutdownBoxItem</Line>
+				<Line>Items=COLUMN_PADDING,ProgramsMenu,AppsMenu,SearchBoxItem,COLUMN_BREAK,ComputerItem,UserFilesItem,CustomItem,COLUMN_PADDING,SEPARATOR,ControlPanelItem,PCSettingsItem,CustomItem4,CustomItem3,COLUMN_PADDING,SEPARATOR,NetworkItem,CustomItem2,CustomItem5,COLUMN_PADDING,SEPARATOR,SleepItem,LogOffItem2,ShutdownBoxItem</Line>
 		<Line>ProgramsMenu.Command=programs</Line>
 		<Line>ProgramsMenu.Label=$Menu.Programs</Line>
 		<Line>ProgramsMenu.Icon=shell32.dll,326</Line>
@@ -83,6 +83,8 @@
 		<Line>NetworkItem.Icon=shell32.dll,257</Line>
 		<Line>CustomItem2.Link=C:\Windows\System32\F12\F12Chooser.exe</Line>
 		<Line>CustomItem2.Label=IE F12 Chooser</Line>
+		<Line>CustomItem5.Command=notepad c:\Windows\System32\Drivers\etc\hosts</Line>
+		<Line>CustomItem5.Label=Host File</Line>
 		<Line>SleepItem.Command=sleep</Line>
 		<Line>SleepItem.Label=$Menu.Sleep</Line>
 		<Line>SleepItem.Tip=$Menu.SleepTip</Line>
