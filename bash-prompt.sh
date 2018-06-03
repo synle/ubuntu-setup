@@ -13,6 +13,23 @@ function parse_git_branch() {
 }
 
 
+
+
+#short path
+function sps() {
+    python -c """
+#!/usr/bin/python
+import sys;
+originalPath = sys.argv[1:]
+try:
+    mypath = ' '.join(originalPath);
+    dirs = mypath.split('/');
+    print ('/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1])
+except:
+    print (originalPath)
+""" $PWD
+}
+
 # get current status of git repo
 function parse_git_dirty {
     status=`git status 2>&1 | tee`
