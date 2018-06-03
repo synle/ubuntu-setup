@@ -83,7 +83,7 @@
 		<Line>NetworkItem.Icon=shell32.dll,257</Line>
 		<Line>CustomItem2.Link=C:\Windows\System32\F12\F12Chooser.exe</Line>
 		<Line>CustomItem2.Label=IE F12 Chooser</Line>
-		<Line>CustomItem5.Command=notepad c:\Windows\System32\Drivers\etc\hosts</Line>
+		<Line>CustomItem5.Command=notepad++ c:\Windows\System32\Drivers\etc\hosts</Line>
 		<Line>CustomItem5.Label=Host File</Line>
 		<Line>SleepItem.Command=sleep</Line>
 		<Line>SleepItem.Label=$Menu.Sleep</Line>
