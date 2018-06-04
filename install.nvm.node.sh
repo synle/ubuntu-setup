@@ -12,12 +12,12 @@ function installNvmNodeVersionIfNeeded(){
 }
 
 #install nvm itself.
-[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash - )
+[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash - )
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 
 echo "  nvm install"
-installNvmNodeVersionIfNeeded v6.10.0
+installNvmNodeVersionIfNeeded v7.6
 
 
 echo "  nvm default installation (v.0.12.15)"
@@ -27,7 +27,7 @@ then
     installNvmNodeVersionIfNeeded v0.12.15
 
     echo "       Setting nvm default"
-    nvm alias default v6.10.0
+    nvm alias default v7.6
     nvm use default
 else
     echo "    SKIP"
