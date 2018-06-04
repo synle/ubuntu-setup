@@ -20,10 +20,10 @@ echo "  nvm install"
 installNvmNodeVersionIfNeeded v7.6
 
 
-echo "  nvm default installation (v.0.12.15)"
+echo "  nvm default installation (v0.12.15)"
 if [ ! -d "$NVM_BASE_PATH/versions/node/v0.12.15" ]
 then
-    echo "     INSTALL node v.0.12.15"
+    echo "     INSTALL node v0.12.15"
     installNvmNodeVersionIfNeeded v0.12.15
 
     echo "       Setting nvm default"
