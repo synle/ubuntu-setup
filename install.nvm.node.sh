@@ -18,17 +18,5 @@ function installNvmNodeVersionIfNeeded(){
 
 echo "  nvm install"
 installNvmNodeVersionIfNeeded v7.6
-
-
-echo "  nvm default installation (v0.12.15)"
-if [ ! -d "$NVM_BASE_PATH/versions/node/v0.12.15" ]
-then
-    echo "     INSTALL node v0.12.15"
-    installNvmNodeVersionIfNeeded v0.12.15
-
-    echo "       Setting nvm default"
-    nvm alias default v7.6
-    nvm use default
-else
-    echo "    SKIP"
-fi
+nvm alias default v7.6
+nvm use default
