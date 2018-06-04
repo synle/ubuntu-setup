@@ -1,4 +1,4 @@
-BASH_SYLE=~/.bash_syle
+    BASH_SYLE=~/.bash_syle
 
 echo '# begin syle bash' > $BASH_SYLE
 
@@ -12,8 +12,8 @@ type npm &> /dev/null  && npm set progress=false && npm completion >> $BASH_SYLE
 # nvm, node and npm
 echo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
-curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
-curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
 
 # make-component
 echo "  Make Component Scripts"
