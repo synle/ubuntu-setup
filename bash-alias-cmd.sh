@@ -416,6 +416,15 @@ function removeFileFromGitHistory(){
 }
 
 
+function ifconfig2(){
+	node -e """
+	require('dns').lookup(require('os').hostname(), function (err, add, fam) {
+		console.log(add);
+	})
+	""";
+}
+
+
 #alias gitOpen="echo `git remote -v | grep fetch | awk '{print $2}' | sed 's/git@/http:\/\//' | sed 's/com:/com\//'`| head -n1"
 
 # rebase
