@@ -16,12 +16,14 @@ then
   echo "  OSX Sublime"
   echo "    Symlink: subl"
   rm -f /usr/local/bin/subl;
-  ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
+  ln -sf /Applications/Sublime*Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl;
   chmod +x /usr/local/bin/subl
   # url
   urlKeyBindings=https://raw.githubusercontent.com/synle/ubuntu-setup/master/sublime/keybind-mac
   # paths
-  dir_sublime_base="~/Library/Application Support/Sublime Text 3/Packages/User"
+  dir_sublime_base=~/Library/Application*Support/Sublime*Text*3/Packages/User
+  # expand the path
+  dir_sublime_base=$(echo $dir_sublime_base)
   dir_sublime_keymap="$dir_sublime_base/Default (OSX).sublime-keymap"
 else
   echo "  Non-Mac Environment"
