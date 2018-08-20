@@ -1,5 +1,4 @@
 {
-    "color_scheme": "{{COLOR_SCHEME_PATH}}/Blackboard.tmTheme",
     "font_size": 13,
     "show_tab_close_buttons": false,
     "bold_folder_labels": true,
@@ -14,18 +13,14 @@
     "animation_enabled": false,
     "highlight_modified_tabs": true,
     "translate_tabs_to_spaces": true,
-    "tab_size": 4,
+    "tab_size": 2,
     "trim_trailing_white_space_on_save": true,
     "rulers": [100],
-    "font_face": "Courier New Bold",
+    "scroll_speed": 0.0,
     "font_options":
     [
         "gray_antialias",
         "subpixel_antialias"
-    ],
-    "ignored_packages":
-    [
-        "Vintage"
     ],
     "file_exclude_patterns":
     [
