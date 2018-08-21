@@ -61,6 +61,35 @@ function subl-open-project(){
     subl $myProjectPath
 }
 
+
+# calculate chmod
+function chmod-calculator(){
+	node -e """
+		console.log('Chmod Calculator');
+		console.log('Nginx: r-x: 101: 5');
+		console.log('Enter permission for xwr:');
+
+		var stdin = process.openStdin();
+
+		stdin.addListener('data', function(d) {
+			const str = d.toString().trim();
+
+			console.log('value:');
+			console.log(_getValue.apply(null, [...str]))
+
+			process.exit();
+		});
+
+		function _getValue(x, w, r){
+			var val = 0;
+			if(x === true || x + '' === '1'){ val += 1; }
+			if(w === true || w + '' === '1'){ val += 2; }
+			if(r === true || r + '' === '1'){ val += 4; }
+			return val;
+		};
+	"""
+}
+
 # bootstrap new sublime project
 function subl-new-project(){
     # make the folder if needed
