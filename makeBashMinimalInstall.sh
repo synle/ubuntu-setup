@@ -114,6 +114,29 @@ set -g mouse-select-window on
 """ > ~/.tmux.conf
 
 
+
+# terminator config
+echo 'terminator config'
+[ -s ~/.config/terminator/config ] && echo '''
+[global_config]
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    antialias = False
+    show_titlebar = False
+    use_system_font = False
+''' > ~/.config/terminator/config
+
+
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
