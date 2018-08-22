@@ -1,5 +1,36 @@
+###################
+# begin prep work #
+###################
+# os flags
+is_os_darwin_mac=0
+is_os_ubuntu=0
+is_os_redhat=0
+is_os_window=0
+[ -d /Library ] && is_os_darwin_mac=1
+[ -d /mnt/c/Users ] && is_os_window=1
+apt-get -v &> /dev/null && is_os_ubuntu=1
+yum -v &> /dev/null && is_os_redhat=1
+
+# prep works...
+# go to home and start
+cd ~
+
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
+if [ $is_os_darwin_mac == "1" ]
+then
+  BASH_PATH=~/.bash_profile
+else
+  BASH_PATH=~/.bashrc
+fi
+
+
+# common functions
+function curlNoCache(){ curl -s "$@?$(date +%s)"; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
+#################
+# end prep work #
+#################
 
 echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 echo '# begin syle bash' > $TEMP_BASH_SYLE
