@@ -47,6 +47,8 @@ echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 
+#### Extra Stuffs
+#################
 # nvm, node and npm
 echo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
@@ -78,4 +80,28 @@ curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-promp
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
 
-. $TEMP_BASH_SYLE
+
+#tmux stuffs
+# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+# https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
+# http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
+echoo "Tmux"
+echo """
+#not show status bar
+set -g status off
+#scroll history
+set -g history-limit 30000
+# Window options
+set -g monitor-activity off
+#mouse support
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+""" > ~/.tmux.conf
+
+
+
+#awesome git commands
+echoo "Git Config / Aliases"
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
