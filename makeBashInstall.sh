@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
-# common functions
-function curlNoCache(){ curl -s "$@?$(date +%s)"; }
-function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
+
+###################
+# begin prep work #
+###################
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
+BASH_PATH=~/.bashrc
 
 # os flags
 is_os_darwin_mac=0
@@ -17,17 +21,17 @@ yum -v &> /dev/null && is_os_redhat=1
 # go to home and start
 cd ~
 
+# common functions
+function curlNoCache(){ curl -s "$@?$(date +%s)"; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
+#################
+# end prep work #
+#################
+
+
+
+
 sudo echo 'Initialize with sudo access...'
-
-BASH_SYLE=~/.bash_syle
-TEMP_BASH_SYLE=/tmp/.bash_syle
-
-if [ $is_os_darwin_mac == "1" ]
-then
-  BASH_PATH=~/.bash_profile
-else
-  BASH_PATH=~/.bashrc
-fi
 
 echoo "Setting up in bash folder: $BASH_PATH";
 touch $BASH_PATH;
@@ -68,30 +72,10 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 # script begins....
 # refresh script starts here...
 #################################
-echoo "Install .bash_syle if needed"
-grep -q -F '.bash_syle' $BASH_PATH || echo  """
-# syle bash
-[ -s $BASH_SYLE ] && . $BASH_SYLE
-""" >> $BASH_PATH
-
 # bash header
-echo  "" > $TEMP_BASH_SYLE
-echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
-
-
 # bash completion
-echoo "Bash Completions"
-echo  "  Git Completion"
-curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo  "  NPM Completion"
-type npm &> /dev/null && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
-# echo  "  Grunt(Node JS) Completion"
-# curlNoCache https://raw.githubusercontent.com/gruntjs/grunt-cli/master/completion/bash >> $TEMP_BASH_SYLE
-# type grunt &> /dev/null && eval "$(grunt --completion=bash)" >> $TEMP_BASH_SYLE
-
 # bash alias
-echoo "Bash Aliases"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh > $TEMP_BASH_SYLE
 
 
 #OSX MAC GUI Stuffs
@@ -237,23 +221,6 @@ fi
 # set -o vi;
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
-#added synle make component scripts...
-echoo "  Make Component Scripts"
-rm -rf $UTIL_MAKE_COMPONENT_PATH
-git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
-pushd $UTIL_MAKE_COMPONENT_PATH 
-npm i && npm run build
-echo """
-# synle make component
-PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
-[ -s '$UTIL_MAKE_COMPONENT_PATH/setup.sh' ] && . '$UTIL_MAKE_COMPONENT_PATH/setup.sh'
-""" >> $TEMP_BASH_SYLE
-popd
-
-
-#prompt
-echoo "Bash Prompt"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 echoo "Installing the New Bash File"
 #copy it over
@@ -267,54 +234,12 @@ echoo "Sublime Setup"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.sublime.sh | bash -
 
 
-#eslint config
-echoo "ESLint Config"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
-
-
-#extra stuffs
-#awesome git commands
-echoo "Git Config / Aliases"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
-
-#vim stuffs
-echoo "Vim & Vundle"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
-
-#tmux stuffs
-# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
-# https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
-# http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
-echoo "Tmux"
-echo """
-#not show status bar
-set -g status off
-#scroll history
-set -g history-limit 30000
-# Window options
-set -g monitor-activity off
-#mouse support
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-""" > ~/.tmux.conf
-
-echo """
-#scrolling speed
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
-#set inactive/active window styles
-set -g window-style 'fg=colour250,bg=colour234'
-set -g window-active-style 'fg=colour250,bg=black'
-""" >> ~/.tmux.conf
-
-
-# fzf (fuzzy find)
-echoo "fzf installation"
-# needed to some quick work for fzf
-rm -rf ~/.fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-
-echo "install fzf with this command"
-echo "~/.fzf/install"
+# #extra stuffs
+# echo """
+# #scrolling speed
+# bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
+# bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
+# #set inactive/active window styles
+# set -g window-style 'fg=colour250,bg=colour234'
+# set -g window-active-style 'fg=colour250,bg=black'
+# """ >> ~/.tmux.conf
