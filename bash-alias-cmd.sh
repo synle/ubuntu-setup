@@ -61,6 +61,34 @@ function subl-open-project(){
     subl $myProjectPath
 }
 
+############
+# Usage
+# Pass a path to watch, a file filter, and a command to run when those files are updated
+#
+# Example:
+# watch.sh "node_modules/everest-*/src/templates" "*.handlebars" "ynpm compile-templates"
+#
+# Source: https://gist.github.com/JarredMack/b33900d64c0e448fd5ff1e1bd760789e
+############
+watch() {
+    WORKING_PATH=$(pwd)
+    DIR=$1
+    FILTER=$2
+    COMMAND=$3
+    chsum1=""
+
+    while [[ true ]]
+    do
+        chsum2=$(find -L $WORKING_PATH/$DIR -type f -name "$FILTER" -exec md5 {} \;)
+        if [[ $chsum1 != $chsum2 ]] ; then
+            echo "Found a file change, executing $COMMAND..."
+            $COMMAND
+            chsum1=$chsum2
+        fi
+        sleep 2
+    done
+}
+
 
 # calculate chmod
 function chmod-calculator(){
