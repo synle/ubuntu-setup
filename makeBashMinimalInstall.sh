@@ -1,6 +1,10 @@
 ###################
 # begin prep work #
 ###################
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
+BASH_PATH=~/.bashrc
+
 # os flags
 is_os_darwin_mac=0
 is_os_ubuntu=0
@@ -15,16 +19,6 @@ yum -v &> /dev/null && is_os_redhat=1
 # go to home and start
 cd ~
 
-BASH_SYLE=~/.bash_syle
-TEMP_BASH_SYLE=/tmp/.bash_syle
-if [ $is_os_darwin_mac == "1" ]
-then
-  BASH_PATH=~/.bash_profile
-else
-  BASH_PATH=~/.bashrc
-fi
-
-
 # common functions
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
@@ -32,6 +26,17 @@ function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 # end prep work #
 #################
 
+
+# botstrap if needed
+echoo "Install .bash_syle if needed"
+grep -q -F '.bash_syle' $BASH_PATH || echo  """
+# syle bash
+[ -s $BASH_SYLE ] && . $BASH_SYLE
+""" >> $BASH_PATH
+
+
+
+### start bash-syle
 echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 echo '# begin syle bash' > $TEMP_BASH_SYLE
 
