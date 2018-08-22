@@ -59,6 +59,11 @@ echo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
+grep -q -F 'nvm.sh' $BASH_PATH || echo  """
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+""" >> $BASH_PATH
+
 
 # make-component
 echo "  Make Component Scripts"
@@ -77,8 +82,11 @@ popd
 # fzf (fuzzy find)
 echo "fzf installation"
 rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-echo "install fzf with this command"
-echo "~/.fzf/install"
+grep -q -F '/.fzf' $BASH_PATH || echo  """
+[ -f ~/.fzf.bash ] && . ~/.fzf.bash
+""" >> $BASH_PATH
+
+
 
 # tmux stuffs
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
