@@ -482,13 +482,23 @@ function removeFileFromGitHistory(){
     --prune-empty --tag-name-filter cat -- --all
 }
 
-
-function ifconfig2(){
-	node -e """
-	require('dns').lookup(require('os').hostname(), function (err, add, fam) {
-		console.log(add);
-	})
-	""";
+function ifconfig2 ()
+{
+  node -e """
+    var os = require( 'os' );
+    var networkInterfaces = Object.values(os.networkInterfaces())
+      .reduce((r,a)=>{
+        r = r.concat(a)
+        return r;
+      }, [])
+      .filter(({family, address}) => {
+        return family.toLowerCase().indexOf('v4') >= 0 &&
+          address !== '127.0.0.1'
+      })
+      .map(({address}) => address);
+    var ipAddresses = networkInterfaces.join(', ')
+    console.log(ipAddresses);
+  """
 }
 
 
