@@ -22,17 +22,22 @@ cd ~
 # common functions
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
+function appendScriptToProfileIfNotPresent(){
+  token_to_search=$1
+  script_to_append=$2
+  grep -q -F $token_to_search $BASH_PATH || echo $script_to_append >> $BASH_PATH
+}
 ##################################################################
 # end prep work #
 ##################################################################
 
 
-# botstrap if needed
+# bootstrap if needed
 echoo "Install .bash_syle if needed"
-grep -q -F '.bash_syle' $BASH_PATH || echo  """
+appendScriptToProfileIfNotPresent '.bash_syle' """
 # syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
-""" >> $BASH_PATH
+"""
 
 
 
@@ -59,10 +64,11 @@ echo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
-grep -q -F 'nvm.sh' $BASH_PATH || echo  """
+echo  '''
+# nvm - node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-""" >> $BASH_PATH
+''' >> $TEMP_BASH_SYLE
 
 
 # make-component
@@ -82,9 +88,10 @@ popd
 # fzf (fuzzy find)
 echo "fzf installation"
 rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
-grep -q -F '/.fzf' $BASH_PATH || echo  """
+echo  """
+# fzf - fuzzy find
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
-""" >> $BASH_PATH
+""" >> $TEMP_BASH_SYLE
 
 
 
