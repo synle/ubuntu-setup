@@ -287,28 +287,27 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 # http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
 echoo "Tmux"
 echo """
+#not show status bar
+set -g status off
+#scroll history
+set -g history-limit 30000
+# Window options
+set -g monitor-activity off
+#mouse support
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+""" > ~/.tmux.conf
+
+echo """
+#scrolling speed
+bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
+bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M
 #set inactive/active window styles
 set -g window-style 'fg=colour250,bg=colour234'
 set -g window-active-style 'fg=colour250,bg=black'
-
-#not show status bar
-set -g status off
-
-
-#mouse support
-set -g mouse on
-
-#scroll history
-set -g history-limit 30000
-
-#scrolling speed
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M \; send-keys -M \; send-keys -M \; send-keys -M 
-
-# Window options
-set -g monitor-activity off
-""" > ~/.tmux.conf
-
+""" >> ~/.tmux.conf
 
 
 # fzf (fuzzy find)
