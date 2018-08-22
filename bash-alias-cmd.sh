@@ -1,6 +1,16 @@
 #For command line
 export EDITOR='vim'
 
+# os flags
+is_os_darwin_mac=0
+is_os_ubuntu=0
+is_os_redhat=0
+is_os_window=0
+[ -d /Library ] && is_os_darwin_mac=1
+[ -d /mnt/c/Users ] && is_os_window=1
+apt-get -v &> /dev/null && is_os_ubuntu=1
+yum -v &> /dev/null && is_os_redhat=1
+
 ############################################
 # input rc preferences
 # set up inputrc preferences.
