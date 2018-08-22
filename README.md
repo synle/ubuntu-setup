@@ -11,7 +11,7 @@ curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInst
 
 ### Minimal Install
 ```
-curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh | bash && mv /tmp/.bash_syle ~/.bash_syle
+curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh | bash && cp /tmp/.bash_syle ~/.bash_syle
 ```
 
 
