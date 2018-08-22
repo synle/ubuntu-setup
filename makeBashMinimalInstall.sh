@@ -46,6 +46,10 @@ curl -so- https://raw.githubusercontent.com/git/git/master/contrib/completion/gi
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
+echo "# Bash Prompt"
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+
 
 #### Extra Stuffs
 #################
@@ -75,8 +79,6 @@ rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
 echo "install fzf with this command"
 echo "~/.fzf/install"
 
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
 
@@ -99,9 +101,3 @@ set -g mouse-resize-pane on
 set -g mouse-select-pane on
 set -g mouse-select-window on
 """ > ~/.tmux.conf
-
-
-
-#awesome git commands
-echoo "Git Config / Aliases"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
