@@ -22,11 +22,6 @@ cd ~
 # common functions
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
-function appendScriptToProfileIfNotPresent(){
-  token_to_search=$1
-  script_to_append=$2
-  grep -q -F $token_to_search $BASH_PATH || echo $script_to_append >> $BASH_PATH
-}
 ##################################################################
 # end prep work #
 ##################################################################
@@ -34,10 +29,10 @@ function appendScriptToProfileIfNotPresent(){
 
 # bootstrap if needed
 echoo "Install .bash_syle if needed"
-appendScriptToProfileIfNotPresent '.bash_syle' """
-[ -s $BASH_SYLE ] && . $BASH_SYLE # syle bash
-"""
-
+grep -q -F '.bash_syle' $BASH_PATH || echo  """
+# syle bash
+[ -s $BASH_SYLE ] && . $BASH_SYLE
+""" >> $BASH_PATH
 
 
 ### start bash-syle
