@@ -35,8 +35,7 @@ function appendScriptToProfileIfNotPresent(){
 # bootstrap if needed
 echoo "Install .bash_syle if needed"
 appendScriptToProfileIfNotPresent '.bash_syle' """
-# syle bash
-[ -s $BASH_SYLE ] && . $BASH_SYLE
+[ -s $BASH_SYLE ] && . $BASH_SYLE # syle bash
 """
 
 
