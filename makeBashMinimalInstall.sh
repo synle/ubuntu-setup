@@ -1,12 +1,14 @@
-    BASH_SYLE=~/.bash_syle
+BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
 
-echo '# begin syle bash' > $BASH_SYLE
+echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
+echo '# begin syle bash' > $TEMP_BASH_SYLE
 
 # bash completion
-echo  "# Bash Completion - git" >> $BASH_SYLE
-curl -so- https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $BASH_SYLE
-echo  "# Bash Completion - npm" >> $BASH_SYLE
-type npm &> /dev/null  && npm set progress=false && npm completion >> $BASH_SYLE
+echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
+curl -so- https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
+type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 
 # nvm, node and npm
@@ -25,7 +27,7 @@ echo """
 # synle make component
 PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 [ -s '$UTIL_MAKE_COMPONENT_PATH/setup.sh' ] && . '$UTIL_MAKE_COMPONENT_PATH/setup.sh'
-""" >> $BASH_SYLE
+""" >> $TEMP_BASH_SYLE
 popd
 
 
@@ -35,9 +37,9 @@ rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf 
 echo "install fzf with this command"
 echo "~/.fzf/install"
 
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $BASH_SYLE
-curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $BASH_SYLE
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
 curl -so- https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
 
-. $BASH_SYLE
+. $TEMP_BASH_SYLE
