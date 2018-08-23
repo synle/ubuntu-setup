@@ -1,4 +1,5 @@
 Windows Registry Editor Version 5.00
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Monokai color theme. Based on Sublime Text 2
 ; for Windows command prompt.
 ; Values stored as 00-BB-GG-RR
@@ -27,8 +28,11 @@ Windows Registry Editor Version 5.00
 ; LGRAY   WHITE
 "ColorTable07"=dword:008a908f
 "ColorTable15"=dword:00f2f8f8
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; monokai putty
 ; https://gist.github.com/gdvalle/4187089
 [HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\monokai]
@@ -62,62 +66,58 @@ Windows Registry Editor Version 5.00
 "Font"="Consolas"
 "Beep"=dword:00000002
 "BeepInd"=dword:00000000
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;disable lock screen
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; disable lock screen and animation
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects]
 "VisualFXSetting"=dword:00000003
-
-;disable action center
-; Created by: Shawn Brink
-; http://www.tenforums.com
-; Tutorial: http://www.tenforums.com/tutorials/6004-action-center-enable-disable-windows-10-a.html
-[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\Explorer]
-"DisableNotificationCenter"=dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
-"DisableNotificationCenter"=dword:00000001
+;
+;
+; no login animation
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System]
+"EnableFirstLogonAnimation"=dword:00000000
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-; no transparency
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; no transparency and color and theme
 [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize]
 "ColorPrevalence"=dword:00000000
 "EnableTransparency"=dword:00000000
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-[HKEY_CURRENT_USER\Control Panel\Desktop]
-"UserPreferencesMask"=hex:90,32,07,80,10,00,00,00
 
-[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects]
-"VisualFXSetting"=dword:00001006
-
-
-;color and theme
-[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-"ColorPrevalence"=dword:00000001
-"EnableTransparency"=dword:00000000
-"AppsUseLightTheme"=dword:00000000
-
-
-;more cool stuffs
-;https://ss64.com/nt/syntax-reghacks.html
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; more cool stuffs
+; https://ss64.com/nt/syntax-reghacks.html
+; Start menu speed - the default is 400
 [HKEY_CURRENT_USER\Control Panel\Desktop]
 "MenuShowDelay"="50"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;Don't add "-Shortcut" text to the name of newly created shortcuts.
-;Don't Hide file extensions
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Don't add "-Shortcut" text to the name of newly created shortcuts.
+; Don't Hide file extensions
 [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "HideFileExt"=dword:00000000
 "TaskbarAnimations"=dword:00000000
 "TaskbarSmallIcons"=dword:00000001
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-;kill onedrive
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; kill onedrive
 [HKEY_CLASSES_ROOT\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}]
 @="OneDrive"
 "System.IsPinnedToNameSpaceTree"=dword:00000000
-
-[HKEY_CURRENT_USER\Control Panel\Desktop\WindowMetrics]
-"ScrollHeight"="-90"
-"ScrollWidth"="-90"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
