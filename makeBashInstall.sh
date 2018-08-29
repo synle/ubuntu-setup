@@ -75,7 +75,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 # bash header
 # bash completion
 # bash alias
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh > $TEMP_BASH_SYLE
+curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh
 
 
 #OSX MAC GUI Stuffs
