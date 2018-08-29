@@ -49,11 +49,34 @@ echo "# Bash Prompt"
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
+
+###########################################
+# nvm and node
+###########################################
+NVM_BASE_PATH=~/.nvm
+#install nvm itself.
+[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash - )
+[ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
+. "$NVM_BASE_PATH/nvm.sh"
+nvm install v7.6
+nvm alias default v7.6
+nvm use default
 echo  '''
 # nvm - node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ''' >> $TEMP_BASH_SYLE
+
+
+
+###########################################
+# make-component
+###########################################
+UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
+rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
+pushd $UTIL_MAKE_COMPONENT_PATH
+npm i && npm run build
+popd
 
 echo """
 # synle make component
@@ -61,6 +84,13 @@ PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 [ -s '$UTIL_MAKE_COMPONENT_PATH/setup.sh' ] && . '$UTIL_MAKE_COMPONENT_PATH/setup.sh'
 """ >> $TEMP_BASH_SYLE
 
+
+
+
+###########################################
+# fzf - fuzzy find
+###########################################
+rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
 echo  """
 # fzf - fuzzy find
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
@@ -262,9 +292,62 @@ set shell=/bin/bash
 vim +BundleInstall +qall &> /dev/null
 
 
-##############################
-# extremly small install
-##############################
+
+###################################################
+###################################################
+###################################################
+# extremely small install (only install if needed)
+###################################################
+####################################################
+####################################################
+#
+#
+######################################
+# tmux stuffs
+# http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+# https://superuser.com/questions/209437/how-do-i-scroll-in-tmux
+# http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
+######################################
+echoo "Tmux"
+[ -s ~/.tmux.conf ] && echo """
+#not show status bar
+set -g status off
+#scroll history
+set -g history-limit 30000
+# Window options
+set -g monitor-activity off
+#mouse support
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+""" > ~/.tmux.conf
+
+
+
+
+######################################
+# terminator config
+######################################
+echo 'terminator config'
+[ -s ~/.config/terminator/config ] && echo '''
+[global_config]
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    antialias = False
+    show_titlebar = False
+    use_system_font = False
+''' > ~/.config/terminator/config
 
 
 

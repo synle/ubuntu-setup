@@ -7,9 +7,6 @@ NVM_BASE_PATH=~/.nvm
 #download node npm deps
 echo "  npm i -g";
 echo "    begin global modules npm installs" && npm i -g \
-    bower \
-    gulp \
-    browserify \
     webpack \
     eslint \
     typings \
