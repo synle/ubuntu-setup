@@ -119,7 +119,60 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.stash-all 'stash --all'
 git config --global alias.fix-author 'commit --amend --reset-author'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
+# complex commands
+git config --global alias.del-merged         \"!git branch --merged | grep -v '*' | xargs git branch -d\"
+git config --global alias.del-merged-staging \"!git branch --merged origin/staging | grep -v '*' | xargs git branch -d\"
+git config --global alias.graph \"log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative\"
+git config --global alias.l \"log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative\"
 """ >> $TEMP_BASH_SYLE
+
+
+
+echo """
+# global git ignore
+#nodes
+node_modules
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+""" >> > ${HOME}/.gitignore
+
+
 
 
 #####
