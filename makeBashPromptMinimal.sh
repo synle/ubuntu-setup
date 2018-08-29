@@ -67,6 +67,8 @@ echo  """
 """ >> $TEMP_BASH_SYLE
 
 
+
+# git magics
 echo """
 ###########################
 #         git
@@ -126,8 +128,6 @@ git config --global alias.graph \"log --all --graph --pretty=format:'%Cred%h%Cre
 git config --global alias.l \"log --pretty=format:'%Cred%h%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative\"
 """ >> $TEMP_BASH_SYLE
 
-
-
 echo """
 # global git ignore
 #nodes
@@ -170,18 +170,111 @@ node_modules
 .Trashes
 ehthumbs.db
 Thumbs.db
-""" >> > ${HOME}/.gitignore
+""" >> > ~/.gitignore
 
 
 
 
-#####
+
+# eslintrc
+echo '''
+{
+    "extends": "airbnb",
+    "env": {
+        "browser": true
+    },
+    "plugins": [
+        "jsx-a11y"
+    ],
+    "globals": {
+        "$": true,
+        "angular": true
+    },
+    "rules": {
+        "indent": [
+            2,
+            2,
+            {
+                "outerIIFEBody": 0,
+                "MemberExpression": 1
+            }
+        ],
+        "comma-dangle": ["error", "never"],
+        "keyword-spacing": [2, {"before": true, "after": true}],
+        "no-underscore-dangle": [0],
+        "prefer-template": [0],
+        "jsx-a11y/aria-role": [0],
+        "no-else-return": [0],
+        "quote-props": [0],
+        "one-var": [0],
+        "react/prop-types": [0],
+        "react/self-closing-comp": [0],
+        "react/jsx-filename-extension": [0],
+        "react/prefer-stateless-function": [0],
+        "react/jsx-closing-bracket-location": [0]
+    }
+}
+'''  > ~/.eslintrc
+
+
+# vim config
+echo """
+\" theme
+  color desert
+  set background=dark
+
+\" options
+set hlsearch
+set showmatch
+set ignorecase
+set tabstop=4
+set shell=/bin/bash
+
+
+\" syntax highlight
+  syntax on
+  filetype on
+  au BufNewFile,BufRead *.cmp set filetype=xml
+  au BufNewFile,BufRead *.app set filetype=xml
+
+\" vundle stuffs
+  set nocompatible              \" be iMproved, required
+  filetype off                  \" required
+
+  \" set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'airblade/vim-gitgutter'
+  Plugin 'dracula/vim'
+
+  \" All of your Plugins must be added before the following line
+  call vundle#end()            \" required
+
+  filetype on
+""" > ~/.vimrc
+
+# install Vim Vundle
+[ -d ~/.vim/bundle/Vundle.vim ] \
+    || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
+    ~/.vim/bundle/Vundle.vim &> /dev/null
+vim +BundleInstall +qall &> /dev/null
+
+
+##############################
 # extremly small install
-####
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
+##############################
 
 
 
-### copy it
+
+##############################
+# copy it
+#      _
+#   __| | ___  _ __   ___
+#  / _` |/ _ \| '_ \ / _ \
+# | (_| | (_) | | | |  __/
+#  \__,_|\___/|_| |_|\___|
+##############################
 cp $TEMP_BASH_SYLE $BASH_SYLE

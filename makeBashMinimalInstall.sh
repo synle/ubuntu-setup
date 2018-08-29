@@ -47,7 +47,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.
 echo "  Make Component Scripts"
 UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
-pushd $UTIL_MAKE_COMPONENT_PATH 
+pushd $UTIL_MAKE_COMPONENT_PATH
 npm i && npm run build
 popd
 
@@ -97,8 +97,3 @@ echo 'terminator config'
     show_titlebar = False
     use_system_font = False
 ''' > ~/.config/terminator/config
-
-
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
