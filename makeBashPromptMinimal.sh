@@ -65,3 +65,7 @@ echo  """
 # fzf - fuzzy find
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 """ >> $TEMP_BASH_SYLE
+
+
+### copy it
+cp $TEMP_BASH_SYLE $BASH_SYLE
