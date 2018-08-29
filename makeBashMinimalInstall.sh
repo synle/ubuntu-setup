@@ -98,7 +98,10 @@ PATH=\$PATH:$UTIL_MAKE_COMPONENT_PATH
 [ -s '$UTIL_MAKE_COMPONENT_PATH/setup.sh' ] && . '$UTIL_MAKE_COMPONENT_PATH/setup.sh'
 """ >> $TEMP_BASH_SYLE
 
-
+###############################
+# create the syle bookmark file
+###############################
+touch ~/.syle_bookmark
 
 
 ###########################################
@@ -362,8 +365,6 @@ echo 'terminator config'
     show_titlebar = False
     use_system_font = False
 ''' > ~/.config/terminator/config
-
-
 
 
 ##############################

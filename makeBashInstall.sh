@@ -46,27 +46,6 @@ then
 fi
 
 
-
-# bootstrap bookmark file
-echoo "bootstrap syle bookmark file"
-touch ~/.syle_bookmark
-
-
-
-echoo "nvm & node & npm modules"
-NVM_BASE_PATH=~/.nvm
-# "Install nvm, node. npm and stuffs"
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
-# global npm node modules...
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
-# echo "  nvm node symlink"
-# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
-# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
-
-# common commands
-# resource nvm if needed
-[ -s ~/.nvm/nvm.sh ] && . ~/.nvm/nvm.sh
-
 #################################
 # script begins....
 # refresh script starts here...
@@ -86,7 +65,7 @@ then
   # mac alias
   echo  "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $BASH_SYLE
-  
+
   UTIL_MAKE_COMPONENT_PATH=~/_extra/tools/synle-make-component
 else
   echoo "  Non-Mac Bash Specifics..."
@@ -107,11 +86,11 @@ else
     echoo "      Default to Windows Home Dir"
     echo "# default path to Window home..." >> $BASH_SYLE
     echo "cd \"$WINDOWS_HOME_PATH\"" >> $BASH_SYLE
-    
-    
+
+
     echoo "      Downloading some exe"
     mkdir -p /mnt/c/opt
-    
+
     #yank - pbcopy and pbpaste
     echo  "        Win32Yank (pbcopy & pbpaste)"
     [ -s /mnt/c/opt/win32yank.exe ] || curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/binary/win32yank.exe -o /mnt/c/opt/win32yank.exe
@@ -127,8 +106,8 @@ else
     sudo mv /tmp/pbpaste /usr/local/bin/pbpaste
     sudo mv /tmp/pbcopy /usr/local/bin/pbcopy
     sudo chmod +x /usr/local/bin/pbcopy /usr/local/bin/pbpaste
-    
-    
+
+
     #subl
     echo  "        Sublime Alias"
     echo '''
@@ -137,14 +116,14 @@ else
     ''' > /tmp/subl
     sudo mv /tmp/subl /usr/local/bin/subl
     sudo chmod +x /usr/local/bin/subl
-    
-    
+
+
     #subl
     echo  "        Open (Explorer.exe)"
     echo '''
       #/usr/bin/bash
       inputToOpen=$@
-      
+
       echo "open $inputToOpen"
 
       case "$inputToOpen" in
@@ -158,8 +137,8 @@ else
     ''' > /tmp/open
     sudo mv /tmp/open /usr/local/bin/open
     sudo chmod +x /usr/local/bin/open
-    
-    
+
+
     #adb and fastboot
     echo  "        Android ADB and Fastboot"
     echo '''
@@ -173,29 +152,29 @@ else
     sudo mv /tmp/adb /usr/local/bin/adb
     sudo mv /tmp/fastboot /usr/local/bin/fastboot
     sudo chmod +x /usr/local/bin/adb /usr/local/bin/fastboot
-    
-    
+
+
     #force cli
     echo  "        force-cli (Salesforce)"
     [ -s /mnt/c/opt/force.exe ]     || curl https://s3-us-west-2.amazonaws.com/force-cli/heroku/force/v0.22.67/windows-amd64/force.exe -o /mnt/c/opt/force.exe
     sudo ln -f -s /mnt/c/opt/force.exe /usr/local/bin/force
-    
+
     echoo "      Settings"
     echo  "        Theme Tweaks"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/my.theme -so $WINDOWS_APPDATA_PATH/Local/Microsoft/Windows/Themes/sy.theme
-    
+
     echoo "        Regedit"
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/regedit/core.reg -so $WINDOWS_DESKTOP_PATH/setup1.reg
-    
+
 #     echoo "        Powershell Commands"
 #     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/cleanup-window-powershell -so $WINDOWS_DESKTOP_PATH/setup2.ps1
-    
+
 #     echoo "        Greenshots"
 #     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/greenshot.ini -so $WINDOWS_APPDATA_PATH/Roaming/Greenshot/Greenshot.ini
-    
+
 #     echoo "        AutoIt Script"
 #     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/windows/misc/autoit-resize.au3 -so $WINDOWS_DESKTOP_PATH/autoit-resize.au3
-    
+
   elif [ $is_os_ubuntu == "1" ]
   then
     echoo "    Ubuntu Debian Bash..."
@@ -203,8 +182,8 @@ else
     curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ubuntu-with-gui.sh >> $BASH_SYLE
     echo "         Install Xclip"
     sudo apt-get install -y xclip
-    
-    
+
+
 
     #ubuntu gui tweaks
     #lcfe tweak: speed bump
