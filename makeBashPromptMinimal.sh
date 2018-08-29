@@ -67,5 +67,14 @@ echo  """
 """ >> $TEMP_BASH_SYLE
 
 
+#####
+# extremly small install
+####
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.git.config.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.vim.sh | bash -
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/misc/eslintrc > ~/.eslintrc
+
+
+
 ### copy it
 cp $TEMP_BASH_SYLE $BASH_SYLE
