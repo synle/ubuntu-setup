@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
-
-###################
+##################################################################
 # begin prep work #
-###################
+##################################################################
 BASH_SYLE=~/.bash_syle
+TEMP_BASH_SYLE=/tmp/.bash_syle
 BASH_PATH=~/.bashrc
 
 # os flags
@@ -24,9 +23,10 @@ cd ~
 # common functions
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
-#################
+##################################################################
 # end prep work #
-#################
+##################################################################
+
 
 
 
@@ -58,7 +58,6 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBash
 
 
 #OSX MAC GUI Stuffs
-UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 if [ $is_os_darwin_mac == "1" ]
 then
   echoo "  OSX (Darwin) specifics..."
@@ -66,8 +65,6 @@ then
   # mac alias
   echo  "    OSX Aliases"
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $BASH_SYLE
-
-  UTIL_MAKE_COMPONENT_PATH=~/_extra/tools/synle-make-component
 else
   echoo "  Non-Mac Bash Specifics..."
   curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $BASH_SYLE

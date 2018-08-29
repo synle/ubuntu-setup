@@ -56,7 +56,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-pro
 ###########################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
-[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash - )
+[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curlNoCache https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash - )
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
@@ -95,7 +95,7 @@ UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
 pushd $UTIL_MAKE_COMPONENT_PATH
 echo 'synle-make-component install'
-npm i && npm run build  &> /dev/null;
+npm i &> /dev/null; && npm run build  &> /dev/null;
 popd
 
 echo """

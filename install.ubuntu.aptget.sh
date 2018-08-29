@@ -7,7 +7,7 @@ echo 'apt-get update...'
 sudo apt-get update -y &> /dev/null;
 
 function installAptGetModuleIfNeeded(){
-    echo "    INSTALL $@"
+    echo "    $@"
     sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
 
