@@ -4,7 +4,6 @@
 # begin prep work #
 ###################
 BASH_SYLE=~/.bash_syle
-TEMP_BASH_SYLE=/tmp/.bash_syle
 BASH_PATH=~/.bashrc
 
 # os flags
@@ -86,12 +85,12 @@ then
 
   # mac alias
   echo  "    OSX Aliases"
-  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $TEMP_BASH_SYLE
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-osx.sh >> $BASH_SYLE
   
   UTIL_MAKE_COMPONENT_PATH=~/_extra/tools/synle-make-component
 else
   echoo "  Non-Mac Bash Specifics..."
-  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $TEMP_BASH_SYLE
+  curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu.sh >> $BASH_SYLE
 
   if [ $is_os_window == "1" ]
   then
@@ -103,11 +102,11 @@ else
     WINDOWS_DESKTOP_PATH=$WINDOWS_HOME_PATH/Desktop
     echoo "    Windows 10 Subsystem Linux (WSL - Bash)..."
     echo  "      WSL only aliases/commands"
-    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $TEMP_BASH_SYLE
+    curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-util-ubuntu-wsl.sh >> $BASH_SYLE
 
     echoo "      Default to Windows Home Dir"
-    echo "# default path to Window home..." >> $TEMP_BASH_SYLE
-    echo "cd \"$WINDOWS_HOME_PATH\"" >> $TEMP_BASH_SYLE
+    echo "# default path to Window home..." >> $BASH_SYLE
+    echo "cd \"$WINDOWS_HOME_PATH\"" >> $BASH_SYLE
     
     
     echoo "      Downloading some exe"
@@ -201,7 +200,7 @@ else
   then
     echoo "    Ubuntu Debian Bash..."
     echo "         Bash for Git With GUI"
-    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ubuntu-with-gui.sh >> $TEMP_BASH_SYLE
+    curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-ubuntu-with-gui.sh >> $BASH_SYLE
     echo "         Install Xclip"
     sudo apt-get install -y xclip
     
@@ -225,7 +224,7 @@ fi
 echoo "Installing the New Bash File"
 #copy it over
 #rerun the source
-mv $TEMP_BASH_SYLE $BASH_SYLE && . $BASH_PATH
+. $BASH_PATH
 
 
 #misc
