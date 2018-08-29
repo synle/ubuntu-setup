@@ -51,7 +51,7 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-pro
 
 
 ###########################################
-# nvm and node
+# nvm
 ###########################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
@@ -66,7 +66,21 @@ echo  '''
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ''' >> $TEMP_BASH_SYLE
+# echo "  nvm node symlink"
+# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
+# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
 
+
+###########################################
+# node
+###########################################
+. "$NVM_BASE_PATH/nvm.sh"
+npm i -g \
+    webpack \
+    eslint \
+    typings \
+    less \
+    create-react-app
 
 
 ###########################################

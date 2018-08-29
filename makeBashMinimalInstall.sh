@@ -38,7 +38,6 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBash
 # nvm, node and npm
 echo "nvm & node & npm modules"
 NVM_BASE_PATH=~/.nvm
-curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.nvm.node.sh | bash -
 curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/install.npm.node.sh | bash -
 
 
