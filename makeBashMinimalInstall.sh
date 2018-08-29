@@ -55,14 +55,18 @@ curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-pro
 # nvm
 ###########################################
 NVM_BASE_PATH=~/.nvm
+function nvmInstall(){
+  echo "    INSTALL $@"
+  nvm install $@  &> /dev/null;
+}
+
 #install nvm itself.
 [ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash - )
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
-echo 'nvm install'
-nvm install v7.6  &> /dev/null;
-nvm alias default v7.6
-nvm use default
+nvmInstall v7.6
+nvm alias default v7.6 &> /dev/null;
+nvm use default &> /dev/null;
 echo  '''
 # nvm - node version manager
 export NVM_DIR="$HOME/.nvm"
