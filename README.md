@@ -4,14 +4,18 @@
 
 ### Full Install
 ```
-sudo apt-get update -y; 
+# for ubuntu
+apt -v &> /dev/null && alias apt-get="apt"
+sudo apt-get update -y;
 sudo apt-get install -y curl;
+
+# the main script
 curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashInstall.sh | bash
 ```
 
 ### Minimal Install
 ```
-curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh | bash && cp /tmp/.bash_syle ~/.bash_syle
+curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh | bash
 ```
 
 
