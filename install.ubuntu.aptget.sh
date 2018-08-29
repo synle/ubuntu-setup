@@ -1,49 +1,40 @@
 #!/usr/bin/env bash
 
 function installAptGetModuleIfNeeded(){
-    for i; do 
-        echo "    INSTALL $i"
-    done
+    echo "    INSTALL $@"
     sudo apt-get install -y --force-yes --fix-missing $@
 }
 
 # start the installation...
-installAptGetModuleIfNeeded git \
-    vim \
-    curl \
-    tmux \
-    python \
-    tig \
-    unzip \
-    make \
-    jq \
-    figlet \
-    autoconf \
-    automake \
-    gcc \
-    g++ \
-    build-essential \
-    unzip \
-    openjdk-8-jdk \
-    ant \
-    gradle \
-    maven \
-    nginx \
-#     php7.0-cli \
-#     php7.0-fpm \
-#     php7.0-common \
-#     apt-transport-https \
-#     ca-certificates \
-#     software-properties-common  \
-    && echo "done core deps..."
+installAptGetModuleIfNeeded git;
+installAptGetModuleIfNeeded vim;
+installAptGetModuleIfNeeded curl;
+installAptGetModuleIfNeeded tmux;
+installAptGetModuleIfNeeded python;
+installAptGetModuleIfNeeded tig;
+installAptGetModuleIfNeeded unzip;
+installAptGetModuleIfNeeded make;
+installAptGetModuleIfNeeded jq;
+installAptGetModuleIfNeeded figlet;
+installAptGetModuleIfNeeded autoconf;
+installAptGetModuleIfNeeded automake;
+installAptGetModuleIfNeeded gcc;
+installAptGetModuleIfNeeded g++;
+installAptGetModuleIfNeeded build-essential;
+installAptGetModuleIfNeeded unzip;
+installAptGetModuleIfNeeded openjdk-8-jdk;
+installAptGetModuleIfNeeded ant;
+installAptGetModuleIfNeeded gradle;
+installAptGetModuleIfNeeded maven;
+installAptGetModuleIfNeeded nginx ;
 
 if [ -d "/mnt/c/Users" ]
   then
-  	echo "ignore optional deps for Windows Bash"
+    echo "ignore optional deps for Windows Bash"
   else
     echo "install optionals deps for Ubuntu"
-    installAptGetModuleIfNeeded linux-image-extra-$(uname -r) \
-    linux-image-extra-virtual \
+    installAptGetModuleIfNeeded linux-image-extra-$(uname -r);
+    installAptGetModuleIfNeeded linux-image-extra-virtual;
     && echo "done optional deps..."
 fi
 
