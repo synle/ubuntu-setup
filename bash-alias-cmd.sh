@@ -8,6 +8,7 @@ is_os_redhat=0
 is_os_window=0
 [ -d /Library ] && is_os_darwin_mac=1
 [ -d /mnt/c/Users ] && is_os_window=1
+apt -v &> /dev/null && is_os_ubuntu=1
 apt-get -v &> /dev/null && is_os_ubuntu=1
 yum -v &> /dev/null && is_os_redhat=1
 
@@ -65,7 +66,7 @@ export MY_SUBLIME_PROJECT_PATH=~/.sublime_project
 function subl-open-project(){
     mySublimeProjectFriendlyPath="$(getAbsolutePathForAllSystem $MY_SUBLIME_PROJECT_PATH)"
     myProjectPath="$mySublimeProjectFriendlyPath/$(ls $MY_SUBLIME_PROJECT_PATH | grep sublime-project| fzf)"
-    
+
     # running the command
     echo "subl $myProjectPath"
     subl $myProjectPath
@@ -128,14 +129,34 @@ function chmod-calculator(){
 	"""
 }
 
+
+
+#short path
+function shorter_pwd_path() {
+    node -e """
+      const cwd1 = process.cwd();
+      let cwd_tokens = cwd1.split('/')
+      const cwd2 = cwd_tokens.map(
+        (token, idx) => {
+          if(idx === cwd_tokens.length - 1)
+            return token;
+          return token[0];
+        }
+      ).join('/');
+
+      console.log(cwd2);
+    """
+}
+
+
 # bootstrap new sublime project
 function subl-new-project(){
     # make the folder if needed
     mkdir -p $MY_SUBLIME_PROJECT_PATH
-    
+
     #default filename
     defaultProjectName="${PWD##*/}"
-    
+
     echo -n "Enter Project Name ($defaultProjectName):"
     read myProjectName
 
@@ -145,8 +166,8 @@ function subl-new-project(){
         # get the current dir name
         myProjectName=$defaultProjectName
     fi
-    
-    
+
+
     echo '''
     {
         "folders":
@@ -181,7 +202,7 @@ function subl-new-project(){
     ''' \
     | awk '{gsub("NEW_PROJECT_PATH", myFolder, $0); print}' myFolder="$(pwd | getAbsolutePathForAllSystem)" \
     > "$MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project"
-    
+
     echo "Open New Sublime Project by:"
     echo "subl $MY_SUBLIME_PROJECT_PATH/$myProjectName.sublime-project" | getAbsolutePathForAllSystem
 }
@@ -189,7 +210,7 @@ function subl-new-project(){
 function subl-new-project-clean(){
     #default filename
     myProjectName="${PWD##*/}"
-    
+
     echo '''
     {
         "folders":
@@ -223,7 +244,7 @@ function subl-new-project-clean(){
     }
     ''' \
     > "$myProjectName.sublime-project"
-    
+
     echo "Open New Sublime Project by:"
     echo "subl $myProjectName.sublime-project" | getAbsolutePathForAllSystem
 }
@@ -252,8 +273,8 @@ function refreshBashSyLe(){
 }
 
 
-function startHttpServer(){ 
-    http-server --cors 
+function startHttpServer(){
+    http-server --cors
 }
 
 function openSublimePackageControl(){
@@ -346,7 +367,7 @@ function createSelfSignedCertificate(){
     https://github.com/synle/node-proxy-example
     https://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate
     """
-    
+
     echo "====="
     echo """
     # pem
@@ -549,12 +570,12 @@ function compileSfdcAuraQuick(){
     alias fgrep=fuzzyGrep
     alias fhistory=fuzzyHistory
     alias fhist=fhistory
-    alias fkill=fuzzyKill    
+    alias fkill=fuzzyKill
     alias glog=fuzzyGitShow
     alias gco=fuzzyGitCobranch
     alias gbranch=fuzzyGitBranch
     alias glog=fuzzyGitLog
-    
+
     function viewFile(){
         local editorCmd
 
@@ -576,35 +597,35 @@ function compileSfdcAuraQuick(){
         echo "viewFile $@"
         $editorCmd $@
     }
-    
+
     function listDirsInPwd(){
         find ${1:-.} -path '*/\.*' -prune \
               -o -type d -print 2> /dev/null
         echo ".." # append parent folder
     }
-    
+
     function listFilesInPwd(){
         # use either ls tree or find
         git ls-tree -r --name-only HEAD 2> /dev/null || \
         find . -type f 2>/dev/null
     }
-    
+
     function printFullPath(){
         echo $@
     }
-    
+
 
     # fzf file view
     function fuzzyVim(){
       local OUT=$( listFilesInPwd | filterUnwanted | fzf )
-      
+
       if [ "0" == "$?" ] ; then
           echo "vim $OUT";
           vim $OUT
       fi
     }
-    
-    
+
+
     function fuzzyViewFile(){
       local OUT=$( listFilesInPwd | filterUnwanted | fzf )
       viewFile $OUT
@@ -661,7 +682,7 @@ function compileSfdcAuraQuick(){
       FZF-EOF"
     }
 
-    
+
     function fuzzyGitCobranch() {
       local branches branch
       branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed "s/.* //" | sed 's/ //g' | sed "s#remotes/[^/]*/##" | sort | uniq) &&
@@ -669,8 +690,8 @@ function compileSfdcAuraQuick(){
            fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
       git checkout $(echo "$branch")
     }
-    
-    
+
+
     function fuzzyGitBranch() {
       local branches branch
       branches=$(git branch --all | grep -v HEAD | sed 's/remotes\/origin\///g' | sed "s/.* //" | sed 's/ //g' | sed "s#remotes/[^/]*/##" | sort | uniq) &&
@@ -686,16 +707,16 @@ function compileSfdcAuraQuick(){
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       git checkout $(echo "$commit" | sed "s/ .*//")
     }
-    
-    
+
+
     function fuzzyGitLog() {
       local commits commit
       commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
       commit=$(echo "$commits" | fzf --tac +s +m -e) &&
       echo "git show $(echo "$commit" | sed "s/ .*//")"
     }
-    
-    
+
+
     function getMakeComponentOptions(){
         make-help
     }
@@ -703,17 +724,17 @@ function compileSfdcAuraQuick(){
     function getCommandFromBookmark(){
         cat ~/.syle_bookmark
     }
-    
+
     function addCommandToBookmarks(){
         echo $@ >> ~/.syle_bookmark
         echo "Bookmarking '"$@"'"
         removeDuplicateLines ~/.syle_bookmark > /tmp/syle-bookmark-temp
         cat /tmp/syle-bookmark-temp > ~/.syle_bookmark
-        
+
         # remove the temp file
         rm /tmp/syle-bookmark-temp
     }
-    
+
     function removeDuplicateLines(){
         perl -ne 'print unless $dup{$_}++;' $@
     }
@@ -732,18 +753,18 @@ function compileSfdcAuraQuick(){
             getCommandFromBookmark
             ) | sed '/^\s*$/d' | uniq | fzf)
         echo "$makeComponentCommand"
-        
+
         # run the command
         $makeComponentCommand
-        
+
         # put the command into history
         history -s "$makeComponentCommand"
     }
 
-    
 
-    
-    
+
+
+
     # allow default fzf completion for node and subl
 #     complete -F _fzf_path_completion node
 #     complete -F _fzf_path_completion subl

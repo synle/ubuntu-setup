@@ -12,6 +12,7 @@ is_os_redhat=0
 is_os_window=0
 [ -d /Library ] && is_os_darwin_mac=1
 [ -d /mnt/c/Users ] && is_os_window=1
+apt -v &> /dev/null && is_os_ubuntu=1
 apt-get -v &> /dev/null && is_os_ubuntu=1
 yum -v &> /dev/null && is_os_redhat=1
 
@@ -313,12 +314,17 @@ vim +BundleInstall +qall &> /dev/null
 ###################################################
 ###################################################
 ###################################################
+#
+#
 # extremely small install (only install if needed)
+#
+#
 ###################################################
-####################################################
-####################################################
-#
-#
+###################################################
+###################################################
+
+
+
 ######################################
 # tmux stuffs
 # http://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/

@@ -13,40 +13,6 @@ function parse_git_branch() {
 }
 
 
-
-
-#short path
-function sps1() {
-    python -c """
-#!/usr/bin/python
-import sys;
-originalPath = sys.argv[1:]
-try:
-    mypath = ' '.join(originalPath);
-    dirs = mypath.split('/');
-    print ('/'.join(d[:1] for d in dirs[:-1]) + '/' + dirs[-1])
-except:
-    print (originalPath)
-""" $PWD
-}
-
-function sps() {
-    node -e """
-      const cwd1 = process.cwd();
-      let cwd_tokens = cwd1.split('/')
-      const cwd2 = cwd_tokens.map(
-        (token, idx) => {
-          if(idx === cwd_tokens.length - 1)
-            return token;
-          return token[0];
-        }
-      ).join('/');
-      
-      console.log(cwd2);
-    """
-}
-
-
 # get current status of git repo
 function parse_git_dirty {
     status=`git status 2>&1 | tee`
@@ -82,14 +48,9 @@ function parse_git_dirty {
     fi
 }
 
-function nonzero_return() {
-    RETVAL=$?
-    [ $RETVAL -ne 0 ] && echo "$RETVAL"
-}
-
 #bash prompt
 export PS1="
 \[\e[31m\]====\[\e[m\]
 \[\e[33m\]\T\[\e[m\] \[\e[36m\]\u\[\e[m\] @ \[\e[32m\]\h\[\e[m\] - \`ifconfig2\`
-\[\e[33m\]\`sps\`\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
+\[\e[33m\]\`shorter_pwd_path\`\[\e[m\] \[\e[31m\]\`parse_git_branch\`\[\e[m\]
 \[\e[33m\]>\[\e[m\]\[\e[31m\]>\[\e[m\]\[\e[36m\]>\[\e[m\] "

@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+apt -v &> /dev/null && alias apt-get="apt"
+
+
+sudo apt-get update -y &> /dev/null;
+
 function installAptGetModuleIfNeeded(){
     echo "    INSTALL $@"
-    sudo apt-get install -y --force-yes --fix-missing $@
+    sudo apt-get install -y --force-yes --fix-missing $@ &> /dev/null
 }
 
 # start the installation...
@@ -26,19 +31,7 @@ installAptGetModuleIfNeeded openjdk-8-jdk;
 installAptGetModuleIfNeeded ant;
 installAptGetModuleIfNeeded gradle;
 installAptGetModuleIfNeeded maven;
-installAptGetModuleIfNeeded nginx ;
-
-if [ -d "/mnt/c/Users" ]
-  then
-    echo "ignore optional deps for Windows Bash"
-  else
-    echo "install optionals deps for Ubuntu"
-    installAptGetModuleIfNeeded linux-image-extra-$(uname -r);
-    installAptGetModuleIfNeeded linux-image-extra-virtual;
-    && echo "done optional deps..."
-fi
-
-
+installAptGetModuleIfNeeded nginx;
 
 # echo '''
 # # Other Packages for GUI
