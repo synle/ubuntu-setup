@@ -54,7 +54,7 @@ fi
 # bash header
 # bash completion
 # bash alias
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh
+curlNoCache https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMinimalInstall.sh | bash -
 
 
 #OSX MAC GUI Stuffs
@@ -201,10 +201,10 @@ fi
 #     http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
 
 
-echoo "Installing the New Bash File"
-#copy it over
-#rerun the source
-. $BASH_PATH
+# echoo "Installing the New Bash File"
+# #copy it over
+# #rerun the source
+# . $BASH_PATH
 
 
 #misc

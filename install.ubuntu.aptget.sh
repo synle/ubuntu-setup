@@ -3,6 +3,7 @@
 apt -v &> /dev/null && alias apt-get="apt"
 
 
+echo 'apt-get update...'
 sudo apt-get update -y &> /dev/null;
 
 function installAptGetModuleIfNeeded(){
@@ -11,6 +12,7 @@ function installAptGetModuleIfNeeded(){
 }
 
 # start the installation...
+echo 'apt-get install...'
 installAptGetModuleIfNeeded git;
 installAptGetModuleIfNeeded vim;
 installAptGetModuleIfNeeded curl;

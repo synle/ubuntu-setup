@@ -59,7 +59,8 @@ NVM_BASE_PATH=~/.nvm
 [ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl -so- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash - )
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
-nvm install v7.6
+echo 'nvm install'
+nvm install v7.6  &> /dev/null;
 nvm alias default v7.6
 nvm use default
 echo  '''
@@ -76,12 +77,14 @@ export NVM_DIR="$HOME/.nvm"
 # node
 ###########################################
 . "$NVM_BASE_PATH/nvm.sh"
+echo 'npm install -g'
 npm i -g \
     webpack \
     eslint \
     typings \
     less \
-    create-react-app
+    create-react-app \
+     &> /dev/null;
 
 
 ###########################################
@@ -90,7 +93,8 @@ npm i -g \
 UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
 rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
 pushd $UTIL_MAKE_COMPONENT_PATH
-npm i && npm run build
+echo 'synle-make-component install'
+npm i && npm run build  &> /dev/null;
 popd
 
 echo """
@@ -108,6 +112,7 @@ touch ~/.syle_bookmark
 ###########################################
 # fzf - fuzzy find
 ###########################################
+echo 'fzf install'
 rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
 echo  """
 # fzf - fuzzy find
@@ -304,6 +309,7 @@ set shell=/bin/bash
 """ > ~/.vimrc
 
 # install Vim Vundle
+echo 'vim vundle install'
 [ -d ~/.vim/bundle/Vundle.vim ] \
     || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
     ~/.vim/bundle/Vundle.vim &> /dev/null
