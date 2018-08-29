@@ -16,7 +16,7 @@ function parse_git_branch() {
 
 
 #short path
-function sps() {
+function sps1() {
     python -c """
 #!/usr/bin/python
 import sys;
@@ -29,6 +29,23 @@ except:
     print (originalPath)
 """ $PWD
 }
+
+function sps() {
+    node -e """
+      const cwd1 = process.cwd();
+      let cwd_tokens = cwd1.split('/')
+      const cwd2 = cwd_tokens.map(
+        (token, idx) => {
+          if(idx === cwd_tokens.length - 1)
+            return token;
+          return token[0];
+        }
+      ).join('/');
+      
+      console.log(cwd2);
+    """
+}
+
 
 # get current status of git repo
 function parse_git_dirty {
