@@ -29,12 +29,12 @@ installAptGetModuleIfNeeded git \
     gradle \
     maven \
     nginx \
-    php7.0-cli \
-    php7.0-fpm \
-    php7.0-common \
-    apt-transport-https \
-    ca-certificates \
-    software-properties-common  \
+#     php7.0-cli \
+#     php7.0-fpm \
+#     php7.0-common \
+#     apt-transport-https \
+#     ca-certificates \
+#     software-properties-common  \
     && echo "done core deps..."
 
 if [ -d "/mnt/c/Users" ]
