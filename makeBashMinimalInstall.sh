@@ -18,7 +18,7 @@ is_os_window=0
 [ -d /mnt/c/Users ] && is_os_window=1
 [ -s /usr/bin/apt ] && is_os_ubuntu=1
 [ -s /usr/bin/apt-get ] && is_os_ubuntu=1
-yum -v &> /dev/null && is_os_redhat=1
+yum -v &>/dev/null && is_os_redhat=1
 
 
 # prep works...
@@ -56,7 +56,7 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
 curll https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
-type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
+type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "# Bash Prompt"
 curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
@@ -74,8 +74,8 @@ curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
-nvm install 7.6 &> /dev/null;
-nvm use default &> /dev/null;
+nvm install 7.6 &>/dev/null
+nvm use default &>/dev/null
 echo  '''
 # nvm - node version manager
 export NVM_DIR="$HOME/.nvm"
@@ -94,7 +94,7 @@ export NVM_DIR="$HOME/.nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 function npm-install-global(){
   echo "    $@";
-  npm install -g $@ &> /dev/null;
+  npm install -g $@ &>/dev/null
 }
 echo 'npm install -g'
 npm-install-global webpack
@@ -110,10 +110,10 @@ npm-install-global create-react-app
 # 
 ##########################################################################################################
 UTIL_MAKE_COMPONENT_PATH=~/synle-make-component
-rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &> /dev/null
+rm -rf $UTIL_MAKE_COMPONENT_PATH && git clone --depth 1 -b master https://github.com/synle/make-component.git $UTIL_MAKE_COMPONENT_PATH &>/dev/null
 pushd $UTIL_MAKE_COMPONENT_PATH
 echo 'synle-make-component install'
-npm i &> /dev/null && npm run build  &> /dev/null;
+npm i &>/dev/null && npm run build  &>/dev/null
 popd
 
 echo """
@@ -136,7 +136,7 @@ touch ~/.syle_bookmark
 # 
 ##########################################################################################################
 echo 'fzf install'
-rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &> /dev/null
+rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &>/dev/null
 echo  """
 # fzf - fuzzy find
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
@@ -346,8 +346,8 @@ set shell=/bin/bash
 echo 'vim vundle install'
 [ -d ~/.vim/bundle/Vundle.vim ] \
     || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
-    ~/.vim/bundle/Vundle.vim &> /dev/null
-vim +BundleInstall +qall &> /dev/null
+    ~/.vim/bundle/Vundle.vim &>/dev/null
+vim +BundleInstall +qall &>/dev/null
 
 
 
