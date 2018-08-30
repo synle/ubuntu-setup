@@ -70,7 +70,8 @@ curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
-curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+echo 'nvm install'
+curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
