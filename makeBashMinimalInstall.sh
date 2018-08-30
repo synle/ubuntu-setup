@@ -180,6 +180,17 @@ git config --global alias.commend 'commit --amend --no-edit'
 git config --global alias.stash-all 'stash --all'
 git config --global alias.fix-author 'commit --amend --reset-author'
 git config --global alias.it '!git init && git commit -m "root" --allow-empty'
+git config --global color.ui true
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+git config --global color.diff.meta       "yellow"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"
 # complex commands
 git config --global alias.del-merged         \"!git branch --merged | grep -v '*' | xargs git branch -d\"
 git config --global alias.del-merged-staging \"!git branch --merged origin/staging | grep -v '*' | xargs git branch -d\"
@@ -417,19 +428,6 @@ curlNoCache https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/thir
 chmod +x /tmp/diff-so-fancy
 sudo mv /tmp/diff-so-fancy /usr/bin/
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-git config --global color.ui true
-git config --global color.diff-highlight.oldNormal    "red bold"
-git config --global color.diff-highlight.oldHighlight "red bold 52"
-git config --global color.diff-highlight.newNormal    "green bold"
-git config --global color.diff-highlight.newHighlight "green bold 22"
-git config --global color.diff.meta       "yellow"
-git config --global color.diff.frag       "magenta bold"
-git config --global color.diff.commit     "yellow bold"
-git config --global color.diff.old        "red bold"
-git config --global color.diff.new        "green bold"
-git config --global color.diff.whitespace "red reverse"
-
-
 
 
 
