@@ -49,6 +49,7 @@ else
   unset NVM_DIR
   curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
   echo '  nvm install 7.6'
+  . "$NVM_BASE_PATH/nvm.sh"
   nvm install 7.6 &>/dev/null
   nvm use default &>/dev/null
 fi
