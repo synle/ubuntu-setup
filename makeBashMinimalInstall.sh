@@ -224,7 +224,7 @@ node_modules
 .Trashes
 ehthumbs.db
 Thumbs.db
-""" >> > ~/.gitignore
+""" > ~/.gitignore
 
 
 
