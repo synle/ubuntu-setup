@@ -48,8 +48,6 @@ function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 curl -s http://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > /tmp/prettyping
 chmod +x /tmp/prettyping
 sudo mv /tmp/prettyping /usr/bin/prettyping
-popd
-
 
 ##########################################################################################################
 #
@@ -60,8 +58,6 @@ curl -s http://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_par
 chmod +x /tmp/diff-so-fancy
 sudo mv /tmp/diff-so-fancy /usr/bin/diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-popd
-
 
 
 ##########################################################################################################
