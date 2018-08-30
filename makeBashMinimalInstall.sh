@@ -399,13 +399,14 @@ echo 'terminator config'
 
 
 
-#######
+######################################################################
 # TODO: add these awesome to script - https://remysharp.com/2018/08/23/cli-improved
 #
-# 1. add bat: https://github.com/sharkdp/bat#installation
-# 2. add prettyping: http://denilson.sa.nom.br/prettyping/
-# 3. diff-so-fancy
-#######
+# [X] 1. add bat: https://github.com/sharkdp/bat#installation (DONE via apt-get for debian)
+# [ ] 2. add prettyping: http://denilson.sa.nom.br/prettyping/
+# [ ] 3. diff-so-fancy
+######################################################################
+
 
 
 ##############################
