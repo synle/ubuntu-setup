@@ -26,8 +26,8 @@ yum -v &> /dev/null && is_os_redhat=1
 cd ~
 
 # common functions
-alias curl="curl -s"
-function curlNoCache(){ curl "$@?$(date +%s)"; }
+alias curll="curl -s"
+#function curll(){ curll "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 #
@@ -55,13 +55,13 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "# Bash Prompt"
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 ##########################################################################################################
@@ -71,7 +71,7 @@ curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh 
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
-curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
@@ -444,7 +444,7 @@ echo 'terminator config'
 # 
 ##########################################################################################################
 echo 'install prettyping'
-curl https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > $TEMP_BIN_PATH/prettyping
+curll https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > $TEMP_BIN_PATH/prettyping
 chmod +x $TEMP_BIN_PATH/prettyping
 sudo cp $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
 
@@ -455,7 +455,7 @@ sudo cp $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
 # 
 ##########################################################################################################
 echo 'install diff-so-fancy'
-curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > $TEMP_BIN_PATH/diff-so-fancy
+curll https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > $TEMP_BIN_PATH/diff-so-fancy
 chmod +x $TEMP_BIN_PATH/diff-so-fancy
 sudo cp $TEMP_BIN_PATH/diff-so-fancy $BIN_PATH/diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
