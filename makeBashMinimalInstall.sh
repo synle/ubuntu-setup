@@ -40,6 +40,11 @@ grep -q -F '.bash_syle' $BASH_PATH || echo  """
 echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
 echo '# begin syle bash' > $TEMP_BASH_SYLE
 
+# http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
+echo '''
+# Reset Bash KeyMap
+set -o vi;''' >> $TEMP_BASH_SYLE
+
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
 curlNoCache https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
