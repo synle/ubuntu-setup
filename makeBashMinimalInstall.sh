@@ -443,6 +443,7 @@ echo 'terminator config'
 # add prettyping: http://denilson.sa.nom.br/prettyping/
 # 
 ##########################################################################################################
+echo 'install prettyping'
 curl https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > $TEMP_BIN_PATH/prettyping
 chmod +x $TEMP_BIN_PATH/prettyping
 sudo mv $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
@@ -453,6 +454,7 @@ sudo mv $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
 # diff-so-fancy and integration with git
 # 
 ##########################################################################################################
+echo 'install diff-so-fancy'
 curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > $TEMP_BIN_PATH/diff-so-fancy
 chmod +x $TEMP_BIN_PATH/diff-so-fancy
 sudo mv $TEMP_BIN_PATH/diff-so-fancy $BIN_PATH/diff-so-fancy
