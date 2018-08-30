@@ -6,8 +6,6 @@
 BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 BASH_PATH=~/.bashrc
-BIN_PATH=/usr/bin
-TEMP_BIN_PATH=/tmp
 
 # os flags
 is_os_darwin_mac=0
@@ -444,9 +442,9 @@ echo 'terminator config'
 # 
 ##########################################################################################################
 echo 'install prettyping'
-curll https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > $TEMP_BIN_PATH/prettyping
-chmod +x $TEMP_BIN_PATH/prettyping
-sudo cp $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
+curll https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > /tmp/prettyping
+chmod +x /tmp/prettyping
+sudo cp /tmp/prettyping /usr/bin/prettyping
 
 
 ##########################################################################################################
@@ -455,9 +453,9 @@ sudo cp $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
 # 
 ##########################################################################################################
 echo 'install diff-so-fancy'
-curll https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > $TEMP_BIN_PATH/diff-so-fancy
-chmod +x $TEMP_BIN_PATH/diff-so-fancy
-sudo cp $TEMP_BIN_PATH/diff-so-fancy $BIN_PATH/diff-so-fancy
+curll https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > /tmp/diff-so-fancy
+chmod +x /tmp/diff-so-fancy
+sudo cp /tmp/diff-so-fancy /usr/bin/diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 
