@@ -94,7 +94,7 @@ export NVM_DIR="$HOME/.nvm"
 ##########################################################################################################
 . "$NVM_BASE_PATH/nvm.sh"
 function npm-install-global(){
-  echo "    $@";
+  echo "  $@";
   npm install -g $@ &>/dev/null
 }
 echo 'npm install -g'
