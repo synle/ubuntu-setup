@@ -33,34 +33,6 @@ function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 
 
-# bootstrap if needed
-echoo "Install .bash_syle if needed"
-grep -q -F '.bash_syle' $BASH_PATH || echo  """
-# syle bash
-[ -s $BASH_SYLE ] && . $BASH_SYLE
-""" >> $BASH_PATH
-
-
-### start bash-syle
-echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
-echo '# begin syle bash' > $TEMP_BASH_SYLE
-
-# http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
-echo '''
-# Reset Bash KeyMap
-set -o vi;''' >> $TEMP_BASH_SYLE
-
-# bash completion
-echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
-curll https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
-type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
-
-echo "install Bash Aliases"
-curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-
-
-
 ##########################################################################################################
 #
 # nvm
@@ -441,6 +413,32 @@ echo 'terminator config'
 #  \__,_|\___/|_| |_|\___|
 #  
 ##########################################################################################################
+# bootstrap if needed
+echoo "Install .bash_syle if needed"
+grep -q -F '.bash_syle' $BASH_PATH || echo  """
+# syle bash
+[ -s $BASH_SYLE ] && . $BASH_SYLE
+""" >> $BASH_PATH
+
+
+### start bash-syle
+echo  "#!/bin/bash" >> $TEMP_BASH_SYLE
+echo '# begin syle bash' > $TEMP_BASH_SYLE
+
+# http://unix.stackexchange.com/questions/21092/how-can-i-reset-all-the-bind-keys-in-my-bash
+echo '''
+# Reset Bash KeyMap
+set -o vi;''' >> $TEMP_BASH_SYLE
+
+# bash completion
+echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
+type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
+
+echo "install Bash Alias"
+curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+
 echo "install Bash Prompt"
 curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 cat $TEMP_BASH_SYLE > $BASH_SYLE
