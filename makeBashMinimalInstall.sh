@@ -26,8 +26,7 @@ yum -v &> /dev/null && is_os_redhat=1
 cd ~
 
 # common functions
-alias curll="curl -s"
-#function curll(){ curll "$@?$(date +%s)"; }
+function curll(){ curl -s $@; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 #
