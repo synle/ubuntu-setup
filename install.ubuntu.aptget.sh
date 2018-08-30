@@ -28,6 +28,7 @@ installAptGetModuleIfNeeded ant;
 installAptGetModuleIfNeeded gradle;
 installAptGetModuleIfNeeded maven;
 installAptGetModuleIfNeeded nginx;
+installAptGetModuleIfNeeded dialog;
 
 # echo '''
 # # Other Packages for GUI
