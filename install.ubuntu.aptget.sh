@@ -55,3 +55,11 @@ sudo apt-get remove abiword* \
 # firefox* \
 # pulseaudio* \
   && echo '  Done Remove Packages'
+
+
+
+# non traditional (not in apt-get)
+pushd /tmp
+wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat-musl_0.6.0_amd64.deb
+sudo dpkg -i bat-musl*.deb
+popd
