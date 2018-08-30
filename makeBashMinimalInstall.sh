@@ -411,24 +411,28 @@ echo 'terminator config'
 
 
 ######################################################################
-# TODO: add these awesome to script - https://remysharp.com/2018/08/23/cli-improved
-#
-# [X] 1. add bat: https://github.com/sharkdp/bat#installation (DONE via apt-get for debian)
-# [ ] 2. add prettyping: http://denilson.sa.nom.br/prettyping/
-# [X] 3. diff-so-fancy (DONE - below)
+# aweseome cli improved tips from https://remysharp.com/2018/08/23/cli-improve
 ######################################################################
 
-
+######################################################################
+# add prettyping: http://denilson.sa.nom.br/prettyping/
+######################################################################
+pushd /tmp
+curlNoCache https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > ./prettyping
+chmod +x ./prettyping
+sudo mv ./prettyping /usr/bin/
+popd
 
 
 ######################################################################
 # diff-so-fancy and integration with git
 ######################################################################
-curlNoCache https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > /tmp/diff-so-fancy
-chmod +x /tmp/diff-so-fancy
-sudo mv /tmp/diff-so-fancy /usr/bin/
+pushd /tmp
+curlNoCache https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > ./diff-so-fancy
+chmod +x ./diff-so-fancy
+sudo mv ./diff-so-fancy /usr/bin/
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-
+popd
 
 
 ##############################
