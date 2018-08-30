@@ -385,6 +385,19 @@ echo 'terminator config'
 ''' > ~/.config/terminator/config
 
 
+
+#######################################
+#
+# ubuntu gui tweaks
+# lcfe tweak: speed bump
+# vim ~/.config/openbox/lubuntu-rc.xml
+#
+########################################
+[ -s ~/.config/openbox/lubuntu-rc.xml ] && \
+  sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
+  ~/.config/openbox/lubuntu-rc.xml
+
+
 ##############################
 # copy it
 #      _
