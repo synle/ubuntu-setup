@@ -45,8 +45,9 @@ if [ -d $NVM_BASE_PATH ]; then
   echo "  SKIP git clone nvm"
 else
   echo "  proceeds"
+  rm -rf $~/.nvm
+  unset NVM_DIR
   curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
-  . "$NVM_BASE_PATH/nvm.sh"
   echo '  nvm install 7.6'
   nvm install 7.6 &>/dev/null
   nvm use default &>/dev/null
