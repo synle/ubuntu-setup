@@ -398,6 +398,16 @@ echo 'terminator config'
   ~/.config/openbox/lubuntu-rc.xml
 
 
+
+#######
+# TODO: add these awesome to script - https://remysharp.com/2018/08/23/cli-improved
+#
+# 1. add bat: https://github.com/sharkdp/bat#installation
+# 2. add prettyping: http://denilson.sa.nom.br/prettyping/
+# 3. diff-so-fancy
+#######
+
+
 ##############################
 # copy it
 #      _
