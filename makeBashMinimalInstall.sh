@@ -39,22 +39,18 @@ function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 # 
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
-#install nvm itself.
 echo 'nvm install'
-curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
-[ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
-. "$NVM_BASE_PATH/nvm.sh"
-echo 'nvm install 7.6'
-nvm install 7.6 &>/dev/null
-nvm use default &>/dev/null
-echo  '''
-# nvm - node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-''' >> $TEMP_BASH_SYLE
-# echo "  nvm node symlink"
-# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
-# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
+
+if [ -d $NVM_BASE_PATH ]; then
+  echo "  SKIP git clone nvm"
+else
+  echo "  proceeds"
+  curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
+  . "$NVM_BASE_PATH/nvm.sh"
+  echo '  nvm install 7.6'
+  nvm install 7.6 &>/dev/null
+  nvm use default &>/dev/null
+fi
 
 
 ##########################################################################################################
