@@ -25,7 +25,6 @@ yum -v &> /dev/null && is_os_redhat=1
 cd ~
 
 # common functions
-alias curl="curl -s"
 function curlNoCache(){ curl -s "$@?$(date +%s)"; }
 function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
@@ -54,13 +53,13 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curl -s http://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "# Bash Prompt"
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+curl -s http://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curl -s http://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 ##########################################################################################################
@@ -70,7 +69,7 @@ curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh 
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
-[ -d $NVM_BASE_PATH ] || (echo "  git clone nvm" && curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash - )
+curl -s http://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash - )
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
@@ -443,7 +442,7 @@ echo 'terminator config'
 # 
 ##########################################################################################################
 pushd /tmp
-curl https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > ./prettyping
+curl -s http://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > ./prettyping
 chmod +x ./prettyping
 sudo mv ./prettyping $BIN_PATH/prettyping
 popd
@@ -455,7 +454,7 @@ popd
 # 
 ##########################################################################################################
 pushd /tmp
-curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > ./diff-so-fancy
+curl -s http://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > ./diff-so-fancy
 chmod +x ./diff-so-fancy
 sudo mv ./diff-so-fancy $BIN_PATH/diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
