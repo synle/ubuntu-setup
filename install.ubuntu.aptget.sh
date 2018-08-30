@@ -52,3 +52,4 @@ installAptGetModuleIfNeeded dialog;
 # guvcview*
 # mtpaint*
 # evince*
+# firefox*
