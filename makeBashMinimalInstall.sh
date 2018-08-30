@@ -67,46 +67,40 @@ curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh
 # 
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
+#install nvm itself.
 echo 'nvm install'
-if [ -d "$NVM_BASE_PATH" ]; then
-  echo "  SKIP git clone nvm"
-  . "$NVM_BASE_PATH/nvm.sh"
-else
-  curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
-  . "$NVM_BASE_PATH/nvm.sh"
-  echo 'nvm install 7.6'
-  nvm install 7.6 &>/dev/null
-  nvm use default &>/dev/null
-  echo  '''
-  # nvm - node version manager
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-  ''' >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash &>/dev/null
+[ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
+. "$NVM_BASE_PATH/nvm.sh"
+echo 'nvm install 7.6'
+nvm install 7.6 &>/dev/null
+nvm use default &>/dev/null
+echo  '''
+# nvm - node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+''' >> $TEMP_BASH_SYLE
+# echo "  nvm node symlink"
+# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
+# sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
 
 
-  ##########################################################################################################
-  #
-  # node
-  # 
-  ##########################################################################################################
-  . "$NVM_BASE_PATH/nvm.sh"
-  function npm-install-global(){
-    echo "  $@";
-    npm install -g $@ &>/dev/null
-  }
-  echo 'npm install -g'
-  npm-install-global webpack
-  npm-install-global eslint
-  npm-install-global typings
-  npm-install-global less
-  npm-install-global create-react-app
-  
-
-  # echo "  nvm node symlink"
-  # sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/node /usr/local/bin/node
-  # sudo ln -f -s $NVM_BASE_PATH/versions/node/v0.12.15/bin/npm  /usr/local/bin/npm
-fi
-
+##########################################################################################################
+#
+# node
+# 
+##########################################################################################################
+. "$NVM_BASE_PATH/nvm.sh"
+function npm-install-global(){
+  echo "  $@";
+  npm install -g $@ &>/dev/null
+}
+echo 'npm install -g'
+npm-install-global webpack
+npm-install-global eslint
+npm-install-global typings
+npm-install-global less
+npm-install-global create-react-app
 
 
 ##########################################################################################################
@@ -146,6 +140,7 @@ echo 'fzf install'
 ### # fzf - fuzzy find
 ### [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 ### """ >> $TEMP_BASH_SYLE
+### 
 
 
 # git magics
