@@ -33,6 +33,37 @@ function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 
 
+
+##########################################################################################################
+#
+# aweseome cli improved tips from https://remysharp.com/2018/08/23/cli-improve
+# 
+##########################################################################################################
+
+##########################################################################################################
+#
+# add prettyping: http://denilson.sa.nom.br/prettyping/
+# 
+##########################################################################################################
+curl -s http://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > /tmp/prettyping
+chmod +x /tmp/prettyping
+sudo mv /tmp/prettyping /usr/bin/prettyping
+popd
+
+
+##########################################################################################################
+#
+# diff-so-fancy and integration with git
+# 
+##########################################################################################################
+curl -s http://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > /tmp/diff-so-fancy
+chmod +x /tmp/diff-so-fancy
+sudo mv /tmp/diff-so-fancy /usr/bin/diff-so-fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+popd
+
+
+
 ##########################################################################################################
 #
 # nvm
@@ -60,7 +91,6 @@ fi
 # node
 # 
 ##########################################################################################################
-. "$NVM_BASE_PATH/nvm.sh"
 function npm-install-global(){
   echo "  $@";
   npm install -g $@ &>/dev/null
