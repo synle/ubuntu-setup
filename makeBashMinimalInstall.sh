@@ -388,4 +388,4 @@ echo 'terminator config'
 # | (_| | (_) | | | |  __/
 #  \__,_|\___/|_| |_|\___|
 ##############################
-cp $TEMP_BASH_SYLE $BASH_SYLE
+cat $TEMP_BASH_SYLE > $BASH_SYLE
