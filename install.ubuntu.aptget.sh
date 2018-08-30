@@ -34,3 +34,17 @@ installAptGetModuleIfNeeded dialog;
 # # Other Packages for GUI
 # compizconfig-settings-manager
 # '''
+
+# remove these ones...
+# abiword*
+# audacious*
+# galculator
+# gnome-mpv*
+# gnumeric*
+# leafpad
+# pidgin*
+# simple-scan
+# sylpheed*
+# transmission-*
+# xfburn*
+# xpad
