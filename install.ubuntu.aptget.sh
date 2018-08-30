@@ -29,6 +29,7 @@ installAptGetModuleIfNeeded gradle;
 installAptGetModuleIfNeeded maven;
 installAptGetModuleIfNeeded nginx;
 installAptGetModuleIfNeeded dialog;
+installAptGetModuleIfNeeded xclip
 
 # echo '''
 # # Other Packages for GUI
@@ -36,20 +37,21 @@ installAptGetModuleIfNeeded dialog;
 # '''
 
 # remove these ones...
-# abiword*
-# audacious*
-# galculator
-# gnome-mpv*
-# gnumeric*
-# leafpad
-# pidgin*
-# simple-scan*
-# sylpheed*
-# transmission-*
-# xfburn*
-# xpad*
-# pulseaudio*
-# guvcview*
-# mtpaint*
-# evince*
-# firefox*
+sudo apt-get remove abiword* \
+  audacious* \
+  galculator \
+  gnome-mpv* \
+  gnumeric* \
+  leafpad \
+  pidgin* \
+  simple-scan* \
+  sylpheed* \
+  transmission-* \
+  xfburn* \
+  xpad* \
+  guvcview* \
+  mtpaint* \
+  evince* \
+# firefox* \
+# pulseaudio* \
+  && echo '  Done Remove Packages'
