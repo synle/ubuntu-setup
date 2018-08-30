@@ -61,5 +61,5 @@ sudo apt-get remove abiword* \
 # non traditional (not in apt-get)
 pushd /tmp
 wget https://github.com/sharkdp/bat/releases/download/v0.6.0/bat-musl_0.6.0_amd64.deb
-sudo dpkg -i bat-musl*.deb
+sudo dpkg -i bat-musl*.deb &> /dev/null
 popd
