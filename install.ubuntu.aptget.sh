@@ -43,8 +43,11 @@ installAptGetModuleIfNeeded dialog;
 # gnumeric*
 # leafpad
 # pidgin*
-# simple-scan
+# simple-scan*
 # sylpheed*
 # transmission-*
 # xfburn*
-# xpad
+# xpad*
+# pulseaudio*
+# guvcview*
+# mtpaint*
