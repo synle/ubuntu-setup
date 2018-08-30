@@ -135,12 +135,11 @@ touch ~/.syle_bookmark
 # 
 ##########################################################################################################
 echo 'fzf install'
-rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &>/dev/null
-echo  """
-# fzf - fuzzy find
-[ -f ~/.fzf.bash ] && . ~/.fzf.bash
-""" >> $TEMP_BASH_SYLE
-
+### rm -rf ~/.fzf && git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf  &>/dev/null
+### echo  """
+### # fzf - fuzzy find
+### [ -f ~/.fzf.bash ] && . ~/.fzf.bash
+### """ >> $TEMP_BASH_SYLE
 
 
 # git magics
