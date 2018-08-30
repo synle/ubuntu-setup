@@ -51,3 +51,4 @@ installAptGetModuleIfNeeded dialog;
 # pulseaudio*
 # guvcview*
 # mtpaint*
+# evince*
