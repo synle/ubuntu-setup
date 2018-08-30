@@ -7,6 +7,7 @@ BASH_SYLE=~/.bash_syle
 TEMP_BASH_SYLE=/tmp/.bash_syle
 BASH_PATH=~/.bashrc
 BIN_PATH=/usr/bin
+TEMP_BIN_PATH=/tmp
 
 # os flags
 is_os_darwin_mac=0
@@ -54,13 +55,13 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
-curl http://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &> /dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "# Bash Prompt"
-curl http://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
-curl http://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
+curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
+curl https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 
 
 ##########################################################################################################
@@ -70,7 +71,7 @@ curl http://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >
 ##########################################################################################################
 NVM_BASE_PATH=~/.nvm
 #install nvm itself.
-curl http://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 [ -d $NVM_BASE_PATH ] && echo "  SKIP git clone nvm"
 . "$NVM_BASE_PATH/nvm.sh"
 echo 'nvm install 7.6'
@@ -442,11 +443,9 @@ echo 'terminator config'
 # add prettyping: http://denilson.sa.nom.br/prettyping/
 # 
 ##########################################################################################################
-pushd /tmp
-curl http://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > ./prettyping
-chmod +x ./prettyping
-sudo mv ./prettyping $BIN_PATH/prettyping
-popd
+curl https://raw.githubusercontent.com/denilsonsa/prettyping/master/prettyping > $TEMP_BIN_PATH/prettyping
+chmod +x $TEMP_BIN_PATH/prettyping
+sudo mv $TEMP_BIN_PATH/prettyping $BIN_PATH/prettyping
 
 
 ##########################################################################################################
@@ -454,12 +453,10 @@ popd
 # diff-so-fancy and integration with git
 # 
 ##########################################################################################################
-pushd /tmp
-curl http://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > ./diff-so-fancy
-chmod +x ./diff-so-fancy
-sudo mv ./diff-so-fancy $BIN_PATH/diff-so-fancy
+curl https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy > $TEMP_BIN_PATH/diff-so-fancy
+chmod +x $TEMP_BIN_PATH/diff-so-fancy
+sudo mv $TEMP_BIN_PATH/diff-so-fancy $BIN_PATH/diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
-popd
 
 
 ##########################################################################################################
