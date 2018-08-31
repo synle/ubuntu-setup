@@ -52,10 +52,10 @@ sudo apt-get remove abiword* \
   guvcview* \
   mtpaint* \
   evince* \
-# firefox* \
-# pulseaudio* \
   && echo '  Done Remove Packages'
 
+# firefox* \
+# pulseaudio* \
 
 
 # non traditional (not in apt-get)
