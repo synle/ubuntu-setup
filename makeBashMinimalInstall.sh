@@ -458,7 +458,7 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
-curll https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
+curll https://raw.githubusercontent.com/git/git/v2.17.1/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
 echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
 type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
