@@ -22,6 +22,7 @@ curl -s https://raw.githubusercontent.com/synle/ubuntu-setup/master/makeBashMini
 #### Windows Git Bash
 ```
 echo '''
+alias g="git"
 # auto complete for git with this short hand g\
 __git_complete g _git
 ''' >> ~/.bashrc
