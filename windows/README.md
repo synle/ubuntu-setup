@@ -57,3 +57,10 @@ Path
 RegEdit
 HKEY_CURRENT_USER \ Software \ Microsoft \ Windows \ CurrentVersion \ Explorer \ Taskband
 ```
+
+
+## WSL Root Paths
+https://www.howtogeek.com/261383/how-to-access-your-ubuntu-bash-files-in-windows-and-your-windows-system-drive-in-bash/
+```
+C:\Users\syle\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\syle\git
+```
