@@ -337,7 +337,7 @@ set shell=/bin/bash
   filetype on
 """ > ~/.vimrc
 
-# # install Vim Vundle
+# install Vim Vundle
 # echo 'vim vundle install'
 # [ -d ~/.vim/bundle/Vundle.vim ] \
 #     || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
@@ -368,20 +368,20 @@ set shell=/bin/bash
 # http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
 # 
 ##########################################################################################################
-# echo "Tmux"
-# [ -s ~/.tmux.conf ] && echo """
-# #not show status bar
-# set -g status off
-# #scroll history
-# set -g history-limit 30000
-# # Window options
-# set -g monitor-activity off
-# #mouse support
-# set -g mode-mouse on
-# set -g mouse-resize-pane on
-# set -g mouse-select-pane on
-# set -g mouse-select-window on
-# """ > ~/.tmux.conf
+echo "Tmux"
+[ -s ~/.tmux.conf ] && echo """
+#not show status bar
+set -g status off
+#scroll history
+set -g history-limit 30000
+# Window options
+set -g monitor-activity off
+#mouse support
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+""" > ~/.tmux.conf
 
 
 
@@ -391,25 +391,25 @@ set shell=/bin/bash
 # terminator config
 # 
 ##########################################################################################################
-# echo 'terminator config'
-# [ -s ~/.config/terminator/config ] && echo '''
-# [global_config]
-# [keybindings]
-# [layouts]
-#   [[default]]
-#     [[[child1]]]
-#       parent = window0
-#       type = Terminal
-#     [[[window0]]]
-#       parent = ""
-#       type = Window
-# [plugins]
-# [profiles]
-#   [[default]]
-#     antialias = False
-#     show_titlebar = False
-#     use_system_font = False
-# ''' > ~/.config/terminator/config
+echo 'terminator config'
+[ -s ~/.config/terminator/config ] && echo '''
+[global_config]
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    antialias = False
+    show_titlebar = False
+    use_system_font = False
+''' > ~/.config/terminator/config
 
 
 
@@ -420,10 +420,10 @@ set shell=/bin/bash
 # vim ~/.config/openbox/lubuntu-rc.xml
 #
 ##########################################################################################################
-# echo "lubuntu-rc.xml"
-# [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
-#   sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
-#   ~/.config/openbox/lubuntu-rc.xml
+echo "lubuntu-rc.xml"
+[ -s ~/.config/openbox/lubuntu-rc.xml ] && \
+  sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
+  ~/.config/openbox/lubuntu-rc.xml
 
 
 
