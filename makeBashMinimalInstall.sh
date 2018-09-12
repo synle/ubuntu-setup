@@ -25,7 +25,6 @@ cd ~
 
 # common functions
 function curll(){ curl -s $@; }
-function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 #
 # end prep work
@@ -369,20 +368,20 @@ vim +BundleInstall +qall &>/dev/null
 # http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
 # 
 ##########################################################################################################
-echoo "Tmux"
-[ -s ~/.tmux.conf ] && echo """
-#not show status bar
-set -g status off
-#scroll history
-set -g history-limit 30000
-# Window options
-set -g monitor-activity off
-#mouse support
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
-""" > ~/.tmux.conf
+# echo "Tmux"
+# [ -s ~/.tmux.conf ] && echo """
+# #not show status bar
+# set -g status off
+# #scroll history
+# set -g history-limit 30000
+# # Window options
+# set -g monitor-activity off
+# #mouse support
+# set -g mode-mouse on
+# set -g mouse-resize-pane on
+# set -g mouse-select-pane on
+# set -g mouse-select-window on
+# """ > ~/.tmux.conf
 
 
 
@@ -392,25 +391,25 @@ set -g mouse-select-window on
 # terminator config
 # 
 ##########################################################################################################
-echo 'terminator config'
-[ -s ~/.config/terminator/config ] && echo '''
-[global_config]
-[keybindings]
-[layouts]
-  [[default]]
-    [[[child1]]]
-      parent = window0
-      type = Terminal
-    [[[window0]]]
-      parent = ""
-      type = Window
-[plugins]
-[profiles]
-  [[default]]
-    antialias = False
-    show_titlebar = False
-    use_system_font = False
-''' > ~/.config/terminator/config
+# echo 'terminator config'
+# [ -s ~/.config/terminator/config ] && echo '''
+# [global_config]
+# [keybindings]
+# [layouts]
+#   [[default]]
+#     [[[child1]]]
+#       parent = window0
+#       type = Terminal
+#     [[[window0]]]
+#       parent = ""
+#       type = Window
+# [plugins]
+# [profiles]
+#   [[default]]
+#     antialias = False
+#     show_titlebar = False
+#     use_system_font = False
+# ''' > ~/.config/terminator/config
 
 
 
@@ -421,9 +420,10 @@ echo 'terminator config'
 # vim ~/.config/openbox/lubuntu-rc.xml
 #
 ##########################################################################################################
-[ -s ~/.config/openbox/lubuntu-rc.xml ] && \
-  sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
-  ~/.config/openbox/lubuntu-rc.xml
+# echo "lubuntu-rc.xml"
+# [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
+#   sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
+#   ~/.config/openbox/lubuntu-rc.xml
 
 
 
@@ -439,7 +439,7 @@ echo 'terminator config'
 #  
 ##########################################################################################################
 # bootstrap if needed
-echoo "Install .bash_syle if needed"
+echo "Install .bash_syle if needed"
 grep -q -F '.bash_syle' $BASH_PATH || echo  """
 # syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
@@ -458,8 +458,8 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
 curll https://raw.githubusercontent.com/git/git/v2.17.1/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
-type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
+# echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
+# type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "install Bash Alias"
 curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
@@ -467,6 +467,3 @@ curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd
 echo "install Bash Prompt"
 curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-prompt.sh >> $TEMP_BASH_SYLE
 cat $TEMP_BASH_SYLE > $BASH_SYLE
-
-echo $BASH_SYLE
-echo $TEMP_BASH_SYLE
