@@ -25,6 +25,7 @@ cd ~
 
 # common functions
 function curll(){ curl -s $@; }
+function echoo(){ printf "\e[1;31m$@\n\e[0m"; }
 ##########################################################################################################
 #
 # end prep work
@@ -149,61 +150,62 @@ echo """
 #   | |_| || |  | |
 #    \____|___| |_|
 ##########################################################################################################
-# # config
-# git config --global user.name 'Sy Le'
-# git config --global core.autocrlf input
-# git config --global core.editor vim
-# git config --global diff.tool vimdiff
-# git config --global diff.prompt false
-# git config --global merge.tool vimdiff
-# git config --global merge.prompt false
-# # git alias
-# git config --global alias.unstage 'reset HEAD --'
-# git config --global alias.co 'checkout'
-# git config --global alias.cob 'checkout -b'
-# git config --global alias.coo 'checkout --orphan' # new branch no history
-# git config --global alias.cp 'cherry-pick'
-# git config --global alias.cpn 'cherry-pick -n'
-# git config --global alias.cm 'commit'
-# git config --global alias.clone-shallow 'clone --depth 1 -b master'
-# git config --global alias.del 'branch -D'
-# git config --global alias.b 'branch'
-# git config --global alias.br 'branch -v'
-# git config --global alias.diff-no-space 'diff -w'
-# git config --global alias.d-no-space 'diff -w'
-# git config --global alias.d 'git diff --word-diff'
-# git config --global alias.brav 'branch -av'
-# git config --global alias.p 'push origin'
-# git config --global alias.pd 'push origin'
-# git config --global alias.push-delete 'push -d'
-# git config --global alias.pushd 'push -d'
-# git config --global alias.del-push 'push -d'
-# git config --global alias.p-force 'push --force-with-lease origin'
-# git config --global alias.logs 'log --oneline --decorate'
-# git config --global alias.r 'rebase'
-# git config --global alias.reb 'rebase'
-# git config --global alias.ri 'rebase -i'
-# git config --global alias.fap 'fetch --all --prune'
-# git config --global alias.st 'status'
-# git config --global alias.s 'status -sb'
-# git config --global alias.amend 'commit --amend'
-# git config --global alias.nuke '!git reset --hard && git clean -dfx && git gc && git prune'
-# git config --global alias.commend 'commit --amend --no-edit'
-# git config --global alias.stash-all 'stash --all'
-# git config --global alias.fix-author 'commit --amend --reset-author'
-# git config --global alias.it '!git init && git commit -m "root" --allow-empty'
-# git config --global color.ui true
-# git config --global color.diff-highlight.oldNormal    "red bold"
-# git config --global color.diff-highlight.oldHighlight "red bold 52"
-# git config --global color.diff-highlight.newNormal    "green bold"
-# git config --global color.diff-highlight.newHighlight "green bold 22"
-# git config --global color.diff.meta       "yellow"
-# git config --global color.diff.frag       "magenta bold"
-# git config --global color.diff.commit     "yellow bold"
-# git config --global color.diff.old        "red bold"
-# git config --global color.diff.new        "green bold"
-# git config --global color.diff.whitespace "red reverse"
-# # complex commands
+# config
+git config --global user.name 'Sy Le'
+git config --global core.excludesfile ${HOME}/.gitignore
+git config --global core.autocrlf input
+git config --global core.editor vim
+git config --global diff.tool vimdiff
+git config --global diff.prompt false
+git config --global merge.tool vimdiff
+git config --global merge.prompt false
+# git alias
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.co 'checkout'
+git config --global alias.cob 'checkout -b'
+git config --global alias.coo 'checkout --orphan' # new branch no history
+git config --global alias.cp 'cherry-pick'
+git config --global alias.cpn 'cherry-pick -n'
+git config --global alias.cm 'commit'
+git config --global alias.clone-shallow 'clone --depth 1 -b master'
+git config --global alias.del 'branch -D'
+git config --global alias.b 'branch'
+git config --global alias.br 'branch -v'
+git config --global alias.diff-no-space 'diff -w'
+git config --global alias.d-no-space 'diff -w'
+git config --global alias.d 'git diff --word-diff'
+git config --global alias.brav 'branch -av'
+git config --global alias.p 'push origin'
+git config --global alias.pd 'push origin'
+git config --global alias.push-delete 'push -d'
+git config --global alias.pushd 'push -d'
+git config --global alias.del-push 'push -d'
+git config --global alias.p-force 'push --force-with-lease origin'
+git config --global alias.logs 'log --oneline --decorate'
+git config --global alias.r 'rebase'
+git config --global alias.reb 'rebase'
+git config --global alias.ri 'rebase -i'
+git config --global alias.fap 'fetch --all --prune'
+git config --global alias.st 'status'
+git config --global alias.s 'status -sb'
+git config --global alias.amend 'commit --amend'
+git config --global alias.nuke '!git reset --hard && git clean -dfx && git gc && git prune'
+git config --global alias.commend 'commit --amend --no-edit'
+git config --global alias.stash-all 'stash --all'
+git config --global alias.fix-author 'commit --amend --reset-author'
+git config --global alias.it '!git init && git commit -m "root" --allow-empty'
+git config --global color.ui true
+git config --global color.diff-highlight.oldNormal    "red bold"
+git config --global color.diff-highlight.oldHighlight "red bold 52"
+git config --global color.diff-highlight.newNormal    "green bold"
+git config --global color.diff-highlight.newHighlight "green bold 22"
+git config --global color.diff.meta       "yellow"
+git config --global color.diff.frag       "magenta bold"
+git config --global color.diff.commit     "yellow bold"
+git config --global color.diff.old        "red bold"
+git config --global color.diff.new        "green bold"
+git config --global color.diff.whitespace "red reverse"
+# complex commands
 ## git config --global alias.del-merged         \"!git branch --merged | grep -v '*' | xargs git branch -d\"
 ## git config --global alias.del-merged-staging \"!git branch --merged origin/staging | grep -v '*' | xargs git branch -d\"
 ## git config --global alias.graph \"log --all --graph --pretty=format:'%Cred%h%Creset%C(auto)%d%Creset %s %Cgreen%cr %C(bold blue)%an%Creset' --abbrev-commit --date=relative\"
@@ -337,7 +339,7 @@ set shell=/bin/bash
   filetype on
 """ > ~/.vimrc
 
-# install Vim Vundle
+# # install Vim Vundle
 # echo 'vim vundle install'
 # [ -d ~/.vim/bundle/Vundle.vim ] \
 #     || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
@@ -368,7 +370,7 @@ set shell=/bin/bash
 # http://stackoverflow.com/questions/25532773/change-background-color-of-active-or-inactive-pane-in-tmux/33553372#33553372
 # 
 ##########################################################################################################
-echo "Tmux"
+echoo "Tmux"
 [ -s ~/.tmux.conf ] && echo """
 #not show status bar
 set -g status off
@@ -420,7 +422,6 @@ echo 'terminator config'
 # vim ~/.config/openbox/lubuntu-rc.xml
 #
 ##########################################################################################################
-echo "lubuntu-rc.xml"
 [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
   sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
   ~/.config/openbox/lubuntu-rc.xml
@@ -439,7 +440,7 @@ echo "lubuntu-rc.xml"
 #  
 ##########################################################################################################
 # bootstrap if needed
-echo "Install .bash_syle if needed"
+echoo "Install .bash_syle if needed"
 grep -q -F '.bash_syle' $BASH_PATH || echo  """
 # syle bash
 [ -s $BASH_SYLE ] && . $BASH_SYLE
@@ -458,8 +459,8 @@ set -o vi;''' >> $TEMP_BASH_SYLE
 # bash completion
 echo  "# Bash Completion - git" >> $TEMP_BASH_SYLE
 curll https://raw.githubusercontent.com/git/git/v2.17.1/contrib/completion/git-completion.bash >> $TEMP_BASH_SYLE
-# echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
-# type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
+echo  "# Bash Completion - npm" >> $TEMP_BASH_SYLE
+type npm &>/dev/null  && npm set progress=false && npm completion >> $TEMP_BASH_SYLE
 
 echo "install Bash Alias"
 curll https://raw.githubusercontent.com/synle/ubuntu-setup/master/bash-alias-cmd.sh >> $TEMP_BASH_SYLE
