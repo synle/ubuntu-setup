@@ -393,7 +393,7 @@ set -g mouse-select-window on
 # terminator config
 # 
 ##########################################################################################################
-echo 'terminator config'
+echoo 'terminator config'
 [ -s ~/.config/terminator/config ] && echo '''
 [global_config]
 [keybindings]
@@ -422,6 +422,7 @@ echo 'terminator config'
 # vim ~/.config/openbox/lubuntu-rc.xml
 #
 ##########################################################################################################
+echoo "lubuntu-rc.xml"
 [ -s ~/.config/openbox/lubuntu-rc.xml ] && \
   sed -i "s/<animateIconify>yes<\/animateIconify>/<animateIconify>no<\/animateIconify>/g" \
   ~/.config/openbox/lubuntu-rc.xml
