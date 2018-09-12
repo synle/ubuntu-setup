@@ -337,12 +337,12 @@ set shell=/bin/bash
   filetype on
 """ > ~/.vimrc
 
-# install Vim Vundle
-echo 'vim vundle install'
-[ -d ~/.vim/bundle/Vundle.vim ] \
-    || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
-    ~/.vim/bundle/Vundle.vim &>/dev/null
-vim +BundleInstall +qall &>/dev/null
+# # install Vim Vundle
+# echo 'vim vundle install'
+# [ -d ~/.vim/bundle/Vundle.vim ] \
+#     || git clone --depth 1 -b master https://github.com/gmarik/Vundle.vim.git \
+#     ~/.vim/bundle/Vundle.vim &>/dev/null
+# vim +BundleInstall +qall &>/dev/null
 
 
 
